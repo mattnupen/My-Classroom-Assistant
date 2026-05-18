@@ -11,10 +11,6 @@
     --line: #e7e5e4;
     --ink: #18181b;
     --muted: #6b7280;
-    --sidebar-bg: #1f2937;
-    --sidebar-ink: #e5e7eb;
-    --sidebar-muted: #9ca3af;
-    --sidebar-active: #4f46e5;
     --accent: #4f46e5;
     --tone-good: #10b981;
     --tone-warning: #f59e0b;
@@ -33,52 +29,8 @@
     line-height: 1.5;
   }
 
-  /* Layout shell */
-  .shell { display: flex; min-height: 100vh; }
-  .sidebar {
-    width: 220px;
-    flex-shrink: 0;
-    background: var(--sidebar-bg);
-    color: var(--sidebar-ink);
-    padding: 20px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .sidebar .brand {
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 6px 10px 14px;
-    border-bottom: 1px solid #374151;
-    margin-bottom: 10px;
-  }
-  .sidebar .nav-item {
-    display: block;
-    padding: 8px 10px;
-    border-radius: 6px;
-    color: var(--sidebar-ink);
-    text-decoration: none;
-    font-size: 13px;
-    transition: background 0.12s;
-  }
-  .sidebar .nav-item:hover { background: #374151; }
-  .sidebar .nav-item.active { background: var(--sidebar-active); color: white; }
-  .sidebar .nav-item .desc {
-    display: block;
-    font-size: 11px;
-    color: var(--sidebar-muted);
-    margin-top: 2px;
-  }
-  .sidebar .empty {
-    padding: 12px 10px;
-    color: var(--sidebar-muted);
-    font-size: 12px;
-    font-style: italic;
-  }
-
-  /* Main area */
-  .main { flex: 1; padding: 28px 32px; min-width: 0; }
+  /* Main area (sidebar comes from _nav.js, which sets body { margin-left: 220px }) */
+  .main { padding: 28px 32px; }
   .header { margin-bottom: 24px; }
   .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
   .header .subtitle { color: var(--muted); margin-top: 4px; font-size: 13px; }
@@ -213,21 +165,8 @@
     font-style: italic;
   }
 
-  /* Tablet: 640–1023px */
+  /* Tablet: 640–1023px (sidebar resizing is handled by _nav.js) */
   @media (max-width: 1023px) {
-    .sidebar { width: 64px; padding: 16px 6px; }
-    .sidebar .brand {
-      font-size: 12px;
-      text-align: center;
-      padding: 4px 0 12px;
-    }
-    .sidebar .nav-item {
-      text-align: center;
-      padding: 8px 4px;
-      font-size: 11px;
-      line-height: 1.2;
-    }
-    .sidebar .nav-item .desc { display: none; }
     .grid { grid-template-columns: repeat(2, 1fr); }
     .card.size-large  { grid-column: span 2; grid-row: span 2; }
     .card.size-medium { grid-column: span 2; grid-row: span 1; }
@@ -236,34 +175,6 @@
 
   /* Mobile: < 640px */
   @media (max-width: 639px) {
-    .shell { flex-direction: column; }
-    .sidebar {
-      width: 100%;
-      flex-direction: row;
-      overflow-x: auto;
-      padding: 10px 12px;
-      gap: 8px;
-      align-items: center;
-    }
-    .sidebar .brand {
-      flex-shrink: 0;
-      border-bottom: none;
-      border-right: 1px solid #374151;
-      padding: 4px 12px 4px 0;
-      margin-bottom: 0;
-      margin-right: 4px;
-    }
-    .sidebar nav {
-      display: flex;
-      gap: 6px;
-      flex-direction: row;
-    }
-    .sidebar .nav-item {
-      flex-shrink: 0;
-      padding: 6px 10px;
-      font-size: 12px;
-      white-space: nowrap;
-    }
     .main { padding: 18px 16px; }
     .grid { grid-template-columns: 1fr; }
     .card,
@@ -275,11 +186,10 @@
     }
   }
 
-  /* Print: Cmd-P */
+  /* Print: Cmd-P (sidebar hidden by _nav.js print rule) */
   @media print {
     body { background: white; }
-    .sidebar, #error-banner { display: none; }
-    .shell { display: block; }
+    #error-banner { display: none; }
     .main { padding: 12px; }
     .grid { display: block; }
     .card,
@@ -296,77 +206,22 @@
 </style>
 </head>
 <body>
-<div class="shell">
-  <aside class="sidebar">
-    <div class="brand">ClassAI</div>
-    <nav id="sidebar-nav"></nav>
-  </aside>
-  <main class="main">
-    <div id="error-banner" class="error-banner"></div>
-    <header class="header">
-      <h1 id="dash-title">Dashboard</h1>
-      <div class="subtitle" id="dash-subtitle"></div>
-    </header>
-    <div id="grid" class="grid"></div>
-  </main>
-</div>
+<main class="main">
+  <div id="error-banner" class="error-banner"></div>
+  <header class="header">
+    <h1 id="dash-title">Dashboard</h1>
+    <div class="subtitle" id="dash-subtitle"></div>
+  </header>
+  <div id="grid" class="grid"></div>
+</main>
 
 <!--
-  Data blocks below are edited by Claude Cowork.
+  Universal sidebar nav (apps list) is provided by _nav.js.
+  The dashboard-data block below is edited by Claude Cowork for this page's cards.
   Aggregate text only — NEVER include student names, grades, or per-student data.
-  Keep this file openable by double-click; data lives inline so browsers
-  don't block cross-file fetches under the file:// protocol.
+  Inline data so the page works via file:// double-click (no fetches).
 -->
-<script type="application/json" id="manifest">
-{
-  "schema_version": 1,
-  "generated_at": "2026-05-17T00:00:00Z",
-  "apps": [
-    {
-      "id": "badges",
-      "label": "Badges",
-      "file": "badges.html",
-      "description": "Generate printable student recognition badges"
-    },
-    {
-      "id": "class-pulse",
-      "label": "Class Pulse",
-      "file": "class-pulse.html",
-      "description": "Quick read on how the class is doing"
-    },
-    {
-      "id": "cold-call",
-      "label": "Cold Call",
-      "file": "cold-call.html",
-      "description": "Randomly pick a student to call on"
-    },
-    {
-      "id": "gradebook-analytics",
-      "label": "Gradebook Analytics",
-      "file": "gradebook-analytics.html",
-      "description": "Upload a gradebook CSV for per-student stats"
-    },
-    {
-      "id": "parent-messages",
-      "label": "Parent Messages",
-      "file": "parent-messages.html",
-      "description": "Draft parent-facing messages"
-    },
-    {
-      "id": "random-groups",
-      "label": "Random Groups",
-      "file": "random-groups.html",
-      "description": "Shuffle the class into small groups"
-    },
-    {
-      "id": "student-cards",
-      "label": "Student Cards",
-      "file": "student-cards.html",
-      "description": "Per-student printable info cards"
-    }
-  ]
-}
-</script>
+<script src="./_nav.js"></script>
 
 <script type="application/json" id="dashboard-data">
 {
@@ -448,32 +303,6 @@ function loadInlineJSON(id) {
     showErrors();
     return null;
   }
-}
-
-function renderSidebar(manifest) {
-  const nav = $('sidebar-nav');
-  nav.innerHTML = '';
-  const apps = (manifest && manifest.apps) || [];
-  if (apps.length === 0) {
-    nav.innerHTML = '<div class="empty">No tools yet</div>';
-    return;
-  }
-  for (const app of apps) {
-    const a = document.createElement('a');
-    a.className = 'nav-item';
-    a.href = `./${app.file}`;
-    a.innerHTML = `${escapeHtml(app.label || app.id)}` +
-      (app.description ? `<span class="desc">${escapeHtml(app.description)}</span>` : '');
-    nav.appendChild(a);
-  }
-}
-
-function escapeHtml(s) {
-  return String(s == null ? '' : s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 function renderHeader(data) {
@@ -625,9 +454,7 @@ function renderFileNode(node) {
 }
 
 function init() {
-  const manifest = loadInlineJSON('manifest');
   const data = loadInlineJSON('dashboard-data');
-  renderSidebar(manifest);
   renderHeader(data);
   renderCards(data);
 }

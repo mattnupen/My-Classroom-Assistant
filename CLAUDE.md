@@ -4,24 +4,27 @@ This project is built around a strict architectural privacy boundary: **Claude m
 
 ## Files Claude Edits
 
-The dashboard's data lives inside `local-tools/ClassAI-dashboard.html` as two inline JSON blocks:
+Two files hold the data Claude Cowork updates during teacher conversations:
 
-- `<script type="application/json" id="manifest">…</script>` — sidebar tools list. Changes rarely (when a new tool ships).
-- `<script type="application/json" id="dashboard-data">…</script>` — class-goal cards. Changes often.
+- **`local-tools/_nav.js`** — the universal sidebar nav. Contains a top-level `APPS` array (a JS literal, same fields as a JSON object: `id`, `label`, `file`, `description`). Edit this when a new tool ships. The sidebar appears on every tool page via `<script src="./_nav.js"></script>`.
 
-The data is embedded inline because modern browsers block `fetch()` to sibling files under the `file://` protocol — keeping it inline means the teacher can double-click the HTML and have it work, no server required.
+- **`local-tools/ClassAI-dashboard.html`** — the dashboard's class-goal cards live inside an inline `<script type="application/json" id="dashboard-data">…</script>` block. Edit the JSON content inside that block. Changes often.
 
-When editing, target the JSON content **inside** these script blocks, not the surrounding HTML. The teacher never opens or edits this file directly. All authoring happens via chat with Claude.
+Both files are embedded/included inline (no `fetch()` calls) so the dashboard works via double-click. Modern browsers block `fetch()` to sibling files under the `file://` protocol; `<script src=...>` resource loads are allowed.
+
+The teacher never opens or edits these files directly. All authoring happens via chat with Claude.
 
 ## Rules When Editing These Files
 
-1. **Never write student names, grades, or per-student data.** Aggregate text only. Write "3 students behind on Unit 3" — never "Maria, José, Aisha behind on Unit 3." The JSON schemas have no fields for per-student data by design. Do not invent fields.
+1. **Never write student names, grades, or per-student data.** Aggregate text only. Write "3 students behind on Unit 3" — never "Maria, José, Aisha behind on Unit 3." The schemas have no fields for per-student data by design. Do not invent fields.
 
-2. **Preserve unrelated cards.** Use targeted Edit operations on specific card content. Never overwrite the whole file blind.
+2. **Preserve unrelated entries.** Use targeted Edit operations on specific card or app content. Never overwrite the whole file blind.
 
-3. **Ask before adding or removing cards.** Edits to existing card content (`title`, `body`, `progress`, `tone`) are fine. Structural changes (new cards, deleting cards, reordering) require teacher confirmation.
+3. **Ask before adding or removing entries.** Edits to existing card content (`title`, `body`, `progress`, `tone`) or app metadata (`label`, `description`) are fine. Structural changes — adding/deleting/reordering cards or apps — require teacher confirmation.
 
 4. **`id` is stable.** Once a card or app has an `id`, never rename it. Only change content fields.
+
+5. **When a new tool ships, register it in `_nav.js`.** Add a new entry to the `APPS` array. No change to the other tools required — they all read from `_nav.js` on load.
 
 ## Files Claude Does Not Open
 
@@ -32,3 +35,15 @@ If a teacher accidentally drops a student-data file into the project folder, tel
 ## Where to Run Offline Apps
 
 Never invoke the local tools (e.g., `gradebook-analytics.html`, `student-cards.html`) via Bash. The teacher opens them directly in their browser. Running them via Claude's tools would surface file paths and stdout into Claude's context — defeating the purpose of the architecture.
+
+## Building New Local Tools — Use the `teacher-app-builder` Skill
+
+When the teacher asks for a new browser tool ("make me a tool that…", "build an app that…", "I want a new local-tool for X"), check whether the `teacher-app-builder` skill is in this session's available-skills list.
+
+- **If it IS available:** invoke it via the Skill tool. Do not hand-roll. The skill enforces the four privacy invariants (single static HTML file, no outbound calls except the SheetJS CDN, no browser storage of uploaded data, no save-to-project-folder) by construction and runs an automated check before saving the result. Hand-rolling silently risks invariant violations that the skill catches.
+
+- **If it is NOT available:** stop and tell the teacher to install it. Use language like:
+
+  > "I can build that — but the safe way is to install the `teacher-app-builder` skill first. It enforces the project's privacy rules by construction so I can't accidentally leak student data through the new tool. The installer is `teacher-app-builder-skill-upload.zip` in this folder; install instructions are in README.md under 'Build your own tools.' Let me know when it's installed and I'll run it."
+
+  Do **not** start writing the HTML manually as a fallback. The privacy boundary is the whole point of this project; the skill exists to enforce it. If the teacher insists on a hand-rolled tool anyway, walk them through it but explicitly state which invariants you're trusting them to maintain.
