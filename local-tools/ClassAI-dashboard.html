@@ -274,6 +274,25 @@
       grid-row: auto;
     }
   }
+
+  /* Print: Cmd-P */
+  @media print {
+    body { background: white; }
+    .sidebar, #error-banner { display: none; }
+    .shell { display: block; }
+    .main { padding: 12px; }
+    .grid { display: block; }
+    .card,
+    .card.size-large,
+    .card.size-medium,
+    .card.size-small {
+      grid-column: auto;
+      grid-row: auto;
+      page-break-inside: avoid;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+    }
+  }
 </style>
 </head>
 <body>
