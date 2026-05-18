@@ -112,6 +112,82 @@
     border-radius: var(--radius);
     background: white;
   }
+
+  /* Cards */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .card.tone-good    { border-left-color: var(--tone-good); }
+  .card.tone-warning { border-left-color: var(--tone-warning); }
+  .card.tone-neutral { border-left-color: var(--accent); }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .card .body {
+    color: var(--ink);
+    font-size: 13px;
+    flex: 1;
+    min-height: 0;
+  }
+  .card.size-large   { grid-column: span 2; grid-row: span 2; }
+  .card.size-medium  { grid-column: span 2; grid-row: span 1; }
+  .card.size-small   { grid-column: span 1; grid-row: span 1; }
+  .card .progress-track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 3px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .card .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+  .card.tone-good .progress-fill    { background: var(--tone-good); }
+  .card.tone-warning .progress-fill { background: var(--tone-warning); }
+  .card ul.dates, .card ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .card ul.dates li {
+    padding: 4px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .card ul.dates li:last-child { border-bottom: none; }
+  .card ul.checklist li {
+    padding: 4px 0;
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .card ul.checklist li.done { color: var(--muted); text-decoration: line-through; }
+  .card ul.checklist li::before {
+    content: "☐";
+    font-family: inherit;
+  }
+  .card ul.checklist li.done::before { content: "☑"; }
+  .card .unknown-type {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
@@ -182,6 +258,99 @@ function renderHeader(data) {
   $('dash-subtitle').textContent = (data && data.subtitle) || '';
 }
 
+function renderCards(data) {
+  const grid = $('grid');
+  grid.innerHTML = '';
+  const cards = (data && data.cards) || [];
+  if (cards.length === 0) {
+    grid.innerHTML = '<div class="empty-state">No dashboard cards yet. Set them up with Claude Cowork.</div>';
+    return;
+  }
+  for (const card of cards) {
+    grid.appendChild(renderCard(card));
+  }
+}
+
+function renderCard(card) {
+  const el = document.createElement('div');
+  const size = ['large', 'medium', 'small'].includes(card.size) ? card.size : 'small';
+  const tone = ['good', 'warning', 'neutral'].includes(card.tone) ? card.tone : 'neutral';
+  el.className = `card size-${size} tone-${tone}`;
+
+  const title = document.createElement('h3');
+  title.textContent = card.title || '';
+  el.appendChild(title);
+
+  const body = document.createElement('div');
+  body.className = 'body';
+  renderCardBody(body, card);
+  el.appendChild(body);
+
+  return el;
+}
+
+function renderCardBody(container, card) {
+  switch (card.type) {
+    case 'progress': return renderProgress(container, card);
+    case 'text':     return renderText(container, card);
+    case 'dates':    return renderDates(container, card);
+    case 'checklist':return renderChecklist(container, card);
+    default:
+      container.textContent = card.body ? String(card.body) : '';
+      const note = document.createElement('span');
+      note.className = 'unknown-type';
+      note.textContent = `unknown type: ${card.type || '(missing)'}`;
+      container.appendChild(note);
+  }
+}
+
+function renderProgress(container, card) {
+  if (card.body) {
+    const p = document.createElement('div');
+    p.textContent = String(card.body);
+    container.appendChild(p);
+  }
+  const pct = typeof card.progress === 'number'
+    ? Math.max(0, Math.min(1, card.progress))
+    : 0;
+  const track = document.createElement('div');
+  track.className = 'progress-track';
+  const fill = document.createElement('div');
+  fill.className = 'progress-fill';
+  fill.style.width = `${pct * 100}%`;
+  track.appendChild(fill);
+  container.appendChild(track);
+}
+
+function renderText(container, card) {
+  container.textContent = card.body ? String(card.body) : '';
+}
+
+function renderDates(container, card) {
+  const items = Array.isArray(card.body) ? card.body : [];
+  const ul = document.createElement('ul');
+  ul.className = 'dates';
+  for (const item of items) {
+    const li = document.createElement('li');
+    li.textContent = String(item);
+    ul.appendChild(li);
+  }
+  container.appendChild(ul);
+}
+
+function renderChecklist(container, card) {
+  const items = Array.isArray(card.body) ? card.body : [];
+  const ul = document.createElement('ul');
+  ul.className = 'checklist';
+  for (const item of items) {
+    const li = document.createElement('li');
+    if (item && item.done) li.classList.add('done');
+    li.appendChild(document.createTextNode(' ' + ((item && item.text) || '')));
+    ul.appendChild(li);
+  }
+  container.appendChild(ul);
+}
+
 async function init() {
   const [manifest, data] = await Promise.all([
     loadJSON('./manifest.json'),
@@ -189,6 +358,7 @@ async function init() {
   ]);
   renderSidebar(manifest);
   renderHeader(data);
+  renderCards(data);
 }
 
 init();
