@@ -26,46 +26,63 @@ The dashboard is purely visual (read-only in the browser). All authoring happens
 ```
 MyClassroomAIbot/
 ├── local-tools/
-│   ├── index.html                ← the dashboard (homepage)
-│   ├── dashboard-data.json       ← Claude-edited: cards content
-│   ├── apps-registry.json        ← Claude-edited: sidebar tools list
-│   ├── missing-work-cards.html   ← existing local tool
+│   ├── ClassAI-dashboard.html     ← the new homepage (this spec)
+│   ├── dashboard-data.json        ← Claude-edited: cards content
+│   ├── manifest.json              ← Claude-edited: sidebar tools list (already exists)
+│   ├── gradebook-analytics.html   ← existing CSV-based stats tool (renamed from class-dashboard.html)
+│   ├── badges.html                ← existing local tool
+│   ├── class-pulse.html           ← existing local tool
+│   ├── cold-call.html             ← existing local tool
+│   ├── parent-messages.html       ← existing local tool
+│   ├── random-groups.html         ← existing local tool
+│   ├── student-cards.html         ← existing local tool
 │   └── [other apps as added]
 ```
 
+### Rename of Existing File
+
+The existing `class-dashboard.html` (a CSV-upload per-student analytics tool) is renamed to `gradebook-analytics.html` to free the "dashboard" concept for the new homepage. The renamed tool retains all its functionality unchanged and appears in the new homepage's sidebar like any other tool.
+
 ### Runtime Behavior
 
-1. Teacher opens `local-tools/index.html` in their browser (double-click).
-2. The page fetches `./dashboard-data.json` and `./apps-registry.json` via `fetch()`.
-3. JS renders the sidebar from `apps-registry.json` and the bento grid of cards from `dashboard-data.json`.
-4. Sidebar links are plain anchors (`<a href="./missing-work-cards.html">`) — navigation is the browser's default behavior.
+1. Teacher opens `local-tools/ClassAI-dashboard.html` in their browser (double-click). This is the project's front door.
+2. The page fetches `./dashboard-data.json` and `./manifest.json` via `fetch()`.
+3. JS renders the sidebar from `manifest.json` and the bento grid of cards from `dashboard-data.json`.
+4. Sidebar links are plain anchors (`<a href="./<file>.html">`) — navigation is the browser's default behavior.
+5. No gradebook CSV is required. The dashboard renders fully from JSON alone. CSV-based features live in `gradebook-analytics.html` (and other future per-student tools), reached via the sidebar.
 
 ### Why Two JSON Files
 
-Different update cadences. `apps-registry.json` changes rarely (a new tool ships). `dashboard-data.json` changes often (Claude updates cards during a cowork chat). Separate files mean smaller diffs and lower conflict risk.
+Different update cadences. `manifest.json` changes rarely (a new tool ships). `dashboard-data.json` changes often (Claude updates cards during a cowork chat). Separate files mean smaller diffs and lower conflict risk. The teacher never opens either file directly — both are edited exclusively by Claude Cowork.
 
 ## Data Schemas
 
-### `apps-registry.json`
+### `manifest.json`
+
+The existing `manifest.json` is extended with an `apps` array. The file already carries `schema_version` and `generated_at` — those are preserved.
 
 ```json
 {
+  "schema_version": 1,
+  "generated_at": "2026-05-17T00:00:00Z",
   "apps": [
     {
-      "id": "missing-work-cards",
-      "label": "Missing Work Cards",
-      "file": "missing-work-cards.html",
-      "description": "Print per-student cards from a gradebook CSV"
+      "id": "gradebook-analytics",
+      "label": "Gradebook Analytics",
+      "file": "gradebook-analytics.html",
+      "description": "Upload a gradebook CSV for per-student stats"
     }
   ]
 }
 ```
 
-Fields:
+App entry fields:
 - `id` — stable identifier (lowercase-kebab). Never renamed once set.
 - `label` — display text in the sidebar.
 - `file` — sibling filename in `local-tools/`. Used as the link href.
 - `description` — optional short blurb shown on hover or in a tooltip.
+
+The seed `manifest.json` ships with the eight existing tools pre-registered: `badges`, `class-pulse`, `cold-call`, `gradebook-analytics`, `parent-messages`, `random-groups`, `student-cards`, and any others present at build time.
 
 ### `dashboard-data.json`
 
@@ -95,9 +112,9 @@ Top-level fields:
 Card fields:
 - `id` — stable identifier. Never renamed once set; used by Claude to locate cards for updates.
 - `size` — `large` | `medium` | `small`. Drives bento grid placement.
-- `type` — renderer key. Day-1 set: `progress`, `text`, `dates`, `checklist`.
+- `type` — renderer key. Day-1 set: `progress`, `text`, `dates`, `checklist`, `files`.
 - `title` — card heading.
-- `body` — main text content.
+- `body` — main content (shape varies by type — see table below).
 - `progress` — number 0–1 (only used by `progress` type).
 - `tone` — `neutral` | `good` | `warning`. Affects accent color.
 
@@ -109,8 +126,30 @@ All types accept `tone` (`neutral` | `good` | `warning`), which colors the card'
 |---|---|---|
 | `progress` | string (caption); `progress` field 0–1 | Goals/units with completion percentage |
 | `text` | string | Free-form prose, reflections, focus areas |
-| `dates` | array of strings | Upcoming events |
+| `dates` | array of strings | Upcoming events, history of past activities |
 | `checklist` | array of `{text: string, done: boolean}` | Multi-item goals |
+| `files` | array of folder/file nodes (see below) | File-tree view of Cowork-generated artifacts |
+
+#### `files` card body shape
+
+A `files` card displays a hierarchical file/folder tree of artifacts Claude Cowork has generated (slide decks, parent messages, lesson plans, etc.). Each node is an object:
+
+```json
+{
+  "name": "Week of May 13",
+  "type": "folder",
+  "children": [
+    { "name": "Monday slides.html", "type": "file", "href": "../generated/2026-05-13-slides.html" },
+    { "name": "Parent update.md",    "type": "file", "href": "../generated/2026-05-13-parent.md" }
+  ]
+}
+```
+
+Node fields:
+- `name` — display name.
+- `type` — `folder` or `file`.
+- `children` — array of child nodes (folders only).
+- `href` — link target (files only). Relative path from `local-tools/`.
 
 Unknown card `type` renders as a plain text card with a small "unknown type" note so the teacher notices but the dashboard doesn't crash.
 
@@ -178,11 +217,11 @@ The dashboard is read-only in the browser. All authoring happens via Claude edit
 
 ### Adding a New Offline Tool
 
-When a new HTML tool is created in `local-tools/`, Claude appends an entry to `apps-registry.json`. No change to `index.html` required — the sidebar re-renders from the registry on next page load.
+When a new HTML tool is created in `local-tools/`, Claude appends an entry to `manifest.json`. No change to `ClassAI-dashboard.html` required — the sidebar re-renders from the manifest on next page load.
 
 ## Error Handling
 
-- **Malformed JSON** — `index.html` shows a non-blocking error banner at the top: "Couldn't read dashboard-data.json — check the file or ask Claude to fix it." The rest of the page still renders if the other file is valid.
+- **Malformed JSON** — `ClassAI-dashboard.html` shows a non-blocking error banner at the top: "Couldn't read dashboard-data.json — check the file or ask Claude to fix it." The rest of the page still renders if the other file is valid.
 - **Missing fields on a card** — renderer uses safe defaults: empty body, no progress bar, neutral tone.
 - **Unknown card `type`** — renders as a plain text card with a subtle "unknown type: X" note.
 - **Empty `cards` array** — renders an empty-state message: "No dashboard cards yet. Set them up with Claude Cowork."
@@ -202,7 +241,7 @@ This dashboard sits inside the Claude project folder and the JSON files are read
 
 ## Testing Approach
 
-- **Manual smoke test:** Open `index.html` with the seed JSON files. Verify sidebar renders, cards render, sidebar links navigate to sibling tools.
+- **Manual smoke test:** Open `ClassAI-dashboard.html` with the seed JSON files. Verify sidebar renders, cards render, sidebar links navigate to sibling tools.
 - **Responsive check:** Use the browser devtools responsive mode at 1280px, 800px, 400px. Confirm sidebar collapses correctly and cards reflow.
 - **Error states:** Manually break each JSON file (malformed, missing fields, unknown card type) and confirm the page degrades gracefully.
 - **Claude-edit simulation:** Have Claude edit a card via the Edit tool and reload the page. Confirm the change appears and no other cards regressed.
