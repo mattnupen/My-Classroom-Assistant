@@ -36,3 +36,5 @@ venv/
 
 # Logs
 *.log
+.superpowers/
+.DS_Store
