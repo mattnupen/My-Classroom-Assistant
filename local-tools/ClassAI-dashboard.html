@@ -177,9 +177,18 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+function renderHeader(data) {
+  $('dash-title').textContent = (data && data.title) || 'Dashboard';
+  $('dash-subtitle').textContent = (data && data.subtitle) || '';
+}
+
 async function init() {
-  const manifest = await loadJSON('./manifest.json');
+  const [manifest, data] = await Promise.all([
+    loadJSON('./manifest.json'),
+    loadJSON('./dashboard-data.json'),
+  ]);
   renderSidebar(manifest);
+  renderHeader(data);
 }
 
 init();
