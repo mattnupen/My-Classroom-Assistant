@@ -6,6 +6,45 @@ Your AI reads this file. You can edit it. The defaults below come from accessibi
 
 ---
 
+## Default theme: Ocean Depths (Projection Edition)
+
+This is the concrete palette, font, and type scale the AI applies to slides and documents by default. It's a specific instantiation of the rules below, tuned for the worst case: a small screen, a dim/low-lumen projector, and students in the back row. Every text/background pairing here is verified to meet WCAG AA (4.5:1 body).
+
+### Palette
+
+| Role | Name | Hex |
+|------|------|-----|
+| Slide / page background | Cream | `#f1faee` |
+| Primary text | Ink (near-black) | `#0d1b2a` |
+| Title band / header fill | Deep Navy | `#1a2332` |
+| Accent — key terms, bullets, dividers (text-safe, 5.8:1 on Cream) | Deep Teal | `#1f6b6b` |
+| Decorative teal — lines/shapes only, never text | Light Teal | `#2d8b8b` |
+| Fill behind dark text (callout boxes) | Seafoam | `#a8dadc` |
+| Text on Navy / Deep-Teal fills | Cream | `#f1faee` |
+
+- Body text is always **Ink on Cream** — the highest-contrast pair (16:1).
+- **Deep Teal `#1f6b6b`** is the only teal allowed for text or for fills carrying Cream text. Light Teal `#2d8b8b` is decoration only (fails body contrast).
+- Never set **Seafoam** as a text color; it's a fill behind Ink text only.
+
+### Font
+
+DejaVu Sans, with **Arial / Helvetica** fallbacks (all sans-serif, per the readability rules below). Reserve serifs for ceremonial pieces only.
+
+### Type scale
+
+**Slides** (at or above the minimums in the "Text size" section below):
+
+- Slide title: **44 pt** bold (on the Navy band)
+- Section header: **40 pt** bold (Deep Teal)
+- Body: **28 pt** regular
+- Footer / metadata: **24 pt** regular
+
+**Documents (handouts):** H1 24 pt · H2 18 pt · H3 14 pt · body 12 pt, line spacing 1.5, Ink on white.
+
+**Why a light background and not Ocean Depths' default navy:** dim projectors can't push whites bright and smear dark blues/blacks into one muddy tone, so a Cream background with near-black text is the reliable choice. Navy is used for title bands, not full slides. A full-navy variant exists (`docs/theme-preview.html`) but is riskier on a weak projector.
+
+---
+
 ## Slides (projected to the whole class)
 
 ### Text size

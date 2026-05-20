@@ -90,7 +90,7 @@ MyClassroomAIbot/
 │   ├── day-one-lesson-plan.md         ← 15-minute script for introducing the AI to your class
 │   ├── lms-intro-page.md              ← LMS page text explaining the project to students
 │   ├── student-voting-form.md         ← co-creation vote template (Google Form or paper)
-│   └── classroom-display-rules.md     ← design rules the AI follows for anything visual
+│   └── classroom-display-rules.md     ← design rules + the AI's default visual theme (colors, fonts, text sizes) for anything visual
 │
 ├── local-tools/                       ← the offline apps (see "The offline apps" section above)
 │   ├── ClassAI-dashboard.html         ← home base — open this one, the sidebar gets you to every other app
