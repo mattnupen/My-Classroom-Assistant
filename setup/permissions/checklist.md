@@ -18,7 +18,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 
 - [ ] `setup/crisis-card.md` is filled in and printed.
 - [ ] The crisis card is somewhere I can see it (desk, bag, lanyard).
-- [ ] I have read `ai-instructions/safety-rules.md` and understand the mandated-reporter flow.
+- [ ] I have read `brain/safety-rules.md` and understand the mandated-reporter flow.
 - [ ] I know exactly what I'll do if the AI surfaces something crisis-related (whom to call, in what order).
 - [ ] I have not put any student names, real grades, or personal information into the AI.
 
@@ -33,10 +33,10 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 
 ## AI Setup
 
-- [ ] `ai-instructions/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
+- [ ] `brain/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
 - [ ] I've decided whether students will help shape the AI's identity, and when.
 - [ ] If students are involved, I've planned the voting / discussion session.
-- [ ] I've read all four files in `ai-instructions/`.
+- [ ] I've read all four files in `brain/`.
 - [ ] The AI's voice sounds right when I ask it to generate a sample (greeting, encouragement note, slide).
 
 ## Workflow
@@ -45,7 +45,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 - [ ] I know roughly which day I'll send parent messages.
 - [ ] I know which day(s) I'll print and hand out cards.
 - [ ] I've decided what one thing I'll measure (missing-work rate, attendance, student survey, etc.).
-- [ ] I have a fallback plan for weeks where I can't keep up — see `ai-instructions/weekly-rhythm.md`'s "skip everything minimum."
+- [ ] I have a fallback plan for weeks where I can't keep up — see `brain/weekly-rhythm.md`'s "skip everything minimum."
 
 ## Communication with students
 

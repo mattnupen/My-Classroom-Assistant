@@ -84,7 +84,7 @@ Anthropic's Usage Policies place additional restrictions on use cases involving 
 
 - Review Anthropic's current [Usage Policies](https://www.anthropic.com/legal/aup) before launching
 - Use an account that has zero-data-retention enabled, or work through their district's enterprise Anthropic agreement if one exists
-- Not use the AI to do anything the policies forbid (no medical/legal/mental-health diagnosis of students, etc. — covered in `ai-instructions/safety-rules.md`)
+- Not use the AI to do anything the policies forbid (no medical/legal/mental-health diagnosis of students, etc. — covered in `brain/safety-rules.md`)
 
 ## What happens if a teacher accidentally pastes student data to the AI
 
@@ -92,7 +92,7 @@ The AI is instructed to refuse, gently redirect, and not retain or use the data:
 
 > "I'd rather not work with named student records here — could you run that through `class-pulse.html` first, or summarize what you're seeing in your own words?"
 
-This redirect is documented in `CLAUDE.md` and reinforced in `ai-instructions/safety-rules.md`.
+This redirect is documented in `CLAUDE.md` and reinforced in `brain/safety-rules.md`.
 
 ## What happens to data over time
 

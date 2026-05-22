@@ -129,8 +129,8 @@ You're voting on the name, personality, and mission of the AI assistant we'll be
 2. **Run a runoff vote.** Same form, but the only question is "pick one of these finalists." Takes 2 minutes in class.
 3. **Tally the personality traits.** Pick the top 2–3. These shape the AI's voice.
 4. **Read the voice samples.** Use the most-picked one as a starting point for how the AI talks.
-5. **Read the "what the AI should never do" responses.** Add the recurring ones to the "What [AI NAME] will never do" section in `ai-instructions/your-classroom-ai.md`.
-6. **Update `ai-instructions/your-classroom-ai.md`** with what students chose.
+5. **Read the "what the AI should never do" responses.** Add the recurring ones to the "What [AI NAME] will never do" section in `brain/your-classroom-ai.md`.
+6. **Update `brain/your-classroom-ai.md`** with what students chose.
 7. **Open Cowork**, say hi, ask the AI to introduce itself in its new voice. Read its first message to your class.
 
 If the kids' first reaction is "that doesn't sound right" — adjust the voice description and try again. They'll know within 10 seconds whether you got it.

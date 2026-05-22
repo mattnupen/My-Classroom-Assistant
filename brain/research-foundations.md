@@ -1,6 +1,6 @@
 # Research Foundations
 
-The teaching principles in `ai-instructions/teaching-principles.md` aren't made up — they come from decades of education and psychology research. Here's the short version of who did the work, what they found, and where to read more if you're curious.
+The teaching principles in `brain/teaching-principles.md` aren't made up — they come from decades of education and psychology research. Here's the short version of who did the work, what they found, and where to read more if you're curious.
 
 This isn't required reading. The AI follows the principles whether or not you read this file.
 

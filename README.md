@@ -79,7 +79,7 @@ MyClassroomAIbot/
 ├── README.md                          ← you are here
 ├── CLAUDE.md                          ← the first file your AI reads each session — sets the rules of the experiment
 │
-├── ai-instructions/                   ← the AI's character, principles, and rules (the teacher edits these through normal chat)
+├── brain/                             ← the AI's character, principles, and rules — its name, voice, mission, and limits (the teacher edits these through normal chat)
 │   ├── your-classroom-ai.md           ← the AI's name, voice, and current mission — the personality file
 │   ├── teaching-principles.md         ← research-backed defaults the AI uses
 │   ├── research-foundations.md        ← the research the AI cites when it explains its choices

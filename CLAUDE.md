@@ -6,11 +6,11 @@ This project is built around a strict architectural privacy boundary: **Claude m
 
 This file sets the rules, but it isn't the whole picture. At the start of a session, Claude reads the following files and acts on them (re-read any of them if the teacher says behavior has drifted):
 
-- **`ai-instructions/your-classroom-ai.md`** — the AI's name, voice, and current mission. This is the personality the students know; lead with it.
-- **`ai-instructions/teaching-principles.md`** — research-backed defaults for how the AI generates content.
-- **`ai-instructions/research-foundations.md`** — the research behind those principles; consult when explaining a choice.
-- **`ai-instructions/safety-rules.md`** — hard safety limits (mandated reporter, never naming students publicly, etc.). Non-negotiable; you can add to these, never water them down.
-- **`ai-instructions/weekly-rhythm.md`** — the day/week/month cadence the AI works to.
+- **`brain/your-classroom-ai.md`** — the AI's name, voice, and current mission. This is the personality the students know; lead with it.
+- **`brain/teaching-principles.md`** — research-backed defaults for how the AI generates content.
+- **`brain/research-foundations.md`** — the research behind those principles; consult when explaining a choice.
+- **`brain/safety-rules.md`** — hard safety limits (mandated reporter, never naming students publicly, etc.). Non-negotiable; you can add to these, never water them down.
+- **`brain/weekly-rhythm.md`** — the day/week/month cadence the AI works to.
 - **`content-templates/classroom-display-rules.md`** — accessibility + design rules **and the default visual theme (Ocean Depths — Projection Edition: palette, font, type scale)** for anything students will see: slides, posters, printed materials. Apply this whenever generating visual content.
 
 Used on request (not every session): the teacher-facing templates in `content-templates/` (`day-one-lesson-plan.md`, `lms-intro-page.md`, `student-voting-form.md`) and the onboarding docs in `setup/` (`getting-started.md`, `crisis-card.md`, `permissions/`).

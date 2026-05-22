@@ -137,7 +137,7 @@ If the AI generates a slide with more than this, it's wrong. Reject it and ask f
 
 ## Specific never-do rules
 
-- **Never put a list of struggling students on a slide, poster, or any class-wide display.** Ever. (See `ai-instructions/safety-rules.md`.)
+- **Never put a list of struggling students on a slide, poster, or any class-wide display.** Ever. (See `brain/safety-rules.md`.)
 - **Never put a student's exact words in a class-wide display.** Synthesize themes, never quote.
 - **Never use comparative language** between students or sections in any visible artifact. ("Period 2 is ahead of Period 4" → no.)
 - **Never use shaming visuals.** Frowning faces, "WARNING" badges, red flashing graphics next to a student's name — not in any form.
