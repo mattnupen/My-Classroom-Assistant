@@ -16,6 +16,7 @@ const _GROUP_HEADER_RE = /^(period|section|class|hour|block|homeroom)$/i;
 function normalizeName(raw) {
   const s = String(raw == null ? '' : raw).trim().replace(/\s+/g, ' ');
   if (!s) return '';
+  // 3+ comma-separated parts (e.g. "Smith, John, Jr") are intentionally left unchanged due to ambiguity.
   const parts = s.split(',');
   if (parts.length === 2 && parts[0].trim() && parts[1].trim()) {
     return parts[1].trim() + ' ' + parts[0].trim();
@@ -36,7 +37,8 @@ function detectNameColumn(headers, rows) {
     const nameish = vals.filter(v => !_EMAIL_RE.test(v) && isNaN(parseFloat(v)) && /[a-z]/i.test(v)).length;
     if (nameish >= Math.ceil(vals.length * 0.6)) return h;
   }
-  return headers[0] == null ? null : headers[0];
+  const firstUsable = headers.find(h => !_ID_HEADER_RE.test(String(h)) && !_GROUP_HEADER_RE.test(String(h)));
+  return firstUsable == null ? null : firstUsable;
 }
 
 function detectGroupColumn(headers) {
@@ -45,7 +47,7 @@ function detectGroupColumn(headers) {
 
 // Index of the "Points Possible" row (Canvas puts it first), else -1.
 function findPointsPossibleRowIndex(rows) {
-  for (let i = 0; i < Math.min(rows.length, 2); i++) {
+  for (let i = 0; i < Math.min(rows.length, 5); i++) {
     const hit = Object.values(rows[i]).some(v => /points\s*possible/i.test(String(v == null ? '' : v).trim()));
     if (hit) return i;
   }
@@ -98,8 +100,7 @@ function isMissing(v, opts) {
   if (s === '') return blankIsMissing;
   if (isExcused(s)) return false;
   if (['missing','m','mi','mis'].includes(s)) return true;
-  const n = parseFloat(s);
-  if (!isNaN(n)) return zeroIsMissing && n === 0;
+  if (/^-?\d+(?:\.\d+)?$/.test(s)) return zeroIsMissing && parseFloat(s) === 0;
   return false;
 }
 

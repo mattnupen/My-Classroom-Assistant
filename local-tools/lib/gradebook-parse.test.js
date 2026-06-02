@@ -81,3 +81,23 @@ test('stripColumnTag removes trailing (NNN) id/points tag', () => {
   assert.equal(P.stripColumnTag('Vocab Quiz 1 (10)'), 'Vocab Quiz 1');
   assert.equal(P.stripColumnTag('Mood Radio (Microbit) (806151)'), 'Mood Radio (Microbit)');
 });
+
+test('detectNameColumn never falls back to an id/group column; null if none usable', () => {
+  assert.equal(P.detectNameColumn(['ID','Section','Nickname'], [{ID:'10112',Section:'P1',Nickname:'Ace'}]), 'Nickname');
+  assert.equal(P.detectNameColumn(['ID','Section'], [{ID:'10112',Section:'P1'}]), null);
+});
+
+test('findPointsPossibleRowIndex finds a row at index 2 (after a separator row)', () => {
+  const rows = [
+    { Student:'', 'A (1)':'' },
+    { Student:'', 'A (1)':'' },
+    { Student:'Points Possible', 'A (1)':'10' },
+    { Student:'Real Student', 'A (1)':'8' },
+  ];
+  assert.equal(P.findPointsPossibleRowIndex(rows), 2);
+});
+
+test('isMissing does not treat "0 pts" as a zero score', () => {
+  assert.equal(P.isMissing('0 pts', { zeroIsMissing: true }), false);
+  assert.equal(P.isMissing('0', { zeroIsMissing: true }), true);
+});
