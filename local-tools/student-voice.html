@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feedback Cleaner — ClassAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Feedback Cleaner — closes the anonymous-feedback loop with the same privacy line
+  as Class Pulse. Paste raw form responses; this strips names and emails IN YOUR
+  BROWSER and gives you a name-free digest to paste into your AI. Nothing leaves
+  your computer. No network calls of any kind, no file saved, no storage of your
+  data. The only sibling it loads is the suite's shared, network-free _nav.js
+  sidebar (the same one every tool in local-tools/ uses).
+-->
+<style>
+  :root{
+    --cream:#f1faee;--ink:#0d1b2a;--navy:#1a2332;--navy2:#143a45;--teal:#1f6b6b;
+    --teal-deep:#18585a;--seafoam:#a8dadc;--pale:#e3f1ef;--bg:#eef4f1;--card:#fff;
+    --line:#d8e6e1;--muted:#51646d;--radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .main{padding:26px 30px 48px;max-width:1000px;}
+
+  .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:var(--cream);border-radius:18px;padding:24px 26px;margin-bottom:18px;box-shadow:0 1px 2px rgba(13,27,42,.06),0 6px 18px rgba(13,27,42,.08);
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .hero .ht{flex:1;min-width:260px;}
+  .hero .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--seafoam);font-weight:700;margin-bottom:6px;}
+  .hero h1{margin:0;font-size:26px;font-weight:700;line-height:1.2;}
+  .hero p{margin:8px 0 0;color:rgba(241,250,238,.85);font-size:15.5px;max-width:64ch;}
+  .hero .formbtn{flex:0 0 auto;border:1px solid var(--cream);background:var(--cream);color:var(--navy);
+    border-radius:999px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .hero .formbtn:hover{background:var(--seafoam);border-color:var(--seafoam);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;
+    box-shadow:0 1px 2px rgba(13,27,42,.04),0 5px 14px rgba(13,27,42,.05);}
+  .card h2{margin:0 0 4px;font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  .card .sub{font-size:14.5px;color:var(--muted);margin:0 0 12px;}
+  textarea{width:100%;min-height:150px;resize:vertical;padding:11px 13px;border:1px solid var(--line);border-radius:9px;
+    font-size:15px;font-family:"SF Mono",Menlo,monospace;line-height:1.5;background:#fbfdfc;color:var(--ink);}
+  .controls{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap;}
+  .chk{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;color:var(--ink);}
+  button.go{border:1px solid var(--teal);background:var(--teal);color:var(--cream);border-radius:8px;
+    padding:9px 18px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  button.go:hover{background:var(--teal-deep);border-color:var(--teal-deep);}
+  button.ghost{border:1px solid var(--teal);background:var(--pale);color:var(--teal);border-radius:8px;
+    padding:9px 14px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  button.ghost:hover{background:var(--teal);color:var(--cream);}
+  button.ghost.done{background:var(--teal);color:var(--cream);}
+
+  #out{display:none;}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+  .stat{background:var(--pale);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:120px;}
+  .stat .n{font-size:24px;font-weight:700;color:var(--teal-deep);}
+  .stat .l{font-size:13.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .stripped{background:#f6efe6;border:1px solid #e6d6bf;color:#7a5a23;border-radius:9px;padding:9px 13px;font-size:14.5px;margin-bottom:14px;}
+  .words{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px;}
+  .word{background:var(--seafoam);color:var(--navy);border-radius:999px;padding:4px 11px;font-size:14.5px;font-weight:600;}
+  .word b{font-weight:700;color:var(--teal-deep);margin-left:4px;}
+  ol.resp{margin:8px 0 0;padding-left:22px;}
+  ol.resp li{font-size:15px;padding:3px 0;color:var(--ink);}
+  .digest-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0 8px;}
+  .digest-row h2{margin:0;}
+  pre.digest{background:#0f1d2b;color:#dbe7ea;border-radius:10px;padding:14px 16px;font-family:"SF Mono",Menlo,monospace;
+    font-size:14px;line-height:1.55;white-space:pre-wrap;max-height:280px;overflow:auto;margin:0;}
+  .empty{color:var(--muted);font-style:italic;font-size:15px;}
+
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(13,27,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;}
+  .overlay.open{display:flex;}
+  .modal{background:#fff;border-radius:14px;max-width:600px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.35);}
+  .modal header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);}
+  .modal header h3{margin:0;font-size:18px;}
+  .modal .x{border:none;background:none;font-size:24px;cursor:pointer;color:var(--muted);line-height:1;}
+  .modal .mbody{padding:18px 20px;overflow:auto;}
+  .modal .note{background:var(--pale);border:1px solid var(--line);border-radius:9px;padding:11px 13px;font-size:14.5px;color:var(--ink);margin-bottom:14px;}
+  .modal pre{background:#fbfdfc;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-size:15px;line-height:1.6;white-space:pre-wrap;margin:0;color:var(--ink);}
+  .modal footer{padding:13px 20px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;}
+
+  @media(max-width:639px){.main{padding:16px 14px 36px;}}
+</style>
+</head>
+<body>
+<main class="main">
+  <header class="app-hero">
+    <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a4 4 0 0 1 0 8"/></svg></span>
+    <div class="app-hero-text">
+      <h1>Feedback Cleaner</h1>
+      <h2>Strip names and emails from responses, then get a name-free digest.</h2>
+    </div>
+    <div class="app-hero-action"><button type="button" class="app-hero-btn" id="open-form">Need a form?</button></div>
+  </header>
+
+  <section class="card">
+    <h2>Paste the responses</h2>
+    <p class="sub">Paste your form export (a Google Forms / Sheets copy works — commas or tabs), or just paste the answers one per line.</p>
+    <textarea id="input" placeholder="Timestamp, Name, Email, What's helping you?, What's in your way?&#10;9/12 8:01, Jordan P, jordan@school.org, the warm-ups help, I keep forgetting the homework&#10;9/12 8:03, Sam R, sam@school.org, group work, too much going on at home this week"></textarea>
+    <div class="controls">
+      <button type="button" class="go" id="run">Clean &amp; summarize</button>
+      <label class="chk"><input type="checkbox" id="hashead" checked> First row is a header</label>
+      <span class="empty" id="hint"></span>
+    </div>
+  </section>
+
+  <section id="out">
+    <div class="card">
+      <h2>Summary</h2>
+      <div class="stats" id="stats"></div>
+      <div class="stripped" id="stripped"></div>
+      <h2 style="margin-top:6px;">Most-used words</h2>
+      <div class="words" id="words"></div>
+      <div class="digest-row">
+        <h2>Anonymous responses</h2>
+        <button type="button" class="ghost" id="copy-digest">Copy for my AI</button>
+      </div>
+      <pre class="digest" id="digest"></pre>
+    </div>
+  </section>
+</main>
+
+<div class="overlay" id="form-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Form template">
+    <header>
+      <h3>A ready-to-use feedback form</h3>
+      <button type="button" class="x" id="close-form" aria-label="Close">×</button>
+    </header>
+    <div class="mbody">
+      <div class="note"><b>Keep it anonymous at the source:</b> in Google Forms → <b>Settings</b>, turn <b>off</b> “Collect email addresses,” and don’t add a name question. This tool also strips names and emails as a backstop.</div>
+      <pre id="form-text"></pre>
+    </div>
+    <footer><button type="button" class="ghost" id="copy-form">Copy questions</button></footer>
+  </div>
+</div>
+
+<script src="./_nav.js"></script>
+<script>
+(function(){
+  var EMAIL = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
+  var IDENT = /(^|\b)(name|first\s*name|last\s*name|full\s*name|email|e-?mail|student\s*id|\bid\b|user\s*name|username)(\b|$)/i;
+  var STOP = new Set(("the a an and or but to of in on for is are was were be been being i you he she it we they me my your our their this that these those with at as so if not no do does did can could would should will just really very more most much many a-lot im its it dont cant about have has had get got because what when how why").split(/\s+/));
+
+  function splitLine(line, d){
+    if(d==='\t') return line.split('\t');
+    var out=[],cur='',q=false;
+    for(var i=0;i<line.length;i++){var c=line[i];
+      if(q){ if(c==='"'){ if(line[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
+      else { if(c==='"') q=true; else if(c===','){out.push(cur);cur='';} else cur+=c; }
+    }
+    out.push(cur); return out;
+  }
+
+  function analyze(text, hasHeader){
+    text = text.replace(/\r/g,'');
+    var lines = text.split('\n').filter(function(l){return l.trim().length;});
+    var result = {count:0, responses:[], emails:0, dropped:[]};
+    if(!lines.length) return result;
+    var delim = (text.indexOf('\t')>-1) ? '\t' : (text.indexOf(',')>-1 ? ',' : null);
+
+    if(delim){
+      var rows = lines.map(function(l){return splitLine(l, delim).map(function(s){return s.trim();});});
+      var ncol = rows[0].length;
+      var header = hasHeader ? rows[0] : rows[0].map(function(_,i){return 'Column '+(i+1);});
+      var start = hasHeader ? 1 : 0;
+      var keep = [];
+      for(var c=0;c<ncol;c++){
+        var h = header[c]||('Column '+(c+1));
+        var drop = IDENT.test(h);
+        if(!drop){
+          var vals = rows.slice(start).map(function(r){return r[c]||'';});
+          var emailish = vals.filter(function(v){return /@/.test(v);}).length;
+          var timeish = vals.filter(function(v){return /\d{1,4}[\/\-]\d{1,2}([\/\-]\d{1,4})?/.test(v) && v.length<=24;}).length;
+          if(vals.length && (emailish/vals.length>0.5 || timeish/vals.length>0.7)) drop = true;
+        }
+        keep.push(!drop);
+        if(drop) result.dropped.push(h);
+      }
+      for(var r=start;r<rows.length;r++){
+        var parts=[];
+        for(var k=0;k<ncol;k++){ if(keep[k]){ var v=(rows[r][k]||'').trim(); if(v) parts.push(v); } }
+        var line = parts.join(' — ').replace(EMAIL, function(){result.emails++; return '[removed]';}).trim();
+        if(line) result.responses.push(line);
+      }
+    } else {
+      for(var li=0; li<lines.length; li++){
+        var s = lines[li].replace(EMAIL, function(){result.emails++; return '[removed]';}).trim();
+        if(s) result.responses.push(s);
+      }
+    }
+    result.count = result.responses.length;
+    return result;
+  }
+
+  function topWords(responses){
+    var m={};
+    responses.join(' ').toLowerCase().replace(/\[removed\]/g,' ').split(/[^a-z']+/).forEach(function(w){
+      w = w.replace(/^'+|'+$/g,'');
+      if(w.length<3 || STOP.has(w)) return;
+      m[w]=(m[w]||0)+1;
+    });
+    return Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1];}).slice(0,15);
+  }
+
+  function buildDigest(res, words){
+    var L=[];
+    L.push('ANONYMOUS FEEDBACK — summary');
+    L.push('(no names, no emails — safe to paste to your AI)');
+    L.push('Responses: '+res.count);
+    if(res.emails||res.dropped.length){
+      L.push('Stripped: '+res.emails+' email(s)'+(res.dropped.length?'; columns dropped: '+res.dropped.join(', '):''));
+    }
+    L.push('');
+    if(words.length){ L.push('Most-used words: '+words.map(function(w){return w[0]+' ('+w[1]+')';}).join(', ')); L.push(''); }
+    L.push('Responses:');
+    res.responses.forEach(function(r,i){ L.push((i+1)+'. '+r); });
+    L.push('');
+    L.push('(Please synthesize themes — do not quote any single response back to the class.)');
+    return L.join('\n');
+  }
+
+  var FORM = [
+    'Anonymous class feedback',
+    '',
+    '1. What’s one thing that’s helping you learn right now? (short answer)',
+    '2. What’s one thing getting in your way? (short answer)',
+    '3. What should our class AI make more of? (short answer)',
+    '4. Anything else you want your teacher to know? (optional)'
+  ].join('\n');
+
+  var $=function(id){return document.getElementById(id);};
+  $('form-text').textContent = FORM;
+
+  function copyText(text, btn, label){
+    function feedback(){ var old=btn.textContent; btn.textContent=label||'Copied'; btn.classList.add('done'); setTimeout(function(){btn.textContent=old; btn.classList.remove('done');},1800); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(feedback, function(){fallback();}); }
+    else fallback();
+    function fallback(){ var t=document.createElement('textarea'); t.value=text; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); feedback(); }
+  }
+
+  var lastDigest='';
+  $('run').addEventListener('click', function(){
+    var text=$('input').value;
+    if(!text.trim()){ $('hint').textContent='Paste some responses first.'; return; }
+    $('hint').textContent='';
+    var res = analyze(text, $('hashead').checked);
+    if(!res.count){ $('hint').textContent='Couldn’t find any responses to read.'; $('out').style.display='none'; return; }
+    var words = topWords(res.responses);
+
+    $('stats').innerHTML =
+      '<div class="stat"><div class="n">'+res.count+'</div><div class="l">Responses</div></div>'+
+      '<div class="stat"><div class="n">'+res.emails+'</div><div class="l">Emails removed</div></div>'+
+      '<div class="stat"><div class="n">'+res.dropped.length+'</div><div class="l">Columns dropped</div></div>';
+    $('stripped').textContent = res.dropped.length
+      ? 'Removed before you ever saw a name: '+res.dropped.join(', ')+'.'
+      : 'No identifying columns detected — emails are still stripped from the text as a backstop.';
+    $('words').innerHTML = words.length
+      ? words.map(function(w){return '<span class="word">'+w[0]+'<b>'+w[1]+'</b></span>';}).join('')
+      : '<span class="empty">Not enough text to count words.</span>';
+    lastDigest = buildDigest(res, words);
+    $('digest').textContent = lastDigest;
+    $('out').style.display='block';
+  });
+
+  $('copy-digest').addEventListener('click', function(){ if(lastDigest) copyText(lastDigest, this, 'Copied — paste to your AI'); });
+  $('copy-form').addEventListener('click', function(){ copyText(FORM, this, 'Copied'); });
+  $('open-form').addEventListener('click', function(){ $('form-overlay').classList.add('open'); });
+  $('close-form').addEventListener('click', function(){ $('form-overlay').classList.remove('open'); });
+  $('form-overlay').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
+})();
+</script>
+</body>
+</html>

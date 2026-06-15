@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monday opening slide — ClassAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  A real, projectable opening slide — and a template your AI clones for any Monday.
+
+  It follows content-templates/classroom-display-rules.md to the letter:
+  • Ocean Depths (Projection Edition): Cream #f1faee bg · Ink #0d1b2a text ·
+    Navy #1a2332 title band · Deep Teal #1f6b6b accent (5.8:1 on cream) ·
+    Seafoam #a8dadc fill behind ink only.
+  • Type scale in slide points: title 44 · body 28 · footer 24. The stage is
+    960×540 (the 16:9 PowerPoint point grid), so 1px here == 1pt projected.
+  • One idea · under 50 words · under 8 lines · body left-aligned · no animation.
+  • Teaching principles on show: movement (#5), positive class norm with no
+    comparison (#6), one small next step (#9), specific & strengths-first (#1),
+    teacher voice not product voice (#11). No student is named (safety-rules #2).
+
+  Press F to project full-screen. ⌘/Ctrl-P saves a clean 16:9 PDF.
+-->
+<style>
+  :root{
+    --cream:#f1faee; --ink:#0d1b2a; --navy:#1a2332;
+    --teal:#1f6b6b; --seafoam:#a8dadc; --footer:#33424b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:#0a1219;}
+  /* dark letterbox so the slide reads like it's on a screen */
+  .room{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+
+  /* 960×540 == 16:9 at 1px = 1pt, so the pt sizes below match the spec exactly */
+  .stage{
+    width:960px;height:540px;flex:0 0 auto;transform-origin:center center;
+    background:var(--cream);color:var(--ink);
+    font-family:"DejaVu Sans",Arial,Helvetica,sans-serif;
+    display:flex;flex-direction:column;overflow:hidden;position:relative;
+    box-shadow:0 24px 70px rgba(0,0,0,.55);
+  }
+
+  /* Title band (navy) */
+  .band{background:var(--navy);color:var(--cream);padding:26px 48px 24px;}
+  .kicker{font-size:18px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--seafoam);font-weight:700;margin-bottom:10px;}
+  .title{font-size:44px;line-height:1.12;font-weight:700;margin:0;color:var(--cream);}
+
+  /* Body (cream) */
+  .body{flex:1;padding:30px 48px 0;display:flex;flex-direction:column;}
+  .lede{font-size:28px;line-height:1.3;margin:0 0 18px;}
+
+  .callout{
+    background:var(--seafoam);color:var(--ink);
+    border-left:8px solid var(--teal);border-radius:8px;
+    padding:18px 22px;font-size:28px;line-height:1.3;max-width:760px;
+  }
+  .callout b{font-weight:700;}
+
+  .divider{height:0;border-top:3px solid var(--teal);width:120px;margin:24px 0 18px;}
+  .close{font-size:28px;line-height:1.3;margin:0;}
+  .close .accent{color:var(--teal);font-weight:700;}
+
+  /* Footer */
+  .foot{padding:0 48px 26px;display:flex;align-items:center;gap:12px;
+    font-size:24px;color:var(--footer);margin-top:auto;}
+  .foot .mark{width:30px;height:30px;flex:0 0 auto;}
+
+  /* teacher-facing helper, lives in the letterbox — never projected/printed */
+  .helper{position:fixed;left:0;right:0;bottom:14px;text-align:center;
+    color:#7f93a0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    font-size:13px;letter-spacing:.02em;}
+  .helper kbd{background:#1c2a35;border:1px solid #2c3e4b;border-radius:5px;
+    padding:1px 7px;color:#cfdce2;font-size:12px;}
+  :fullscreen .helper{display:none;}
+
+  @media print{
+    html,body{background:#fff;}
+    .room{position:static;}
+    .stage{box-shadow:none;transform:none!important;}
+    .helper{display:none;}
+    @page{size:landscape;margin:0;}
+  }
+</style>
+</head>
+<body>
+  <div class="room">
+    <section class="stage" id="stage" role="img"
+      aria-label="Monday opening slide: We turned in 14 assignments last week — the most all quarter. Today's one move: open the doc you're closest to finishing and write one sentence.">
+      <div class="band">
+        <div class="kicker">Monday · Week 6</div>
+        <h1 class="title">We turned in 14 assignments last week.</h1>
+      </div>
+      <div class="body">
+        <p class="lede">That’s the most all quarter.</p>
+        <div class="callout">
+          Today’s one move: open the doc you’re closest to finishing and write <b>one sentence</b>.
+        </div>
+        <div class="divider"></div>
+        <p class="close">That’s all it takes to <span class="accent">keep it going</span>.</p>
+      </div>
+      <div class="foot">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="28" height="22" rx="7" fill="#a8dadc"/>
+            <path d="M9 16 L12 16 L14 11 L17 21 L19 16 L22 16" fill="none" stroke="#1a2332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 24 L15 24 L11.5 29 Z" fill="#a8dadc"/>
+          </svg>
+        </span>
+        from your class AI · [your class] · Monday
+      </div>
+    </section>
+  </div>
+
+  <div class="helper">
+    Press <kbd>F</kbd> to project full-screen · <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>P</kbd> to save a 16:9 PDF
+  </div>
+
+  <script>
+    // Scale the 960×540 stage to fill the window (letterboxed), keeping pt-accurate sizes.
+    const stage = document.getElementById('stage');
+    function fit(){
+      const s = Math.min(window.innerWidth / 960, window.innerHeight / 540);
+      stage.style.transform = 'scale(' + s + ')';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+    // F = full-screen projection
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'f' || e.key === 'F') {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+        else document.exitFullscreen?.();
+      }
+    });
+  </script>
+</body>
+</html>

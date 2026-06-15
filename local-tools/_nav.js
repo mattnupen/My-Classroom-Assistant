@@ -32,6 +32,8 @@ const ICONS = {
   mail:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>',
   users:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/></svg>',
   idcard:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M6.5 16a3 3 0 0 1 5 0"/><line x1="14" y1="10" x2="18" y2="10"/><line x1="14" y1="14" x2="18" y2="14"/></svg>',
+  book:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  build:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a3.8 3.8 0 0 0-5 5L3 18l3 3 6.6-6.6a3.8 3.8 0 0 0 5-5l-2.6 2.6-2.4-2.4z"/></svg>',
   gear:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'
 };
 
@@ -44,9 +46,52 @@ const DEFAULT_APPS = [
   { id: 'parent-messages',     label: 'Parent Messages',     file: 'parent-messages.html',   description: 'Draft parent-facing messages',                   icon: 'mail' },
   { id: 'gradebook-analytics', label: 'Gradebook Analytics', file: 'gradebook-analytics.html', description: 'Upload a gradebook CSV for per-student stats', icon: 'chart' },
   { id: 'class-pulse',         label: 'Class Pulse',         file: 'class-pulse.html',       description: 'Quick read on how the class is doing',           icon: 'pulse' },
+  { id: 'student-voice',       label: 'Feedback Cleaner',    file: 'student-voice.html',     description: 'Strip names and emails from responses',          icon: 'megaphone' },
   { id: 'badges',              label: 'Badges',              file: 'badges.html',            description: 'Generate printable student recognition badges',  icon: 'award' },
-  { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',     description: 'Shuffle the class into small groups',            icon: 'users' }
+  { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',     description: 'Shuffle the class into small groups',            icon: 'users' },
+  { id: 'app-studio',          label: 'App Studio',          file: 'app-studio.html',        description: 'Ideas your AI can build for you',                icon: 'build' },
+  { id: 'demo-semester',       label: 'Demo Semester',       file: 'demo-semester.html',     description: 'A fictional class, start to finish',             icon: 'book' }
 ];
+
+// ---- Demo class ------------------------------------------------------
+// CLASSAI_DEMO is the FICTIONAL sandbox class — the same invented students
+// as sandbox/fictional-gradebook.csv — embedded here so any tool can offer
+// a one-click "Try the demo class" button. (file:// blocks fetch(), so the
+// data must live inline.) These are made-up names for made-up students.
+// Real student data must NEVER be embedded in this file — fictional demo
+// data only.
+const CLASSAI_DEMO = {
+  fileName: 'fictional-gradebook.csv',
+  csv: `Student,Period,Vocab Quiz 1 (10),Reading Response Ch 1-3 (15),Character Map (20),Vocab Quiz 2 (10),Theme Essay Outline (25),Reading Response Ch 4-6 (15),Theme Essay Draft (50),Peer Review (10)
+Ali Ahmadi,P1,9,14,18,8,22,13,45,9
+Brooke Carlson,P1,10,15,20,10,25,15,48,10
+Carlos Diaz,P1,7,Missing,15,6,18,Missing,Missing,Missing
+Devon Edwards,P1,8,12,Missing,9,20,11,42,8
+Eliana Fischer,P1,Missing,Missing,Missing,Missing,Missing,Missing,Missing,Missing
+Farrah Gomez,P1,10,15,19,9,24,14,47,10
+Gavin Huang,P1,6,11,14,Missing,Missing,12,38,Missing
+Hana Ibrahim,P1,9,13,17,8,21,Missing,Missing,9
+Isaac Johnson,P1,Missing,10,Missing,Missing,15,Missing,30,Missing
+Jada Kim,P1,10,14,20,10,23,15,49,10
+Kai Lawson,P1,5,Missing,12,7,Missing,Missing,Missing,8
+Lila Martinez,P1,8,13,16,9,22,13,44,9
+Mateo Nguyen,P3,9,14,18,9,23,14,46,10
+Nora Okafor,P3,Missing,Missing,Missing,Missing,Missing,Missing,Missing,Missing
+Owen Park,P3,7,12,Missing,8,Missing,11,40,Missing
+Priya Quinn,P3,10,15,20,10,25,15,50,10
+Quinn Rivera,P3,6,Missing,13,Missing,17,12,Missing,8
+Ravi Singh,P3,9,14,17,9,22,14,45,9
+Sofia Torres,P3,8,13,15,8,20,Missing,38,Missing
+Tariq Underwood,P3,Missing,11,Missing,7,Missing,Missing,32,Missing
+Uma Valdez,P3,10,15,19,10,24,15,48,10
+Vincent Walker,P3,7,12,14,Missing,Missing,12,Missing,Missing
+Wren Xu,P3,9,13,18,9,23,14,46,9
+Yasmin Zhao,P3,Missing,Missing,16,8,21,13,42,Missing
+`,
+  makeFile() {
+    return new File([this.csv], this.fileName, { type: 'text/csv' });
+  }
+};
 
 const STORAGE_KEY = 'classai-nav-v2';
 
@@ -69,6 +114,12 @@ function loadState() {
     const enabled = s.enabled.filter(isValidApp);
     const disabled = s.disabled.filter(isValidApp);
     if (enabled.length === 0 && disabled.length === 0) return defaultState();
+    // Apps added to DEFAULT_APPS after the user saved their settings
+    // would otherwise never appear. Merge any unknown defaults in.
+    const known = new Set(enabled.concat(disabled).map(a => a.id));
+    for (const app of DEFAULT_APPS) {
+      if (!known.has(app.id)) enabled.push(deepCopy(app));
+    }
     return { enabled, disabled };
   } catch {
     return defaultState();
@@ -91,14 +142,59 @@ let state = loadState();
 
   const style = document.createElement('style');
   style.textContent = `
+    /* Shared "Load demo class" button (used by the tool pages) */
+    .demo-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 7px 14px;
+      border: 1px solid #1f6b6b;
+      border-radius: 6px;
+      background: #e3f1ef;
+      color: #1f6b6b;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .demo-btn:hover { background: #1f6b6b; color: #f1faee; }
+    @media print { .demo-btn { display: none; } }
+
+    /* ---- Shared app-page hero: one consistent header for every tool page.
+       App name is the <h1> (large); the one-line description is the <h2> below it. ---- */
+    .app-hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #1a2332, #143a45);
+      color: #f1faee; border-radius: 18px; padding: 24px 26px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+      box-shadow: 0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.08);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .app-hero .app-hero-ico {
+      flex: 0 0 auto; width: 54px; height: 54px; border-radius: 13px;
+      background: rgba(168,218,220,.16); color: #a8dadc;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .app-hero .app-hero-ico svg { width: 30px; height: 30px; }
+    .app-hero .app-hero-text { flex: 1 1 320px; min-width: 0; }
+    .app-hero h1 { margin: 0; font-size: 27px; font-weight: 700; line-height: 1.2; color: #f1faee; }
+    .app-hero h2 { margin: 5px 0 0; font-size: 16px; font-weight: 500; line-height: 1.4; color: rgba(241,250,238,.82); }
+    .app-hero .app-hero-action { flex: 0 0 auto; }
+    .app-hero .app-hero-btn {
+      border: 1px solid #f1faee; background: #f1faee; color: #1a2332;
+      border-radius: 999px; padding: 10px 16px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+    .app-hero .app-hero-btn:hover { background: #a8dadc; border-color: #a8dadc; }
+    @media print { .app-hero { display: none; } }
+
     /* Sidebar */
     .universal-nav {
       position: fixed;
       top: 0; left: 0; bottom: 0;
       width: 220px;
       box-sizing: border-box;
-      background: #1f2937;
-      color: #e5e7eb;
+      background: #1a2332;
+      color: #c9d6d4;
       padding: 20px 14px;
       display: flex;
       flex-direction: column;
@@ -106,15 +202,15 @@ let state = loadState();
       overflow-y: auto;
       z-index: 100;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.5;
     }
     .universal-nav .un-brand {
-      color: white;
+      color: #f1faee;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 17px;
       padding: 6px 10px 14px;
-      border-bottom: 1px solid #374151;
+      border-bottom: 1px solid #2a3a48;
       margin-bottom: 10px;
       text-decoration: none;
       display: block;
@@ -125,12 +221,12 @@ let state = loadState();
       gap: 10px;
       padding: 8px 10px;
       border-radius: 6px;
-      color: #e5e7eb;
+      color: #c9d6d4;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 15px;
     }
-    .universal-nav .un-item:hover { background: #374151; }
-    .universal-nav .un-item.active { background: #4f46e5; color: white; }
+    .universal-nav .un-item:hover { background: #243140; color: #f1faee; }
+    .universal-nav .un-item.active { background: #1f6b6b; color: #f1faee; }
     .universal-nav .un-icon {
       flex-shrink: 0;
       width: 18px;
@@ -146,8 +242,8 @@ let state = loadState();
     .universal-nav .un-label { display: block; line-height: 1.3; }
     .universal-nav .un-desc {
       display: block;
-      font-size: 11px;
-      color: #9ca3af;
+      font-size: 13px;
+      color: #8aa0a0;
       margin-top: 2px;
     }
     .universal-nav .un-spacer { flex: 1; min-height: 16px; }
@@ -157,14 +253,14 @@ let state = loadState();
       gap: 10px;
       padding: 10px;
       border-radius: 6px;
-      color: #9ca3af;
+      color: #8aa0a0;
       background: none;
       border: none;
-      font-size: 13px;
+      font-size: 15px;
       cursor: pointer;
       font-family: inherit;
       text-align: left;
-      border-top: 1px solid #374151;
+      border-top: 1px solid #2a3a48;
       margin-top: 8px;
       padding-top: 12px;
       width: 100%;
@@ -173,49 +269,68 @@ let state = loadState();
     .universal-nav .un-settings .un-icon { opacity: 0.7; }
     body { margin-left: 220px; }
 
-    @media (max-width: 1023px) {
-      .universal-nav { width: 64px; padding: 16px 6px; align-items: center; }
-      .universal-nav .un-brand { font-size: 11px; text-align: center; padding: 4px 0 12px; width: 100%; }
-      .universal-nav .un-item { justify-content: center; padding: 10px 6px; gap: 0; }
-      .universal-nav .un-icon { width: 22px; height: 22px; margin-top: 0; }
-      .universal-nav .un-text { display: none; }
-      .universal-nav .un-settings { justify-content: center; padding: 10px 6px; }
-      body { margin-left: 64px; }
-    }
+    /* Topbar + drawer overlay are hidden until mobile. The full-text sidebar
+       stays put at every width down to the mobile breakpoint. */
+    .un-topbar { display: none; }
+    .un-overlay-nav { display: none; }
+    .universal-nav .un-close { display: none; }
 
-    @media (max-width: 639px) {
+    /* Mobile: the full sidebar becomes an off-canvas drawer behind a hamburger. */
+    @media (max-width: 768px) {
       .universal-nav {
-        position: static; width: 100%; height: auto; flex-direction: row;
-        gap: 6px; padding: 10px 12px; overflow-x: auto; overflow-y: hidden; align-items: center;
+        width: 244px;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        box-shadow: 2px 0 18px rgba(0, 0, 0, 0.28);
+        z-index: 1200;
       }
-      .universal-nav .un-brand {
-        flex-shrink: 0; border-bottom: none; border-right: 1px solid #374151;
-        padding: 4px 12px 4px 0; margin-bottom: 0; margin-right: 4px; width: auto;
+      .universal-nav.un-open { transform: translateX(0); }
+      .universal-nav .un-close {
+        display: inline-flex; align-items: center; justify-content: center;
+        position: absolute; top: 12px; right: 10px; width: 36px; height: 36px;
+        background: none; border: none; color: #c9d6d4; cursor: pointer; border-radius: 6px;
       }
-      .universal-nav .un-item { flex-shrink: 0; padding: 6px 10px; gap: 6px; justify-content: flex-start; }
-      .universal-nav .un-icon { width: 16px; height: 16px; }
-      .universal-nav .un-text { display: block; }
-      .universal-nav .un-label { white-space: nowrap; font-size: 12px; }
-      .universal-nav .un-desc { display: none; }
-      .universal-nav .un-spacer { display: none; }
-      .universal-nav .un-settings {
-        flex-shrink: 0; border-top: none; border-left: 1px solid #374151;
-        margin-top: 0; margin-left: auto; padding: 6px 10px; width: auto; gap: 6px;
+      .universal-nav .un-close:hover { background: #243140; color: #f1faee; }
+      .universal-nav .un-close svg { width: 22px; height: 22px; }
+      body { margin-left: 0; padding-top: 52px; }
+
+      .un-topbar {
+        display: flex; align-items: center; gap: 10px;
+        position: fixed; top: 0; left: 0; right: 0; height: 52px;
+        box-sizing: border-box; padding: 0 12px;
+        background: #1a2332; color: #f1faee;
+        border-bottom: 1px solid #2a3a48; z-index: 1100;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       }
-      body { margin-left: 0; }
+      .un-hamburger {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: none; border: none; cursor: pointer; color: #f1faee;
+        padding: 6px; border-radius: 6px;
+      }
+      .un-hamburger:hover { background: #243140; }
+      .un-hamburger svg { width: 26px; height: 26px; }
+      .un-topbar-brand { color: #f1faee; font-weight: 600; font-size: 18px; text-decoration: none; }
+
+      .un-overlay-nav {
+        display: block; position: fixed; inset: 0; z-index: 1150;
+        background: rgba(13, 27, 42, 0.5);
+        opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+      }
+      .un-overlay-nav.un-show { opacity: 1; pointer-events: auto; }
     }
 
     @media print {
       .universal-nav { display: none; }
+      .un-topbar, .un-overlay-nav { display: none !important; }
       .un-modal-overlay { display: none !important; }
-      body { margin-left: 0 !important; }
+      body { margin-left: 0 !important; padding-top: 0 !important; }
     }
 
     /* Settings modal */
     .un-modal-overlay {
       position: fixed; inset: 0;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
+      z-index: 1300;
       display: flex; align-items: center; justify-content: center;
       padding: 20px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -232,9 +347,9 @@ let state = loadState();
       border-bottom: 1px solid #e7e5e4;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .un-modal-header h2 { margin: 0; font-size: 18px; font-weight: 600; }
+    .un-modal-header h2 { margin: 0; font-size: 20px; font-weight: 600; }
     .un-modal-close {
-      background: none; border: none; font-size: 22px; cursor: pointer;
+      background: none; border: none; font-size: 24px; cursor: pointer;
       color: #6b7280; width: 32px; height: 32px; border-radius: 6px; line-height: 1;
     }
     .un-modal-close:hover { background: #f3f4f6; color: #18181b; }
@@ -243,19 +358,19 @@ let state = loadState();
       padding: 14px 20px; border-top: 1px solid #e7e5e4;
       display: flex; justify-content: space-between; align-items: center; gap: 10px;
     }
-    .un-modal-footer .un-save-status { font-size: 11px; color: #6b7280; }
+    .un-modal-footer .un-save-status { font-size: 13px; color: #6b7280; }
     .un-modal-footer .un-save-status.error { color: #b91c1c; }
     .un-modal-footer-actions { display: flex; gap: 10px; }
     .un-modal .un-btn {
-      padding: 8px 14px; border-radius: 6px; font-size: 13px;
+      padding: 8px 14px; border-radius: 6px; font-size: 15px;
       cursor: pointer; font-family: inherit; border: 1px solid transparent;
     }
-    .un-modal .un-btn-primary { background: #4f46e5; color: white; border-color: #4f46e5; }
-    .un-modal .un-btn-primary:hover { background: #4338ca; border-color: #4338ca; }
+    .un-modal .un-btn-primary { background: #1f6b6b; color: #f1faee; border-color: #1f6b6b; }
+    .un-modal .un-btn-primary:hover { background: #18585a; border-color: #18585a; }
     .un-modal .un-btn-secondary { background: white; color: #18181b; border-color: #d4d4d8; }
     .un-modal .un-btn-secondary:hover { background: #f3f4f6; }
     .un-modal h3.un-section-title {
-      font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+      font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;
       color: #6b7280; margin: 18px 0 8px; font-weight: 600;
     }
     .un-modal h3.un-section-title:first-child { margin-top: 0; }
@@ -278,33 +393,33 @@ let state = loadState();
     .un-edit-row.dragging { opacity: 0.4; }
     .un-edit-row[data-drop-pos="before"]::before {
       content: ''; position: absolute; left: 0; right: 0; top: -3px;
-      height: 3px; background: #4f46e5; border-radius: 2px; pointer-events: none;
+      height: 3px; background: #1f6b6b; border-radius: 2px; pointer-events: none;
     }
     .un-edit-row[data-drop-pos="after"]::after {
       content: ''; position: absolute; left: 0; right: 0; bottom: -3px;
-      height: 3px; background: #4f46e5; border-radius: 2px; pointer-events: none;
+      height: 3px; background: #1f6b6b; border-radius: 2px; pointer-events: none;
     }
     .un-drag-handle {
       flex-shrink: 0;
       width: 14px; text-align: center;
       color: #9ca3af;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1;
       letter-spacing: -2px;
     }
     .un-edit-icon { width: 20px; height: 20px; color: #6b7280; flex-shrink: 0; }
     .un-edit-icon svg { width: 100%; height: 100%; }
     .un-edit-name { flex: 1; min-width: 0; }
-    .un-edit-name strong { display: block; font-size: 13px; }
+    .un-edit-name strong { display: block; font-size: 15px; }
     .un-edit-name span {
-      display: block; font-size: 11px; color: #6b7280;
+      display: block; font-size: 13px; color: #6b7280;
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
     .un-edit-controls { display: flex; gap: 4px; flex-shrink: 0; }
     .un-edit-controls button {
       background: white; border: 1px solid #d4d4d8;
       height: 28px; padding: 0 8px; border-radius: 5px;
-      cursor: pointer; font-size: 13px; color: #6b7280;
+      cursor: pointer; font-size: 15px; color: #6b7280;
       font-family: inherit; line-height: 1;
     }
     .un-edit-controls button:hover { background: #f3f4f6; color: #18181b; }
@@ -312,7 +427,7 @@ let state = loadState();
       background: #fef2f2; color: #991b1b; border-color: #fecaca;
     }
     .un-edit-controls .un-add-back:hover {
-      background: #eef2ff; color: #4338ca; border-color: #c7d2fe;
+      background: #e3f1ef; color: #18585a; border-color: #b9d8d2;
     }
 
     /* Additional Apps empty state */
@@ -322,7 +437,7 @@ let state = loadState();
       border-radius: 6px;
       text-align: center;
       color: #9ca3af;
-      font-size: 12px;
+      font-size: 14px;
       font-style: italic;
     }
 
@@ -337,7 +452,7 @@ let state = loadState();
     .un-add-form label {
       display: block;
       margin-bottom: 10px;
-      font-size: 12px;
+      font-size: 14px;
       color: #18181b;
       font-weight: 500;
     }
@@ -347,7 +462,7 @@ let state = loadState();
       padding: 6px 8px;
       border: 1px solid #d4d4d8;
       border-radius: 4px;
-      font-size: 13px;
+      font-size: 15px;
       margin-top: 4px;
       font-family: inherit;
       box-sizing: border-box;
@@ -357,14 +472,14 @@ let state = loadState();
 
     /* Code preview block */
     .un-modal-help {
-      font-size: 12px; color: #6b7280; margin: 0 0 8px;
+      font-size: 14px; color: #6b7280; margin: 0 0 8px;
     }
     .un-modal-help code {
-      background: #f3f4f6; padding: 1px 4px; border-radius: 3px; font-size: 11px;
+      background: #f3f4f6; padding: 1px 4px; border-radius: 3px; font-size: 13px;
     }
     .un-code-preview {
       width: 100%; box-sizing: border-box; height: 160px;
-      font-family: "SF Mono", Menlo, monospace; font-size: 11px;
+      font-family: "SF Mono", Menlo, monospace; font-size: 13px;
       border: 1px solid #d4d4d8; border-radius: 6px;
       padding: 10px; background: #fafaf9;
       resize: vertical; white-space: pre; overflow: auto;
@@ -372,7 +487,7 @@ let state = loadState();
     .un-copy-row {
       display: flex; justify-content: space-between; align-items: center; margin-top: 6px;
     }
-    .un-copy-msg { font-size: 11px; color: #10b981; opacity: 0; transition: opacity 0.2s; }
+    .un-copy-msg { font-size: 13px; color: #1f6b6b; opacity: 0; transition: opacity 0.2s; }
     .un-copy-msg.visible { opacity: 1; }
   `;
   document.head.appendChild(style);
@@ -388,6 +503,14 @@ let state = loadState();
     brand.href = './ClassAI-dashboard.html';
     brand.textContent = 'ClassAI';
     aside.appendChild(brand);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'un-close';
+    closeBtn.type = 'button';
+    closeBtn.setAttribute('aria-label', 'Close menu');
+    closeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>';
+    closeBtn.addEventListener('click', closeDrawer);
+    aside.appendChild(closeBtn);
 
     for (const app of state.enabled) {
       const a = document.createElement('a');
@@ -407,12 +530,9 @@ let state = loadState();
       label.className = 'un-label';
       label.textContent = app.label;
       text.appendChild(label);
-      if (app.description) {
-        const desc = document.createElement('span');
-        desc.className = 'un-desc';
-        desc.textContent = app.description;
-        text.appendChild(desc);
-      }
+      // Sidebar shows titles only (keeps each row to one line, no scrolling).
+      // The description still rides along as the hover tooltip (a.title), and
+      // each app page shows its own subtitle in its header.
       a.appendChild(text);
       aside.appendChild(a);
     }
@@ -441,6 +561,7 @@ let state = loadState();
   }
 
   function openSettings() {
+    closeDrawer();
     // Working copy — mutations apply on every action and auto-save.
     let working = { enabled: deepCopy(state.enabled), disabled: deepCopy(state.disabled) };
 
@@ -766,9 +887,48 @@ let state = loadState();
     renderBoth();
   }
 
+  let overlayNav = null;
+  function closeDrawer() {
+    aside.classList.remove('un-open');
+    if (overlayNav) overlayNav.classList.remove('un-show');
+  }
+  function openDrawer() {
+    aside.classList.add('un-open');
+    if (overlayNav) overlayNav.classList.add('un-show');
+  }
+
   function mount() {
     renderSidebar();
     document.body.insertBefore(aside, document.body.firstChild);
+
+    // Mobile top bar with a hamburger (hidden on desktop via CSS).
+    const topbar = document.createElement('div');
+    topbar.className = 'un-topbar';
+    const burger = document.createElement('button');
+    burger.className = 'un-hamburger';
+    burger.type = 'button';
+    burger.setAttribute('aria-label', 'Open menu');
+    burger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>';
+    const tbBrand = document.createElement('a');
+    tbBrand.className = 'un-topbar-brand';
+    tbBrand.href = './ClassAI-dashboard.html';
+    tbBrand.textContent = 'ClassAI';
+    topbar.appendChild(burger);
+    topbar.appendChild(tbBrand);
+    document.body.insertBefore(topbar, document.body.firstChild);
+
+    overlayNav = document.createElement('div');
+    overlayNav.className = 'un-overlay-nav';
+    document.body.appendChild(overlayNav);
+
+    burger.addEventListener('click', () => {
+      if (aside.classList.contains('un-open')) closeDrawer(); else openDrawer();
+    });
+    overlayNav.addEventListener('click', closeDrawer);
+    // Tapping a destination (or the brand) closes the drawer.
+    aside.addEventListener('click', (e) => {
+      if (e.target.closest('.un-item') || e.target.closest('.un-brand')) closeDrawer();
+    });
   }
 
   if (document.body) {

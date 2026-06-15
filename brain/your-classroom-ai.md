@@ -16,6 +16,8 @@ This is the most important question in the file. Before you fill in any other se
 
 > **Your AI will ask you this question the first time you open Cowork in this folder.** Don't worry about deciding before then — the AI will walk you through it.
 
+> **Don't want to start from a blank file?** Ask your AI for the starter personas and mission ideas in `brain/persona-packs.md` — pick one and tweak it, or use them as the ballot for a student vote.
+
 If you chose Option A, leave most of this file blank for now and come back after your student session.
 If you chose Option B, keep going.
 

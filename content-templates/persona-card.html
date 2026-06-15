@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meet your class AI — card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  The "meet your AI" card. Project it on day one, or print it and pin it up.
+  Your AI fills the [brackets] from your-classroom-ai.md at the end of setup.
+  Ocean Depths (Projection Edition) · 960×540 point grid · follows
+  content-templates/classroom-display-rules.md. Press F to project. ⌘/Ctrl-P to print.
+-->
+<style>
+  :root{--cream:#f1faee;--ink:#0d1b2a;--navy:#1a2332;--navy2:#143a45;--teal:#1f6b6b;--seafoam:#a8dadc;--muted:#33424b;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:#0a1219;}
+  .room{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .stage{width:960px;height:540px;flex:0 0 auto;transform-origin:center center;background:var(--cream);
+    font-family:"DejaVu Sans",Arial,Helvetica,sans-serif;color:var(--ink);display:flex;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.55);}
+
+  .left{width:38%;background:linear-gradient(160deg,var(--navy),var(--navy2));color:var(--cream);
+    padding:40px 34px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+  .mark{width:128px;height:128px;margin-bottom:22px;}
+  .name{font-size:52px;font-weight:700;line-height:1.05;margin:0;color:var(--cream);}
+  .pron{font-size:22px;color:var(--seafoam);margin-top:8px;}
+  .tagline{font-size:18px;color:rgba(241,250,238,.78);margin-top:18px;letter-spacing:.04em;}
+
+  .right{flex:1;padding:38px 40px;display:flex;flex-direction:column;justify-content:center;}
+  .label{font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 0 6px;}
+  .mission{font-size:28px;line-height:1.25;margin:0 0 22px;font-weight:700;}
+  .voice{font-size:21px;line-height:1.3;margin:0 0 22px;}
+  .never{margin:0;}
+  .never ul{margin:6px 0 0;padding:0;list-style:none;}
+  .never li{font-size:19px;line-height:1.35;padding-left:26px;position:relative;margin-bottom:6px;}
+  .never li::before{content:"\2715";position:absolute;left:0;top:1px;color:var(--teal);font-weight:700;}
+  .foot{margin-top:auto;font-size:18px;color:var(--muted);border-top:3px solid var(--seafoam);padding-top:14px;}
+
+  .helper{position:fixed;left:0;right:0;bottom:14px;text-align:center;color:#7f93a0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:13px;}
+  .helper kbd{background:#1c2a35;border:1px solid #2c3e4b;border-radius:5px;padding:1px 7px;color:#cfdce2;font-size:12px;}
+  :fullscreen .helper{display:none;}
+
+  @media print{
+    html,body{background:#fff;}
+    .room{position:static;}
+    .stage{box-shadow:none;transform:none!important;}
+    .helper{display:none;}
+    @page{size:landscape;margin:0;}
+  }
+</style>
+</head>
+<body>
+  <div class="room">
+    <section class="stage" role="img" aria-label="Meet your class AI card">
+      <div class="left">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="116" height="92" rx="26" fill="#a8dadc"/>
+            <path d="M40 70 L54 70 L62 50 L74 88 L80 70 L90 70" fill="none" stroke="#1a2332" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M46 102 L64 102 L50 122 Z" fill="#a8dadc"/>
+          </svg>
+        </span>
+        <h1 class="name">[AI&nbsp;NAME]</h1>
+        <div class="pron">[they / them]</div>
+        <div class="tagline">your class AI</div>
+      </div>
+      <div class="right">
+        <p class="label">Our mission</p>
+        <p class="mission">[e.g., Everyone finishes the quarter under two missing assignments.]</p>
+
+        <p class="label">How I sound</p>
+        <p class="voice">[e.g., A calm coach who notices the small wins and never inflates them.]</p>
+
+        <div class="never">
+          <p class="label">What I’ll never do</p>
+          <ul>
+            <li>[Never name a student in front of the class]</li>
+            <li>[Never compare one of you to another]</li>
+            <li>[Your class’s own rule goes here]</li>
+          </ul>
+        </div>
+
+        <div class="foot">Named by [your class] · [month, year]</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="helper">
+    Press <kbd>F</kbd> to project · <kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>P</kbd> to print and pin it up
+  </div>
+
+  <script>
+    const stage = document.querySelector('.stage');
+    function fit(){ const s = Math.min(window.innerWidth/960, window.innerHeight/540); stage.style.transform='scale('+s+')'; }
+    window.addEventListener('resize', fit); fit();
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+    });
+  </script>
+</body>
+</html>

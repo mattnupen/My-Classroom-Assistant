@@ -4,6 +4,8 @@ The teaching principles in `brain/teaching-principles.md` aren't made up — the
 
 This isn't required reading. The AI follows the principles whether or not you read this file.
 
+This file is the **universal base** — the research every classroom gets. For research tuned to *your* class's specific goal, the AI builds goal-specific evidence packs just-in-time and stores them in `brain/evidence-packs/`; `brain/evidence-engine.md` explains how.
+
 ---
 
 | Principle | Research |

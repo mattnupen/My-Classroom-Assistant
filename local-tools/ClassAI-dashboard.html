@@ -5,209 +5,273 @@
 <title>ClassAI Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+  /* ---- Ocean Depths (the project's own theme, applied to its home base) ---- */
   :root {
-    --bg: #fafaf9;
-    --card-bg: #ffffff;
-    --line: #e7e5e4;
-    --ink: #18181b;
-    --muted: #6b7280;
-    --accent: #4f46e5;
-    --tone-good: #10b981;
-    --tone-warning: #f59e0b;
-    --radius: 10px;
-    --space: 16px;
+    --cream:      #f1faee;  /* brand background */
+    --ink:        #0d1b2a;  /* primary text */
+    --navy:       #1a2332;  /* title bands, hero */
+    --navy-2:     #143a45;  /* hero gradient end (navy → teal-navy) */
+    --teal:       #1f6b6b;  /* text-safe accent: links, progress, key terms */
+    --teal-soft:  #2d8b8b;  /* decoration only */
+    --seafoam:    #a8dadc;  /* fills behind ink text */
+    --seafoam-pale:#e3f1ef; /* pale fill / chips */
+    --gold:       #b9822b;  /* warning tone (decorative) */
+
+    --bg:         #eef4f1;  /* app canvas (a hair cooler than cream for depth) */
+    --card-bg:    #ffffff;
+    --line:       #d8e6e1;
+    --muted:      #51646d;  /* 4.7:1 on white — AA */
+    --radius:     14px;
+    --radius-sm:  9px;
+    --shadow:     0 1px 2px rgba(13,27,42,.04), 0 6px 18px rgba(13,27,42,.06);
+    --shadow-lift:0 4px 10px rgba(13,27,42,.07), 0 14px 34px rgba(13,27,42,.10);
+    --space:      16px;
   }
 
   * { box-sizing: border-box; }
   html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     background: var(--bg);
     color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* Main area (sidebar comes from _nav.js, which sets body { margin-left: 220px }) */
-  .main { padding: 28px 32px; }
-  .header { margin-bottom: 24px; }
-  .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
-  .header .subtitle { color: var(--muted); margin-top: 4px; font-size: 13px; }
+  .main { padding: 26px 30px 48px; max-width: 1180px; }
 
   /* Error banner */
   .error-banner {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    color: #991b1b;
-    padding: 10px 14px;
-    border-radius: 6px;
-    margin-bottom: 18px;
-    font-size: 13px;
+    background: #fbeaea; border: 1px solid #f0c4c4; color: #8a2b2b;
+    padding: 10px 14px; border-radius: var(--radius-sm);
+    margin-bottom: 18px; font-size: 15px;
   }
   .error-banner:empty { display: none; }
 
-  /* Bento grid */
+  /* ---- Hero band ---- */
+  .hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--cream);
+    border-radius: 18px;
+    padding: 26px 28px;
+    margin-bottom: 22px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    box-shadow: var(--shadow);
+  }
+  /* faint decorative wave for depth */
+  .hero::after {
+    content: ""; position: absolute; right: -40px; bottom: -70px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(168,218,220,.16), rgba(168,218,220,0) 68%);
+    pointer-events: none;
+  }
+  .hero-mark { flex-shrink: 0; width: 58px; height: 58px; position: relative; z-index: 1; }
+  .hero-text { flex: 1 1 320px; min-width: 0; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--seafoam); font-weight: 700; margin-bottom: 6px;
+  }
+  .hero h1 { margin: 0; font-size: 27px; font-weight: 700; line-height: 1.2; color: var(--cream); }
+  .hero .hero-sub { margin-top: 7px; font-size: 16px; color: rgba(241,250,238,.82); max-width: 62ch; }
+  .hero-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; position: relative; z-index: 1; }
+  .hero-hint { font-size: 14px; color: rgba(241,250,238,.7); text-align: right; max-width: 22ch; }
+
+  /* hero demo button (overrides the _nav.js .demo-btn just on the hero) */
+  .hero .demo-btn {
+    margin: 0; padding: 10px 18px; border-radius: 999px;
+    background: var(--cream); color: var(--navy); border: 1px solid var(--cream);
+    font-size: 15.5px; font-weight: 700; cursor: pointer; font-family: inherit;
+    box-shadow: 0 2px 10px rgba(0,0,0,.16); transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .hero .demo-btn:hover { background: var(--seafoam); border-color: var(--seafoam); color: var(--navy); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.22); }
+  .hero .demo-btn.is-on { background: transparent; color: var(--cream); border-color: rgba(241,250,238,.5); box-shadow: none; }
+  .hero .demo-btn.is-on:hover { background: rgba(241,250,238,.12); }
+
+  /* tier snapshot chips (rendered in demo hero when present) */
+  .hero-chips { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(241,250,238,.10); border: 1px solid rgba(241,250,238,.18);
+    color: var(--cream); border-radius: 999px; padding: 5px 12px; font-size: 14.5px; font-weight: 600;
+  }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .chip .dot.s-strong { background: #7fd4c4; }
+  .chip .dot.s-steady { background: var(--seafoam); }
+  .chip .dot.s-strug  { background: #f0a868; }
+
+  /* ---- Bento grid ---- */
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(120px, auto);
+    grid-auto-rows: minmax(122px, auto);
     grid-auto-flow: dense;
     gap: var(--space);
   }
   .grid .empty-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--muted);
-    padding: 60px 20px;
-    border: 1px dashed var(--line);
-    border-radius: var(--radius);
-    background: white;
+    grid-column: 1 / -1; text-align: center; color: var(--muted);
+    padding: 60px 20px; border: 1px dashed var(--line);
+    border-radius: var(--radius); background: var(--card-bg);
   }
 
-  /* Cards */
+  /* ---- Cards ---- */
   .card {
     background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    overflow: hidden;
+    padding: 17px 19px;
+    display: flex; flex-direction: column; min-height: 0; overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
   }
-  .card h3 {
-    margin: 0 0 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); border-color: #c5dcd5; }
+
+  .card .card-head { display: flex; align-items: center; gap: 9px; margin-bottom: 11px; }
+  .card .card-ico {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--seafoam-pale); color: var(--teal);
   }
-  .card .body {
-    color: var(--ink);
-    font-size: 13px;
-    flex: 1;
-    min-height: 0;
-  }
+  .card .card-ico svg { width: 17px; height: 17px; }
+  .card h3 { margin: 0; font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .card .body { color: var(--ink); font-size: 15px; flex: 1; min-height: 0; }
+
+  /* accent rail by tone */
+  .card.tone-good   .card-ico { background: var(--seafoam-pale); color: var(--teal); }
+  .card.tone-warning .card-ico { background: #f6ecd8; color: var(--gold); }
+
   .card.size-large   { grid-column: span 2; grid-row: span 2; }
   .card.size-medium  { grid-column: span 2; grid-row: span 1; }
   .card.size-small   { grid-column: span 1; grid-row: span 1; }
+  .card.size-large h3 { font-size: 17px; }
+
+  /* progress */
   .card .progress-track {
-    height: 6px;
-    background: var(--line);
-    border-radius: 3px;
-    margin-top: 12px;
-    overflow: hidden;
+    height: 8px; background: #e9f1ee; border-radius: 999px;
+    margin-top: 13px; overflow: hidden;
   }
-  .card .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-  .card.tone-good .progress-fill    { background: var(--tone-good); }
-  .card.tone-warning .progress-fill { background: var(--tone-warning); }
-  .card ul.dates, .card ul.checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .card .progress-fill { height: 100%; width: 0; background: var(--teal); border-radius: 999px; }
+  .card .progress-pct { font-size: 14px; color: var(--muted); margin-top: 7px; font-weight: 600; }
+  .card.tone-good .progress-fill    { background: var(--teal); }
+  .card.tone-warning .progress-fill { background: var(--gold); }
+  .card.tone-neutral .progress-fill { background: var(--teal-soft); }
+
+  /* lists */
+  .card ul.dates, .card ul.checklist { list-style: none; padding: 0; margin: 0; }
   .card ul.dates li {
-    padding: 4px 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 13px;
+    padding: 7px 0 7px 16px; position: relative; border-bottom: 1px solid var(--line); font-size: 15px;
+  }
+  .card ul.dates li::before {
+    content: ""; position: absolute; left: 0; top: 13px;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--teal); opacity: .8;
   }
   .card ul.dates li:last-child { border-bottom: none; }
   .card ul.checklist li {
-    padding: 4px 0;
-    font-size: 13px;
-    display: flex;
-    gap: 8px;
-    align-items: baseline;
+    padding: 5px 0; font-size: 15px; display: flex; gap: 9px; align-items: flex-start; line-height: 1.45;
   }
-  .card ul.checklist li.done { color: var(--muted); text-decoration: line-through; }
-  .card ul.checklist li::before {
-    content: "☐";
-    font-family: inherit;
+  .card ul.checklist li .box {
+    flex-shrink: 0; width: 16px; height: 16px; border-radius: 5px; margin-top: 1px;
+    border: 1.5px solid var(--teal-soft); display: inline-flex; align-items: center; justify-content: center;
+    color: #fff;
   }
-  .card ul.checklist li.done::before { content: "☑"; }
-  .card .unknown-type {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 6px;
-    font-style: italic;
-  }
-  .card ul.files-tree, .card ul.files-tree ul {
-    list-style: none;
-    padding-left: 14px;
-    margin: 0;
-  }
+  .card ul.checklist li.done .box { background: var(--teal); border-color: var(--teal); }
+  .card ul.checklist li.done .box svg { width: 11px; height: 11px; }
+  .card ul.checklist li.done { color: var(--muted); }
+  .card ul.checklist li.done .txt { text-decoration: line-through; }
+
+  .card .unknown-type { display: inline-block; font-size: 13px; color: var(--muted); margin-top: 6px; font-style: italic; }
+
+  /* files tree */
+  .card ul.files-tree, .card ul.files-tree ul { list-style: none; padding-left: 14px; margin: 0; }
   .card ul.files-tree { padding-left: 0; }
-  .card ul.files-tree li {
-    padding: 2px 0;
-    font-size: 13px;
-  }
-  .card ul.files-tree li.folder > .label { font-weight: 600; }
-  .card ul.files-tree li .label::before {
-    display: inline-block;
-    width: 14px;
-    margin-right: 2px;
-  }
-  .card ul.files-tree li.folder > .label::before { content: "▸"; color: var(--muted); }
+  .card ul.files-tree li { padding: 3px 0; font-size: 15px; }
+  .card ul.files-tree li.folder > .label { font-weight: 700; }
+  .card ul.files-tree li .label::before { display: inline-block; width: 15px; margin-right: 3px; }
+  .card ul.files-tree li.folder > .label::before { content: "▸"; color: var(--teal); }
   .card ul.files-tree li.file   > .label::before { content: "·"; color: var(--muted); }
-  .card ul.files-tree li.file a { color: var(--accent); text-decoration: none; }
+  .card ul.files-tree li.file a { color: var(--teal); text-decoration: none; }
   .card ul.files-tree li.file a:hover { text-decoration: underline; }
-  .card ul.files-tree li.empty {
-    color: var(--muted);
-    font-style: italic;
+  .card ul.files-tree li.empty { color: var(--muted); font-style: italic; }
+
+  /* ---- motion (teacher-facing; honors reduced-motion) ---- */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero { animation: heroIn .55s ease both; }
+    .card { animation: cardIn .5s ease both; opacity: 0; }
+    .card:nth-child(1){animation-delay:.05s}
+    .card:nth-child(2){animation-delay:.10s}
+    .card:nth-child(3){animation-delay:.15s}
+    .card:nth-child(4){animation-delay:.20s}
+    .card:nth-child(5){animation-delay:.25s}
+    .card:nth-child(6){animation-delay:.30s}
+    .card:nth-child(7){animation-delay:.34s}
+    .card:nth-child(8){animation-delay:.38s}
+    .progress-fill { transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+    @keyframes heroIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   }
 
-  /* Tablet: 640–1023px (sidebar resizing is handled by _nav.js) */
+  /* ---- responsive ---- */
   @media (max-width: 1023px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
     .card.size-large  { grid-column: span 2; grid-row: span 2; }
     .card.size-medium { grid-column: span 2; grid-row: span 1; }
     .card.size-small  { grid-column: span 1; grid-row: span 1; }
   }
-
-  /* Mobile: < 640px */
   @media (max-width: 639px) {
-    .main { padding: 18px 16px; }
+    .main { padding: 16px 14px 36px; }
+    .hero { flex-direction: column; align-items: flex-start; padding: 20px; }
+    .hero-actions { align-items: flex-start; width: 100%; }
+    .hero-hint { text-align: left; }
     .grid { grid-template-columns: 1fr; }
-    .card,
-    .card.size-large,
-    .card.size-medium,
-    .card.size-small {
-      grid-column: 1 / -1;
-      grid-row: auto;
-    }
+    .card, .card.size-large, .card.size-medium, .card.size-small { grid-column: 1 / -1; grid-row: auto; }
   }
 
-  /* Print: Cmd-P (sidebar hidden by _nav.js print rule) */
+  /* ---- print (sidebar hidden by _nav.js print rule) ---- */
   @media print {
     body { background: white; }
-    #error-banner { display: none; }
+    #error-banner, .hero-actions { display: none; }
+    .hero { background: white; color: var(--ink); box-shadow: none; border: 1px solid #ccc; }
+    .hero h1, .hero .hero-sub, .hero-eyebrow { color: var(--ink); }
     .main { padding: 12px; }
     .grid { display: block; }
-    .card,
-    .card.size-large,
-    .card.size-medium,
-    .card.size-small {
-      grid-column: auto;
-      grid-row: auto;
-      page-break-inside: avoid;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-    }
+    .card { animation: none; opacity: 1; box-shadow: none; page-break-inside: avoid; margin-bottom: 12px; border: 1px solid #ccc; }
   }
 </style>
 </head>
 <body>
 <main class="main">
   <div id="error-banner" class="error-banner"></div>
-  <header class="header">
-    <h1 id="dash-title">Dashboard</h1>
-    <div class="subtitle" id="dash-subtitle"></div>
-  </header>
+
+  <section class="hero" id="hero">
+    <span class="hero-mark" aria-hidden="true">
+      <!-- Friendly abstract "your AI" mark: a chat tile with a pulse-smile -->
+      <svg viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="3" width="54" height="44" rx="13" fill="#a8dadc"/>
+        <rect x="2" y="3" width="54" height="44" rx="13" fill="url(#g)" opacity=".5"/>
+        <path d="M20 32 L25 32 L28 24 L33 40 L36 32 L40 32" fill="none" stroke="#1a2332" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 47 L29 47 L24 54 Z" fill="#a8dadc"/>
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2d8b8b"/>
+            <stop offset="1" stop-color="#a8dadc"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </span>
+    <div class="hero-text">
+      <div class="hero-eyebrow" id="hero-eyebrow">Your classroom AI</div>
+      <h1 id="dash-title">Dashboard</h1>
+      <div class="hero-sub" id="dash-subtitle"></div>
+      <div class="hero-chips" id="hero-chips" hidden></div>
+    </div>
+    <div class="hero-actions">
+      <button type="button" class="demo-btn" id="btn-demo">See a demo class</button>
+      <span class="hero-hint" id="hero-hint">Watch this page fill with a real class</span>
+    </div>
+  </section>
+
   <div id="grid" class="grid"></div>
 </main>
 
@@ -221,15 +285,30 @@
 
 <script type="application/json" id="dashboard-data">
 {
-  "title": "My Class",
-  "subtitle": "Set up by Claude Cowork during onboarding",
+  "title": "Your classroom AI",
+  "subtitle": "Everything on this page updates through chat — no spreadsheets, no logins. It doesn't have a name yet; that part is your students' job.",
   "cards": [
     {
-      "id": "current-unit",
+      "id": "welcome-start-here",
       "size": "large",
+      "type": "checklist",
+      "title": "Start here — 10 minutes",
+      "body": [
+        { "text": "Open Student Cards → load the demo → print one card", "done": false },
+        { "text": "Open Class Pulse → load the demo → make the summary", "done": false },
+        { "text": "Say hi in Claude Cowork — your AI sets itself up", "done": false },
+        { "text": "Paste the summary into chat. That's the whole loop.", "done": false },
+        { "text": "Watch a full term: Demo Semester, in the sidebar", "done": false },
+        { "text": "Real students next? Open setup/getting-started.md", "done": false }
+      ],
+      "tone": "good"
+    },
+    {
+      "id": "current-unit",
+      "size": "medium",
       "type": "progress",
-      "title": "Current Unit",
-      "body": "Replace this card during onboarding with your current curriculum focus.",
+      "title": "Current unit",
+      "body": "Your mission's progress shows up here once you're set up.",
       "progress": 0.0,
       "tone": "neutral"
     },
@@ -237,8 +316,8 @@
       "id": "focus-this-week",
       "size": "medium",
       "type": "text",
-      "title": "Focus This Week",
-      "body": "What is your class working on this week? Update with Claude Cowork.",
+      "title": "Focus this week",
+      "body": "The one thing this week's slides, cards, and notes all aim at.",
       "tone": "neutral"
     },
     {
@@ -247,7 +326,7 @@
       "type": "dates",
       "title": "Upcoming",
       "body": [
-        "No dates yet — add some with Claude Cowork"
+        "Key dates land here from chat"
       ],
       "tone": "neutral"
     },
@@ -255,9 +334,9 @@
       "id": "teacher-goals",
       "size": "medium",
       "type": "checklist",
-      "title": "My Teaching Goals",
+      "title": "My goals",
       "body": [
-        { "text": "Add a goal during onboarding", "done": false }
+        { "text": "Your goals from setup appear here", "done": false }
       ],
       "tone": "neutral"
     },
@@ -265,12 +344,89 @@
       "id": "generated-artifacts",
       "size": "small",
       "type": "files",
-      "title": "Generated Files",
+      "title": "Made for you",
       "body": [
         {
-          "name": "Nothing here yet",
+          "name": "Files your AI makes show up here",
           "type": "folder",
           "children": []
+        }
+      ],
+      "tone": "neutral"
+    }
+  ]
+}
+</script>
+
+<script type="application/json" id="dashboard-demo-data">
+{
+  "title": "Otter — Ms. Tran's 8th Grade English",
+  "subtitle": "Fictional demo class · Week 12 of 16 · See Demo Semester for the full story",
+  "cards": [
+    {
+      "id": "demo-class-now",
+      "size": "medium",
+      "type": "text",
+      "title": "Where the class is",
+      "body": "12 strong · 8 steady · 4 struggling — best week yet. Down from 9 struggling in Week 5.",
+      "tone": "good"
+    },
+    {
+      "id": "demo-current-unit",
+      "size": "medium",
+      "type": "progress",
+      "title": "Current unit",
+      "body": "Poetry, week 3 of 5. Mission: every student under 2 missing assignments.",
+      "progress": 0.6,
+      "tone": "good"
+    },
+    {
+      "id": "demo-focus-this-week",
+      "size": "medium",
+      "type": "text",
+      "title": "Focus this week",
+      "body": "Family messages go home Friday — every one leads with a strength.",
+      "tone": "neutral"
+    },
+    {
+      "id": "demo-upcoming",
+      "size": "small",
+      "type": "dates",
+      "title": "Upcoming",
+      "body": [
+        "Fri — family messages + badges",
+        "Mon — poetry circles",
+        "Dec 18 — semester report"
+      ],
+      "tone": "neutral"
+    },
+    {
+      "id": "demo-teacher-goals",
+      "size": "medium",
+      "type": "checklist",
+      "title": "My goals",
+      "body": [
+        { "text": "Missing-work cards every Friday", "done": true },
+        { "text": "Comeback badges", "done": true },
+        { "text": "Family messages by Week 12", "done": true },
+        { "text": "Student debrief in December", "done": false }
+      ],
+      "tone": "good"
+    },
+    {
+      "id": "demo-generated-artifacts",
+      "size": "small",
+      "type": "files",
+      "title": "Made for you",
+      "body": [
+        {
+          "name": "for-class/week-12",
+          "type": "folder",
+          "children": [
+            { "name": "monday-slide.md", "type": "file" },
+            { "name": "family-message-templates.md", "type": "file" },
+            { "name": "comeback-badges.pdf", "type": "file" }
+          ]
         }
       ],
       "tone": "neutral"
@@ -283,10 +439,38 @@
 const $ = (id) => document.getElementById(id);
 const errors = [];
 
+/* small inline icon set for card headers (decorative) */
+const CARD_ICONS = {
+  sparkles: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/></svg>',
+  book:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  target:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>',
+  flag:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-1.5 3.5L16 11H5"/></svg>',
+  calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="3" x2="8" y2="6"/><line x1="16" y1="3" x2="16" y2="6"/></svg>',
+  folder:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+  check:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+};
+const CHECK_MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+function iconFor(card) {
+  const id = (card.id || '').toLowerCase();
+  if (id.includes('start-here')) return 'sparkles';
+  if (id.includes('goal'))       return 'flag';
+  if (id.includes('focus'))      return 'target';
+  if (id.includes('unit'))       return 'book';
+  if (id.includes('upcoming'))   return 'calendar';
+  if (id.includes('artifact') || id.includes('generated') || id.includes('made')) return 'folder';
+  switch (card.type) {
+    case 'progress':  return 'book';
+    case 'dates':     return 'calendar';
+    case 'checklist': return 'check';
+    case 'files':     return 'folder';
+    default:          return 'target';
+  }
+}
+
 function showErrors() {
   const banner = $('error-banner');
-  if (errors.length === 0) { banner.textContent = ''; return; }
-  banner.textContent = errors.join(' · ');
+  banner.textContent = errors.length ? errors.join(' · ') : '';
 }
 
 function loadInlineJSON(id) {
@@ -301,9 +485,38 @@ function loadInlineJSON(id) {
   }
 }
 
-function renderHeader(data) {
+/* pull a tier snapshot ("12 strong · 8 steady · 4 struggling") out of a card,
+   purely for the hero chips. Aggregate counts only — never per-student. */
+function tierChipsFrom(data) {
+  if (!data || !Array.isArray(data.cards)) return null;
+  for (const c of data.cards) {
+    if (typeof c.body !== 'string') continue;
+    const m = c.body.match(/(\d+)\s*strong.*?(\d+)\s*steady.*?(\d+)\s*strug/i);
+    if (m) return { strong: m[1], steady: m[2], strug: m[3] };
+  }
+  return null;
+}
+
+function renderHero(data, isDemo) {
   $('dash-title').textContent = (data && data.title) || 'Dashboard';
   $('dash-subtitle').textContent = (data && data.subtitle) || '';
+  $('hero-eyebrow').textContent = isDemo ? 'Demo class' : 'Your classroom AI';
+
+  const chipsEl = $('hero-chips');
+  const chips = isDemo ? tierChipsFrom(data) : null;
+  if (chips) {
+    chipsEl.innerHTML =
+      `<span class="chip"><span class="dot s-strong"></span>${chips.strong} strong</span>` +
+      `<span class="chip"><span class="dot s-steady"></span>${chips.steady} steady</span>` +
+      `<span class="chip"><span class="dot s-strug"></span>${chips.strug} struggling</span>`;
+    chipsEl.hidden = false;
+  } else {
+    chipsEl.innerHTML = '';
+    chipsEl.hidden = true;
+  }
+
+  const hint = $('hero-hint');
+  hint.textContent = isDemo ? 'You’re viewing fictional data' : 'Watch this page fill with a real class';
 }
 
 function renderCards(data) {
@@ -314,9 +527,7 @@ function renderCards(data) {
     grid.innerHTML = '<div class="empty-state">No dashboard cards yet. Set them up with Claude Cowork.</div>';
     return;
   }
-  for (const card of cards) {
-    grid.appendChild(renderCard(card));
-  }
+  for (const card of cards) grid.appendChild(renderCard(card));
 }
 
 function renderCard(card) {
@@ -325,25 +536,31 @@ function renderCard(card) {
   const tone = ['good', 'warning', 'neutral'].includes(card.tone) ? card.tone : 'neutral';
   el.className = `card size-${size} tone-${tone}`;
 
+  const head = document.createElement('div');
+  head.className = 'card-head';
+  const ico = document.createElement('span');
+  ico.className = 'card-ico';
+  ico.innerHTML = CARD_ICONS[iconFor(card)] || CARD_ICONS.target;
+  head.appendChild(ico);
   const title = document.createElement('h3');
   title.textContent = card.title || '';
-  el.appendChild(title);
+  head.appendChild(title);
+  el.appendChild(head);
 
   const body = document.createElement('div');
   body.className = 'body';
   renderCardBody(body, card);
   el.appendChild(body);
-
   return el;
 }
 
 function renderCardBody(container, card) {
   switch (card.type) {
-    case 'progress': return renderProgress(container, card);
-    case 'text':     return renderText(container, card);
-    case 'dates':    return renderDates(container, card);
-    case 'checklist':return renderChecklist(container, card);
-    case 'files':    return renderFiles(container, card);
+    case 'progress':  return renderProgress(container, card);
+    case 'text':      return renderText(container, card);
+    case 'dates':     return renderDates(container, card);
+    case 'checklist': return renderChecklist(container, card);
+    case 'files':     return renderFiles(container, card);
     default:
       container.textContent = card.body ? String(card.body) : '';
       const note = document.createElement('span');
@@ -359,16 +576,21 @@ function renderProgress(container, card) {
     p.textContent = String(card.body);
     container.appendChild(p);
   }
-  const pct = typeof card.progress === 'number'
-    ? Math.max(0, Math.min(1, card.progress))
-    : 0;
+  const pct = typeof card.progress === 'number' ? Math.max(0, Math.min(1, card.progress)) : 0;
   const track = document.createElement('div');
   track.className = 'progress-track';
   const fill = document.createElement('div');
   fill.className = 'progress-fill';
-  fill.style.width = `${pct * 100}%`;
   track.appendChild(fill);
   container.appendChild(track);
+  if (typeof card.progress === 'number') {
+    const lbl = document.createElement('div');
+    lbl.className = 'progress-pct';
+    lbl.textContent = `${Math.round(pct * 100)}% there`;
+    container.appendChild(lbl);
+  }
+  // animate width in after paint
+  requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = `${pct * 100}%`; }));
 }
 
 function renderText(container, card) {
@@ -394,7 +616,14 @@ function renderChecklist(container, card) {
   for (const item of items) {
     const li = document.createElement('li');
     if (item && item.done) li.classList.add('done');
-    li.appendChild(document.createTextNode(' ' + ((item && item.text) || '')));
+    const box = document.createElement('span');
+    box.className = 'box';
+    if (item && item.done) box.innerHTML = CHECK_MARK;
+    li.appendChild(box);
+    const txt = document.createElement('span');
+    txt.className = 'txt';
+    txt.textContent = (item && item.text) || '';
+    li.appendChild(txt);
     ul.appendChild(li);
   }
   container.appendChild(ul);
@@ -416,7 +645,6 @@ function renderFileNode(node) {
   const li = document.createElement('li');
   const label = document.createElement('span');
   label.className = 'label';
-
   if (node && node.type === 'folder') {
     li.classList.add('folder');
     label.textContent = ' ' + (node.name || 'Untitled folder');
@@ -451,8 +679,20 @@ function renderFileNode(node) {
 
 function init() {
   const data = loadInlineJSON('dashboard-data');
-  renderHeader(data);
+  renderHero(data, false);
   renderCards(data);
+
+  // Demo class toggle — swaps in the fictional class at runtime. Nothing is saved.
+  const btn = $('btn-demo');
+  let demoOn = false;
+  btn.addEventListener('click', () => {
+    demoOn = !demoOn;
+    const d = demoOn ? loadInlineJSON('dashboard-demo-data') : data;
+    renderHero(d, demoOn);
+    renderCards(d);
+    btn.textContent = demoOn ? 'Exit demo' : 'See a demo class';
+    btn.classList.toggle('is-on', demoOn);
+  });
 }
 
 init();

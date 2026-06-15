@@ -127,7 +127,7 @@ Typically:
 - **Same week:** you fill in `your-classroom-ai.md` with what they chose
 - **Next session in Cowork:** your AI introduces itself in its new voice
 
-A template for the student voting form is on the way (`setup/student-voting-form.md`).
+A template for the student voting form is in `content-templates/student-voting-form.md`.
 
 ---
 

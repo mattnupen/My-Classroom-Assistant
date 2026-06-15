@@ -52,6 +52,8 @@ Tell the AI what you want for the week ahead. The usual mix:
 
 The AI prepares all of it. You spend Sunday night reviewing — usually 15 minutes — and printing what you need.
 
+After you paste the Class Pulse summary, the AI also adds a short entry to `brain/class-story.md` — the running story of the experiment. You don't have to do anything for this; it's the AI's logbook, and it's what makes the end-of-quarter reflection write itself.
+
 ### Sunday (or Monday morning)
 
 Print and prep:
@@ -78,6 +80,7 @@ This is also when you might:
 - Print certificates for the month's standout moments
 - Send a class-wide parent update (using a "class-level" message template, no individuals named)
 - Rotate your random-groups history (download a fresh `class-state.json` from `random-groups.html`)
+- Ask the AI to refresh the research for your goal — it re-checks the trusted sources behind the active evidence pack and flags anything newer, stronger, or now in doubt (see `brain/evidence-engine.md`)
 
 ---
 

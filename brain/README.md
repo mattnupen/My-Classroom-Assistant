@@ -9,12 +9,14 @@ This folder is what the AI (running in Claude Cowork) reads to understand its jo
 | `your-classroom-ai.md` | Your AI's name, voice, and mission. The character your students will know. | **Always edit.** Either fill it in yourself or let your students help choose. |
 | `teaching-principles.md` | The research-backed approach the AI uses when generating content. | Read it. Light edits only — these are evidence-based defaults. |
 | `research-foundations.md` | Citations and short summaries of the research behind the principles. The AI consults this when deciding how to frame things or when asked to explain a choice. | Add to it if you find research that should inform the AI's work in your room. |
+| `evidence-engine.md` | How the AI gathers research for *your specific goal* just-in-time, checks it against trusted sources, and writes it down as evidence cards. | Read it once to see how grounding works. The AI runs it for you. |
+| `evidence-packs/` | The goal-specific evidence cards the engine has built (one file per goal). The AI checks the active pack whenever it generates content for students. | The AI writes these. Review and edit if a finding doesn't fit your room. |
 | `safety-rules.md` | Hard rules the AI must follow (mandated reporter, never naming students publicly, etc.). | Don't water these down. You can add more, not subtract. |
 | `weekly-rhythm.md` | The day-to-day and week-to-week flow the AI expects. | Adjust to match your schedule. |
 
 ## How the AI uses these
 
-When you open this folder in Cowork and say hi, the AI reads these four files plus the `CLAUDE.md` file at the top level. From then on, it acts as your **Classroom AI** with the voice and rules you've set.
+When you open this folder in Cowork and say hi, the AI reads these files plus the `CLAUDE.md` file at the top level. From then on, it acts as your **Classroom AI** with the voice and rules you've set.
 
 You don't need to tell it to re-read these every session — it will. If you change a file, the change shows up the next time you start a session.
 
@@ -28,5 +30,5 @@ Check these files first. Nine times out of ten, the AI is doing what it was told
 
 - **Too generic / not in-character?** → Edit `your-classroom-ai.md` to make the voice sharper.
 - **Asking for or working with student names / grades?** → Re-read `safety-rules.md` to the AI by pasting it into chat — there's been a drift.
-- **Suggesting strategies that don't fit your kids?** → Adjust `teaching-principles.md` to reflect what's working in your room.
+- **Suggesting strategies that don't fit your kids?** → Adjust `teaching-principles.md`, or edit the active pack in `evidence-packs/`, to reflect what's working in your room.
 - **Workflow doesn't match your real day?** → Edit `weekly-rhythm.md`.

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>App Studio — ClassAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  App Studio: a gallery of tools your AI can build for you. Each card holds a
+  ready-to-paste prompt. Copy one, paste it into Claude Cowork, answer a couple
+  of questions, and your AI builds the tool — offline, privacy-safe — then adds
+  it to this sidebar. No data, no network. Static page.
+-->
+<style>
+  :root{
+    --cream:#f1faee;--ink:#0d1b2a;--navy:#1a2332;--navy2:#143a45;--teal:#1f6b6b;
+    --teal-deep:#18585a;--seafoam:#a8dadc;--pale:#e3f1ef;--bg:#eef4f1;--card:#fff;
+    --line:#d8e6e1;--muted:#51646d;--radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .main{padding:26px 30px 48px;max-width:1100px;}
+
+  .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:var(--cream);border-radius:18px;padding:24px 26px;margin-bottom:14px;box-shadow:0 1px 2px rgba(13,27,42,.06),0 6px 18px rgba(13,27,42,.08);
+    display:flex;align-items:center;gap:18px;}
+  .hero-ico{flex:0 0 auto;width:54px;height:54px;border-radius:13px;background:rgba(168,218,220,.16);color:var(--seafoam);display:inline-flex;align-items:center;justify-content:center;}
+  .hero-ico svg{width:30px;height:30px;}
+  .hero .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--seafoam);font-weight:700;margin-bottom:6px;}
+  .hero h1{margin:0;font-size:26px;font-weight:700;line-height:1.2;}
+  .hero p{margin:8px 0 0;color:rgba(241,250,238,.85);font-size:16px;max-width:70ch;}
+
+  .how{background:var(--pale);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:12px;
+    font-size:15px;color:var(--ink);}
+  .how.last{margin-bottom:22px;}
+  .how b{color:var(--teal-deep);}
+  .how code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px;color:var(--teal-deep);font-family:"SF Mono",Menlo,monospace;}
+  .how.setup{background:#fff;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+  .idea{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:17px 18px;
+    display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,27,42,.04),0 5px 14px rgba(13,27,42,.05);
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;}
+  .idea:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(13,27,42,.07),0 14px 34px rgba(13,27,42,.10);border-color:#c5dcd5;}
+  .idea .top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .idea .ic{width:32px;height:32px;border-radius:9px;background:var(--pale);color:var(--teal);
+    display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .idea .ic svg{width:18px;height:18px;}
+  .idea h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-0.01em;}
+  .idea .blurb{font-size:15px;color:var(--ink);flex:1;margin:0 0 12px;}
+  .idea .row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .idea .prompt{background:#f6faf8;border:1px solid var(--line);border-radius:9px;padding:11px 13px;
+    font-size:13.5px;line-height:1.5;color:var(--ink);white-space:pre-wrap;margin:0 0 12px;}
+  .idea .prompt .cmd{color:var(--teal-deep);font-weight:700;font-family:"SF Mono",Menlo,monospace;}
+  .idea .meta{font-size:13px;color:var(--teal-deep);font-weight:600;flex:1;min-width:0;}
+  .copy{border:1px solid var(--teal);background:var(--pale);color:var(--teal);border-radius:8px;
+    padding:7px 13px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;
+    transition:background .15s ease,color .15s ease;}
+  .copy:hover{background:var(--teal);color:var(--cream);}
+  .copy.copied{background:var(--teal);color:var(--cream);border-color:var(--teal);}
+
+  .footnote{margin-top:24px;font-size:14.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;}
+  .footnote b{color:var(--ink);}
+
+  @media(max-width:639px){.main{padding:16px 14px 36px;}}
+</style>
+</head>
+<body>
+<main class="main">
+  <header class="app-hero">
+    <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a3.8 3.8 0 0 0-5 5L3 18l3 3 6.6-6.6a3.8 3.8 0 0 0 5-5l-2.6 2.6-2.4-2.4z"/></svg></span>
+    <div class="app-hero-text">
+      <h1>App Studio</h1>
+      <h2>Your AI builds these — describe a problem and it builds the tool.</h2>
+    </div>
+  </header>
+
+  <div class="how">
+    <b>How it works:</b> each prompt starts with <code>/teacher-app-builder</code> — the skill that builds your tool and checks it can’t leak student data. Copy a prompt, paste it into Claude Cowork, answer a couple of short questions, and the new tool lands in this sidebar.
+  </div>
+  <div class="how setup last">
+    <b>First time?</b> Add the <code>teacher-app-builder</code> skill once before using these — install <code>teacher-app-builder-skill-upload.zip</code> (steps in <code>docs/teacher-app-builder.md</code>), or add it from Claude’s Settings → Capabilities. After that, <code>/teacher-app-builder</code> just works.
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="footnote">
+    <b>Why this is safe:</b> every tool built this way is one offline HTML file — no internet, no cloud, no student data saved anywhere. The privacy line is the same one every built-in tool follows.
+  </div>
+</main>
+
+<script src="./_nav.js"></script>
+<script>
+(function(){
+const ICONS = {
+  users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="11"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="14"/></svg>',
+  note:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M16 4v4h4"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>',
+  door:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><line x1="3" y1="21" x2="19" y2="21"/><circle cx="13" cy="12" r="1" fill="currentColor"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  page:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><line x1="9" y1="13" x2="17" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/></svg>',
+  lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>'
+};
+
+const IDEAS = [
+  {
+    icon:'users', title:'Seating chart with constraints', uses:'Imports your class roster (names)',
+    blurb:'Lay out a seating chart that keeps certain students apart and certain students together.',
+    prompt:`Build me an offline seating-chart tool. I drop in my roster, tell it which students should never sit together and any pairs I want kept close, and it lays out a chart for my room (I'll tell you rows and columns). Let me re-shuffle while keeping the rules, and print the final chart. It uses my real roster, so it has to stay offline.`
+  },
+  {
+    icon:'chart', title:'Exit-ticket tallier', uses:'You type tallies — no roster, no grades',
+    blurb:'Paste a quick set of tallies after class and see the split at a glance.',
+    prompt:`Build me an offline exit-ticket tool. After class I want to type or paste a quick tally of how students did on today's exit ticket (got it / almost / not yet), and see the split as a simple chart so I know whether to reteach tomorrow. Keep it dead simple — no logins, no accounts.`
+  },
+  {
+    icon:'note', title:'Conferring-notes tracker', uses:'Imports your class roster (names)',
+    blurb:'Pick a student, jot a quick note, and see who you haven’t checked in with lately.',
+    prompt:`Build me an offline conferring-notes tool. I drop in my roster, pick a student, and jot a quick note from our one-on-one. It should show me who I haven't checked in with in a while so nobody falls through the cracks. My notes and roster are private, so it has to stay on my computer.`
+  },
+  {
+    icon:'door', title:'Warm-welcome door tool', uses:'Imports your roster + short notes you add',
+    blurb:'Surface one specific thing to greet each student about at the door.',
+    prompt:`Build me an offline "warm welcome" tool. I drop in my roster and add a short note or two about each kid (a hobby, a recent win), and each day it surfaces one student at a time with the thing I can greet them about at the door. It uses real student info, so keep it offline.`
+  },
+  {
+    icon:'book', title:'Reading-group builder', uses:'Imports your roster + a reading-level column',
+    blurb:'Split the roster into groups by a reading-level column you paste in.',
+    prompt:`Build me an offline reading-group tool. I paste my roster with a reading-level column, tell it how many groups I want, and it splits the class into balanced groups by level (or lets me mix levels on purpose). Let me re-roll and print the groups. Real student data, so it stays offline.`
+  },
+  {
+    icon:'page', title:'Parent-conference one-pager', uses:'Imports your gradebook export',
+    blurb:'Pick a student and print a one-page sheet with a grade chart and a notes box.',
+    prompt:`Build me an offline parent-conference tool. It takes my gradebook, I pick a student, and it makes a one-page sheet for that kid: a simple chart of their grades, anything that's missing, and an empty box at the bottom for handwritten notes during the meeting. Then I print it. Real student data, so it has to stay on my computer.`
+  }
+];
+
+const CMD = '/teacher-app-builder';
+const grid = document.getElementById('grid');
+for (const idea of IDEAS) {
+  const fullPrompt = CMD + '\n' + idea.prompt;
+  const card = document.createElement('div');
+  card.className = 'idea';
+  card.innerHTML =
+    `<div class="top"><span class="ic">${ICONS[idea.icon]}</span><h3>${idea.title}</h3></div>` +
+    `<p class="blurb">${idea.blurb}</p>` +
+    `<pre class="prompt"><span class="cmd"></span><span class="ptext"></span></pre>` +
+    `<div class="row"><span class="meta">${idea.uses}</span><button type="button" class="copy">Copy prompt</button></div>`;
+  card.querySelector('.cmd').textContent = CMD;
+  card.querySelector('.ptext').textContent = '\n' + idea.prompt;
+  const btn = card.querySelector('.copy');
+  btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(fullPrompt); }
+    catch {
+      const t = document.createElement('textarea');
+      t.value = fullPrompt; document.body.appendChild(t); t.select();
+      document.execCommand('copy'); document.body.removeChild(t);
+    }
+    btn.textContent = 'Copied — paste into Cowork';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('copied'); }, 2200);
+  });
+  grid.appendChild(card);
+}
+})();
+</script>
+</body>
+</html>

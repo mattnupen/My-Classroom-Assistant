@@ -26,8 +26,8 @@
     border-bottom: 1px solid var(--line);
     padding: 24px 32px;
   }
-  header.app h1 { margin: 0 0 6px; font-size: 22px; }
-  header.app p { margin: 0; color: var(--muted); font-size: 14px; max-width: 760px; line-height: 1.5; }
+  header.app h1 { margin: 0 0 6px; font-size: 24px; }
+  header.app p { margin: 0; color: var(--muted); font-size: 16px; max-width: 760px; line-height: 1.5; }
 
   main { max-width: 1100px; margin: 0 auto; padding: 24px 32px 80px; }
 
@@ -38,7 +38,7 @@
     padding: 20px 24px;
     margin-bottom: 18px;
   }
-  .step h2 { margin: 0 0 14px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  .step h2 { margin: 0 0 14px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
   .step.disabled { opacity: 0.5; pointer-events: none; }
 
   .dropzone {
@@ -52,8 +52,8 @@
     display: block;
   }
   .dropzone:hover, .dropzone.dragover { border-color: var(--accent); background: var(--accent-soft); }
-  .dropzone strong { display: block; font-size: 14px; margin-bottom: 2px; }
-  .dropzone span { color: var(--muted); font-size: 12px; }
+  .dropzone strong { display: block; font-size: 16px; margin-bottom: 2px; }
+  .dropzone span { color: var(--muted); font-size: 14px; }
   .dropzone input { display: none; }
 
   .file-status {
@@ -62,31 +62,31 @@
     background: var(--good-soft);
     border: 1px solid #a7f3d0;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 15px;
     color: #065f46;
   }
   .file-status::before { content: "✓ "; font-weight: 700; }
 
-  label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
+  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
   select, input[type="text"], input[type="number"], textarea {
     width: 100%;
     padding: 8px 10px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 15px;
     font-family: inherit;
     background: white;
     color: var(--ink);
   }
-  textarea { min-height: 130px; resize: vertical; line-height: 1.5; font-size: 13px; }
+  textarea { min-height: 130px; resize: vertical; line-height: 1.5; font-size: 15px; }
   select:focus, input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .hint { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+  .hint { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
 
   button {
     font-family: inherit;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     padding: 8px 14px;
     border-radius: 6px;
@@ -98,7 +98,7 @@
   button.primary:hover { background: #1d4ed8; }
   button.secondary { background: white; color: var(--ink); border-color: #d1d5db; }
   button.secondary:hover { background: #f9fafb; }
-  button.small { padding: 4px 10px; font-size: 12px; }
+  button.small { padding: 4px 10px; font-size: 14px; }
   button:disabled { opacity: 0.5; cursor: not-allowed; }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
@@ -108,7 +108,7 @@
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 16px;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     line-height: 1.7;
   }
@@ -118,7 +118,7 @@
     border-radius: 4px;
     border: 1px solid var(--line);
     color: var(--ink);
-    font-size: 11.5px;
+    font-size: 13.5px;
   }
 
   /* Template panels */
@@ -133,7 +133,7 @@
   .tmpl-card .tier-badge {
     padding: 3px 10px;
     border-radius: 999px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -141,12 +141,12 @@
   .badge-strong { background: #d1fae5; color: var(--strong); }
   .badge-steady { background: #dbeafe; color: var(--steady); }
   .badge-struggling { background: #fee2e2; color: var(--struggling); }
-  .tmpl-card .head-meta { font-size: 12px; color: var(--muted); }
+  .tmpl-card .head-meta { font-size: 14px; color: var(--muted); }
 
   /* Messages output */
-  .summary { display: flex; gap: 22px; flex-wrap: wrap; padding: 14px 18px; background: #f3f4f6; border-radius: 8px; margin-bottom: 18px; font-size: 13px; }
-  .summary > div strong { display: block; font-size: 22px; color: var(--ink); font-weight: 700; margin-bottom: 2px; }
-  .summary > div span { color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-size: 11px; }
+  .summary { display: flex; gap: 22px; flex-wrap: wrap; padding: 14px 18px; background: #f3f4f6; border-radius: 8px; margin-bottom: 18px; font-size: 15px; }
+  .summary > div strong { display: block; font-size: 24px; color: var(--ink); font-weight: 700; margin-bottom: 2px; }
+  .summary > div span { color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; }
 
   .msg-card {
     background: white;
@@ -165,10 +165,10 @@
     gap: 12px;
     flex-wrap: wrap;
   }
-  .msg-card .head .name { font-weight: 700; font-size: 15px; }
-  .msg-card .head .meta { font-size: 12px; color: var(--muted); }
+  .msg-card .head .name { font-weight: 700; font-size: 17px; }
+  .msg-card .head .meta { font-size: 14px; color: var(--muted); }
   .msg-card .head .pills { display: flex; gap: 6px; flex-wrap: wrap; }
-  .pill { padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .pill { padding: 2px 9px; border-radius: 999px; font-size: 13px; font-weight: 600; }
   .pill.grade-A { background: #d1fae5; color: var(--strong); }
   .pill.grade-B { background: #dbeafe; color: var(--steady); }
   .pill.grade-C { background: #fef3c7; color: #92400e; }
@@ -182,13 +182,13 @@
   .msg-card .subject {
     padding: 10px 18px;
     border-bottom: 1px dashed var(--line);
-    font-size: 13px;
+    font-size: 15px;
   }
   .msg-card .subject strong { font-weight: 600; color: var(--muted); margin-right: 6px; }
 
   .msg-card .body {
     padding: 14px 18px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--ink);
     white-space: pre-wrap;
@@ -201,12 +201,12 @@
     gap: 8px;
     align-items: center;
   }
-  .copy-confirm { color: var(--strong); font-size: 12px; font-weight: 600; margin-left: 8px; opacity: 0; transition: 0.2s; }
+  .copy-confirm { color: var(--strong); font-size: 14px; font-weight: 600; margin-left: 8px; opacity: 0; transition: 0.2s; }
   .copy-confirm.show { opacity: 1; }
 
-  .empty-state { padding: 30px 20px; text-align: center; color: var(--muted); font-size: 14px; background: white; border: 1px dashed var(--line); border-radius: 10px; }
+  .empty-state { padding: 30px 20px; text-align: center; color: var(--muted); font-size: 16px; background: white; border: 1px dashed var(--line); border-radius: 10px; }
 
-  .assign-override { margin: 10px 0; font-size: 14px; }
+  .assign-override { margin: 10px 0; font-size: 16px; }
   .assign-override summary { cursor: pointer; color: var(--muted, #555); }
   .assign-override-list, #assign-override-list { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
   .assign-row { display: flex; align-items: center; gap: 8px; }
@@ -214,12 +214,16 @@
 </head>
 <body>
 
-<header class="app">
-  <h1>Parent Messages</h1>
-  <p>Write one message template per tier (Strong / Steady / Struggling). Drop in the gradebook. The tool fills in each student's name, grade, missing assignments, and other details — and gives you a list of per-student messages ready to copy into ParentSquare, email, or wherever you communicate with families.</p>
-</header>
+
 
 <main>
+  <header class="app-hero">
+    <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></span>
+    <div class="app-hero-text">
+      <h1>Parent Messages</h1>
+      <h2>One message per tier, mail-merged per student — ready to paste into ParentSquare or email.</h2>
+    </div>
+  </header>
 
   <!-- STEP 1: Upload -->
   <section class="step">
@@ -229,6 +233,7 @@
       <span>or click to choose &middot; nothing leaves your computer</span>
       <input type="file" id="file-gradebook" accept=".csv,.xlsx,.xls">
     </label>
+    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
     <div id="status-gradebook" class="file-status" style="display:none;"></div>
   </section>
 
@@ -260,7 +265,7 @@
       </div>
     </div>
     <div style="margin-top:10px;">
-      <label style="display:inline;color:var(--ink);font-size:13px;"><input type="checkbox" id="treat-blank-as-missing" style="width:auto;margin-right:6px;"> Treat blank cells as missing</label>
+      <label style="display:inline;color:var(--ink);font-size:15px;"><input type="checkbox" id="treat-blank-as-missing" style="width:auto;margin-right:6px;"> Treat blank cells as missing</label>
     </div>
 
     <details id="assign-override" class="assign-override" hidden>
@@ -501,6 +506,12 @@ const dz = $('#dz-gradebook');
 ['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('dragover'); }));
 dz.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) loadGradebook(f); });
 $('#file-gradebook').addEventListener('change', e => { const f = e.target.files[0]; if (f) loadGradebook(f); });
+
+// Demo class (fictional data in _nav.js, which loads at the end of <body>)
+document.getElementById('btn-demo').addEventListener('click', () => {
+  if (typeof CLASSAI_DEMO === 'undefined') { alert('Demo data unavailable — _nav.js did not load.'); return; }
+  loadGradebook(CLASSAI_DEMO.makeFile());
+});
 
 function loadGradebook(file) {
   const isCSV = /\.csv$/i.test(file.name);

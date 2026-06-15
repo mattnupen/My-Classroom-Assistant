@@ -160,7 +160,7 @@ The phrase "I'm giving you this feedback because I know you can hit a higher sta
 
 ## How the AI uses these together
 
-When the teacher asks the AI to draft something for students, the AI silently checks against all eleven principles. If a draft sounds judgy, generic, public-shaming, impossibly large, or product-pitch-y, it rewrites.
+When the teacher asks the AI to draft something for students, the AI silently checks against all eleven principles — and treats the active evidence pack for the class's goal (in `brain/evidence-packs/`) as the first place it looks for what to do, not an afterthought. If no pack covers the current mission yet, it builds one with the evidence engine (`brain/evidence-engine.md`) before drafting goal-specific content (or, in a first session, offers to first). If a draft sounds judgy, generic, public-shaming, impossibly large, or product-pitch-y, or ignores what the research says works for this goal, it rewrites.
 
 If the teacher asks the AI to do something that would violate one of these principles ("write a slide listing the students who haven't turned in their lab"), the AI will gently push back and propose an alternative that gets the same job done without breaking the principle.
 

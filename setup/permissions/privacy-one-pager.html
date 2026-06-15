@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Where your students' data lives — MyClassroomAIbot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  A one-page privacy explainer to hand a principal, a district privacy officer,
+  or a fellow teacher. Print it (⌘/Ctrl-P) — it's built to fit one page.
+  Ocean Depths palette. No network calls, no data, static page.
+-->
+<style>
+  :root{
+    --cream:#f1faee;--ink:#0d1b2a;--navy:#1a2332;--teal:#1f6b6b;--teal-deep:#18585a;
+    --seafoam:#a8dadc;--pale:#e3f1ef;--line:#cfe0db;--muted:#46565f;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:#dfe8e4;color:var(--ink);
+    font-family:"DejaVu Sans",Arial,Helvetica,sans-serif;line-height:1.5;}
+  .page{max-width:760px;margin:24px auto;background:#fff;padding:40px 46px;
+    box-shadow:0 12px 40px rgba(13,27,42,.14);border-radius:10px;}
+
+  .brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  h1{font-size:27px;margin:6px 0 4px;line-height:1.15;}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 22px;}
+
+  .diagram{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fbfdfc;margin-bottom:24px;}
+  .zones{display:flex;gap:0;align-items:stretch;}
+  .zone{flex:1;padding:16px 16px 18px;}
+  .zone h2{font-size:15px;margin:0 0 3px;}
+  .zone .tag{font-size:12px;font-weight:700;margin:0 0 12px;}
+  .zone.laptop{background:var(--seafoam);border-radius:10px;border:2px solid var(--teal);}
+  .zone.laptop h2{color:var(--navy);}
+  .zone.laptop .tag{color:var(--teal-deep);}
+  .zone.ai{background:var(--navy);border-radius:10px;color:var(--cream);margin-left:14px;}
+  .zone.ai h2{color:var(--cream);}
+  .zone.ai .tag{color:var(--seafoam);}
+  .items{list-style:none;margin:0;padding:0;}
+  .items li{font-size:13px;padding:5px 0 5px 22px;position:relative;}
+  .zone.laptop .items li{color:var(--ink);}
+  .zone.laptop .items li::before{content:"\1F512";position:absolute;left:0;top:4px;font-size:12px;}
+  .zone.ai .items li{color:rgba(241,250,238,.92);}
+  .zone.ai .items li::before{content:"";position:absolute;left:2px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--seafoam);}
+
+  .crossing{display:flex;align-items:center;gap:10px;margin:16px 4px 0;padding-top:14px;border-top:1px dashed var(--line);}
+  .crossing .arrow{flex:0 0 auto;color:var(--teal);font-size:20px;font-weight:700;}
+  .crossing .chip{background:var(--pale);border:1px solid var(--teal);color:var(--teal-deep);
+    border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:700;}
+  .crossing .only{font-size:12.5px;color:var(--muted);}
+  .crossing .chip.blocked{background:#f6e9e7;border-color:#caa39c;color:#7a4a40;text-decoration:line-through;}
+
+  .points{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;margin-bottom:22px;}
+  .pt h3{font-size:14px;margin:0 0 3px;color:var(--teal-deep);}
+  .pt p{font-size:13px;margin:0;color:var(--ink);}
+
+  .foot{border-top:3px solid var(--seafoam);padding-top:12px;font-size:12px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+
+  @media print{
+    html,body{background:#fff;}
+    .page{box-shadow:none;margin:0;max-width:none;border-radius:0;padding:0.5in 0.6in;}
+    @page{size:letter;margin:0;}
+  }
+  @media(max-width:560px){.zones{flex-direction:column;}.zone.ai{margin-left:0;margin-top:12px;}.points{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="brand">MyClassroomAIbot</div>
+    <h1>Where your students’ data lives</h1>
+    <p class="sub">The whole privacy promise on one page: the AI never sees a single student record. That guarantee comes from <em>where the data lives</em>, not from the AI promising to be careful.</p>
+
+    <div class="diagram">
+      <div class="zones">
+        <div class="zone laptop">
+          <h2>On your laptop</h2>
+          <p class="tag">Student data never leaves here</p>
+          <ul class="items">
+            <li>Gradebook &amp; roster (names, grades)</li>
+            <li>Offline tools: Class Pulse, Student Cards, Parent Messages</li>
+            <li>Runs in your browser — no internet, no cloud</li>
+          </ul>
+        </div>
+        <div class="zone ai">
+          <h2>Claude (Cowork)</h2>
+          <p class="tag">Sees only name-free summaries</p>
+          <ul class="items">
+            <li>Drafts slides, notes, templates</li>
+            <li>Reads aggregate counts, never records</li>
+            <li>You review everything before students see it</li>
+          </ul>
+        </div>
+      </div>
+      <div class="crossing">
+        <span class="arrow" aria-hidden="true">&#8594;</span>
+        <span class="only">Only this crosses the line:</span>
+        <span class="chip">“3 students behind on Unit 3”</span>
+        <span class="chip blocked">“Maria — 4 missing”</span>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="pt">
+        <h3>What crosses the line</h3>
+        <p>Aggregate counts (“6 strong, 3 struggling”) and content with no student data in it — a slide, a message template.</p>
+      </div>
+      <div class="pt">
+        <h3>What never crosses</h3>
+        <p>Names, individual grades, rosters, per-student missing-work lists. The tools that handle those stay on the laptop.</p>
+      </div>
+      <div class="pt">
+        <h3>Why it’s built this way</h3>
+        <p>FERPA and state laws treat student records carefully, and once data passes through an AI you can’t unring that bell. So it never does.</p>
+      </div>
+      <div class="pt">
+        <h3>A human is always in the loop</h3>
+        <p>The AI drafts; the teacher reviews and decides. There is no “send” button — nothing reaches a student without a teacher’s read.</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>MyClassroomAIbot · a classroom AI that works for your class without ever seeing your students’ data.</span>
+      <span>See setup/permissions/privacy-explainer.md for the long version.</span>
+    </div>
+  </div>
+</body>
+</html>
