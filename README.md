@@ -78,7 +78,7 @@ The project includes a set of small browser-based apps the teacher uses to do an
 
 **The privacy story on one page:** [`setup/permissions/privacy-one-pager.html`](setup/permissions/privacy-one-pager.html) shows exactly what crosses the line to the AI and what never does — open it, print it, hand it to your principal or a curious colleague.
 
-You open them through the **AI Dashboard** (`local-tools/ClassAI-dashboard.html`) — double-click it once, and a sidebar lets you jump between apps.
+You open them through **Class Tools** (`local-tools/ClassAI-dashboard.html`) — double-click it once, and a sidebar lets you jump between apps.
 
 Included today:
 

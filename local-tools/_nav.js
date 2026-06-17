@@ -1,5 +1,5 @@
 /*
- * Universal navigation for ClassAI local tools.
+ * Universal navigation for Class Tools local tools.
  *
  * Every tool page includes this with:
  *   <script src="./_nav.js"></script>
@@ -501,7 +501,7 @@ let state = loadState();
     const brand = document.createElement('a');
     brand.className = 'un-brand';
     brand.href = './ClassAI-dashboard.html';
-    brand.textContent = 'ClassAI';
+    brand.textContent = 'Class Tools';
     aside.appendChild(brand);
 
     const closeBtn = document.createElement('button');
@@ -912,7 +912,7 @@ let state = loadState();
     const tbBrand = document.createElement('a');
     tbBrand.className = 'un-topbar-brand';
     tbBrand.href = './ClassAI-dashboard.html';
-    tbBrand.textContent = 'ClassAI';
+    tbBrand.textContent = 'Class Tools';
     topbar.appendChild(burger);
     topbar.appendChild(tbBrand);
     document.body.insertBefore(topbar, document.body.firstChild);

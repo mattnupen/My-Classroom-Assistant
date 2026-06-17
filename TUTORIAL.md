@@ -9,7 +9,7 @@ If you're presenting this live, the four demos map to the four things people usu
 You need two things open:
 
 1. **Claude Cowork**, with this project folder selected. That's where you type the prompts.
-2. **The AI Dashboard** — double-click `local-tools/ClassAI-dashboard.html`. The sidebar in there gets you to every offline app.
+2. **Class Tools** — double-click `local-tools/ClassAI-dashboard.html`. The sidebar in there gets you to every offline app.
 
 A note on the demo files. Two of these demos use files you supply:
 

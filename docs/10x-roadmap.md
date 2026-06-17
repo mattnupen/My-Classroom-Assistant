@@ -18,7 +18,7 @@ The default dashboard now opens as a guided welcome — what this is, a start-he
 CLAUDE.md now scripts the AI's first conversation: a short interview (not a form), a drafted persona by the end of chat one, and a tangible artifact — a real Monday slide — generated before the teacher leaves. The wow is *leaving the first chat with something you can use tomorrow.*
 
 ### ✅ Demo Semester viewer
-`local-tools/demo-semester.html`: a fictional class (Ms. Tran, 24 students, AI named Otter) running the project for 16 weeks with Wednesday/Friday check-ins. Six milestone Cowork chats shown as full transcripts — including the privacy boundary and crisis-lane moments — plus a tier trend chart and the end-of-semester report. This is the answer to "what does this look like once it's running?"
+`local-tools/demo-semester.html`: a fictional class (Mr. Nupen, 24 students, AI named Otter) running the project for 16 weeks with Wednesday/Friday check-ins. Six milestone Cowork chats shown as full transcripts — including the privacy boundary and crisis-lane moments — plus a tier trend chart and the end-of-semester report. This is the answer to "what does this look like once it's running?"
 
 ### Demo video (top remaining item)
 The README has a placeholder. A 90-second screen recording — open dashboard → demo button → Class Pulse → paste into Cowork → AI responds in persona → slide appears — is worth more than every paragraph of docs. Record once the Tier 1 items are merged.

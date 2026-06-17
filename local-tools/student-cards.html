@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Cards</title>
+<title>Student Cards — Class Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <style>
@@ -999,7 +999,7 @@ function cardHtml(s, greetingTpl, bodyTpl, footerTpl) {
       <ul class="assignments">${items}</ul>
       <div class="totals">
         <span>${s.missing.length} ${s.missing.length === 1 ? 'item' : 'items'}</span>
-        ${showPts ? `<span>${totalPts} pts on the table</span>` : ''}
+        ${showPts ? `<span>${totalPts} pts available</span>` : ''}
       </div>
       ${body ? `<div class="greeting" style="margin-top:10px;margin-bottom:0;">${escHtml(body)}</div>` : ''}
       <div class="footer">${escHtml(footer)}</div>
