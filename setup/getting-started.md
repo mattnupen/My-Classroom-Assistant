@@ -80,7 +80,7 @@ You keep this card on your desk, in your bag, somewhere visible. **You do not pa
 Follow the install instructions at [Cowork's site]. Confirm you can open the app and that it can see folders on your computer.
 
 Test that Cowork works:
-- Open Cowork in this `MyClassroomAIbot/` folder
+- Open Cowork in this `MyClassroomAssistant/` folder
 - Say "hi"
 - Your AI should read its instructions and respond
 
@@ -103,8 +103,8 @@ The very first question it asks is whether you want your students to help shape 
 The `sandbox/` folder has a fictional gradebook (`fictional-gradebook.csv`) with 24 fake students. Use it to try every tool before touching real data.
 
 - Open `local-tools/ClassAI-dashboard.html`. This is your home base — the sidebar gets you to every other app from one place.
-- From the sidebar, open **Student Cards**. Drop in the fictional gradebook. Print sample cards.
-- Open **Class Pulse**. Generate a summary. Save a snapshot.
+- From the sidebar, open **Progress Cards**. Drop in the fictional gradebook. Print sample cards.
+- Open **AI Export**. Generate a summary. Save a snapshot.
 - Open **Gradebook Analytics**. Drop in the same gradebook. Sort by tier and skim the per-student view.
 - Open **Parent Messages**. Load the sample templates. Generate messages.
 - Open **Badges**. Start a new state file. Award some badges. Print certificates.
@@ -138,7 +138,7 @@ You're ready. On launch day:
 - Tell students what they're going to see ("you'll get cards from [AI name] this week — they're not graded, they're a tool to help you stay on top of things")
 - Hand out the first round of missing-work cards or progress sheets
 - Run the first few days as gently as possible — watch for confusion or pushback
-- After Week 1, sit down with the AI and ask "how did the first week go?" using whatever you noticed plus a Class Pulse summary
+- After Week 1, sit down with the AI and ask "how did the first week go?" using whatever you noticed plus a AI Export summary
 
 If something breaks early, that's normal. Adjust the relevant file in `brain/` and try again. Most teachers find the rhythm in 2–3 weeks.
 

@@ -1,4 +1,4 @@
-# Tutorial: Four Demos of MyClassroomAIbot
+# Tutorial: Four Demos of My Classroom Assistant
 
 This is a hands-on walkthrough of what this project does and how to drive it. Each section below is a self-contained demo with a prompt you can copy and paste straight into Claude Cowork. Run them in order the first time — they build on each other — or jump to whichever one you want to show.
 
@@ -73,19 +73,19 @@ so I can redirect you if I had a different one in mind.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **Class Pulse**.
+1. From the Dashboard sidebar, open **AI Export**.
 2. Drag in your gradebook (`.xlsx` or `.csv`). Everything is read in your browser — nothing uploads.
 3. Set the tier thresholds if you want (defaults: Strong = 0 missing, Steady = up to 2, Struggling = 3+).
 4. Click **Copy** under "Structured summary." That copied text is aggregate-only — tier counts and most-missed assignments, **zero names, zero individual grades.**
 
-(Optional: download the snapshot JSON it offers. Drop it back into Class Pulse next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
+(Optional: download the snapshot JSON it offers. Drop it back into AI Export next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
 
 > 💬 **Cowork prompt** — paste this, then paste the copied summary where shown:
 
 ```
-Here's this week's Class Pulse summary (aggregate only, no student data):
+Here's this week's AI Export summary (aggregate only, no student data):
 
-[paste the structured summary you copied from Class Pulse here]
+[paste the structured summary you copied from AI Export here]
 
 Read this against our class goal. Tell me:
 1. In plain language, where is the class right now?
@@ -109,7 +109,7 @@ show me the change before you save it.
 > 💬 **Cowork prompt** — paste this to get the card copy in your AI's voice:
 
 ```
-I'm about to print Missing Work cards for students using the Student Cards app.
+I'm about to print Missing Work cards for students using the Progress Cards app.
 That app takes three pieces of text and mail-merges them onto each kid's card
 (it adds the names and their missing-assignment list locally — you won't see those).
 
@@ -126,7 +126,7 @@ Keep it warm and short. Give me two options for each so I can pick.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **Student Cards**.
+1. From the Dashboard sidebar, open **Progress Cards**.
 2. Drag in your gradebook (`.xlsx` or `.csv`).
 3. Choose **Missing Work** as the card type.
 4. Paste Claude's greeting, message, and footer into the "Personalize the message" fields.

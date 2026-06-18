@@ -42,10 +42,10 @@ const ICONS = {
 // live in localStorage and override this list on a per-page basis.
 const DEFAULT_APPS = [
   { id: 'classai-dashboard',   label: 'Dashboard',           file: 'ClassAI-dashboard.html', description: 'Class overview and goals',                       icon: 'home' },
-  { id: 'student-cards',       label: 'Student Cards',       file: 'student-cards.html',     description: 'Per-student printable info cards',               icon: 'idcard' },
+  { id: 'student-cards',       label: 'Progress Cards',      file: 'student-cards.html',     description: 'Printable missing-work or progress cards',       icon: 'idcard' },
   { id: 'parent-messages',     label: 'Parent Messages',     file: 'parent-messages.html',   description: 'Draft parent-facing messages',                   icon: 'mail' },
   { id: 'gradebook-analytics', label: 'Gradebook Analytics', file: 'gradebook-analytics.html', description: 'Upload a gradebook CSV for per-student stats', icon: 'chart' },
-  { id: 'class-pulse',         label: 'Class Pulse',         file: 'class-pulse.html',       description: 'Quick read on how the class is doing',           icon: 'pulse' },
+  { id: 'class-pulse',         label: 'AI Export',           file: 'class-pulse.html',       description: 'Name-free gradebook summary for your AI',        icon: 'pulse' },
   { id: 'student-voice',       label: 'Feedback Cleaner',    file: 'student-voice.html',     description: 'Strip names and emails from responses',          icon: 'megaphone' },
   { id: 'badges',              label: 'Badges',              file: 'badges.html',            description: 'Generate printable student recognition badges',  icon: 'award' },
   { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',     description: 'Shuffle the class into small groups',            icon: 'users' },

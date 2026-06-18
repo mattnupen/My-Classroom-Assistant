@@ -1,6 +1,6 @@
 <div align="center">
 
-# MyClassroomAIbot
+# My Classroom Assistant
 
 ### Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.
 
@@ -27,8 +27,8 @@ It drafts your Monday slides, your parent messages, your encouragement cards. It
 No setup, no real data, no account:
 
 1. Double-click `local-tools/ClassAI-dashboard.html`.
-2. Click **Student Cards** in the sidebar, then **"Load the fictional demo class."** Print a card.
-3. Click **Class Pulse**, load the demo class again, and generate a summary — that's the name-free aggregate the AI runs on.
+2. Click **Progress Cards** in the sidebar, then **"Load the fictional demo class."** Print a card.
+3. Click **AI Export**, load the demo class again, and generate a summary — that's the name-free aggregate the AI runs on.
 
 That's the whole privacy architecture in your hands: real-feeling tools on your side of the line, an aggregate-only summary crossing it.
 
@@ -88,7 +88,7 @@ You open them through **Class Tools** (`local-tools/ClassAI-dashboard.html`) —
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="images/student-cards.png" alt="Student Cards — printable per-student cards listing missing work with checkboxes"><br><sub><b>Student Cards</b> — one printable card per student: missing work with checkboxes, or a full color-coded progress snapshot.</sub></td>
+<td width="50%" valign="top"><img src="images/student-cards.png" alt="Progress Cards — printable per-student cards listing missing work with checkboxes"><br><sub><b>Progress Cards</b> — one printable card per student: missing work with checkboxes, or a full color-coded progress snapshot.</sub></td>
 <td width="50%" valign="top"><img src="images/app-studio.png" alt="App Studio — copy-paste prompts your AI uses to build new offline tools"><br><sub><b>App Studio</b> — when the included apps don't cover it, your AI builds the next tool from a copy-paste prompt.</sub></td>
 </tr>
 </table>
@@ -99,13 +99,13 @@ Included today:
 
 - **Dashboard.** Your home base. Shows your class goals, where the class is right now, and what your AI is focused on. Every other app is one click from here.
 
-- **Student Cards.** Print one card per student — either what they owe right now (missing work, with checkboxes) or how they're doing overall (every assignment, color-coded). Two-per-page; cut them and hand them out at the door.
+- **Progress Cards.** Print one card per student — either what they owe right now (missing work, with checkboxes) or how they're doing overall (every assignment, color-coded). Two-per-page; cut them and hand them out at the door.
 
 - **Parent Messages.** Write one short template per tier (struggling / steady / strong) and the app mail-merges it into per-student messages with each kid's name, period, grade, and missing assignments. You paste each one into ParentSquare, email, or whatever you use to reach families.
 
 - **Gradebook Analytics.** Drop in your gradebook and get a sortable per-student view — tiers, missing assignments, and patterns you wouldn't spot scrolling rows in PowerSchool.
 
-- **Class Pulse.** A name-free summary of how the whole class is doing — counts by tier, most-missed assignments, week-over-week movement. This is what you paste to your AI so it knows the state of the class without ever seeing student records.
+- **AI Export.** A name-free summary of how the whole class is doing — counts by tier, most-missed assignments, week-over-week movement. This is what you paste to your AI so it knows the state of the class without ever seeing student records.
 
 - **Feedback Cleaner.** Paste anonymous student feedback; it strips names and emails on your laptop and hands you a name-free digest to paste into your AI. Comes with a ready-to-use Google Form. Safe to use with real responses.
 
@@ -123,7 +123,7 @@ Included today:
 <summary><b>What's in this folder</b> — full file map</summary>
 
 ```
-MyClassroomAIbot/
+MyClassroomAssistant/
 ├── README.md                          ← you are here
 ├── CLAUDE.md                          ← the first file your AI reads each session — sets the rules of the experiment
 │
@@ -186,9 +186,9 @@ MyClassroomAIbot/
 After the 90-second tour, two more on-ramps before real kids are involved:
 
 **A full dry run of the apps (~15 minutes)**
-From the Dashboard, walk through Student Cards → Class Pulse → Parent Messages → Badges with the demo class (Student Cards and Class Pulse have a one-click demo button; the other tools can load `sandbox/fictional-gradebook.csv`). See what each one produces side by side.
+From the Dashboard, walk through Progress Cards → AI Export → Parent Messages → Badges with the demo class (Progress Cards and AI Export have a one-click demo button; the other tools can load `sandbox/fictional-gradebook.csv`). See what each one produces side by side.
 
 **The full experiment, end to end (~30 minutes)**
-Open this folder in Claude Cowork and say hi. Run Class Pulse on the demo class, paste the aggregate into Cowork, and ask the AI for "Monday's opening slide." That's the loop from "The experiment" running on a fictional class.
+Open this folder in Claude Cowork and say hi. Run AI Export on the demo class, paste the aggregate into Cowork, and ask the AI for "Monday's opening slide." That's the loop from "The experiment" running on a fictional class.
 
 The full setup walkthrough — admin permission, parent letter, day one with real students — is in [setup/getting-started.md](setup/getting-started.md).

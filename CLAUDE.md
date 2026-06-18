@@ -1,4 +1,4 @@
-# Claude Cowork Guardrails — MyClassroomAIbot
+# Claude Cowork Guardrails — My Classroom Assistant
 
 This project is built around a strict architectural privacy boundary: **Claude must never see, store, or transmit student-identifying data.** The architecture is designed so this guarantee comes from where data lives, not from policy you choose to follow — but the guardrails below are still important.
 
