@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Classroom Assistant — give your class its own AI</title>
+<meta name="description" content="Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.">
+<style>
+  :root {
+    --cream:    #f1faee;
+    --ink:      #0d1b2a;
+    --navy:     #1a2332;
+    --navy-2:   #143a45;
+    --teal:     #1f6b6b;
+    --teal-2:   #18585a;
+    --seafoam:  #a8dadc;
+    --muted:    #51625f;
+    --line:     #dce6e3;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; font-family: var(--font); color: var(--ink);
+    background: var(--cream); line-height: 1.65; font-size: 17.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal); }
+  a:hover { color: var(--teal-2); }
+
+  /* ---- Top bar (kept as-is) ---- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; gap: 16px;
+    padding: 12px 22px; background: rgba(26,35,50,.96);
+    backdrop-filter: blur(6px); color: var(--cream);
+  }
+  .topbar .brand { font-weight: 700; font-size: 18px; color: var(--cream); text-decoration: none; letter-spacing: .2px; }
+  .topbar .spacer { flex: 1; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 999px; padding: 9px 16px; font-size: 14.5px; font-weight: 700;
+    text-decoration: none; cursor: pointer; border: 1.5px solid transparent; font-family: inherit;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-ghost { background: transparent; color: var(--cream); border-color: rgba(168,218,220,.5); }
+  .btn-ghost:hover { border-color: var(--seafoam); background: rgba(168,218,220,.12); color: var(--cream); }
+
+  /* ---- Document layout ---- */
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+
+  .lead { text-align: center; padding: 56px 22px 8px; }
+  .lead h1 { font-size: 42px; line-height: 1.1; margin: 0 0 16px; font-weight: 800; letter-spacing: -.5px; }
+  .lead .tagline { font-size: 21px; line-height: 1.45; color: var(--muted); max-width: 640px; margin: 0 auto; font-weight: 500; }
+
+  .intro { font-size: 19px; margin: 28px 0 0; }
+
+  h2 {
+    font-size: 28px; margin: 52px 0 14px; letter-spacing: -.3px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--seafoam);
+  }
+  h3 { font-size: 19px; margin: 26px 0 6px; color: var(--teal-2); }
+  p { margin: 14px 0; }
+
+  figure { margin: 28px 0; text-align: center; }
+  figure img {
+    max-width: 100%; height: auto; border-radius: 12px;
+    border: 1px solid var(--line); box-shadow: 0 6px 20px rgba(13,27,42,.08);
+  }
+  figure figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+  ol, ul { margin: 14px 0; padding-left: 22px; }
+  li { margin: 9px 0; }
+  .apps-list li { margin: 13px 0; }
+  strong { color: var(--ink); }
+
+  .steps { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px 24px 16px; margin: 18px 0; }
+  .steps ol { padding-left: 20px; }
+
+  .callout {
+    background: var(--seafoam); border-radius: 12px; padding: 18px 22px; margin: 22px 0;
+    font-size: 16.5px; color: #102a30;
+  }
+  .callout strong { color: #102a30; }
+
+  /* ---- Video ---- */
+  .video-frame {
+    position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden;
+    background: var(--navy); border: 1px solid var(--line); margin: 22px 0;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+  }
+  .video-frame iframe { width: 100%; height: 100%; border: 0; }
+  .video-placeholder { color: var(--seafoam); font-size: 15px; padding: 20px; }
+  .video-placeholder small { display: block; color: rgba(168,218,220,.7); margin-top: 6px; font-size: 13px; }
+
+  /* ---- Two-up image row ---- */
+  .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 26px 0; }
+  .img-row figure { margin: 0; }
+  @media (max-width: 560px) { .img-row { grid-template-columns: 1fr; } .lead h1 { font-size: 33px; } }
+
+  /* ---- Footer (kept, edited) ---- */
+  footer { background: var(--navy); color: var(--cream); padding: 40px 22px; text-align: center; margin-top: 64px; }
+  footer .f-brand { font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+  footer a { color: var(--seafoam); text-decoration: none; font-weight: 600; }
+  footer a:hover { color: var(--cream); }
+  footer .f-links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin: 14px 0 18px; }
+  footer .f-note { color: rgba(168,218,220,.7); font-size: 13px; }
+</style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <a class="brand" href="#top">My Classroom Assistant</a>
+    <span class="spacer"></span>
+    <a class="btn btn-ghost" href="https://github.com/mattnupen/My-Classroom-Assistant" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.9 18.3 5.2 18.3 5.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg>
+      View on GitHub
+    </a>
+  </header>
+
+  <!-- Lead -->
+  <section class="lead" id="top">
+    <h1>My Classroom Assistant</h1>
+    <p class="tagline">Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.</p>
+  </section>
+
+  <main class="wrap">
+    <p class="intro">It drafts your Monday slides, your parent messages, your encouragement cards. It reads how the class is doing through name-free summaries and adjusts what it makes next. And your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.</p>
+
+    <!-- Video -->
+    <div class="video-frame">
+      <!-- TODO: replace this placeholder with your video embed once it's uploaded, e.g.:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="My Classroom Assistant demo" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        Demo video coming soon
+        <small>Paste your video embed where marked in index.html</small>
+      </div>
+    </div>
+
+    <figure>
+      <img src="images/dashboard.png" alt="The Class Tools dashboard — a teacher's home base, shown in demo mode">
+      <figcaption>A teacher's home base. The AI keeps these cards current through chat — aggregate counts only, never a student's name. Press <b>See a demo class</b> to watch it fill in.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/slide.png" alt="A Monday opening slide the AI generates" style="max-width:560px">
+      <figcaption>A Monday opener the AI writes, in the built-in accessible theme: big type, high contrast, one idea, no names.</figcaption>
+    </figure>
+
+    <h2>See it in 90 seconds</h2>
+    <p>No setup, no real data, no account:</p>
+    <div class="steps">
+      <ol>
+        <li>Double-click <code>local-tools/ClassAI-dashboard.html</code>.</li>
+        <li>Click <strong>Progress Cards</strong> in the sidebar, then <strong>“Load the fictional demo class.”</strong> Print a card.</li>
+        <li>Click <strong>AI Export</strong>, load the demo class again, and generate a summary — that's the name-free aggregate the AI runs on.</li>
+      </ol>
+    </div>
+    <p>That's the whole privacy architecture in your hands: real-feeling tools on your side of the line, an aggregate-only summary crossing it.</p>
+    <p>Want the long view? <strong>Demo Semester</strong> (in the same sidebar) shows a fictional class running this project for 16 weeks — including the Cowork chats, the slump, the turnaround, and the final report.</p>
+    <p>Got 10 more minutes? Open this folder in Claude Cowork and say hi. Your AI will interview you, draft its persona, and make your first classroom slide before the chat ends.</p>
+
+    <h2>The experiment</h2>
+    <p>The question behind the project: <strong>can a semi-autonomous classroom AI help a class make progress towards a goal?</strong> Not “can AI do classroom tasks” — can an AI, given some real autonomy, move the needle on something a teacher actually cares about.</p>
+    <p>To make the question answerable, the AI runs under four constraints:</p>
+    <ol>
+      <li><strong>A personality.</strong> Your students help name and shape the AI's voice. It's <em>your class's</em> AI, with a stake in your class's success.</li>
+      <li><strong>A clear goal.</strong> The AI is given one mission for the unit, quarter, or semester. Everything it does ladders up to that goal, and “progress towards the goal” is what success looks like.</li>
+      <li><strong>Evidence-based teaching practices.</strong> The AI's defaults come from research, not vibes. When it makes a choice — what to put on a slide, how to phrase an encouragement note — it can tell you which practice it's drawing on.</li>
+      <li><strong>Aggregated data only.</strong> The AI never sees individual student records. Only summaries, tier counts, and aggregate movement. PII stays in offline tools that run on the teacher's laptop.</li>
+    </ol>
+    <p>The AI proposes, the teacher decides, the class moves (or doesn't), the aggregates come back, the AI adjusts. That's the loop. And the AI keeps a logbook so that by June, the experiment reads as a story — what you tried, what moved, what you'd change.</p>
+    <p>The shape of this project is borrowed from <a href="https://www.anthropic.com/research/project-vend-1" target="_blank" rel="noopener">Anthropic's Project Vend</a> — the experiment where Claude was given a small business to run, with real goals, real constraints, and real autonomy. The question here is the classroom version: what if something like that existed in a classroom? This is a scaled-back test of that idea.</p>
+
+    <h2>How it works</h2>
+    <h3>The brain: Claude Cowork</h3>
+    <p>The AI lives in Claude Cowork. Every conversation reads from a small set of instruction files in this folder — the AI's personality, its goal, the teaching practices it draws on, and the boundaries the teacher has set. The teacher updates those files through normal chat; the AI grows with the class across every session.</p>
+    <h3>How it personalizes</h3>
+    <p>The teacher and the class build the AI's personality and style together during setup. From there, it adapts to what the class wants and needs: an “ASL sign of the week” drawn from your uploaded lessons, an end-of-unit celebration where it tells you what to pick up and prints the slides and posters for you.</p>
+    <h3>What the AI makes</h3>
+    <p>Slides, posters, parent messages, encouragement notes, lesson openers. When the right tool doesn't exist, the AI builds one — a single offline HTML file the teacher double-clicks to open. None of these tools call the internet or store student data; the AI generates the code, the browser does the data work.</p>
+    <h3>How the AI hears from the class</h3>
+    <p>Students send anonymous messages through something like a Google Form. The teacher removes any identifying info like names or emails, pastes the aggregate into Cowork, and the AI uses the messages to adjust what it proposes next.</p>
+    <h3>How the AI measures itself</h3>
+    <p>The teacher drops their gradebook into an offline tool that produces a paste-ready aggregate — tier counts, most-missed assignments, week-over-week movement, zero names. The AI reads the aggregate and checks whether its actions are moving the class toward the goal.</p>
+    <h3>Where the AI doesn't get to decide</h3>
+    <p>The teacher sets boundaries during onboarding and adjusts them as the experiment runs: what the AI can ship without review, what always needs a human read first, and what's off-limits entirely.</p>
+
+    <h2>The offline apps</h2>
+    <p>The project includes a set of small browser-based apps the teacher uses to do anything that touches student data. They run entirely offline — no network calls, no cloud, no AI in the loop. Your roster and gradebook never leave your laptop. <strong>They're safe to use with real student data.</strong></p>
+    <p>You open them through <strong>Class Tools</strong> (<code>local-tools/ClassAI-dashboard.html</code>) — double-click it once, and a sidebar lets you jump between apps.</p>
+
+    <div class="img-row">
+      <figure>
+        <img src="images/student-cards.png" alt="Progress Cards — printable per-student cards listing missing work with checkboxes">
+        <figcaption><b>Progress Cards</b> — one printable card per student: missing work with checkboxes, or a full color-coded progress snapshot.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/app-studio.png" alt="App Studio — copy-paste prompts your AI uses to build new offline tools">
+        <figcaption><b>App Studio</b> — when the included apps don't cover it, your AI builds the next tool from a copy-paste prompt.</figcaption>
+      </figure>
+    </div>
+
+    <div class="callout"><strong>The privacy story on one page:</strong> the printable <a href="setup/permissions/privacy-one-pager.html">privacy one-pager</a> shows exactly what crosses the line to the AI and what never does — open it, print it, hand it to your principal or a curious colleague.</div>
+
+    <p>Included today:</p>
+    <ul class="apps-list">
+      <li><strong>Dashboard.</strong> Your home base. Shows your class goals, where the class is right now, and what your AI is focused on. Every other app is one click from here.</li>
+      <li><strong>Progress Cards.</strong> Print one card per student — either what they owe right now (missing work, with checkboxes) or how they're doing overall (every assignment, color-coded). Two-per-page; cut them and hand them out at the door.</li>
+      <li><strong>Parent Messages.</strong> Write one short template per tier (struggling / steady / strong) and the app mail-merges it into per-student messages with each kid's name, period, grade, and missing assignments. You paste each one into ParentSquare, email, or whatever you use to reach families.</li>
+      <li><strong>Gradebook Analytics.</strong> Drop in your gradebook and get a sortable per-student view — tiers, missing assignments, and patterns you wouldn't spot scrolling rows in PowerSchool.</li>
+      <li><strong>AI Export.</strong> A name-free summary of how the whole class is doing — counts by tier, most-missed assignments, week-over-week movement. This is what you paste to your AI so it knows the state of the class without ever seeing student records.</li>
+      <li><strong>Feedback Cleaner.</strong> Paste anonymous student feedback; it strips names and emails on your laptop and hands you a name-free digest to paste into your AI. Comes with a ready-to-use Google Form. Safe to use with real responses.</li>
+      <li><strong>Badges.</strong> Make up your own badges (Most Improved, Best Question of the Week, whatever fits your class), pick students from the roster, and print bordered certificates two-per-page.</li>
+      <li><strong>Random Groups.</strong> Generate balanced groups of any size, with a do-not-pair list and pair history so the same combinations don't keep coming up.</li>
+      <li><strong>App Studio.</strong> A gallery of tools your AI can build for you — each with a ready-to-paste prompt. The starting set is just the start.</li>
+      <li><strong>Demo Semester.</strong> A fictional class running everything above for 16 weeks — Cowork chats included. Start here to see the destination.</li>
+    </ul>
+    <p><strong>These tools are a starting set — your AI builds the next one.</strong> When you need something the included apps don't cover, the <strong>teacher-app-builder skill</strong> (installable in Claude Cowork) lets the AI generate a new offline app for you. It asks a few questions, builds the HTML, runs a privacy check, and registers the new app with the Dashboard sidebar automatically.</p>
+
+    <h2>Going deeper without your students</h2>
+    <p>After the 90-second tour, two more on-ramps before real kids are involved:</p>
+    <h3>A full dry run of the apps (~15 minutes)</h3>
+    <p>From the Dashboard, walk through Progress Cards → AI Export → Parent Messages → Badges with the demo class. See what each one produces side by side.</p>
+    <h3>The full experiment, end to end (~30 minutes)</h3>
+    <p>Open this folder in Claude Cowork and say hi. Run AI Export on the demo class, paste the aggregate into Cowork, and ask the AI for “Monday's opening slide.” That's the loop from “The experiment” running on a fictional class.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="f-brand">My Classroom Assistant</div>
+    <div class="f-links">
+      <a href="./local-tools/ClassAI-dashboard.html">Class Tools</a>
+      <a href="https://github.com/mattnupen/My-Classroom-Assistant" target="_blank" rel="noopener">View on GitHub</a>
+      <a href="https://mattnupen.com" target="_blank" rel="noopener">Matt Nupen</a>
+    </div>
+    <div class="f-note">Free and open source · myclassroomassistant.com</div>
+  </footer>
+
+</body>
+</html>

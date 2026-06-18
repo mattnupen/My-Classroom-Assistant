@@ -4,6 +4,8 @@
 
 ### Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.
 
+**[🌊 Try it live at myclassroomassistant.com →](https://myclassroomassistant.com)**
+
 </div>
 
 It drafts your Monday slides, your parent messages, your encouragement cards. It reads how the class is doing through name-free summaries and adjusts what it makes next. And your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.
