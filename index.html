@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Classroom Assistant — give your class its own AI</title>
-<meta name="description" content="Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.">
+<meta name="description" content="A semi-autonomous AI assistant for your classroom, aimed at one problem — it plans from evidence and your classroom data, and adapts as your students weigh in.">
 <style>
   :root {
     --cream:    #f1faee;
@@ -52,6 +52,8 @@
   .lead { text-align: center; padding: 56px 22px 8px; }
   .lead h1 { font-size: 42px; line-height: 1.1; margin: 0 0 16px; font-weight: 800; letter-spacing: -.5px; }
   .lead .tagline { font-size: 21px; line-height: 1.45; color: var(--muted); max-width: 640px; margin: 0 auto; font-weight: 500; }
+  .lead .pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0; }
+  .pill { font-size: 13.5px; font-weight: 700; color: var(--teal-2); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
 
   .intro { font-size: 19px; margin: 28px 0 0; }
 
@@ -83,6 +85,13 @@
   }
   .callout strong { color: #102a30; }
 
+  /* ---- Pilot result callout ---- */
+  .pilot { background: var(--navy); color: var(--cream); border-radius: 12px; padding: 22px 24px; margin: 24px 0; }
+  .pilot .label { font-size: 14px; font-weight: 700; letter-spacing: .3px; color: var(--seafoam); text-transform: uppercase; }
+  .pilot .stat { font-size: 30px; font-weight: 800; margin: 8px 0 2px; line-height: 1.15; }
+  .pilot .stat strong { color: #fff; }
+  .pilot .caveat { font-size: 14px; color: rgba(168,218,220,.85); font-style: italic; margin: 6px 0 0; }
+
   /* ---- Video ---- */
   .video-frame {
     position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden;
@@ -90,8 +99,6 @@
     display: flex; align-items: center; justify-content: center; text-align: center;
   }
   .video-frame iframe { width: 100%; height: 100%; border: 0; }
-  .video-placeholder { color: var(--seafoam); font-size: 15px; padding: 20px; }
-  .video-placeholder small { display: block; color: rgba(168,218,220,.7); margin-top: 6px; font-size: 13px; }
 
   /* ---- Two-up image row ---- */
   .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 26px 0; }
@@ -122,31 +129,59 @@
   <!-- Lead -->
   <section class="lead" id="top">
     <h1>My Classroom Assistant</h1>
-    <p class="tagline">Give your class its own AI — one your students name, with one mission for the semester, that never sees a single student record.</p>
+    <p class="tagline">A semi-autonomous AI assistant for your classroom, aimed at one problem — it plans from evidence and your classroom data, and adapts as your students weigh in.</p>
+    <div class="pills">
+      <span class="pill">Free &amp; open source</span>
+      <span class="pill">Runs in Claude Cowork</span>
+      <span class="pill">No student data leaves your laptop</span>
+    </div>
   </section>
 
   <main class="wrap">
-    <p class="intro">It drafts your Monday slides, your parent messages, your encouragement cards. It reads how the class is doing through name-free summaries and adjusts what it makes next. And your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.</p>
+    <p class="intro">It drafts your slides, your parent messages, and your encouragement cards, and adjusts what it makes as the class changes. Your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.</p>
 
     <!-- Video -->
     <div class="video-frame">
-      <!-- TODO: replace this placeholder with your video embed once it's uploaded, e.g.:
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="My Classroom Assistant demo" allowfullscreen></iframe> -->
-      <div class="video-placeholder">
-        Demo video coming soon
-        <small>Paste your video embed where marked in index.html</small>
-      </div>
+      <iframe src="https://www.youtube.com/embed/elIm51c1AZQ" title="My Classroom Assistant — demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
+
+    <h2>What it is</h2>
+    <p>My Classroom Assistant is a free, open-source project that runs inside <strong>Claude Cowork</strong>. It gives your class one AI that works toward a single goal you set — fewer missing assignments, better attendance, more participation — and makes the everyday materials that get you there.</p>
+    <p>Out of the box, it includes:</p>
+    <ul>
+      <li><strong>A set of offline apps</strong> that handle everything touching student data — gradebook analysis, printable progress cards, parent messages — entirely on your laptop, with no internet connection.</li>
+      <li><strong>A skill that builds more apps.</strong> When you need a tool that doesn't exist yet, the AI writes it for you as a single offline file.</li>
+      <li><strong>A research library</strong> of evidence-based teaching practices the AI draws on, so its choices come from research, not vibes.</li>
+      <li><strong>Ready-made AI personalities</strong> your class can adopt or remix, so no one starts from a blank page.</li>
+      <li><strong>A slide-design library</strong> for the classroom projector — accessible, high-contrast openers the AI fills in.</li>
+    </ul>
+    <p>You set it up through a short onboarding chat: the AI interviews you, and together you draft your assistant's name, personality, and mission.</p>
 
     <figure>
       <img src="images/dashboard.png" alt="The Class Tools dashboard — a teacher's home base, shown in demo mode">
       <figcaption>A teacher's home base. The AI keeps these cards current through chat — aggregate counts only, never a student's name. Press <b>See a demo class</b> to watch it fill in.</figcaption>
     </figure>
 
+    <h2>How it works</h2>
+    <p>The whole design rests on one rule: <strong>the AI never sees student-identifying data.</strong> Here's the loop.</p>
+
     <figure>
-      <img src="images/slide.png" alt="A Monday opening slide the AI generates" style="max-width:560px">
-      <figcaption>A Monday opener the AI writes, in the built-in accessible theme: big type, high contrast, one idea, no names.</figcaption>
+      <img src="images/architecture.png" alt="Architecture diagram: the teacher sits between students and the AI. Gradebook, LMS export, and student messages go into offline apps on the teacher's laptop, which pass only a cleaned, name-free summary to the AI (Claude Cowork); the AI sends slides and instructions back through the teacher.">
+      <figcaption>The teacher sits in the middle. Raw data goes into offline apps on your laptop; only a <b>cleaned</b>, name-free summary crosses to the AI, which sends slides and instructions back — never touching a student record.</figcaption>
     </figure>
+
+    <ol>
+      <li><strong>You stay in the middle.</strong> Nothing passes between your students and the AI directly — you're always in between. The AI proposes; you decide; you're the one who acts in the room.</li>
+      <li><strong>Student data stays on your laptop.</strong> Your gradebook and LMS exports go into the offline apps, which run entirely in your browser. They turn raw data into name-free, aggregate summaries — “8 students behind on Unit 3,” never a list of names.</li>
+      <li><strong>Only the cleaned summary crosses the line.</strong> You paste that aggregate into the AI, along with anonymous student messages you've already stripped of names. The AI reads the state of the class without ever seeing a student record.</li>
+      <li><strong>The AI analyzes and makes things.</strong> Grounded in its mission, the research library, and the boundaries you've set, it drafts your slides, parent-message templates, encouragement notes, and instructions — and hands them back to you.</li>
+      <li><strong>You run it, the class moves, the aggregates come back, the AI adjusts.</strong> That's the loop, repeating across the semester.</li>
+    </ol>
+    <h3>It works in the real world — through you</h3>
+    <p>You tell the AI what it actually has to work with: what you can hand out, what rewards you can run, how you want it to talk to the class. In the classroom pilot, the AI organized a tea party for a class that hit its goal, ran raffles, and managed a prize box. It can't do any of that itself — it proposes, and you make it happen. That teacher-in-the-middle design is exactly what makes the real-world rewards both safe and real.</p>
+    <h3>When it needs a tool it doesn't have, it builds one</h3>
+    <p>A single offline HTML file you double-click to open. None of these tools call the internet or store student data; the AI writes the code, your browser does the data work.</p>
+    <div class="callout"><strong>The privacy story on one page:</strong> the printable <a href="setup/permissions/privacy-one-pager.html">privacy one-pager</a> shows exactly what crosses the line to the AI and what never does — open it, print it, hand it to your principal or a curious colleague.</div>
 
     <h2>See it in 90 seconds</h2>
     <p>No setup, no real data, no account:</p>
@@ -158,34 +193,38 @@
       </ol>
     </div>
     <p>That's the whole privacy architecture in your hands: real-feeling tools on your side of the line, an aggregate-only summary crossing it.</p>
-    <p>Want the long view? <strong>Demo Semester</strong> (in the same sidebar) shows a fictional class running this project for 16 weeks — including the Cowork chats, the slump, the turnaround, and the final report.</p>
-    <p>Got 10 more minutes? Open this folder in Claude Cowork and say hi. Your AI will interview you, draft its persona, and make your first classroom slide before the chat ends.</p>
+    <p>Want the long view? <strong>Demo Semester</strong> (in the same sidebar) shows a fictional class running this project for 16 weeks — the Cowork chats, the slump, the turnaround, and the final report.</p>
 
-    <h2>The experiment</h2>
-    <p>The question behind the project: <strong>can a semi-autonomous classroom AI help a class make progress towards a goal?</strong> Not “can AI do classroom tasks” — can an AI, given some real autonomy, move the needle on something a teacher actually cares about.</p>
-    <p>To make the question answerable, the AI runs under four constraints:</p>
+    <figure>
+      <img src="images/slide.png" alt="A Monday opening slide the AI generates" style="max-width:560px">
+      <figcaption>A Monday opener the AI writes, in the built-in accessible theme: big type, high contrast, one idea, no names.</figcaption>
+    </figure>
+
+    <h2>What your students decide</h2>
+    <p>This isn't your AI — it's the class's. During setup, the students vote on:</p>
+    <ul>
+      <li><strong>The mission</strong> — what the class works toward: missing assignments, attendance, smoother transitions, participation.</li>
+      <li><strong>The name and personality</strong> — they name it and shape how it talks. (My class named theirs <strong>Nolan.AI</strong>.)</li>
+    </ul>
+    <p>From there it adapts to what the class wants — an ASL sign of the week, an Ojibwe word of the week, whatever adds a little variety. Students send anonymous messages through a Google Form; you strip any identifying info and paste the aggregate back, and the AI uses it to adjust what it proposes next.</p>
+
+    <h2>Where it came from</h2>
+    <p>This started as an experiment in my own classroom. I gave one class's AI a single mission — reduce missing work — let the students name it (they chose <strong>Nolan.AI</strong>), and ran it for a semester.</p>
+    <div class="pilot">
+      <div class="label">Semester pilot — “Nolan.AI,” a missing-work mission</div>
+      <div class="stat">Week one: <strong>~12% less missing work</strong></div>
+      <div class="stat" style="font-size:18px; font-weight:600;">8 fewer missing assignments</div>
+      <p class="caveat">One class · self-reported · directional, not proof.</p>
+    </div>
+    <p>It was enough to convince me the idea was worth building into something other teachers could use for free.</p>
+    <p>The shape of the project is borrowed from <a href="https://www.anthropic.com/research/project-vend-1" target="_blank" rel="noopener">Anthropic's Project Vend</a> — the experiment where Claude was given a small business to run, with real goals, real constraints, and real autonomy. My Classroom Assistant is the classroom version of that question: <strong>can a semi-autonomous AI, kept safely behind the teacher, help a class reach a goal it set for itself?</strong></p>
+    <p>To make that question answerable, the AI runs under four constraints:</p>
     <ol>
       <li><strong>A personality.</strong> Your students help name and shape the AI's voice. It's <em>your class's</em> AI, with a stake in your class's success.</li>
-      <li><strong>A clear goal.</strong> The AI is given one mission for the unit, quarter, or semester. Everything it does ladders up to that goal, and “progress towards the goal” is what success looks like.</li>
-      <li><strong>Evidence-based teaching practices.</strong> The AI's defaults come from research, not vibes. When it makes a choice — what to put on a slide, how to phrase an encouragement note — it can tell you which practice it's drawing on.</li>
-      <li><strong>Aggregated data only.</strong> The AI never sees individual student records. Only summaries, tier counts, and aggregate movement. PII stays in offline tools that run on the teacher's laptop.</li>
+      <li><strong>A clear goal.</strong> One mission for the unit, quarter, or semester. Everything it does ladders up to that goal.</li>
+      <li><strong>Evidence-based practices.</strong> Its defaults come from research, not vibes — and it can tell you which practice a given choice draws on.</li>
+      <li><strong>Aggregated data only.</strong> It never sees individual student records — only summaries, tier counts, and aggregate movement. PII stays in the offline tools on your laptop.</li>
     </ol>
-    <p>The AI proposes, the teacher decides, the class moves (or doesn't), the aggregates come back, the AI adjusts. That's the loop. And the AI keeps a logbook so that by June, the experiment reads as a story — what you tried, what moved, what you'd change.</p>
-    <p>The shape of this project is borrowed from <a href="https://www.anthropic.com/research/project-vend-1" target="_blank" rel="noopener">Anthropic's Project Vend</a> — the experiment where Claude was given a small business to run, with real goals, real constraints, and real autonomy. The question here is the classroom version: what if something like that existed in a classroom? This is a scaled-back test of that idea.</p>
-
-    <h2>How it works</h2>
-    <h3>The brain: Claude Cowork</h3>
-    <p>The AI lives in Claude Cowork. Every conversation reads from a small set of instruction files in this folder — the AI's personality, its goal, the teaching practices it draws on, and the boundaries the teacher has set. The teacher updates those files through normal chat; the AI grows with the class across every session.</p>
-    <h3>How it personalizes</h3>
-    <p>The teacher and the class build the AI's personality and style together during setup. From there, it adapts to what the class wants and needs: an “ASL sign of the week” drawn from your uploaded lessons, an end-of-unit celebration where it tells you what to pick up and prints the slides and posters for you.</p>
-    <h3>What the AI makes</h3>
-    <p>Slides, posters, parent messages, encouragement notes, lesson openers. When the right tool doesn't exist, the AI builds one — a single offline HTML file the teacher double-clicks to open. None of these tools call the internet or store student data; the AI generates the code, the browser does the data work.</p>
-    <h3>How the AI hears from the class</h3>
-    <p>Students send anonymous messages through something like a Google Form. The teacher removes any identifying info like names or emails, pastes the aggregate into Cowork, and the AI uses the messages to adjust what it proposes next.</p>
-    <h3>How the AI measures itself</h3>
-    <p>The teacher drops their gradebook into an offline tool that produces a paste-ready aggregate — tier counts, most-missed assignments, week-over-week movement, zero names. The AI reads the aggregate and checks whether its actions are moving the class toward the goal.</p>
-    <h3>Where the AI doesn't get to decide</h3>
-    <p>The teacher sets boundaries during onboarding and adjusts them as the experiment runs: what the AI can ship without review, what always needs a human read first, and what's off-limits entirely.</p>
 
     <h2>The offline apps</h2>
     <p>The project includes a set of small browser-based apps the teacher uses to do anything that touches student data. They run entirely offline — no network calls, no cloud, no AI in the loop. Your roster and gradebook never leave your laptop. <strong>They're safe to use with real student data.</strong></p>
@@ -202,8 +241,6 @@
       </figure>
     </div>
 
-    <div class="callout"><strong>The privacy story on one page:</strong> the printable <a href="setup/permissions/privacy-one-pager.html">privacy one-pager</a> shows exactly what crosses the line to the AI and what never does — open it, print it, hand it to your principal or a curious colleague.</div>
-
     <p>Included today:</p>
     <ul class="apps-list">
       <li><strong>Dashboard.</strong> Your home base. Shows your class goals, where the class is right now, and what your AI is focused on. Every other app is one click from here.</li>
@@ -219,12 +256,13 @@
     </ul>
     <p><strong>These tools are a starting set — your AI builds the next one.</strong> When you need something the included apps don't cover, the <strong>teacher-app-builder skill</strong> (installable in Claude Cowork) lets the AI generate a new offline app for you. It asks a few questions, builds the HTML, runs a privacy check, and registers the new app with the Dashboard sidebar automatically.</p>
 
-    <h2>Going deeper without your students</h2>
-    <p>After the 90-second tour, two more on-ramps before real kids are involved:</p>
+    <h2>Get started</h2>
+    <p>The fastest taste is the 90-second tour above — no setup, no account, no real data.</p>
+    <p>When you're ready to go further, two more on-ramps before real students are involved:</p>
     <h3>A full dry run of the apps (~15 minutes)</h3>
     <p>From the Dashboard, walk through Progress Cards → AI Export → Parent Messages → Badges with the demo class. See what each one produces side by side.</p>
     <h3>The full experiment, end to end (~30 minutes)</h3>
-    <p>Open this folder in Claude Cowork and say hi. Run AI Export on the demo class, paste the aggregate into Cowork, and ask the AI for “Monday's opening slide.” That's the loop from “The experiment” running on a fictional class.</p>
+    <p>Open this folder in Claude Cowork and say hi. Run AI Export on the demo class, paste the aggregate into Cowork, and ask the AI for “Monday's opening slide.” That's the loop running on a fictional class.</p>
   </main>
 
   <!-- Footer -->
@@ -235,7 +273,7 @@
       <a href="https://github.com/mattnupen/My-Classroom-Assistant" target="_blank" rel="noopener">View on GitHub</a>
       <a href="https://mattnupen.com" target="_blank" rel="noopener">Matt Nupen</a>
     </div>
-    <div class="f-note">Free and open source · myclassroomassistant.com</div>
+    <div class="f-note">Free and open source · MIT License · myclassroomassistant.com</div>
   </footer>
 
 </body>

@@ -2,19 +2,13 @@
 
 # My Classroom Assistant
 
-### A free, open-source project that gives your class its own AI — named by your students, pointed at one goal for the semester, and built so it never sees a single student record.
+### A semi-autonomous AI assistant for your classroom, aimed at one problem — it plans from evidence and your classroom data, and adapts as your students weigh in.
 
 **[🌊 Try it live at myclassroomassistant.com →](https://myclassroomassistant.com)**
 
 </div>
 
-<p align="center">
-  <a href="https://youtu.be/elIm51c1AZQ">
-    <img src="https://img.youtube.com/vi/elIm51c1AZQ/maxresdefault.jpg" alt="▶️ Watch the My Classroom Assistant demo video" width="720">
-  </a>
-</p>
-
-<div align="center"><sub>▶️ <b><a href="https://youtu.be/elIm51c1AZQ">Watch the demo video</a></b> — see the whole thing in a couple of minutes.</sub></div>
+**[▶️ Watch the demo video →](https://youtu.be/elIm51c1AZQ)**
 
 It drafts your slides, your parent messages, and your encouragement cards, and adjusts what it makes as the class changes. Your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.
 
@@ -52,6 +46,12 @@ You set it up through a short onboarding chat: the AI interviews you, and togeth
 ## How it works
 
 The whole design rests on one rule: **the AI never sees student-identifying data.** Here's the loop.
+
+<p align="center">
+  <img src="images/architecture.png" alt="Architecture diagram: the teacher sits between students and the AI. Gradebook, LMS export, and student messages go into offline apps on the teacher's laptop, which pass only a cleaned, name-free summary to the AI; the AI sends slides and instructions back through the teacher." width="720">
+</p>
+
+<div align="center"><sub>The teacher sits in the middle. Raw data goes into offline apps on your laptop; only a <b>cleaned</b>, name-free summary crosses to the AI, which sends slides and instructions back — never touching a student record.</sub></div>
 
 1. **You stay in the middle.** Nothing passes between your students and the AI directly — you're always in between. The AI proposes; you decide; you're the one who acts in the room.
 
