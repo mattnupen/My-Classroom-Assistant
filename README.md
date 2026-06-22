@@ -10,7 +10,13 @@
 
 It drafts your Monday slides, your parent messages, your encouragement cards. It reads how the class is doing through name-free summaries and adjusts what it makes next. And your gradebook never leaves your laptop — the AI works for your class without ever seeing your students' data.
 
-**[▶️ Watch the demo video →](https://youtu.be/elIm51c1AZQ)**
+<p align="center">
+  <a href="https://youtu.be/elIm51c1AZQ">
+    <img src="https://img.youtube.com/vi/elIm51c1AZQ/maxresdefault.jpg" alt="▶️ Watch the My Classroom Assistant demo video" width="720">
+  </a>
+</p>
+
+<div align="center"><sub>▶️ <b><a href="https://youtu.be/elIm51c1AZQ">Watch the demo video</a></b> — see the whole loop in a couple of minutes.</sub></div>
 
 <p align="center">
   <img src="images/dashboard.png" alt="The Class Tools dashboard — a teacher's home base, shown in demo mode" width="860">
