@@ -52,7 +52,7 @@ Tell the AI what you want for the week ahead. The usual mix:
 
 The AI prepares all of it. You spend Sunday night reviewing — usually 15 minutes — and printing what you need.
 
-After you paste the Class Pulse summary, the AI also adds a short entry to `brain/class-story.md` — the running story of the experiment. You don't have to do anything for this; it's the AI's logbook, and it's what makes the end-of-quarter reflection write itself.
+After you paste the Class Pulse summary, the AI also adds a short entry to `my-classroom/class-story.md` — the running story of the experiment. You don't have to do anything for this; it's the AI's logbook, and it's what makes the end-of-quarter reflection write itself.
 
 ### Sunday (or Monday morning)
 

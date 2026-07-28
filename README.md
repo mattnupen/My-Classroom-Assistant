@@ -115,7 +115,7 @@ To make that question answerable, the AI runs under four constraints:
 3. **Evidence-based practices.** Its defaults come from research, not vibes — and it can tell you which practice a given choice draws on.
 4. **Aggregated data only.** It never sees individual student records — only summaries, tier counts, and aggregate movement. PII stays in the offline tools on your laptop.
 
-The AI keeps a logbook (`brain/class-story.md`) so that by June, the semester reads as a story: what you tried, what moved, what you'd change.
+The AI keeps a logbook (`my-classroom/class-story.md`) so that by June, the semester reads as a story: what you tried, what moved, what you'd change.
 
 ## The offline apps
 

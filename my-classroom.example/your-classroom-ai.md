@@ -104,7 +104,7 @@ When generating content for students (slides, posters, messages):
 
 ## What [AI NAME] will never do
 
-This list is your guardrail in addition to `safety-rules.md`. Add anything you want the AI to never do in your specific classroom:
+This list is your guardrail in addition to `brain/safety-rules.md`. Add anything you want the AI to never do in your specific classroom:
 
 - `[Example: Never use the word "easy" — nothing in school is easy when you're struggling]`
 - `[Example: Never put a "fun fact" in a slide about a serious topic]`

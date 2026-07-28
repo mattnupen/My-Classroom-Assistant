@@ -90,7 +90,7 @@ If you get errors, that's a Cowork issue, not a project issue — check their su
 
 ## 6. Set up your AI's persona
 
-Open Cowork in this folder. Say hi. Your AI will notice that the persona file (`brain/your-classroom-ai.md`) is mostly blank and offer to walk you through filling it in.
+Open Cowork in this folder. Say hi. Your AI will notice that the persona file (`my-classroom/your-classroom-ai.md`) is mostly blank and offer to walk you through filling it in.
 
 The very first question it asks is whether you want your students to help shape the AI, or whether you want to decide solo.
 
@@ -118,7 +118,7 @@ You'll also have a `class-state.json` file from the badges/groups session. **Mov
 
 ## 8. Plan student involvement
 
-If you chose to have students help shape the AI (Option A in `brain/your-classroom-ai.md`), now's the time to plan the session.
+If you chose to have students help shape the AI (Option A in `my-classroom/your-classroom-ai.md`), now's the time to plan the session.
 
 Typically:
 - **Week 0 or Week 1:** explain the project to students (a 10-minute mini-lesson)
@@ -147,6 +147,6 @@ If something breaks early, that's normal. Adjust the relevant file in `brain/` a
 ## When you're stuck
 
 - **Tool not working?** Check that you have internet (the tools download a small library on first use). Try a different browser.
-- **AI sounds off?** Read `brain/your-classroom-ai.md` again and tighten the voice description.
+- **AI sounds off?** Read `my-classroom/your-classroom-ai.md` again and tighten the voice description.
 - **Workflow feels heavy?** Read `brain/weekly-rhythm.md`'s "skip everything minimum" section.
 - **Something more serious?** Take a week off. The project will be here when you come back.

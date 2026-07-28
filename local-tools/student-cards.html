@@ -1016,6 +1016,10 @@ function escHtml(s) {
 function escAttr(s) { return escHtml(s); }
 </script>
 
+<!-- The teacher's own apps load before the nav so it can list them. Absent on a
+     fresh install — a missing file fails silently under file://, and _nav.js
+     handles window.MY_APPS being undefined. Engine updates never touch it. -->
+<script src="../my-classroom/my-apps.js"></script>
 <script src="./_nav.js"></script>
 </body>
 </html>

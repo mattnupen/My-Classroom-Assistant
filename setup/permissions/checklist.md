@@ -33,7 +33,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 
 ## AI Setup
 
-- [ ] `brain/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
+- [ ] `my-classroom/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
 - [ ] I've decided whether students will help shape the AI's identity, and when.
 - [ ] If students are involved, I've planned the voting / discussion session.
 - [ ] I've read all four files in `brain/`.
