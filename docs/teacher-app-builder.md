@@ -4,7 +4,7 @@ The offline apps included in this project cover the common cases, but your class
 
 The skill walks you through 4–5 short questions (or you can describe what you want in your own words), generates a single offline `.html` file, and runs an automatic privacy check before saving the result. **It refuses to ship tools that violate the project's privacy rules** — no outbound network calls, no browser storage of student data, no save-to-the-project-folder, single static file. If you accidentally ask for something unsafe ("save my gradebook to localStorage so I don't lose it"), it explains why it won't and proposes a compliant alternative.
 
-The new app lands in `local-tools/<name>/app.html` and is automatically registered with the Dashboard's sidebar.
+The new app lands in `my-classroom/apps/<name>/app.html`, alongside a `spec.md` recording what you asked for, and is automatically registered in the Dashboard's sidebar under **"Your apps."** Because it lives in `my-classroom/`, project updates never touch it — and if you ever want it rebuilt on a newer scaffold, the spec is what makes that possible.
 
 ## Where to get the installer
 

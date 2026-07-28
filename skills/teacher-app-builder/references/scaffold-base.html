@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--
+  CSP allowlist — do not loosen without updating the verification gate and the skill's allowlist constant.
+  Allowed: SheetJS CDN (for CSV/XLSX parsing). Nothing else.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none';">
+<title>{{TITLE}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- {{SHEETJS_SLOT}} -->
+<style>
+  /* ---- Ocean Depths, teacher-app theme. This is the house style from
+     content-templates/app-ui-guidelines.md, inlined because generated apps are
+     standalone: they do NOT load local-tools/_nav.js, which is where the
+     shipped tools get this CSS from. Keep the two in sync. ---- */
+  :root {
+    --cream:       #f1faee;
+    --ink:         #0d1b2a;
+    --navy:        #1a2332;
+    --navy-2:      #143a45;
+    --teal:        #1f6b6b;
+    --teal-dark:   #18585a;
+    --seafoam:     #a8dadc;
+    --seafoam-pale:#e3f1ef;
+    --muted:       #51646d;
+    --line:        #d8e6e1;
+    --bg:          #eef4f1;
+    --card-bg:     #ffffff;
+    --warn:        #b9822b;
+    --warn-soft:   #f6ecd8;
+    --radius:      14px;
+    --radius-sm:   9px;
+    --shadow:      0 1px 2px rgba(13,27,42,.04), 0 6px 18px rgba(13,27,42,.06);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .screen-only { display: block; }
+  @media print { .screen-only { display: none !important; } }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 30px 80px; }
+
+  /* ---- The shared app hero. The app NAME is the <h1>; the one-line
+     description is the <h2> below it. Never a tagline in the <h1>. ---- */
+  .app-hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: var(--cream); border-radius: 18px; padding: 24px 26px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    box-shadow: 0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.08);
+  }
+  .app-hero .app-hero-ico {
+    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 13px;
+    background: rgba(168,218,220,.16); color: var(--seafoam);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .app-hero .app-hero-ico svg { width: 30px; height: 30px; }
+  .app-hero .app-hero-text { flex: 1 1 320px; min-width: 0; }
+  .app-hero h1 { margin: 0; font-size: 27px; font-weight: 700; line-height: 1.2; color: var(--cream); }
+  .app-hero h2 { margin: 5px 0 0; font-size: 16px; font-weight: 500; line-height: 1.4; color: rgba(241,250,238,.82); }
+  @media print { .app-hero { display: none; } }
+
+  /* Back to the launcher. Generated apps are standalone — they have no sidebar. */
+  .back-link {
+    display: inline-block; margin-bottom: 14px;
+    color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* ---- Cards / steps ---- */
+  .step {
+    background: var(--card-bg); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .step h2 {
+    margin: 0 0 13px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--muted); font-weight: 700;
+  }
+
+  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
+  input[type="text"], select, textarea {
+    width: 100%; padding: 8px 10px; border: 1px solid #c5d8d2; border-radius: 6px;
+    font-size: 15px; font-family: inherit; background: #fff; color: var(--ink);
+  }
+  input[type="text"]:focus, select:focus, textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+  textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+
+  button {
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    padding: 9px 16px; border-radius: 6px; border: 1px solid transparent; cursor: pointer;
+  }
+  button.primary { background: var(--teal); color: var(--cream); border-color: var(--teal); }
+  button.primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+  button.secondary { background: #fff; color: var(--ink); border-color: #c5d8d2; }
+  button.secondary:hover { background: var(--seafoam-pale); }
+
+  .privacy-note {
+    background: var(--seafoam-pale); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: 10px 13px;
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  /* {{EXTRA_STYLES_SLOT}} */
+
+  /* Print */
+  @page { size: letter portrait; margin: 0.4in; }
+  @media print {
+    body { background: #fff; }
+    .step, .back-link { display: none; }
+    main { max-width: none; margin: 0; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <!-- {{BACK_LINK}}
+       Leave this as-is. Path check: this file lives at
+       my-classroom/apps/<slug>/app.html — up one is my-classroom/apps/, up two
+       is my-classroom/, up three is the project root, so ../../../local-tools/
+       reaches the shipped tools. -->
+  <a class="back-link screen-only" href="../../../local-tools/ClassAI-dashboard.html">&larr; Back to Class Tools</a>
+
+  <header class="app-hero screen-only">
+    <span class="app-hero-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a3.8 3.8 0 0 0-5 5L3 18l3 3 6.6-6.6a3.8 3.8 0 0 0 5-5l-2.6 2.6-2.4-2.4z"/></svg>
+    </span>
+    <div class="app-hero-text">
+      <h1>{{TITLE}}</h1>
+      <h2>{{INTRO}}</h2>
+    </div>
+  </header>
+
+  <!-- {{BODY_SLOT}} -->
+</main>
+
+<script>
+// Wrapped in an IIFE so nothing leaks to the global scope — house rule from
+// content-templates/app-ui-guidelines.md.
+(function () {
+  'use strict';
+  // {{LOGIC_SLOT}}
+})();
+</script>
+
+</body>
+</html>

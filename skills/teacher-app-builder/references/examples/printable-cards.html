@@ -1,0 +1,41 @@
+<!--
+  PATTERN: printable-cards
+  Use when the teacher wants one card per row (e.g., one card per student), formatted to print.
+  Body and logic blocks plug into the scaffold's {{BODY_SLOT}} and {{LOGIC_SLOT}}.
+-->
+
+<!-- BODY -->
+<section class="step screen-only" id="step-upload">
+  <h2>Step 1 — Load your data</h2>
+  <label class="step" style="display:block; border: 2px dashed #c5d8d2; text-align:center; cursor:pointer;">
+    <strong>Drop a CSV or XLSX file here, or click to choose</strong>
+    <input type="file" id="file-input" accept=".csv,.xlsx,.xls" style="display:none;">
+  </label>
+</section>
+
+<section class="step screen-only" id="step-generate" hidden>
+  <h2>Step 2 — Generate cards</h2>
+  <button class="primary" id="btn-generate">Generate</button>
+  <button class="secondary" id="btn-print" disabled>Print →</button>
+</section>
+
+<section id="cards-area" hidden>
+  <div id="cards" style="display:grid; grid-template-columns: 1fr 1fr; gap:18px;"></div>
+</section>
+
+<!-- LOGIC -->
+let rows = [];  // in-memory only — never persisted
+document.getElementById('file-input').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  const buf = await file.arrayBuffer();
+  const wb = XLSX.read(buf, { type: 'array' });
+  rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+  document.getElementById('step-generate').hidden = false;
+});
+document.getElementById('btn-generate').addEventListener('click', () => {
+  const cards = document.getElementById('cards');
+  cards.innerHTML = rows.map(r => `<div class="card" style="border:1.5px solid var(--ink); border-radius:10px; padding:18px;"><h3>${r['Student'] || r['Name'] || 'Unnamed'}</h3><!-- ADAPT: render fields specific to this app --></div>`).join('');
+  document.getElementById('cards-area').hidden = false;
+  document.getElementById('btn-print').disabled = false;
+});
+document.getElementById('btn-print').addEventListener('click', () => window.print());
