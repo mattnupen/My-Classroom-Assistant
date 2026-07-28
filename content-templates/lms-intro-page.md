@@ -61,6 +61,8 @@ You can add an FAQ section if your students tend to be question-askers. A few go
 > **Q: So the AI is grading me?**
 > A: No. I grade everything. The AI never sees your grade or assigns one.
 
+*(That answer is written for **Locked-Room mode**, the default. If your district approved **Direct mode**, use: "No. I grade everything. Our district approved letting the AI read the gradebook so I don't have to retype it — but it doesn't assign or change a single grade, and it never records anyone's name." Post the version that's actually true for your room.)*
+
 > **Q: Can the AI read my messages or essays?**
 > A: No. The AI doesn't see anything you write unless I specifically choose to share *themes* from an anonymous class-wide survey — and even then, the AI only sees patterns across the whole class, not anything tied to you.
 

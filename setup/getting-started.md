@@ -49,6 +49,10 @@ If they want more detail, hand them `setup/permissions/privacy-explainer.md`. Th
 
 If they say no — respect that. Some districts have legitimate concerns about AI in classrooms. You can try again next year, or with a stripped-down version (just the local tools, no Claude integration).
 
+**A note on data modes.** Everything above describes **Locked-Room mode** — the default, and the one you're in unless you deliberately change it. Student data stays on your laptop and the AI works from name-free summaries. You don't have to do anything to get this.
+
+Some districts, having reviewed [Anthropic's Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), approve teachers to hand gradebook exports to the AI directly — it saves the summarize-and-paste step. If that conversation comes up with your admin, `setup/permissions/data-mode-record.md` is the one-page record to fill in and keep on file, and your AI will set the mode when you tell it the approval exists. Don't go looking for this. Locked-Room is the right default for almost everyone, and nothing in this guide assumes you leave it.
+
 ---
 
 ## 3. Notify families

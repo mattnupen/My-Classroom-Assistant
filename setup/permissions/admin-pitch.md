@@ -25,12 +25,14 @@ I review everything before it reaches students or families.
 
 ## What the AI does NOT do
 
-- It does not see individual student grades, names attached to grades, or any per-student records.
 - It does not interact with students.
 - It does not make academic decisions or assign grades.
 - It does not send anything to families without my review.
+- It does not store or display any student's name — not in its notes, not on a dashboard, not on a slide. That holds no matter which data mode below I'm using.
 
 ## How student data is handled (the short version)
+
+**The mode I'm using: Locked-Room (the project's default).**
 
 Anything that requires per-student detail — reading the gradebook, generating individualized cards, picking groups — happens through small browser tools that run **only on my laptop**. No student data is transmitted anywhere.
 
@@ -40,6 +42,20 @@ The AI itself only ever sees:
 - Generic templates with placeholders the local tools fill in
 
 This keeps the project on the safe side of FERPA and state student data privacy laws. The longer explanation is in `privacy-explainer.md`.
+
+## An optional second mode, for districts that want it
+
+*Read this only if you're curious about the alternative — the proposal above is the default, and it's what I'm asking for unless you tell me otherwise.*
+
+Some districts, having reviewed Anthropic's education data terms, approve teachers to let Claude work with gradebook exports directly. It removes the export-summarize-paste step in the middle of my week.
+
+This project supports that as an explicit, opt-in switch rather than a habit that drifts in:
+
+- The district's approval is recorded — who approved it, when, and on what basis — on a one-page record: `setup/permissions/data-mode-record.md`.
+- The AI's rules change in exactly one documented way: it may open exports I deliberately place in a single designated folder. Nothing else changes.
+- Everything the AI *stores or displays* stays aggregate-only, with no student names, in both modes.
+
+If that's of interest, the relevant terms are Anthropic's [Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), which include a K-12 Data Processing Addendum written for FERPA. If it isn't, nothing above changes — Locked-Room is and remains the default.
 
 ## What I'm asking for
 

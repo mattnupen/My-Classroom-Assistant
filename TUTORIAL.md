@@ -20,6 +20,8 @@ A note on the demo files. Two of these demos use files you supply:
 
 The whole project runs on a single rule: **Claude never sees student-identifying data.** Not names, not individual grades, not per-kid missing-work lists. That guarantee doesn't come from Claude promising to be careful — it comes from *where the data lives*. Student data only ever goes into the offline HTML apps that run on your laptop and never touch the internet. Claude only ever sees aggregates ("3 students behind on Unit 3") or content that has no student data in it at all.
 
+That's **Locked-Room mode** — the default, what every demo below shows, and what you should present unless someone asks. There is also an opt-in **Direct mode** a district can approve in writing, where the AI reads gradebook exports from one designated folder; if it comes up in the room, the honest one-liner is: *"a district can approve that, it's recorded on a form, and even then the AI still never writes a student's name into anything it keeps or shows."* Details live in `setup/permissions/privacy-explainer.md`.
+
 That's why the demos split into two kinds of step. Watch for these labels:
 
 > 💬 **Cowork prompt** — something you type to Claude in chat. Safe by design: no student data involved.

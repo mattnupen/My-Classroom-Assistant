@@ -13,6 +13,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 - [ ] Families have been sent the parent letter.
 - [ ] At least one week has passed since the parent letter went out, giving families time to opt out.
 - [ ] I have a quiet list of any students whose families opted out.
+- [ ] I know which data mode I'm in. (Locked-Room is the default and needs nothing from me. If — and only if — my district has approved Direct mode, the approval is recorded in `setup/permissions/data-mode-record.md` and in `my-classroom/data-policy.md`, and my parent letter uses the Direct-mode paragraph.)
 
 ## Safety
 
@@ -20,7 +21,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 - [ ] The crisis card is somewhere I can see it (desk, bag, lanyard).
 - [ ] I have read `brain/safety-rules.md` and understand the mandated-reporter flow.
 - [ ] I know exactly what I'll do if the AI surfaces something crisis-related (whom to call, in what order).
-- [ ] I have not put any student names, real grades, or personal information into the AI.
+- [ ] I have not put any student names, real grades, or personal information into the AI — and in Locked-Room mode (the default) I never will. (Direct mode changes exactly one thing: exports I deliberately place in `my-classroom/inbox/`. Names still never go in a chat message, and the AI still never writes one down.)
 
 ## Technical
 
@@ -36,7 +37,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 - [ ] `my-classroom/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
 - [ ] I've decided whether students will help shape the AI's identity, and when.
 - [ ] If students are involved, I've planned the voting / discussion session.
-- [ ] I've read all four files in `brain/`.
+- [ ] I've skimmed `brain/` — at minimum `safety-rules.md` and `teaching-principles.md`.
 - [ ] The AI's voice sounds right when I ask it to generate a sample (greeting, encouragement note, slide).
 
 ## Workflow

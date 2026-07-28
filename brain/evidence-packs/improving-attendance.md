@@ -4,7 +4,7 @@
 **Built:** 2026-06-14 · **Built by:** the evidence engine (see `brain/evidence-engine.md`)
 **Sources checked:** Rogers & Feller (2018, *Nature Human Behaviour*); belonging research (Walton & Cohen, universal base); fresh-start effect (Dai, Milkman & Riis, 2014).
 
-> How to read this. Each card has two layers: the **index** on top (claim, strength, source, effect) and the **generation material** below — what the research found, the move, a worked example, and done-well-vs-badly. Every move obeys the eleven principles in `teaching-principles.md`. **Privacy note:** an attendance message is about one child, which means a real number — and the AI never sees student data. So the AI always writes the *words* with a blank (shown as **[#]**) that the teacher fills in from the offline tools. It supplies the message, never the number.
+> How to read this. Each card has two layers: the **index** on top (claim, strength, source, effect) and the **generation material** below — what the research found, the move, a worked example, and done-well-vs-badly. Every move obeys the eleven principles in `teaching-principles.md`. **Privacy note:** an attendance message is about one child, which means a real number. So the AI always writes the *words* with a blank (shown as **[#]**) that the teacher fills in from the offline tools. It supplies the message, never the number. In Locked-Room mode that's the only option; in Direct mode the AI could fill the blank from an inbox export, but the drafts it *keeps* stay blank-and-nameless either way — so this pattern is the one to generate in both modes.
 
 ---
 

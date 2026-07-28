@@ -2,13 +2,17 @@
 
 *This document is for administrators, district privacy officers, parents who want detail, and any teacher who wants to understand the data design before using the project.*
 
-The short version: **the AI in this project never receives raw student data.** Anything that requires per-student information happens locally on the teacher's laptop, using small browser-based tools. The AI only ever sees broad class-level summaries with no names attached.
+The short version: **in the mode this project ships with — and the only one unless a district has approved otherwise in writing — the AI never receives raw student data.** Anything that requires per-student information happens locally on the teacher's laptop, using small browser-based tools. The AI only ever sees broad class-level summaries with no names attached.
+
+That default is called **Locked-Room mode**, and everything in this document describes it unless a section says otherwise. A district may approve an opt-in exception; see [An optional second mode](#an-optional-second-mode-for-districts-that-want-it) near the end. One thing holds in both: **nothing the AI stores or displays ever contains a student's name.**
 
 This document explains how that works in practice and how it lines up with student data privacy law.
 
 ---
 
 ## What the AI sees vs. what it doesn't
+
+*In Locked-Room mode, the default:*
 
 | The AI **never** sees | The AI **does** see |
 |---|---|
@@ -60,7 +64,9 @@ FERPA (Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g) governs st
 1. **Education records are records maintained by the school that contain personally identifiable information (PII).** Aggregate, de-identified data is not an education record under FERPA. The data the AI sees in this project is aggregate and contains no PII.
 2. **De-identification standard.** Under 34 CFR § 99.31(b), data must have all direct identifiers removed AND not contain enough indirect identifiers that a reasonable person could re-identify a student. The aggregate summaries this project produces (tier counts, most-missed assignments at the class level, week-over-week movement) meet this standard.
 
-The raw data — gradebook exports — never leaves the teacher's computer. Schools' existing rules about how teachers store gradebook exports on their devices apply unchanged.
+In Locked-Room mode the raw data — gradebook exports — never leaves the teacher's computer, so no education record is disclosed at all. Schools' existing rules about how teachers store gradebook exports on their devices apply unchanged.
+
+In Direct mode, education records *are* disclosed to a processor, and the district's own FERPA basis for that disclosure — typically a school-official or vendor arrangement under a signed data agreement — is what makes it permissible. That is the district's determination to make and record, which is why the mode can't be switched on from inside a chat window without one. What does not change in either mode: the AI's own stored output stays de-identified, so the aggregate analysis in point 2 continues to describe everything it keeps.
 
 ## Compliance with state student data privacy laws
 
@@ -71,7 +77,9 @@ Many states have stricter laws than FERPA. Examples:
 - **New York (Education Law § 2-d):** requires similar vendor agreements.
 - **Colorado, Connecticut, and many others** have similar rules.
 
-Because this project does not transmit student data to any third party (including the AI), these vendor-agreement requirements generally do not apply to the data layer of this project. **However**, administrators should still verify with their district's privacy officer that:
+In Locked-Room mode, this project does not transmit student data to any third party (including the AI), so these vendor-agreement requirements generally do not apply to its data layer. **In the optional Direct mode described below, that analysis changes** — student records would be processed by a third party, which is precisely the situation those laws are written about, and precisely why that mode requires a district-level agreement and a written approval on file rather than a teacher's own judgment. Districts in SOPPA, Ed Law 2-d, or SOPIPA states should treat Direct mode as a vendor-agreement question and route it through their normal process.
+
+**In either mode**, administrators should verify with their district's privacy officer that:
 
 1. Use of AI tools by teachers is permitted under district policy at all.
 2. The Claude account the teacher uses for the AI side is set up with appropriate data retention settings (Anthropic offers zero-retention options for educational and enterprise users; check current docs).
@@ -86,13 +94,28 @@ Anthropic's Usage Policies place additional restrictions on use cases involving 
 - Use an account that has zero-data-retention enabled, or work through their district's enterprise Anthropic agreement if one exists
 - Not use the AI to do anything the policies forbid (no medical/legal/mental-health diagnosis of students, etc. — covered in `brain/safety-rules.md`)
 
+## An optional second mode, for districts that want it
+
+Some districts, having reviewed Anthropic's education data terms, approve teachers to let Claude work with gradebook exports directly — it removes the export-summarize-paste step from the teacher's week. This project supports that as an explicit, opt-in switch rather than a practice that drifts in quietly.
+
+How it is bounded:
+
+1. **It requires a district's written approval, not a teacher's decision.** The approver, the date, and the basis are recorded on a one-page record (`setup/permissions/data-mode-record.md`) and in the classroom's own `my-classroom/data-policy.md`. With no such record, the AI behaves as Locked-Room — that is its programmed fallback, not a matter of good intentions.
+2. **Exactly one rule changes.** The AI may open files the teacher deliberately places in one designated folder (`my-classroom/inbox/`). A student-data file anywhere else in the project is still refused, and named records still can't be pasted into chat.
+3. **Direct processing, never direct storage.** Everything the AI *writes or keeps* — its running class log, its dashboards, slides, anything projected, printed, or sent home — remains aggregate-only with no student names, exactly as in Locked-Room. Per-student output the teacher asked for is written to a dated working folder for the teacher's use and is never folded back into the AI's own records.
+4. **Everything else in this document still applies unchanged** — feedback anonymization, the crisis protocol, teacher review of every draft, the opt-out process below.
+
+The applicable terms are Anthropic's [Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), which include a K-12 Data Processing Addendum written to comply with FERPA. A district privacy officer evaluating this mode should read those terms alongside this document.
+
+**The default is, and remains, Locked-Room.** A teacher who never has this conversation with their district never leaves it.
+
 ## What happens if a teacher accidentally pastes student data to the AI
 
 The AI is instructed to refuse, gently redirect, and not retain or use the data:
 
-> "I'd rather not work with named student records here — could you run that through `class-pulse.html` first, or summarize what you're seeing in your own words?"
+> "I'd rather not work with named student records here — could you run that through Class Pulse first, or summarize what you're seeing in your own words?"
 
-This redirect is documented in `CLAUDE.md` and reinforced in `brain/safety-rules.md`.
+This redirect is documented in `CLAUDE.md` and reinforced in `brain/safety-rules.md`. It applies in **both** modes: even where a district has approved direct processing, the approved path is a deliberate file drop into one folder, never an accidental paste into a chat window.
 
 ## What happens to data over time
 

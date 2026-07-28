@@ -49,6 +49,12 @@
   .crossing .only{font-size:12.5px;color:var(--muted);}
   .crossing .chip.blocked{background:#f6e9e7;border-color:#caa39c;color:#7a4a40;text-decoration:line-through;}
 
+  .rule{margin:14px 4px 0;padding:11px 14px;background:var(--pale);
+    border-left:4px solid var(--teal);border-radius:6px;}
+  .rule p{margin:0;}
+  .rule .line{font-size:14px;font-weight:700;color:var(--navy);}
+  .rule .modes{margin-top:5px;font-size:12.5px;color:var(--muted);}
+
   .points{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;margin-bottom:22px;}
   .pt h3{font-size:14px;margin:0 0 3px;color:var(--teal-deep);}
   .pt p{font-size:13px;margin:0;color:var(--ink);}
@@ -68,7 +74,7 @@
   <div class="page">
     <div class="brand">My Classroom Assistant</div>
     <h1>Where your students’ data lives</h1>
-    <p class="sub">The whole privacy promise on one page: the AI never sees a single student record. That guarantee comes from <em>where the data lives</em>, not from the AI promising to be careful.</p>
+    <p class="sub">The whole privacy promise on one page: by default the AI never sees a single student record. That guarantee comes from <em>where the data lives</em>, not from the AI promising to be careful.</p>
 
     <div class="diagram">
       <div class="zones">
@@ -97,6 +103,10 @@
         <span class="chip">“3 students behind on Unit 3”</span>
         <span class="chip blocked">“Maria — 4 missing”</span>
       </div>
+      <div class="rule">
+        <p class="line">If it touches a name, it opens in your browser. If it’s aggregate-only, it can live in Cowork.</p>
+        <p class="modes"><strong>Two modes:</strong> by default, the box never opens (Locked-Room). Districts may approve a documented direct mode; even then, nothing the AI keeps or shows contains a student’s name.</p>
+      </div>
     </div>
 
     <div class="points">
@@ -119,7 +129,7 @@
     </div>
 
     <div class="foot">
-      <span>My Classroom Assistant · a classroom AI that works for your class without ever seeing your students’ data.</span>
+      <span>My Classroom Assistant · a classroom AI that works for your class without ever storing or showing your students’ names.</span>
       <span>See setup/permissions/privacy-explainer.md for the long version.</span>
     </div>
   </div>
