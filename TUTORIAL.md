@@ -75,19 +75,19 @@ so I can redirect you if I had a different one in mind.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **AI Export**.
+1. From the Dashboard sidebar, open **Class Pulse**.
 2. Drag in your gradebook (`.xlsx` or `.csv`). Everything is read in your browser — nothing uploads.
 3. Set the tier thresholds if you want (defaults: Strong = 0 missing, Steady = up to 2, Struggling = 3+).
 4. Click **Copy** under "Structured summary." That copied text is aggregate-only — tier counts and most-missed assignments, **zero names, zero individual grades.**
 
-(Optional: download the snapshot JSON it offers. Drop it back into AI Export next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
+(Optional: download the snapshot JSON it offers. Drop it back into Class Pulse next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
 
 > 💬 **Cowork prompt** — paste this, then paste the copied summary where shown:
 
 ```
-Here's this week's AI Export summary (aggregate only, no student data):
+Here's this week's Class Pulse summary (aggregate only, no student data):
 
-[paste the structured summary you copied from AI Export here]
+[paste the structured summary you copied from Class Pulse here]
 
 Read this against our class goal. Tell me:
 1. In plain language, where is the class right now?
@@ -142,7 +142,7 @@ Keep it warm and short. Give me two options for each so I can pick.
 
 ## Demo 4 — Build a brand-new offline app
 
-**What it shows:** When the seven built-in apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it generates a single offline HTML app that's safe by construction.
+**What it shows:** When the included offline apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it generates a single offline HTML app that's safe by construction.
 
 **Setup:** This uses the **teacher-app-builder** skill. If it's installed (it should be — it ships in `teacher-app-builder-skill-upload.zip` and the install steps are in `docs/teacher-app-builder.md`), the prompt below will trigger it. If Claude says it isn't available, install it first, then come back.
 

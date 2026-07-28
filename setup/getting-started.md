@@ -81,14 +81,16 @@ You keep this card on your desk, in your bag, somewhere visible. **You do not pa
 
 ## 5. Install Claude Cowork
 
-Follow the install instructions at [Cowork's site]. Confirm you can open the app and that it can see folders on your computer.
+Download and install Claude from **[claude.com/download](https://claude.com/download)**. Confirm you can open the app and that it can see folders on your computer.
+
+**If you teach K-12 in the US, this is very likely free for you.** Anthropic verifies educators through their school email and gives them Claude at no cost — see [Claude for Teachers](https://claude.com/solutions/teachers). Verification takes a day or two, so start it before the evening you actually want to use this.
 
 Test that Cowork works:
 - Open Cowork in this `MyClassroomAssistant/` folder
 - Say "hi"
 - Your AI should read its instructions and respond
 
-If you get errors, that's a Cowork issue, not a project issue — check their support docs first.
+If you get errors, that's a Cowork issue, not a project issue — check [support.claude.com](https://support.claude.com) first.
 
 ---
 
@@ -108,7 +110,7 @@ The `sandbox/` folder has a fictional gradebook (`fictional-gradebook.csv`) with
 
 - Open `local-tools/ClassAI-dashboard.html`. This is your home base — the sidebar gets you to every other app from one place.
 - From the sidebar, open **Progress Cards**. Drop in the fictional gradebook. Print sample cards.
-- Open **AI Export**. Generate a summary. Save a snapshot.
+- Open **Class Pulse**. Generate a summary. Save a snapshot.
 - Open **Gradebook Analytics**. Drop in the same gradebook. Sort by tier and skim the per-student view.
 - Open **Parent Messages**. Load the sample templates. Generate messages.
 - Open **Badges**. Start a new state file. Award some badges. Print certificates.
@@ -142,7 +144,7 @@ You're ready. On launch day:
 - Tell students what they're going to see ("you'll get cards from [AI name] this week — they're not graded, they're a tool to help you stay on top of things")
 - Hand out the first round of missing-work cards or progress sheets
 - Run the first few days as gently as possible — watch for confusion or pushback
-- After Week 1, sit down with the AI and ask "how did the first week go?" using whatever you noticed plus a AI Export summary
+- After Week 1, sit down with the AI and ask "how did the first week go?" using whatever you noticed plus a Class Pulse summary
 
 If something breaks early, that's normal. Adjust the relevant file in `brain/` and try again. Most teachers find the rhythm in 2–3 weeks.
 

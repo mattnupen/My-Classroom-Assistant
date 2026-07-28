@@ -21,7 +21,7 @@ That's it. No data, no spreadsheets, no copy-pasting. Just your voice.
 The AI:
 - Drafts whatever you asked for
 - Suggests one or two things you didn't ask for but might want
-- Writes it to a file in `for-class/[today's date]/` so you can review and print/copy
+- Writes it to a file in `my-classroom/for-class/[today's date]/` so you can review and print/copy
 
 ### During class
 
@@ -74,7 +74,7 @@ This is the bigger reflection. You compare this month's `class-pulse` snapshots 
 - **What's stuck?**
 - **What's a small experiment we could run for the next four weeks?**
 
-The AI writes a short reflection — saved to `for-class/[date]/monthly-reflection.md` — and proposes the next month's small experiment. You decide whether to do it.
+The AI writes a short reflection — saved to `my-classroom/for-class/[date]/monthly-reflection.md` — and proposes the next month's small experiment. You decide whether to do it.
 
 This is also when you might:
 - Print certificates for the month's standout moments
