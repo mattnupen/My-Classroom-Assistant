@@ -1,4 +1,8 @@
-# Tutorial: Four Demos of My Classroom Assistant
+# Demo Script: Presenting My Classroom Assistant
+
+*This is the walkthrough for **showing** the project — a PD session, a colleague at lunch, a skeptical admin. It assumes an audience.*
+
+*Setting it up for your own classroom is a different and much shorter thing: download the folder, open it in Cowork, say "set up my classroom." That's the [README](README.md). The full walkthrough is [`setup/getting-started.md`](setup/getting-started.md).*
 
 This is a hands-on walkthrough of what this project does and how to drive it. Each section below is a self-contained demo with a prompt you can copy and paste straight into Claude Cowork. Run them in order the first time — they build on each other — or jump to whichever one you want to show.
 
