@@ -8,6 +8,7 @@ This folder is what the AI (running in Claude Cowork) reads to understand its jo
 
 | File | What it's for | When to edit it |
 |---|---|---|
+| `challenge-deck/` | Five ready-made class challenges — missing work, attendance, participation, transitions, reading. Each card brings its own research, weekly moves, metric, and season length. | Read the cards, or ask your AI to pitch them. Picking one is the whole setup. |
 | `persona-packs.md` | Starter personas and mission ideas — ready to remix, or to put on a ballot for a student vote. | Read it when you're stuck on a blank page. |
 | `teaching-principles.md` | The research-backed approach the AI uses when generating content. | Read it. Light edits only — these are evidence-based defaults. |
 | `research-foundations.md` | Citations and short summaries of the research behind the principles. The AI consults this when deciding how to frame things or when asked to explain a choice. | Add to it if you find research that should inform the AI's work in your room. |
