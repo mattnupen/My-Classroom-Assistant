@@ -21,7 +21,7 @@ That's it. No data, no spreadsheets, no copy-pasting. Just your voice.
 The AI:
 - Drafts whatever you asked for
 - Suggests one or two things you didn't ask for but might want
-- Writes it to a file in `for-class/[today's date]/` so you can review and print/copy
+- Writes it to a file in `my-classroom/for-class/[today's date]/` so you can review and print/copy
 
 ### During class
 
@@ -39,28 +39,36 @@ If you don't have it in you that day, skip it. Tomorrow morning's check-in can c
 
 ## Weekly — 30 to 45 minutes total
 
-### Friday afternoon (or whenever your week ends)
+The week has two moments: a two-minute one on Friday, and the real one on Monday.
 
-Run `local-tools/class-pulse.html` against this week's gradebook. Save the snapshot file. Paste the summary into Cowork.
+### Friday (or whenever your week ends) — two minutes
 
-Tell the AI what you want for the week ahead. The usual mix:
+1. Open **Class Pulse** (`local-tools/class-pulse.html`) and drop in this week's gradebook export.
+2. Click **Download this pulse**. You get `pulse-YYYY-MM-DD.md` — counts, tiers, and most-missed assignments, with no student names in it by construction.
+3. Drag that file into **`my-classroom/pulses/`**.
 
-- Monday's opening slide (set the tone)
-- A small set of parent messages (using `parent-messages.html`)
-- Any badges to print and hand out Monday (using `badges.html`)
-- A note for yourself — what to keep doing, what to stop, what to try
+That's the whole Friday job. Don't read it, don't summarize it, don't paste anything. Keep every pulse you ever generate — the folder *is* your trend line, and the AI reads back through it.
 
-The AI prepares all of it. You spend Sunday night reviewing — usually 15 minutes — and printing what you need.
+*(Optional, same screen: **Download snapshot** saves a small JSON that goes back into Class Pulse itself next week so the output can show week-over-week movement. Different file, different job — keep it out of `pulses/`.)*
 
-After you paste the Class Pulse summary, the AI also adds a short entry to `brain/class-story.md` — the running story of the experiment. You don't have to do anything for this; it's the AI's logbook, and it's what makes the end-of-quarter reflection write itself.
+### Monday — say "run Monday"
 
-### Sunday (or Monday morning)
+Open Cowork in this folder and say exactly that. The AI:
 
-Print and prep:
+1. **Reads the newest file in `my-classroom/pulses/`.** If there isn't a new one, it says so and offers the paste fallback rather than guessing.
+2. **Compares it to the trend and your season target**, and updates `my-classroom/dashboard.md` (and the browser dashboard's cards, if they changed).
+3. **Proposes two or three moves for the week — each one tagged with the challenge-deck card or evidence-pack entry it draws from.** Receipts, every time. If a proposal shows up without a source, ask where it came from; that's the AI drifting.
+4. **Generates what you approve** into `my-classroom/for-class/[date]/` — Monday's opening slide, a round of parent messages, badges to print, a note for yourself about what to keep doing and what to stop.
+
+It also appends a short entry to `my-classroom/class-story.md`. You don't have to do anything for that; it's the AI's logbook, and it's what makes the end-of-quarter reflection write itself.
+
+Then print and prep — usually fifteen minutes:
 - Cards (student progress or missing work) → `student-cards.html`
 - Badges → `badges.html`
-- Slide content → review the markdown the AI wrote, then drop into Cowork's slide generator
+- Slides → review what the AI wrote and project it
 - Parent messages → review and send through ParentSquare or email
+
+**The paste fallback.** If you can't get the file where it needs to go — a locked-down laptop, a downloads folder you can't find, whatever — Class Pulse still has **Copy** buttons on both output blocks. Paste either one into chat and say "run Monday." Same result, one extra step.
 
 ---
 
@@ -68,13 +76,13 @@ Print and prep:
 
 ### Last Friday of the month
 
-This is the bigger reflection. You compare this month's `class-pulse` snapshots side by side (or load them in `class-dashboard.html` and click through). You and the AI ask each other:
+This is the bigger reflection. The AI reads back across the month's pulses in `my-classroom/pulses/` — that's what the folder is for — and puts the trend in front of you. You and the AI ask each other:
 
 - **What's moving in the right direction?** (specific kid patterns, class-level shifts)
 - **What's stuck?**
 - **What's a small experiment we could run for the next four weeks?**
 
-The AI writes a short reflection — saved to `for-class/[date]/monthly-reflection.md` — and proposes the next month's small experiment. You decide whether to do it.
+The AI writes a short reflection — saved to `my-classroom/for-class/[date]/monthly-reflection.md` — and proposes the next month's small experiment. You decide whether to do it.
 
 This is also when you might:
 - Print certificates for the month's standout moments
@@ -97,7 +105,7 @@ Bigger reflection. You and the AI look back at the whole quarter.
 
 You write a one-page reflection (the AI can draft it from your prose). You may:
 - Rename the AI or shift its mission for next quarter
-- Edit `your-classroom-ai.md` based on what you learned
+- Edit `my-classroom/your-classroom-ai.md` based on what you learned
 - Add a new local tool if there's a repeated need the suite doesn't cover yet
 
 Some teachers also do a **student debrief** at end of quarter — pulling the class into a conversation about what the AI did and didn't help with. Kids have sharp eyes for this; their feedback usually points at exactly the right adjustment.
@@ -108,7 +116,7 @@ Some teachers also do a **student debrief** at end of quarter — pulling the cl
 
 If a week is rough and you can't keep up the rhythm, here's the minimum that keeps the project alive:
 
-- **Once a week:** run `class-pulse.html`, paste it to the AI, ask for "what should I notice about this week?"
+- **Once a week:** run Class Pulse, drop the file in `my-classroom/pulses/`, and say "run Monday." Even if you do nothing with what comes back, the trend keeps building and the story keeps writing itself.
 - **Once a week:** print missing-work cards on Friday and hand them out.
 - **Once a month:** send one round of parent messages.
 
@@ -120,7 +128,7 @@ Everything else can wait. The AI will remember where you left off when you come 
 
 If a week ends and you realize the AI's outputs have been getting worse — generic, off-tone, not specific to your class — the fix is usually one of these:
 
-1. **Re-read your `your-classroom-ai.md`.** Drift happens when the persona file is too vague. Make the voice sharper.
+1. **Re-read your `my-classroom/your-classroom-ai.md`.** Drift happens when the persona file is too vague. Make the voice sharper.
 2. **Tell the AI what's wrong.** "The last two parent messages sounded too corporate — your voice is supposed to be [trait]." It'll adjust.
 3. **Start a fresh session.** Sometimes a context window has gotten cluttered with one-off requests. Closing and reopening Cowork in this folder resets things.
 

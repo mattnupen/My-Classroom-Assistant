@@ -1,0 +1,41 @@
+<!--
+  PATTERN: sortable-list
+  Use when the teacher wants an on-screen table they can sort/filter, no printing.
+  Body and logic blocks plug into the scaffold's {{BODY_SLOT}} and {{LOGIC_SLOT}}.
+-->
+
+<!-- BODY -->
+<section class="step screen-only">
+  <h2>Load your data</h2>
+  <input type="file" id="file-input" accept=".csv,.xlsx,.xls">
+</section>
+
+<section class="step screen-only" id="filters" hidden>
+  <input type="text" id="filter-text" placeholder="Filter rows…">
+</section>
+
+<table id="table" hidden style="width:100%; border-collapse:collapse;">
+  <thead><tr id="thead-row"></tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<!-- LOGIC -->
+let rows = [];
+let headers = [];
+document.getElementById('file-input').addEventListener('change', async (e) => {
+  const buf = await e.target.files[0].arrayBuffer();
+  const wb = XLSX.read(buf, { type: 'array' });
+  rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+  headers = Object.keys(rows[0] || {});
+  render();
+  document.getElementById('filters').hidden = false;
+  document.getElementById('table').hidden = false;
+});
+document.getElementById('filter-text').addEventListener('input', render);
+function render() {
+  const q = document.getElementById('filter-text').value.toLowerCase();
+  const filtered = rows.filter(r => JSON.stringify(r).toLowerCase().includes(q));
+  document.getElementById('thead-row').innerHTML = headers.map(h => `<th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); cursor:pointer;" onclick="sortBy('${h}')">${h}</th>`).join('');
+  document.getElementById('tbody').innerHTML = filtered.map(r => `<tr>${headers.map(h => `<td style="padding:6px; border-bottom:1px solid var(--line);">${r[h] ?? ''}</td>`).join('')}</tr>`).join('');
+}
+function sortBy(col) { rows.sort((a,b) => String(a[col]).localeCompare(String(b[col]))); render(); }

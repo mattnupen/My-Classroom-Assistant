@@ -277,10 +277,25 @@
 
 <!--
   Universal sidebar nav (apps list) is provided by _nav.js.
-  The dashboard-data block below is edited by Claude Cowork for this page's cards.
+
+  Where this page's cards come from, in order:
+    1. my-classroom/dashboard-data.js (window.DASHBOARD_DATA) — the teacher's
+       real class, written by Claude Cowork. Wins whenever it's present.
+    2. the inline #dashboard-data block below — the shipped welcome state, for
+       a fresh install with no my-classroom/ folder yet. Leave it alone.
+  #dashboard-demo-data is the fictional demo class behind the demo button and
+  is never teacher data.
+
   Aggregate text only — NEVER include student names, grades, or per-student data.
-  Inline data so the page works via file:// double-click (no fetches).
+  Everything is inline or a <script src>, never fetch(), so the page works via
+  file:// double-click.
 -->
+<!-- The teacher's classroom files load before the nav and the page script.
+     Both are absent on a fresh install — a missing file fails silently under
+     file://, and the code below handles the globals being undefined.
+     Engine updates never touch either one. -->
+<script src="../my-classroom/my-apps.js"></script>
+<script src="../my-classroom/dashboard-data.js"></script>
 <script src="./_nav.js"></script>
 
 <script type="application/json" id="dashboard-data">
@@ -295,7 +310,7 @@
       "title": "Start here — 10 minutes",
       "body": [
         { "text": "Open Progress Cards → load the demo → print one card", "done": false },
-        { "text": "Open AI Export → load the demo → make the summary", "done": false },
+        { "text": "Open Class Pulse → load the demo → make the summary", "done": false },
         { "text": "Say hi in Claude Cowork — your AI sets itself up", "done": false },
         { "text": "Paste the summary into chat. That's the whole loop.", "done": false },
         { "text": "Watch a full term: Demo Semester, in the sidebar", "done": false },
@@ -483,6 +498,19 @@ function loadInlineJSON(id) {
     showErrors();
     return null;
   }
+}
+
+/* The teacher's own cards (my-classroom/dashboard-data.js) win when they exist.
+   On a fresh install that file isn't there at all, so we fall back to the
+   shipped welcome state in the inline #dashboard-data block. A present-but-
+   malformed file falls back too, and says so rather than showing a blank page. */
+function loadDashboardData() {
+  const mine = (typeof window !== 'undefined') ? window.DASHBOARD_DATA : undefined;
+  if (mine === undefined) return loadInlineJSON('dashboard-data');
+  if (mine && Array.isArray(mine.cards)) return mine;
+  errors.push("Couldn't read my-classroom/dashboard-data.js — it needs a `cards` array. Showing the default cards instead.");
+  showErrors();
+  return loadInlineJSON('dashboard-data');
 }
 
 /* pull a tier snapshot ("12 strong · 8 steady · 4 struggling") out of a card,
@@ -678,7 +706,7 @@ function renderFileNode(node) {
 }
 
 function init() {
-  const data = loadInlineJSON('dashboard-data');
+  const data = loadDashboardData();
   renderHero(data, false);
   renderCards(data);
 

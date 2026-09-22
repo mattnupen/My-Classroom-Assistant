@@ -17,8 +17,16 @@
  * Cowork to update DEFAULT_APPS in this file — that change becomes the
  * default for every page.
  *
- * Claude Cowork edits DEFAULT_APPS when a new tool ships or when the
- * teacher requests a permanent reorder.
+ * Two app lists, two owners:
+ *   DEFAULT_APPS  — the shipped tools. ENGINE-OWNED: this whole file is
+ *                   replaced wholesale on a project update. Claude Cowork
+ *                   edits it only when a new tool ships with the project.
+ *   window.MY_APPS — the teacher's own built apps, defined in
+ *                   my-classroom/my-apps.js and loaded by each tool page
+ *                   BEFORE this file. Teacher-owned; updates never touch it.
+ *                   It may be absent (a fresh install has no my-classroom/
+ *                   folder) — every read of it below is defensive.
+ *
  * Aggregate text only — NEVER include student names, grades, or
  * per-student data in this file.
  */
@@ -45,7 +53,7 @@ const DEFAULT_APPS = [
   { id: 'student-cards',       label: 'Progress Cards',      file: 'student-cards.html',     description: 'Printable missing-work or progress cards',       icon: 'idcard' },
   { id: 'parent-messages',     label: 'Parent Messages',     file: 'parent-messages.html',   description: 'Draft parent-facing messages',                   icon: 'mail' },
   { id: 'gradebook-analytics', label: 'Gradebook Analytics', file: 'gradebook-analytics.html', description: 'Upload a gradebook CSV for per-student stats', icon: 'chart' },
-  { id: 'class-pulse',         label: 'AI Export',           file: 'class-pulse.html',       description: 'Name-free gradebook summary for your AI',        icon: 'pulse' },
+  { id: 'class-pulse',         label: 'Class Pulse',         file: 'class-pulse.html',       description: 'Name-free gradebook summary for your AI',        icon: 'pulse' },
   { id: 'student-voice',       label: 'Feedback Cleaner',    file: 'student-voice.html',     description: 'Strip names and emails from responses',          icon: 'megaphone' },
   { id: 'badges',              label: 'Badges',              file: 'badges.html',            description: 'Generate printable student recognition badges',  icon: 'award' },
   { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',     description: 'Shuffle the class into small groups',            icon: 'users' },
@@ -95,8 +103,25 @@ Yasmin Zhao,P3,Missing,Missing,16,8,21,13,42,Missing
 
 const STORAGE_KEY = 'classai-nav-v2';
 
+// The teacher's own apps, read from window.MY_APPS (my-classroom/my-apps.js).
+// Returns [] if that file is missing, malformed, or not an array — which is the
+// normal case on a fresh install, so this must never throw. Each entry is
+// tagged `teacher: true`, which drives the "Your apps" divider in the sidebar
+// and keeps them out of the DEFAULT_APPS code export in Settings.
+// Teacher entries carry only { id, label, file, description }; the icon is
+// filled in here so the app-builder skill never has to know the ICONS table.
+function teacherApps() {
+  const list = (typeof window !== 'undefined' && Array.isArray(window.MY_APPS)) ? window.MY_APPS : [];
+  return list.filter(isValidApp).map(a => {
+    const app = deepCopy(a);
+    app.teacher = true;
+    if (!app.icon || !ICONS[app.icon]) app.icon = 'build';
+    return app;
+  });
+}
+
 function defaultState() {
-  return { enabled: deepCopy(DEFAULT_APPS), disabled: [] };
+  return { enabled: deepCopy(DEFAULT_APPS).concat(teacherApps()), disabled: [] };
 }
 
 function deepCopy(x) { return JSON.parse(JSON.stringify(x)); }
@@ -107,23 +132,42 @@ function isValidApp(a) {
 
 function loadState() {
   try {
+    const mine = teacherApps();
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState();
     const s = JSON.parse(raw);
     if (!s || !Array.isArray(s.enabled) || !Array.isArray(s.disabled)) return defaultState();
-    const enabled = s.enabled.filter(isValidApp);
-    const disabled = s.disabled.filter(isValidApp);
+    let enabled = s.enabled.filter(isValidApp);
+    let disabled = s.disabled.filter(isValidApp);
     if (enabled.length === 0 && disabled.length === 0) return defaultState();
-    // Apps added to DEFAULT_APPS after the user saved their settings
-    // would otherwise never appear. Merge any unknown defaults in.
+
+    // Teacher apps are owned by my-apps.js, not by this page's saved settings.
+    // Drop any that no longer exist there (app deleted, or the whole
+    // my-classroom/ folder absent) and refresh the rest from the file, so a
+    // renamed label shows up without the teacher clearing their settings.
+    const mineById = new Map(mine.map(a => [a.id, a]));
+    const stillExists = a => !a.teacher || mineById.has(a.id);
+    const refresh = a => (a.teacher ? deepCopy(mineById.get(a.id)) : a);
+    enabled = enabled.filter(stillExists).map(refresh);
+    disabled = disabled.filter(stillExists).map(refresh);
+
+    // Apps added to DEFAULT_APPS (a project update) or to my-apps.js (a newly
+    // built app) after the user saved their settings would otherwise never
+    // appear. Merge any unknown ones in.
     const known = new Set(enabled.concat(disabled).map(a => a.id));
-    for (const app of DEFAULT_APPS) {
+    for (const app of DEFAULT_APPS.concat(mine)) {
       if (!known.has(app.id)) enabled.push(deepCopy(app));
     }
     return { enabled, disabled };
   } catch {
     return defaultState();
   }
+}
+
+// Shipped tools sit beside the tool pages ("badges.html"); teacher apps live
+// outside local-tools/ and already carry a relative prefix ("../my-classroom/…").
+function appHref(file) {
+  return /^\.\.?\//.test(file) ? file : './' + file;
 }
 
 function saveState(state) {
@@ -245,6 +289,16 @@ let state = loadState();
       font-size: 13px;
       color: #8aa0a0;
       margin-top: 2px;
+    }
+    .universal-nav .un-divider {
+      margin: 14px 10px 4px;
+      padding-top: 12px;
+      border-top: 1px solid #2a3a48;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #8aa0a0;
     }
     .universal-nav .un-spacer { flex: 1; min-height: 16px; }
     .universal-nav .un-settings {
@@ -512,11 +566,26 @@ let state = loadState();
     closeBtn.addEventListener('click', closeDrawer);
     aside.appendChild(closeBtn);
 
+    let teacherHeaderShown = false;
     for (const app of state.enabled) {
+      // The teacher's own apps get their own labelled section.
+      if (app.teacher && !teacherHeaderShown) {
+        const divider = document.createElement('div');
+        divider.className = 'un-divider';
+        divider.textContent = 'Your apps';
+        aside.appendChild(divider);
+        teacherHeaderShown = true;
+      }
+
       const a = document.createElement('a');
       a.className = 'un-item';
-      a.href = './' + app.file;
-      if (app.file.toLowerCase() === currentFile) a.classList.add('active');
+      a.href = appHref(app.file);
+      // Only flat, same-folder tools can be the current page — the sidebar
+      // never renders inside a teacher app, and matching on basename alone
+      // would light up every app named "app.html".
+      if (app.file.indexOf('/') === -1 && app.file.toLowerCase() === currentFile) {
+        a.classList.add('active');
+      }
       a.title = app.description || app.label;
 
       const iconSpan = document.createElement('span');
@@ -616,6 +685,7 @@ let state = loadState();
         <p class="un-modal-help">
           Your changes save automatically for <strong>this page</strong>. Other tool pages use their own settings (browsers isolate local storage per file).
           To make this order the global default everywhere, copy the code below and ask Claude Cowork to update <code>DEFAULT_APPS</code> in <code>local-tools/_nav.js</code>.
+          Apps under <strong>Your apps</strong> aren't included — those live in <code>my-classroom/my-apps.js</code>, where project updates can't touch them.
         </p>
         <textarea class="un-code-preview" id="un-code-preview" readonly spellcheck="false"></textarea>
         <div class="un-copy-row">
@@ -677,7 +747,10 @@ let state = loadState();
     }
 
     function updatePreview() {
-      codePreview.value = exportAppsCode(working.enabled);
+      // Only the shipped tools belong in DEFAULT_APPS. Apps under "Your apps"
+      // are registered in my-classroom/my-apps.js, which updates never touch —
+      // copying them in here would put them in the engine and lose them.
+      codePreview.value = exportAppsCode(working.enabled.filter(a => !a.teacher));
     }
 
     function buildRow(app, list, kind) {
@@ -871,7 +944,7 @@ let state = loadState();
     // Reset to defaults
     modal.querySelector('#un-reset').addEventListener('click', () => {
       if (!confirm('Reset to the default app list and order? This clears your customizations for this page.')) return;
-      working = { enabled: deepCopy(DEFAULT_APPS), disabled: [] };
+      working = defaultState();
       renderBoth();
       applyAndPersist();
     });

@@ -1,4 +1,8 @@
-# Tutorial: Four Demos of My Classroom Assistant
+# Demo Script: Presenting My Classroom Assistant
+
+*This is the walkthrough for **showing** the project — a PD session, a colleague at lunch, a skeptical admin. It assumes an audience.*
+
+*Setting it up for your own classroom is a different and much shorter thing: download the folder, open it in Cowork, say "set up my classroom." That's the [README](README.md). The full walkthrough is [`setup/getting-started.md`](setup/getting-started.md).*
 
 This is a hands-on walkthrough of what this project does and how to drive it. Each section below is a self-contained demo with a prompt you can copy and paste straight into Claude Cowork. Run them in order the first time — they build on each other — or jump to whichever one you want to show.
 
@@ -19,6 +23,8 @@ A note on the demo files. Two of these demos use files you supply:
 ## The one idea behind all four demos
 
 The whole project runs on a single rule: **Claude never sees student-identifying data.** Not names, not individual grades, not per-kid missing-work lists. That guarantee doesn't come from Claude promising to be careful — it comes from *where the data lives*. Student data only ever goes into the offline HTML apps that run on your laptop and never touch the internet. Claude only ever sees aggregates ("3 students behind on Unit 3") or content that has no student data in it at all.
+
+That's **Locked-Room mode** — the default, what every demo below shows, and what you should present unless someone asks. There is also an opt-in **Direct mode** a district can approve in writing, where the AI reads gradebook exports from one designated folder; if it comes up in the room, the honest one-liner is: *"a district can approve that, it's recorded on a form, and even then the AI still never writes a student's name into anything it keeps or shows."* Details live in `setup/permissions/privacy-explainer.md`.
 
 That's why the demos split into two kinds of step. Watch for these labels:
 
@@ -73,19 +79,19 @@ so I can redirect you if I had a different one in mind.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **AI Export**.
+1. From the Dashboard sidebar, open **Class Pulse**.
 2. Drag in your gradebook (`.xlsx` or `.csv`). Everything is read in your browser — nothing uploads.
 3. Set the tier thresholds if you want (defaults: Strong = 0 missing, Steady = up to 2, Struggling = 3+).
 4. Click **Copy** under "Structured summary." That copied text is aggregate-only — tier counts and most-missed assignments, **zero names, zero individual grades.**
 
-(Optional: download the snapshot JSON it offers. Drop it back into AI Export next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
+(Optional: download the snapshot JSON it offers. Drop it back into Class Pulse next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
 
 > 💬 **Cowork prompt** — paste this, then paste the copied summary where shown:
 
 ```
-Here's this week's AI Export summary (aggregate only, no student data):
+Here's this week's Class Pulse summary (aggregate only, no student data):
 
-[paste the structured summary you copied from AI Export here]
+[paste the structured summary you copied from Class Pulse here]
 
 Read this against our class goal. Tell me:
 1. In plain language, where is the class right now?
@@ -140,7 +146,7 @@ Keep it warm and short. Give me two options for each so I can pick.
 
 ## Demo 4 — Build a brand-new offline app
 
-**What it shows:** When the seven built-in apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it generates a single offline HTML app that's safe by construction.
+**What it shows:** When the included offline apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it generates a single offline HTML app that's safe by construction.
 
 **Setup:** This uses the **teacher-app-builder** skill. If it's installed (it should be — it ships in `teacher-app-builder-skill-upload.zip` and the install steps are in `docs/teacher-app-builder.md`), the prompt below will trigger it. If Claude says it isn't available, install it first, then come back.
 

@@ -47,6 +47,8 @@ This is the part that matters most. Be explicit.
 > - **It is not deciding anything about you.** I am.
 > - **It is not replacing me.** I still teach this class. I still grade. I still email you back. The AI just helps me prep faster."
 
+*Teacher note: the script above is written for **Locked-Room mode**, the default — check `my-classroom/data-policy.md` if you're unsure, and if it says Locked-Room, read it as written. If your district approved **Direct mode**, swap the first bullet for something like: "**It does not decide anything about your grades.** Our district approved letting it read the gradebook so I don't have to retype things — but it never writes anyone's name down, and nothing with your name on it ever goes on a slide or a screen." Say the true version. Kids find out when adults shade it.*
+
 ### What this might look like for you (2 minutes) — set expectations
 
 > "What you might notice:
@@ -86,6 +88,8 @@ Take questions. Common ones and good answers:
 
 > **"Is the AI grading us?"**
 > No. I grade. The AI never sees a grade.
+>
+> *(Direct mode: "No. I grade — every single one. It can see the gradebook now that the district okayed it, but it doesn't decide anything and it never puts a name anywhere.")*
 
 > **"Can it read what I write?"**
 > No. Anything you write — essays, messages, anonymous surveys — I don't share with the AI unless we agree it's appropriate (like a class-wide anonymous survey where the AI helps me find themes — never quoting anyone). And we'd talk about that first.

@@ -9,8 +9,9 @@
   as Class Pulse. Paste raw form responses; this strips names and emails IN YOUR
   BROWSER and gives you a name-free digest to paste into your AI. Nothing leaves
   your computer. No network calls of any kind, no file saved, no storage of your
-  data. The only sibling it loads is the suite's shared, network-free _nav.js
-  sidebar (the same one every tool in local-tools/ uses).
+  data. The only siblings it loads are the suite's shared, network-free _nav.js
+  sidebar (the same one every tool in local-tools/ uses) and the teacher's own
+  my-classroom/my-apps.js app list, which is just names and file paths.
 -->
 <style>
   :root{
@@ -134,6 +135,10 @@
   </div>
 </div>
 
+<!-- The teacher's own apps load before the nav so it can list them. Absent on a
+     fresh install — a missing file fails silently under file://, and _nav.js
+     handles window.MY_APPS being undefined. Engine updates never touch it. -->
+<script src="../my-classroom/my-apps.js"></script>
 <script src="./_nav.js"></script>
 <script>
 (function(){

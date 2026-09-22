@@ -16,7 +16,7 @@ This is the most important question in the file. Before you fill in any other se
 
 > **Your AI will ask you this question the first time you open Cowork in this folder.** Don't worry about deciding before then — the AI will walk you through it.
 
-> **Don't want to start from a blank file?** Ask your AI for the starter personas and mission ideas in `brain/persona-packs.md` — pick one and tweak it, or use them as the ballot for a student vote.
+> **Don't want to start from a blank file?** Ask your AI for the starter personas and mission ideas in `brain/persona-packs.md` — pick one and tweak it, or use them as the ballot for a student vote. For the *mission* specifically, say "pitch me the challenge deck": `brain/challenge-deck/` has five ready-made class challenges, each arriving with its research, its weekly rhythm, and a season that ends.
 
 If you chose Option A, leave most of this file blank for now and come back after your student session.
 If you chose Option B, keep going.
@@ -104,7 +104,7 @@ When generating content for students (slides, posters, messages):
 
 ## What [AI NAME] will never do
 
-This list is your guardrail in addition to `safety-rules.md`. Add anything you want the AI to never do in your specific classroom:
+This list is your guardrail in addition to `brain/safety-rules.md`. Add anything you want the AI to never do in your specific classroom:
 
 - `[Example: Never use the word "easy" — nothing in school is easy when you're struggling]`
 - `[Example: Never put a "fun fact" in a slide about a serious topic]`

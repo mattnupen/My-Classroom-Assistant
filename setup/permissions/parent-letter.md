@@ -26,6 +26,10 @@ For the next [duration], I'll be using an AI assistant — named [AI name, if yo
 - **Your student's personal data is not being shared with the AI.** Grades and individual student details are handled by small browser tools that run only on my laptop. The AI only sees broad class summaries, never anything tied to your student's name.
 - **I am not replaced or automated.** Every piece of content the AI produces, I review before it reaches your student or you. The AI saves me time on logistics — it doesn't replace teaching.
 
+> *[**Include this paragraph only if your district has approved Direct mode — and delete the second bullet above, which contradicts it. If you're on the default Locked-Room mode, delete this whole block.**]*
+>
+> **One thing our district has approved.** Rather than my summarizing the gradebook by hand each week, our district has approved my sharing grade information directly with the AI, under its data agreement with the company that makes it. That agreement covers student privacy law and says the information isn't used to train the AI. What this changes for your student: it saves me an hour a week. What it doesn't change: the AI still never talks to your child, still never grades anything, and still never writes your student's name into anything it keeps or anything I put on a screen — its notes, dashboards, and slides are counts only ("4 students turned in the lab this week"), exactly as before. I'm happy to show you the one-page record of that approval if you'd like to see it.
+
 ## Why I'm doing this
 
 [Your honest reason, one or two sentences. Examples:
@@ -64,5 +68,6 @@ A few practical things:
 - **Keep it short.** Many families will only read the first paragraph. The most important sentences are in the first three paragraphs.
 - **Don't oversell.** Don't promise outcomes. The honest framing — "I'm trying this; here's what it is; you can opt out" — lands better than enthusiasm.
 - **Be ready for questions.** Some families will email. Have your privacy explainer (`privacy-explainer.md`) ready to forward.
+- **Check which data mode you're in before you send.** Look at `my-classroom/data-policy.md`, or just ask your AI "which data mode am I in?" If it says Locked-Room (the default, and almost certainly you), delete the bracketed block above and send as-is. If your district approved Direct mode, use that block instead of the second "what this does NOT mean" bullet — families deserve the accurate version, and it reads fine.
 - **Don't forward family responses to the AI.** If a parent writes you with a question or concern, that's between you and them.
 - **If a family opts out:** keep a quiet list of opted-out students. When you run the local tools, filter them out or generate their materials manually. The point is that they shouldn't notice they're being treated differently — they just don't get AI-touched content.
