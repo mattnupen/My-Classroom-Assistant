@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Classroom Assistant — Hand one classroom problem to an AI, and it keeps working on it all year.</title>
+<meta name="description" content="A free, open-source AI agent for teachers, running in Claude Cowork. Hand it one classroom challenge, like missing work or attendance. It tries research-backed strategies, checks what’s working and adjusts all year. It works through you, so you decide what reaches students.">
+<meta name="theme-color" content="#FAF6EE">
+<meta property="og:title" content="My Classroom Assistant">
+<meta property="og:description" content="A free, open-source AI agent for teachers, running in Claude Cowork. Hand it one classroom challenge, like missing work or attendance. It tries research-backed strategies, checks what’s working and adjusts all year. It works through you, so you decide what reaches students.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314231F'/%3E%3Crect x='17' y='17' width='30' height='30' rx='3' fill='%23FFE67E' transform='rotate(-6 32 32)'/%3E%3Cpath d='M38 9C20 8 7 17 7 32s12 25 27 24 23-11 23-25S47 9 29 12' fill='none' stroke='%23FF5A1F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Caveat:wght@500..700&family=DM+Mono:wght@400;500&family=Figtree:ital,wght@0,400..800;1,500&display=swap">
+<style>
+{{TOKENS}}
+/* freeze mode: deterministic captures of any scroll moment */
+html.mca-freeze *, html.mca-freeze *::before, html.mca-freeze *::after { transition:none !important; animation:none !important; }
+html.mca-flat [data-pin] { height:auto !important; }
+html.mca-flat [data-pin] > * { position:relative !important; }
+/* flat overviews are captured in very tall windows, so viewport-sized stages get a real-screen height */
+html.mca-flat #assistant .as-stage { height:900px !important; }
+@media (min-width:761px){ html.mca-flat #loop .lp-stage { height:900px !important; } }
+@media (max-width:640px){ html.mca-flat #assistant .as-stage { height:844px !important; } }
+/* reduced motion: every pinned set-piece is painted at p=1, so collapse its tall wrapper — no dead scroll */
+html.mca-reduced [data-pin] { height:auto !important; }
+html.mca-reduced [data-pin] > * { position:relative !important; top:auto !important; }
+</style>
+<script>
+{{ENGINE}}
+</script>
+<script>
+/* Copy-the-prompt + show-the-prompt wiring. One prompt, every [data-copy-prompt] button. */
+(function () {
+  "use strict";
+  var PROMPT = "Set up My Classroom Assistant from https://github.com/mattnupen/My-Classroom-Assistant — download it, then interview me about my class and build my assistant.";
+  var DONE_MS = 2400;
+
+  function groupOf(el) { return el.closest("[data-copy-group]"); }
+  function panelOf(g) { return g && g.querySelector(".mca-copy__panel"); }
+  function fillPrompts(root) {
+    var codes = (root || document).querySelectorAll(".mca-copy__prompt");
+    for (var i = 0; i < codes.length; i++) if (!codes[i].textContent.trim()) codes[i].textContent = PROMPT;
+  }
+  function setOpen(g, open) {
+    var panel = panelOf(g); if (!panel) return;
+    panel.hidden = !open;
+    var t = g.querySelector("[data-reveal-prompt]");
+    if (t) t.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function selectPrompt(g) {
+    var code = g && g.querySelector(".mca-copy__prompt"); if (!code) return;
+    try { var r = document.createRange(); r.selectNodeContents(code); var s = getSelection(); s.removeAllRanges(); s.addRange(r); code.focus({ preventScroll: true }); } catch (e) {}
+  }
+  function legacyCopy(text) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = document.execCommand("copy"); document.body.removeChild(ta); return ok;
+    } catch (e) { return false; }
+  }
+  function announce(g, msg) { var s = g && g.querySelector("[data-copy-status]"); if (s) { s.textContent = ""; setTimeout(function () { s.textContent = msg; }, 30); } }
+
+  function succeeded(btn) {
+    var g = groupOf(btn);
+    if (g) g.classList.remove("is-failed");
+    btn.classList.add("is-copied");
+    var done = btn.querySelector(".mca-copy__done");
+    announce(g, done ? done.textContent : "Copied.");
+    clearTimeout(btn._mcaT);
+    btn._mcaT = setTimeout(function () { btn.classList.remove("is-copied"); }, DONE_MS);
+  }
+  function failed(btn) {
+    var g = groupOf(btn);
+    if (!g) { window.prompt("Copy this prompt:", PROMPT); return; }
+    g.classList.add("is-failed");
+    setOpen(g, true);
+    selectPrompt(g);
+    announce(g, "Your browser blocked copying. The prompt is shown. Select it and copy.");
+  }
+  function copy(btn) {
+    var go = function () { legacyCopy(PROMPT) ? succeeded(btn) : failed(btn); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(PROMPT).then(function () { succeeded(btn); }, go);
+    } else go();
+  }
+
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-copy-prompt]");
+    if (b) { e.preventDefault(); copy(b); return; }
+    var t = e.target.closest && e.target.closest("[data-reveal-prompt]");
+    if (t) {
+      e.preventDefault();
+      var g = groupOf(t), p = panelOf(g); if (!p) return;
+      var open = p.hidden; setOpen(g, open);
+      if (!open) g.classList.remove("is-failed");
+    }
+  });
+  function wire() {
+    fillPrompts();
+    var gs = document.querySelectorAll("[data-copy-group]");
+    for (var i = 0; i < gs.length; i++) {
+      var p = panelOf(gs[i]); if (!p) continue;
+      if (!p.id) p.id = "mca-prompt-" + (i + 1);
+      var ts = gs[i].querySelectorAll("[data-reveal-prompt]");
+      for (var j = 0; j < ts.length; j++) { ts[j].setAttribute("aria-controls", p.id); ts[j].setAttribute("aria-expanded", p.hidden ? "false" : "true"); }
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", wire);
+  else wire();
+  window.MCA_PROMPT = PROMPT;
+})();
+</script>
+<script>
+/* Measured marker ring: every [data-mca-ring] phrase gets a hand-drawn loop placed BEHIND its
+   glyphs, sized from the phrase's real box + baseline (never over a letter). Put .mca-ring-host on
+   the heading. Optional: data-ring-px / data-ring-py (em padding, default .22 / .08), data-ring-rot (deg). */
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var D = "M62 5C26 1 4 7 2 48C0 89 22 98 54 97C86 96 99 89 98 50C97 11 82 2 34 8";
+  var ASC = 0.76, DESC = 0.24; // Bricolage Grotesque: ascender of l/k, descender of g/y
+  function place(el) {
+    var svg = el.querySelector(":scope > .mca-ring"), path;
+    if (!svg) {
+      svg = document.createElementNS(NS, "svg");
+      svg.setAttribute("class", "mca-ring"); svg.setAttribute("aria-hidden", "true");
+      path = document.createElementNS(NS, "path"); path.setAttribute("pathLength", "1");
+      svg.appendChild(path); el.appendChild(svg);
+    }
+    path = svg.firstChild;
+    var probe = document.createElement("i");
+    probe.style.cssText = "display:inline-block;width:0;height:0;vertical-align:baseline";
+    el.insertBefore(probe, svg);
+    var r = el.getBoundingClientRect(), bl = probe.getBoundingClientRect().top - r.top;
+    el.removeChild(probe);
+    var fs = parseFloat(getComputedStyle(el).fontSize) || 16;
+    var px = parseFloat(el.getAttribute("data-ring-px") || ".22") * fs;
+    var py = parseFloat(el.getAttribute("data-ring-py") || ".08") * fs;
+    var w = el.offsetWidth + 2 * px, h = (ASC + DESC) * fs + 2 * py, pad = 8;
+    // path is authored in a 0..100 box; scale it to real pixels so dashes and stroke stay true
+    var k = 0, d = (el.getAttribute("data-ring-d") || D).replace(/-?\d*\.?\d+/g, function (n) {
+      var v = parseFloat(n), o = (k++ % 2 === 0) ? v / 100 * w : v / 100 * h; return (o + pad).toFixed(1);
+    });
+    path.setAttribute("d", d);
+    svg.setAttribute("width", w + 2 * pad); svg.setAttribute("height", h + 2 * pad);
+    svg.setAttribute("viewBox", "0 0 " + (w + 2 * pad) + " " + (h + 2 * pad));
+    svg.style.left = (-px - pad) + "px"; svg.style.top = (bl - ASC * fs - py - pad) + "px";
+    svg.style.transform = "rotate(" + (el.getAttribute("data-ring-rot") || "-1.5") + "deg)";
+  }
+  function all() { var els = document.querySelectorAll("[data-mca-ring]"); for (var i = 0; i < els.length; i++) place(els[i]); }
+  var t; function soon() { clearTimeout(t); t = setTimeout(all, 60); }
+  window.MCA_RING = { refresh: all };
+  function boot() { all(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(all); addEventListener("resize", soon); addEventListener("load", all); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</head>
+<body>
+{{SECTIONS}}
+</body>
+</html>

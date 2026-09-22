@@ -1,0 +1,781 @@
+<section id="setup" aria-labelledby="su-title">
+  <div class="mca-sheet mca-sheet--sky su-sheet">
+    <div class="su-pin" data-pin>
+      <div class="su-stage">
+        <div class="mca-container su-grid">
+
+          <span class="mca-eyebrow su-eye">Setup</span>
+
+          <!-- ===== left: the point, then the sticky that fills itself in ===== -->
+          <div class="su-head">
+            <h2 id="su-title" class="mca-h2 su-h2"><span class="mca-line">Setup is</span><span class="mca-line">just a <span class="su-say">chat.</span></span></h2>
+            <p class="mca-lead su-lead"><span class="su-l">In about ten minutes it asks what you teach, what you want to change and what it should never do.</span> <span class="su-l">Then it writes up your assistant’s goal and rules.</span></p>
+          </div>
+
+          <div class="su-desk">
+            <div class="mca-note su-note">
+              <p class="su-note__h" aria-hidden="true">What we settled</p>
+              <!-- ticks fill in chat order (Goal, Name, House rule, Research): each one lands on the answer that settles it. Order recorded with the copy chief. -->
+              <ul class="su-list" aria-label="What setup settles">
+                <li class="su-tk" data-at=".205"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Goal:</b> less missing work</span></li>
+                <li class="su-tk su-tk--name" data-at=".345"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Name and voice:</b> up to your class</span></li>
+                <li class="su-tk" data-at=".505"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>House rule:</b> no calling kids out</span></li>
+                <li class="su-tk" data-at=".615"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Research</b> loaded</span></li>
+              </ul>
+            </div>
+
+            <div class="su-side">
+              <p class="mca-sr" id="su-vote">Class vote, sample</p>
+              <p class="su-hand" aria-hidden="true"><span class="mca-hand su-hand__txt">Monday, your class <br class="su-br">names&nbsp;it.</span></p>
+              <svg class="mca-stroke su-side__arrow" viewBox="0 0 60 70" aria-hidden="true"><path class="mca-draw" pathLength="1" d="M44 5c3 22-7 40-27 52M13 42l3 16 16-3"/></svg>
+            </div>
+
+            <div class="su-cards" role="group" aria-labelledby="su-vote">
+              <figure class="su-card" data-k="0">
+                <div class="su-card__face">
+                  <p class="su-card__name">Otter</p>
+                  <p class="su-card__role">Calm coach</p>
+                  <p class="su-card__line">“One small step?”</p>
+                  <svg class="su-tally" data-n="7" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
+                </div>
+                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 1</span></div>
+                <span class="mca-sr">7 votes.</span>
+              </figure>
+              <figure class="su-card su-card--win" data-k="1">
+                <div class="su-card__face">
+                  <p class="su-card__name"><span class="su-card__nm">Spark<svg class="su-ring" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M71 7.5C52 2.6 22 3.8 9.5 13 1.8 18.8 3.4 29.6 16 34.4c15.6 5.9 47.6 5.4 66-1.6 12.4-4.7 15.6-13.4 6.2-19.6C78 6.6 58 4.2 40 5.2"/></svg></span></p>
+                  <p class="su-card__role">Warm hype</p>
+                  <p class="su-card__line">“Look what you pulled off.”</p>
+                  <svg class="su-tally" data-n="11" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
+                </div>
+                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 2</span></div>
+                <span class="mca-sr">11 votes. The class picks Spark.</span>
+              </figure>
+              <figure class="su-card" data-k="2">
+                <div class="su-card__face">
+                  <p class="su-card__name">Sage</p>
+                  <p class="su-card__role">Curious researcher</p>
+                  <p class="su-card__line">“Let’s find out.”</p>
+                  <svg class="su-tally" data-n="6" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
+                </div>
+                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 3</span></div>
+                <span class="mca-sr">6 votes.</span>
+              </figure>
+            </div>
+          </div>
+
+          <!-- ===== right: the only chat window on the page ===== -->
+          <div class="su-right">
+            <div class="su-right__in">
+              <div class="mca-window su-win" role="group" aria-label="Sample setup conversation">
+                <div class="su-bar">
+                  <i></i><i></i><i></i>
+                  <span class="su-bar__who"><span class="su-av su-av--sm" aria-hidden="true"></span>Your assistant</span>
+                  <span class="su-chip" aria-hidden="true"><span class="su-chip__a">No name yet</span><span class="su-chip__b"><i class="su-chip__dot"></i>Your class picks</span><span class="su-chip__c"><b>Spark</b><em>picked Monday</em></span></span>
+                  <span class="su-clock" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.25" class="su-clock__bed"/><circle cx="10" cy="10" r="7.25" class="su-clock__arc" pathLength="1"/><circle cx="10" cy="10" r="9" class="su-clock__fill"/><path class="su-clock__ok" d="M6.1 10.4l2.6 2.5 5.2-5.3"/></svg><span><b class="su-clock__n">1</b> min</span></span>
+                </div>
+
+                <div class="su-view">
+                  <ol class="su-log">
+                    <li class="su-row su-row--intro" data-l="-1"><div class="su-intro"><span class="su-av su-av--lg" aria-hidden="true"></span><p class="su-intro__t">Your assistant</p><p class="su-intro__s">New chat · it asks, you answer</p><p class="su-intro__plan"><span>Your class</span><span>The goal</span><span>Its name</span><span>House rules</span></p></div></li>
+                    <li class="su-row su-row--day" data-l="-1"><p class="su-day">Sunday · 8:12 pm</p></li>
+                    <li class="su-row su-row--you su-row--paste" data-l="-1"><div class="su-paste"><p class="su-paste__h"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.2" y="3" width="9.6" height="11" rx="2"/><path d="M6 3V2.4c0-.5.4-.9.9-.9h2.2c.5 0 .9.4.9.9V3"/><path d="M5.8 7.6h4.4M5.8 10.2h3"/></svg><span class="mca-sr">You pasted the </span>Setup prompt<i aria-hidden="true">·</i><span>pasted</span></p><p class="su-paste__t">Set up My Classroom Assistant from github.com/mattnupen/My-Classroom-Assistant — download it, then interview me about my class and build my assistant.</p></div></li>
+                    <li class="su-row su-row--ai" data-l="-1"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="su-who">Your assistant</span>Hi. I’m your class’s new assistant. No name yet. First, what do you teach?</p></li>
+                    <li class="su-row su-row--you" data-l=".05"><p class="su-b"><span class="su-who">You</span>8th grade English. 26 kids, last period.</p></li>
+                    <li class="su-row su-row--ai" data-l=".10"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>If this year went well, what would be different?</p></li>
+                    <li class="su-row su-row--you" data-l=".16"><p class="su-b"><span class="mca-sr">You: </span>Fewer kids with <mark class="su-key" data-at=".16">missing work</mark>.</p></li>
+                    <li class="su-row su-row--ai su-row--vote" data-l=".23"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>Want your students to name me?</p></li>
+                    <li class="su-row su-row--you su-row--vote" data-l=".30"><p class="su-b"><span class="mca-sr">You: </span>Yes. <mark class="su-key" data-at=".30">Let them pick.</mark></p></li>
+                    <li class="su-row su-row--you su-row--rule" data-l=".42"><p class="su-b"><span class="mca-sr">You: </span>One rule: never <mark class="su-key" data-at=".42">call a kid out</mark> in front of the class.</p></li>
+                    <li class="su-row su-row--ai" data-l=".555"><span class="su-av" aria-hidden="true"></span><div class="su-b"><p><span class="mca-sr">Your assistant: </span>Got it. I’ve pulled the research on missing work. Ready when your class is.</p><span class="su-att"><span class="mca-file su-file" data-at=".555" style="--f:var(--sun-ink)">Research pack<i aria-hidden="true">·</i>Missing work</span><span class="su-att__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span></span></div></li>
+                    <li class="su-row su-row--sys" data-l=".60"><p class="su-sys"><span class="su-sys__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span>Setup saved<i aria-hidden="true">·</i><span>ready for Monday</span></p></li>
+                  </ol>
+                  <span class="su-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                </div>
+
+                <div class="su-compose" aria-hidden="true">
+                  <div class="su-compose__box">
+                    <span class="su-compose__plus"><svg viewBox="0 0 16 16"><path d="M8 3.5v9M3.5 8h9"/></svg></span>
+                    <span class="su-compose__txt"><span class="su-compose__ph">Reply…</span><span class="su-compose__typed"></span><span class="su-compose__caret"></span></span>
+                    <span class="su-compose__send"><svg viewBox="0 0 16 16"><path d="M8 12.5v-9M4.2 7.2L8 3.4l3.8 3.8"/></svg></span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="su-close"><span>That’s setup.</span> <b>Now it plans your first week.</b><svg class="mca-stroke su-close__arrow" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3v26M4.5 21.5L12 29l7.5-7.5"/></svg></p>
+            </div>
+          </div>
+
+        </div>
+        <!-- the cause → effect courier: a marker-yellow dot carries each settled answer to its tick -->
+        <span class="su-fly" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------- frame + pin ---------- */
+#setup{ position:relative; }
+#setup .su-pin{ position:relative; height:calc(100svh + 140vh); }
+#setup .su-stage{
+  position:sticky; top:0; height:100svh; min-height:640px;
+  display:grid; align-items:center; overflow:hidden;
+  padding:clamp(64px, 8.5svh, 84px) 0 clamp(48px, 8.8svh, 84px);
+}
+/* one grid, two columns that share edges: the window top sits on the h2's cap line,
+   the closing line sits on the ballot's bottom edge */
+#setup .su-grid{
+  --h2:clamp(2.6rem, 1.15rem + 4.35vw, 5.05rem);
+  display:grid; grid-template-columns:minmax(0, 510px) minmax(0, 1fr);
+  grid-template-areas:"eye ." "head right" "desk right";
+  grid-template-rows:auto auto minmax(0, 1fr); height:100%; max-height:800px;
+  column-gap:clamp(40px, 5.4vw, 84px); row-gap:0; align-items:start;
+}
+#setup .su-eye{ grid-area:eye; margin-bottom:22px; }
+#setup .su-head{ grid-area:head; display:grid; gap:22px; align-content:start; }
+#setup .su-desk{ grid-area:desk; align-self:stretch; z-index:5; }
+#setup .su-right{ grid-area:right; align-self:stretch; position:relative; min-width:0; z-index:1; }
+#setup .su-right__in{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  padding-top:calc(var(--h2) * .2);               /* Bricolage cap line inside a 1.1 line box */
+}
+
+/* ---------- headline: the word "talking." is a chat bubble ---------- */
+#setup .su-h2{ font-size:var(--h2); line-height:1.1; letter-spacing:-.034em; }
+#setup .su-say{
+  position:relative; display:inline-block; margin-left:.04em; padding:.03em .2em .03em .19em;
+  background:var(--card); border-radius:.28em .28em .28em .08em; line-height:1.02;
+  box-shadow:0 1px 1px rgba(20,35,31,.05), 0 .08em .2em -.04em rgba(20,35,31,.10), 0 .3em .5em -.28em rgba(45,102,219,.28);
+  transform:rotate(-1.6deg) translateY(.02em); transform-origin:0 100%;
+}
+#setup .su-say::before{ /* the tail, bottom-left, like an assistant bubble */
+  content:""; position:absolute; left:-.001em; bottom:-.16em; width:.3em; height:.2em;
+  background:var(--card); clip-path:polygon(0 0, 100% 0, 0 100%);
+}
+#setup .su-lead{ max-width:24em; }
+#setup .su-l{ display:block; }
+@media (max-width:640px){ #setup .su-l{ display:inline; } }
+
+/* ---------- the desk: sticky note + margin note on top, the ballot deals in along the bottom ---------- */
+#setup .su-desk{
+  position:relative; display:grid; grid-template-columns:auto minmax(0,1fr);
+  grid-template-areas:"note side" "cards cards"; grid-template-rows:auto auto;
+  align-content:space-between; column-gap:18px; row-gap:18px; margin-top:30px;
+}
+#setup .su-note{
+  grid-area:note; position:relative; display:block; width:318px; min-height:0; padding:30px 22px 20px 20px;
+  transform:rotate(-1deg); transform-origin:30% 50%; z-index:3;
+}
+#setup .su-note__h{ font:650 24px/1 var(--f-hand); color:var(--ink-2); margin:0 0 10px 1px; transform:rotate(-1.5deg); transform-origin:0 50%; }
+#setup .su-list{ display:grid; gap:9px; }
+#setup .su-tk{ display:flex; align-items:center; gap:11px; font:500 1rem/1.25 var(--f-body); letter-spacing:-.003em; color:var(--ink-2); }
+#setup .su-tk b{ font-weight:750; color:var(--ink); }
+#setup .su-tk__box{
+  --k:0; --s:1; position:relative; flex:none; width:22px; height:22px; border-radius:50%;
+  box-shadow:inset 0 0 0 1.6px rgba(20,35,31,.34);
+}
+#setup .su-tk__box::before{
+  content:""; position:absolute; inset:0; border-radius:50%; background:var(--mint-ink);
+  transform:scale(calc(var(--s) * var(--k))); opacity:var(--k);
+}
+#setup .su-tk__box svg{ position:absolute; inset:0; width:22px; height:22px; overflow:visible; }
+#setup .su-tk__box path{ fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:16; stroke-dashoffset:calc(16 - 16 * var(--c, 0)); }
+#setup .su-tk--name b{ color:var(--ink); }
+
+/* margin note beside the sticky: who decides the name, with a pen arrow down to the ballot */
+#setup .su-side{
+  grid-area:side; align-self:end; position:relative; display:grid; justify-items:start; gap:8px; padding:0 0 10px 6px;
+}
+#setup .su-hand__txt{ display:block; font-size:28px; line-height:.95; transform:rotate(-3deg); transform-origin:0 100%; white-space:nowrap; }
+#setup .su-side__arrow{ position:absolute; left:-58px; bottom:-58px; width:48px; height:56px; }
+#setup .su-side__arrow path{ stroke:var(--orange-ink); stroke-width:2.6px; }
+
+/* ---------- the class vote: three index cards lie face down until "Let them pick.", then flip ---------- */
+#setup .su-cards{ grid-area:cards; position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; padding:0 8px 0 14px; z-index:4; }
+#setup .su-card{ position:relative; margin:0; transform-style:preserve-3d; transform-origin:50% 60%; will-change:transform; }
+#setup .su-card + .su-card{ margin-left:-10px; }
+#setup .su-card[data-k="0"]{ z-index:3; } #setup .su-card[data-k="1"]{ z-index:2; } #setup .su-card[data-k="2"]{ z-index:1; }
+#setup .su-card.is-win{ z-index:4; }
+#setup .su-card__face, #setup .su-card__back{ border-radius:6px; -webkit-backface-visibility:hidden; backface-visibility:hidden; transition:box-shadow .2s; }
+#setup .su-card__face{
+  /* fixed slots so all three tallies share one baseline: name · role · two ruled quote lines · tally */
+  --pt:14px; --nh:24px; --rh:28px; --lh:25px; --th:28px;
+  --rule:calc(var(--pt) + var(--nh) + 5px);
+  display:grid; grid-template-rows:var(--nh) var(--rh) calc(var(--lh) * 2) var(--th); padding:var(--pt) 14px 10px;
+  background:
+    linear-gradient(var(--coral-ink), var(--coral-ink)) 0 var(--rule)/100% 1.5px no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), rgba(45,102,219,.13) calc(var(--lh) - 1px) var(--lh)) 0 calc(var(--pt) + var(--nh) + var(--rh) - var(--lh))/100% calc(var(--lh) * 3) no-repeat,
+    var(--card);
+  box-shadow:var(--sh-2), inset 0 0 0 1px var(--line);
+}
+#setup .su-card.is-win .su-card__face{ box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
+#setup .su-card.is-lose .su-card__face{ box-shadow:var(--sh-1), inset 0 0 0 1px var(--line); }
+#setup .su-card.is-lose .su-tally{ filter:saturate(.55); }
+/* the back: a coral index card with a question mark, so the empty ballot explains itself */
+#setup .su-card__back{
+  position:absolute; inset:0; transform:rotateY(180deg); display:grid; place-content:center; justify-items:center; gap:6px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(210,87,58,.16) 1px, transparent 1.4px) 0 0/9px 9px,
+    var(--coral);
+  box-shadow:var(--sh-2), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent), inset 0 0 0 7px var(--coral), inset 0 0 0 8.5px color-mix(in srgb, var(--coral-ink) 30%, transparent);
+}
+#setup .su-card__q{ font:800 2.75rem/1 var(--f-display); letter-spacing:-.03em; color:var(--coral-ink); font-variation-settings:"opsz" 72; }
+#setup .su-card__bl{ padding:3px 8px; border-radius:999px; background:var(--card); font:750 .6875rem/1.2 var(--f-body); letter-spacing:.07em; text-transform:uppercase; color:#A8391F; white-space:nowrap; }
+#setup .su-card__name{ position:relative; font:750 1.5rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 48; color:var(--ink); align-self:end; justify-self:start; }
+#setup .su-card__nm{ position:relative; z-index:1; display:inline-block; }
+#setup .su-ring{ position:absolute; z-index:-1; max-width:none; left:-14px; top:-11px; width:calc(100% + 30px); height:calc(100% + 21px); overflow:visible; pointer-events:none; }
+#setup .su-ring path{ fill:none; stroke:var(--coral-ink); stroke-width:2.4px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--g, 0)); }
+#setup .su-card__role{ align-self:end; font:700 .8125rem/var(--lh) var(--f-body); color:var(--ink-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+#setup .su-card__line{ font:500 .9375rem/var(--lh) var(--f-body); color:var(--ink); text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+#setup .su-tally{ width:100%; height:22px; align-self:end; overflow:visible; }
+#setup .su-tally path{ fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--t,1)); }
+
+/* ---------- the chat window ---------- */
+#setup .su-win{ flex:1 1 0; min-height:0; display:flex; flex-direction:column; border-radius:22px; box-shadow:var(--sh-3), 0 0 0 1px rgba(20,35,31,.07); }
+#setup .su-bar{ flex:none; display:flex; align-items:center; gap:7px; height:52px; padding:0 18px; border-bottom:1px solid var(--line); background:#FDFCF9; }
+#setup .su-bar > i{ width:11px; height:11px; border-radius:50%; background:#E6E1D6; flex:none; }
+#setup .su-bar__who{ display:inline-flex; align-items:center; gap:9px; margin-left:12px; font:750 .9375rem/1 var(--f-body); letter-spacing:-.005em; color:var(--ink); white-space:nowrap; }
+#setup .su-chip{ position:relative; display:inline-grid; margin-left:6px; font:750 .75rem/1 var(--f-body); letter-spacing:.01em; white-space:nowrap; }
+#setup .su-chip > span{ grid-area:1/1; justify-self:start; display:inline-flex; align-items:center; height:24px; padding:0 10px; border-radius:999px; transition:opacity .24s cubic-bezier(.2,.7,.2,1); }
+#setup .su-chip__a{ color:var(--ink-3); background:var(--paper-2); }
+#setup .su-chip__b{ gap:6px; color:#A8391F; background:var(--coral); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 35%, transparent); opacity:0; }
+#setup .su-chip__dot{ width:6px; height:6px; border-radius:50%; background:var(--coral-ink); }
+#setup .su-win.is-named:not(.is-picked) .su-chip__dot{ animation:su-pulse 1.6s ease-in-out infinite; }
+@keyframes su-pulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(.55); opacity:.45; } }
+html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ animation:none !important; }
+#setup .su-chip__c{ gap:6px; padding:0 10px 0 9px !important; color:var(--ink); background:var(--card); box-shadow:0 0 0 1.5px var(--coral-ink), var(--sh-1); opacity:0; }
+#setup .su-chip__c b{ font:750 .875rem/1 var(--f-display); letter-spacing:-.01em; }
+#setup .su-chip__c em{ font-style:normal; font-weight:750; font-size:.6875rem; letter-spacing:.04em; text-transform:uppercase; color:#B2432A; }
+#setup .su-win.is-named .su-chip__a{ opacity:0; }
+#setup .su-win.is-named .su-chip__b{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
+#setup .su-win.is-picked .su-chip__b{ opacity:0; animation:none; }
+#setup .su-win.is-picked .su-chip__c{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
+@keyframes su-pop{ from{ transform:scale(.92); } to{ transform:none; } }
+#setup .su-clock{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; font:700 .8125rem/1 var(--f-body); color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+#setup .su-clock svg{ width:20px; height:20px; overflow:visible; }
+#setup .su-clock circle{ fill:none; stroke-width:2.4; }
+#setup .su-clock__bed{ stroke:rgba(20,35,31,.12); }
+#setup .su-clock__arc{ stroke:var(--mint-ink); stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--m, 0)); transform:rotate(-90deg); transform-origin:10px 10px; }
+#setup .su-clock__fill{ fill:var(--mint-ink) !important; stroke:none; transform:scale(0); transform-origin:10px 10px; transition:transform .2s cubic-bezier(.34,1.4,.64,1); }
+#setup .su-clock__ok{ fill:none; stroke:#fff; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:12; stroke-dashoffset:12; transition:stroke-dashoffset .22s .08s ease-out; }
+#setup .su-clock.is-done .su-clock__fill{ transform:scale(1); }
+#setup .su-clock.is-done .su-clock__ok{ stroke-dashoffset:0; }
+#setup .su-clock.is-done{ color:#16693F; }
+#setup .su-clock b{ font-weight:750; color:var(--ink-2); }
+#setup .su-clock.is-done b{ color:#16693F; }
+
+#setup .su-view{ position:relative; flex:1; min-height:0; overflow:hidden; background:#FAF8F3;
+  --fade:64px; -webkit-mask:linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade)); mask:linear-gradient(to bottom, transparent 0, rgba(0,0,0,.35) calc(var(--fade) * .45), #000 var(--fade)); }
+#setup .su-log{ position:relative; display:grid; gap:12px; padding:16px 22px 20px; transform:translate3d(0, calc(var(--off, 0) * -1px), 0); }
+#setup .su-row--day{ justify-content:center; }
+#setup .su-row--intro{ justify-content:center; padding:24px 0 2px; }
+#setup .su-row--intro[hidden]{ display:none; }
+#setup .su-intro{ display:grid; justify-items:center; gap:4px; text-align:center; }
+#setup .su-intro__t{ margin-top:8px; font:700 1.1875rem/1.1 var(--f-display); letter-spacing:-.015em; font-variation-settings:"opsz" 24; color:var(--ink); }
+#setup .su-intro__s{ font:600 .8125rem/1.3 var(--f-body); color:var(--ink-3); }
+#setup .su-intro__plan{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:12px; }
+#setup .su-intro__plan span{ display:inline-flex; align-items:center; height:26px; padding:0 11px; border-radius:999px; background:var(--card); box-shadow:inset 0 0 0 1px var(--line-2); font:650 .8125rem/1 var(--f-body); color:var(--ink-2); white-space:nowrap; }
+#setup .su-intro__plan span::before{ content:""; width:5px; height:5px; margin-right:7px; border-radius:50%; background:var(--sky-ink); opacity:.7; }
+#setup .su-av--lg{ width:56px; height:56px; border-radius:16px; box-shadow:var(--sh-2); }
+#setup .su-av--lg::after{ left:15px; top:14px; width:26px; height:26px; border-radius:3px; transform:rotate(-8deg); box-shadow:0 1px 1px rgba(0,0,0,.12); }
+#setup .su-day{ font:700 .75rem/1 var(--f-body); letter-spacing:.02em; color:var(--ink-3); padding:4px 0 2px; }
+#setup .su-row--sys{ justify-content:center; }
+#setup .su-sys{ display:inline-flex; align-items:center; gap:7px; height:30px; padding:0 13px 0 5px; border-radius:999px; white-space:nowrap;
+  font:700 .8125rem/1 var(--f-body); color:var(--ink-2); background:var(--mint); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--mint-ink) 22%, transparent); }
+#setup .su-sys i{ font-style:normal; color:var(--ink-4); }
+#setup .su-sys span:last-child{ color:var(--ink-3); font-weight:650; }
+#setup .su-sys__ok{ display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--mint-ink); }
+#setup .su-sys__ok svg{ width:20px; height:20px; }
+#setup .su-sys__ok path{ fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+/* the pasted prompt: a quiet paper card, not code */
+#setup .su-paste{
+  max-width:min(84%, 420px); padding:11px 15px 12px; border-radius:16px; border-bottom-right-radius:6px;
+  background:#F1EEE6; box-shadow:inset 0 0 0 1px var(--line);
+}
+#setup .su-paste__h{ display:flex; align-items:center; gap:6px; margin-bottom:4px; font:750 .6875rem/1.2 var(--f-body); letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); }
+#setup .su-paste__h i{ font-style:normal; color:var(--ink-4); }
+#setup .su-paste__h svg{ width:14px; height:14px; margin-left:-1px; fill:none; stroke:var(--ink-3); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+#setup .su-paste__t{ font:500 .875rem/1.45 var(--f-body); color:var(--ink-2); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+#setup .su-row{ --r:0; --o:1; display:flex; align-items:flex-start; gap:10px; opacity:calc(var(--o) * min(1, var(--r) * 2.5)); }
+#setup .su-row--you{ justify-content:flex-end; }
+#setup .su-b{
+  max-width:min(80%, 440px); padding:10px 15px 11px; border-radius:18px;
+  font:500 1rem/1.42 var(--f-body); letter-spacing:-.003em; text-wrap:pretty;
+  transform:translate3d(0, calc((1 - var(--r)) * 10px), 0) scale(calc(.97 + var(--r) * .03));
+}
+#setup .su-row--ai .su-b{ transform-origin:0 0; background:var(--card); color:var(--ink); border-top-left-radius:6px; box-shadow:0 1px 2px rgba(20,35,31,.06), inset 0 0 0 1px var(--line); }
+#setup .su-row--you .su-b{ transform-origin:100% 100%; background:var(--ink); color:var(--on-chalk); border-bottom-right-radius:6px; }
+#setup .su-who{ display:block; margin-bottom:3px; font:750 .6875rem/1.2 var(--f-body); letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); }
+#setup .su-row--you .su-who{ color:var(--on-chalk-2); }
+#setup .su-key{ /* the words that settle a tick re-ink in marker yellow, left to right */
+  --w:0; color:var(--on-chalk); background:none;
+}
+#setup .su-key.is-got{
+  color:transparent; -webkit-background-clip:text; background-clip:text;
+  background-image:linear-gradient(90deg, var(--note-sun) 0 46%, var(--on-chalk) 54% 100%);
+  background-size:220% 100%; background-position:calc((1 - var(--w)) * 100%) 0; -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+#setup .su-att{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+#setup .su-file{ --fl:0; height:36px; gap:9px; font:650 .8125rem/1 var(--f-body); letter-spacing:-.003em; box-shadow:0 0 0 calc(var(--fl) * 5px) color-mix(in srgb, var(--note-sun) calc(var(--fl) * 100%), transparent), var(--sh-1), inset 0 0 0 1px var(--line); }
+#setup .su-file i{ font-style:normal; color:var(--ink-4); margin:0 -3px; }
+#setup .su-att__ok{ display:grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--mint-ink); }
+#setup .su-att__ok svg{ width:22px; height:22px; }
+#setup .su-att__ok path{ fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+
+/* assistant avatar: a tiny chalkboard square with a sticky note on it (the brand mark, no marker) */
+#setup .su-av{ position:relative; flex:none; width:30px; height:30px; border-radius:9px; background:var(--chalk); box-shadow:var(--sh-1); }
+#setup .su-av::after{ content:""; position:absolute; left:8px; top:8px; width:14px; height:14px; border-radius:2px; background:var(--note-sun); transform:rotate(-8deg); }
+#setup .su-av--sm{ width:22px; height:22px; border-radius:7px; }
+#setup .su-av--sm::after{ left:6px; top:6px; width:10px; height:10px; }
+
+/* typing bubble, placed by paint() */
+#setup .su-dots{
+  position:absolute; left:62px; top:0; z-index:2; display:none; gap:5px; align-items:center;
+  height:40px; padding:0 15px; border-radius:18px; border-top-left-radius:6px;
+  background:var(--card); box-shadow:0 1px 2px rgba(20,35,31,.06), inset 0 0 0 1px var(--line);
+  transform:translate3d(0, var(--y, 0px), 0);
+}
+#setup .su-dots.on{ display:inline-flex; }
+#setup .su-dots i{ width:7px; height:7px; border-radius:50%; background:var(--ink-3); opacity:.3; }
+#setup .su-dots i.hi{ opacity:.85; }
+
+/* composer: the teacher's answer is typed here before it lands */
+#setup .su-compose{ flex:none; padding:10px 14px 14px; background:#FAF8F3; }
+#setup .su-compose__box{ display:flex; align-items:center; gap:10px; height:50px; padding:0 8px 0 12px; border-radius:15px; background:var(--card); box-shadow:0 1px 2px rgba(20,35,31,.05), inset 0 0 0 1px var(--line-2); }
+#setup .su-compose__plus svg, #setup .su-compose__send svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+#setup .su-compose__plus{ color:var(--ink-3); display:grid; place-items:center; width:26px; height:26px; }
+#setup .su-compose__txt{ flex:1; min-width:0; display:flex; align-items:center; font:500 1rem/1 var(--f-body); color:var(--ink); white-space:nowrap; overflow:hidden; }
+#setup .su-compose__ph{ color:var(--ink-3); }
+#setup .su-compose.is-typing .su-compose__ph{ display:none; }
+#setup .su-compose__caret{ width:2px; height:19px; margin:0 3px 0 1px; border-radius:1px; background:var(--sky-ink); order:-1; }
+#setup .su-compose.is-typing .su-compose__caret{ order:0; }
+#setup .su-compose__send{ display:grid; place-items:center; width:34px; height:34px; border-radius:10px; color:var(--ink-3); background:var(--paper-2); }
+#setup .su-compose.is-typing .su-compose__send{ color:var(--on-chalk); background:var(--ink); }
+
+/* closing line: its baseline shares the ballot's bottom edge */
+#setup .su-close{
+  --c:1; flex:none; display:flex; align-items:flex-end; justify-content:flex-end; flex-wrap:wrap; gap:0 .3em; margin:22px 0 -.28em;
+  font:500 clamp(1.125rem, 1rem + .4vw, 1.375rem)/1.3 var(--f-body); letter-spacing:-.01em; color:var(--ink-2); text-align:right;
+  opacity:var(--c); transform:translate3d(0, calc((1 - var(--c)) * 12px), 0);
+}
+#setup .su-close b{ font-weight:800; color:var(--ink); }
+#setup .su-close__arrow{ width:22px; height:30px; margin-left:8px; transform:translateY(4px); }
+#setup .su-close__arrow path{ stroke-width:3px; }
+
+/* the courier dot (placed by paint in stage coordinates) */
+#setup .su-fly{ position:absolute; left:0; top:0; z-index:6; pointer-events:none; }
+#setup .su-fly i{
+  position:absolute; left:-7px; top:-7px; width:14px; height:14px; border-radius:50%;
+  background:var(--note-sun); box-shadow:0 0 0 1.5px var(--sun-ink), 0 0 0 3.5px #fff, 0 4px 10px rgba(185,133,0,.35);
+  opacity:0; transform:translate3d(var(--x,0px), var(--y,0px), 0) scale(var(--s,1));
+}
+#setup .su-fly i + i{ box-shadow:none; background:var(--sun-ink); }
+
+/* ---------- 1280 and short laptops ---------- */
+@media (min-width:961px) and (max-height:820px){
+  #setup .su-grid{ --h2:clamp(2.6rem, .6rem + 3.6vw, 4rem); }
+  #setup .su-stage{ padding-top:76px; padding-bottom:60px; }
+  #setup .su-eye{ margin-bottom:16px; }
+  #setup .su-head{ gap:14px; }
+  #setup .su-lead{ font-size:1.0625rem; }
+  #setup .su-desk{ margin-top:20px; row-gap:12px; }
+  #setup .su-note{ width:300px; padding:27px 18px 15px; }
+  #setup .su-note__h{ margin-bottom:7px; }
+  #setup .su-list{ gap:7px; }
+  #setup .su-tk{ font-size:.9375rem; }
+  #setup .su-hand__txt{ font-size:26px; }
+  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:13px; padding-bottom:8px; }
+  #setup .su-card__q{ font-size:2.25rem; }
+  #setup .su-card__name{ font-size:1.3125rem; }
+  #setup .su-card__role{ font-size:.8125rem; }
+  #setup .su-card__line{ font-size:.9375rem; }
+  #setup .su-tally{ height:20px; }
+  #setup .su-bar{ height:48px; }
+  #setup .su-close{ margin-top:14px; font-size:1.125rem; }
+}
+
+/* ---------- tablet + phone: one column, the head scrolls away, the chat pins ---------- */
+@media (max-width:960px){
+  #setup .su-pin{ height:calc(var(--headH, 300px) + 100svh + 120svh); }
+  #setup .su-stage{
+    top:calc(var(--headH, 300px) * -1); height:calc(var(--headH, 300px) + 100svh); min-height:0;
+    align-items:start; padding:0;
+  }
+  #setup .su-grid{
+    grid-template-columns:minmax(0,1fr); grid-template-areas:"eye" "head" "right" "desk"; grid-template-rows:auto;
+    height:auto; max-height:none; align-content:start; padding-top:clamp(56px, 12vw, 96px);
+  }
+  #setup .su-eye{ margin-bottom:18px; }
+  #setup .su-head{ padding-bottom:28px; }
+  #setup .su-right, #setup .su-right__in{ display:contents; }
+  #setup .su-win{ grid-area:right; flex:none; height:var(--winH); }
+  #setup .su-close{ grid-row:5; display:block; text-align:left; margin:16px 0 0; font-size:1.0625rem; }
+  #setup .su-close__arrow{ display:inline-block; vertical-align:-6px; width:16px; height:24px; margin-left:6px; transform:none; }
+  #setup .su-desk{ margin-top:22px; align-content:start; }
+  #setup .su-note{ width:300px; padding:28px 16px 16px; transform:rotate(-1.2deg); }
+}
+@media (min-width:641px) and (max-width:960px){
+  #setup .su-grid{ --winH:clamp(380px, 46svh, 520px); }
+  #setup .su-lead{ max-width:30em; }
+  #setup .su-desk{ grid-template-columns:auto minmax(0,1fr); grid-template-areas:"note cards" "side cards"; column-gap:28px; row-gap:14px; }
+  #setup .su-side{ align-self:start; padding-left:6px; }
+  #setup .su-side__arrow{ display:none; }
+  #setup .su-cards{ align-self:start; padding:8px 0 0; gap:4px; }
+  #setup .su-card + .su-card{ margin-left:-6px; }
+  #setup .su-card__role{ font-size:.75rem; letter-spacing:-.005em; }
+  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:10px; padding-bottom:9px; }
+  #setup .su-card__name{ font-size:1.3125rem; }
+  #setup .su-card__line{ font-size:.9375rem; }
+  #setup .su-hand__txt{ font-size:26px; }
+}
+@media (max-width:640px){
+  #setup .su-grid{ --winH:clamp(360px, 55svh, 480px); }
+  #setup .su-h2{ font-size:clamp(2.5rem, 1.4rem + 6vw, 3.2rem); }
+  #setup .su-lead{ font-size:1.125rem; }
+  #setup .su-eye{ margin-bottom:14px; }
+  #setup .su-head{ gap:16px; padding-bottom:22px; }
+  #setup .su-bar{ height:44px; padding:0 12px; gap:6px; }
+  #setup .su-bar > i{ display:none; }
+  #setup .su-bar__who{ margin-left:0; font-size:.875rem; gap:7px; }
+  #setup .su-chip{ font-size:.6875rem; margin-left:2px; }
+  #setup .su-chip > span{ height:22px; padding:0 8px; }
+  #setup .su-chip__c{ padding:0 8px 0 7px !important; gap:5px; }
+  #setup .su-chip__c b{ font-size:.8125rem; }
+  #setup .su-chip__c em{ font-size:.625rem; letter-spacing:.03em; }
+  #setup .su-clock{ gap:5px; font-size:.75rem; }
+  #setup .su-view{ --fade:40px; }
+  #setup .su-log{ padding:12px 12px 12px; gap:9px; }
+  #setup .su-row{ gap:8px; }
+  #setup .su-av{ width:26px; height:26px; border-radius:8px; }
+  #setup .su-av::after{ left:7px; top:7px; width:12px; height:12px; }
+  #setup .su-dots{ left:46px; }
+  #setup .su-b{ max-width:86%; font-size:.9375rem; padding:9px 13px 10px; }
+  #setup .su-file{ font-size:.75rem; height:32px; padding:0 10px 0 8px; }
+  #setup .su-compose{ padding:8px 10px 10px; }
+  #setup .su-compose__box{ height:44px; }
+  #setup .su-compose__txt{ font-size:.9375rem; }
+  #setup .su-close{ font-size:1rem; margin-top:14px; }
+  #setup .su-close b{ display:inline-block; }
+
+  /* desk: sticky (what it settled) beside the ballot slips (who could name it) */
+  #setup .su-desk{ grid-template-columns:minmax(0,55fr) minmax(0,45fr); grid-template-areas:"note side" "note cards"; grid-template-rows:auto 1fr; column-gap:14px; row-gap:8px; margin-top:18px; }
+  #setup .su-note{ width:auto; padding:26px 11px 13px 12px; transform:rotate(-1.5deg); align-self:start; }
+  #setup .su-note__h{ margin-bottom:7px; }
+  #setup .su-list{ gap:8px; }
+  #setup .su-tk{ font-size:.8125rem; line-height:1.22; gap:8px; align-items:flex-start; }
+  #setup .su-tk__box, #setup .su-tk__box svg{ width:18px; height:18px; }
+  #setup .su-side{ align-self:start; gap:5px; padding:0; }
+  #setup .su-side__arrow{ display:none; }
+  #setup .su-hand__txt{ font-size:24px; }
+  #setup .su-cards{ align-self:start; grid-template-columns:minmax(0,1fr); gap:7px; padding:0; }
+  #setup .su-card + .su-card{ margin-left:0; }
+  #setup .su-card{ height:40px; transform-origin:50% 50%; }
+  #setup .su-card__face{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:6px; height:40px; padding:0 10px 0 11px; background:var(--card); }
+  #setup .su-card__back{ transform:rotateX(180deg); display:flex; justify-content:flex-start; gap:8px; padding-left:12px; align-items:center; box-shadow:var(--sh-1), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent); background:var(--coral); }
+  #setup .su-card__q{ font-size:1.25rem; }
+  #setup .su-card__bl{ font-size:.625rem; padding:2px 7px; }
+  #setup .su-card__face::before{ content:""; position:absolute; left:0; top:7px; bottom:7px; width:2px; border-radius:2px; background:var(--coral-ink); opacity:.8; }
+  #setup .su-card__name{ font-size:1rem; align-self:center; }
+  #setup .su-ring{ left:-10px; top:-8px; width:calc(100% + 21px); height:calc(100% + 16px); }
+  #setup .su-card__role, #setup .su-card__line{ display:none; }
+  #setup .su-tally{ width:58px; height:18px; flex:none; align-self:center; }
+}
+@media (min-width:961px) and (max-height:760px){
+  #setup .su-side__arrow{ display:none; }
+}
+/* reduced motion + flat overview: no pin tricks */
+html.mca-flat #setup .su-stage{ top:0 !important; height:auto !important; padding-block:96px 64px; }
+html.mca-reduced #setup .su-pin{ height:auto; }
+@media (max-width:960px){ html.mca-flat #setup .su-stage, html.mca-reduced #setup .su-stage{ padding-top:0; } }
+html.mca-reduced #setup .su-win{ height:auto !important; flex:none; }
+html.mca-reduced #setup .su-view{ flex:none; -webkit-mask:none; mask:none; }
+html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-height:0; overflow:visible; padding-block:clamp(64px, 9vw, 120px); }
+@media (min-width:961px){
+  html.mca-flat #setup .su-grid, html.mca-reduced #setup .su-grid{ height:auto; }
+  html.mca-reduced #setup .su-grid{ max-height:none; }
+  html.mca-reduced #setup .su-desk{ align-content:start; row-gap:40px; }
+  html.mca-flat #setup .su-desk, html.mca-reduced #setup .su-desk{ row-gap:64px; }
+  html.mca-flat #setup .su-right__in{ min-height:560px; }
+  html.mca-reduced #setup .su-right__in{ position:relative; inset:auto; }
+}
+@media (max-width: 480px){
+  /* phones: the header has room for the name only; the ballot below says it was the class's pick */
+  #setup .su-chip__c em{ display:none; }
+}
+/* phones: the ballot under the window already shows the class naming it, so the chat keeps
+   the goal exchange in view at the end instead */
+@media (max-width: 640px){
+  #setup .su-row--vote{ display:none; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.getElementById("setup");
+  if (!root || !window.MCA) return;
+  var M = window.MCA, clamp = M.clamp01, ease = M.ease;
+  /* a small settle for cards landing: cubic-bezier(.34,1.4,.64,1)-ish overshoot */
+  var back = function (t) { var c1 = 1.25, c3 = c1 + 1, u = t - 1; return 1 + c3 * u * u * u + c1 * u * u; };
+
+  /* the script (p):  chat .05 → .60 · ticks Goal .205, Name .345, House rule .505, Research .615
+     · the Name tick turns the three face-down ballot cards over (.35 → .46) · tallies .46 → .72
+     · the class circles Spark .74 → .79 · the window takes the name .82 · close .88 */
+  var T_NAME = .345, T_DONE = .555, T_FLIP = .352, T_TALLY0 = .62, T_TALLY1 = .78, T_WIN = .79, T_PICK = .84;
+
+  var pin = root.querySelector(".su-pin"), stage = root.querySelector(".su-stage"), head = root.querySelector(".su-head");
+  var eye = root.querySelector(".su-eye");
+  var win = root.querySelector(".su-win"), view = root.querySelector(".su-view"), log = root.querySelector(".su-log");
+  var intro = root.querySelector(".su-row--intro");
+  var dots = root.querySelector(".su-dots"), dotI = dots.querySelectorAll("i");
+  var compose = root.querySelector(".su-compose"), typed = root.querySelector(".su-compose__typed");
+  var clock = root.querySelector(".su-clock"), clockArc = root.querySelector(".su-clock__arc"), clockN = root.querySelector(".su-clock__n");
+  var close = root.querySelector(".su-close"), desk = root.querySelector(".su-desk");
+  var file = root.querySelector(".su-file");
+  var fly = [].slice.call(root.querySelectorAll(".su-fly i"));
+  var tickEls = [].slice.call(root.querySelectorAll(".su-tk"));
+  var ticks = tickEls.map(function (li) {
+    return { at: parseFloat(li.getAttribute("data-at")), box: li.querySelector(".su-tk__box"), x: 0, y: 0 };
+  });
+  var keys = [].map.call(root.querySelectorAll(".su-key"), function (m) { return { at: parseFloat(m.getAttribute("data-at")), el: m }; });
+  var cards = [].slice.call(root.querySelectorAll(".su-card"));
+  var winCard = root.querySelector(".su-card--win"), ring = winCard.querySelector(".su-ring");
+  /* couriers: each settled answer flies from the chat to its tick on the sticky note */
+  var trips = [
+    { el: keys[0].el, at: keys[0].at + .018, tick: ticks[0] },
+    { el: keys[1].el, at: keys[1].at + .018, tick: ticks[1] },
+    { el: keys[2].el, at: keys[2].at + .018, tick: ticks[2] },
+    { el: file, at: T_DONE + .012, tick: ticks[3] }
+  ];
+  trips.forEach(function (t) { t.lx = 0; t.ly = 0; });
+  var rows = [].map.call(root.querySelectorAll(".su-row"), function (el) {
+    var ai = el.classList.contains("su-row--ai"), you = el.classList.contains("su-row--you");
+    var b = el.querySelector(".su-b"), txt = "";
+    if (you && b) { var c = b.cloneNode(true), s = c.querySelectorAll(".su-who,.mca-sr"); for (var i = 0; i < s.length; i++) s[i].remove(); txt = c.textContent.trim(); }
+    return { el: el, ai: ai, you: you, L: parseFloat(el.getAttribute("data-l")), pre: 0, txt: txt, top: 0, h: 0 };
+  });
+  /* each line's lead-in (typing dots / composer) fits inside the gap since the previous line */
+  var prevL = -.03;
+  rows.forEach(function (R) {
+    if (R.L < 0) return;
+    R.pre = Math.max(0, Math.min(R.ai ? .035 : R.you ? .065 : 0, R.L - prevL - .02));
+    prevL = R.L;
+  });
+  var TYP_H = 40, PAD_B = 18, PAD_T = 16, CLEAR = 26, viewH = 400;
+  var pinTop = 0, vx = 0, vy = 0, headH = 0, span = 1, narrow = false, phone = false;
+  var cardX = cards.map(function () { return 0; });
+
+  /* tally marks: groups of five (four uprights + a slash), strokes counted round-robin */
+  var NS = "http://www.w3.org/2000/svg", strokes = [];
+  cards.forEach(function (card, ci) {
+    var svg = card.querySelector(".su-tally"), n = +svg.getAttribute("data-n"), list = [];
+    for (var j = 0; j < n; j++) {
+      var g = Math.floor(j / 5), q = j % 5, x0 = 4 + g * 40, d;
+      var wob = ((j * 37 + ci * 11) % 7 - 3) * 0.35;
+      if (q < 4) d = "M" + (x0 + q * 7 + wob).toFixed(1) + " 4.5L" + (x0 + q * 7 - wob * .6 + .8).toFixed(1) + " 22";
+      else d = "M" + (x0 - 4) + " 17.5L" + (x0 + 26) + " 8";
+      var p = document.createElementNS(NS, "path");
+      p.setAttribute("d", d); p.setAttribute("pathLength", "1"); svg.appendChild(p); list.push(p);
+    }
+    strokes.push(list);
+  });
+  var order = [];
+  for (var r = 0; r < 12; r++) for (var c = 0; c < strokes.length; c++) if (strokes[c][r]) order.push(strokes[c][r]);
+
+  function center(el, sr) { var er = el.getBoundingClientRect(); return { x: er.left + er.width / 2 - sr.left, y: er.top + er.height / 2 - sr.top }; }
+
+  function measure() {
+    narrow = matchMedia("(max-width:960px)").matches;
+    phone = matchMedia("(max-width:640px)").matches;
+    var sr = stage.getBoundingClientRect();
+    if (narrow) {
+      /* scroll the head away and pin the window 72px down, clear of the floating nav */
+      var cur = parseFloat(stage.style.getPropertyValue("--headH")) || 0;
+      headH = Math.max(0, Math.round(win.getBoundingClientRect().top - sr.top - 72));
+      if (Math.abs(headH - cur) > .5) {
+        stage.style.setProperty("--headH", headH + "px");
+        pin.style.setProperty("--headH", headH + "px");
+      }
+      sr = stage.getBoundingClientRect();
+    } else headH = 0;
+    span = Math.max(1, pin.offsetHeight - innerHeight);
+    pinTop = pin.getBoundingClientRect().top + (window.scrollY || 0);
+    viewH = view.clientHeight;
+    CLEAR = (parseFloat(getComputedStyle(view).getPropertyValue("--fade")) || 26) + 1;
+    PAD_B = parseFloat(getComputedStyle(log).paddingBottom) || 18;
+    PAD_T = parseFloat(getComputedStyle(log).paddingTop) || 16;
+    rows.forEach(function (r) { r.top = r.el.offsetTop; r.h = r.el.offsetHeight; });
+
+    /* stage-space geometry (untransformed), for the couriers and the deal */
+    var saved = log.style.getPropertyValue("--off"); log.style.setProperty("--off", "0");
+    var vr = view.getBoundingClientRect();
+    vx = vr.left - sr.left; vy = vr.top - sr.top;
+    trips.forEach(function (t) {
+      var er = t.el.getBoundingClientRect();
+      t.lx = er.left + Math.min(er.width, 120) * .5 - vr.left;
+      t.ly = er.top + er.height / 2 - vr.top;
+    });
+    log.style.setProperty("--off", saved || "0");
+    ticks.forEach(function (t) { var c = center(t.box, sr); t.x = c.x; t.y = c.y; });
+    cards.forEach(function (cd, i) { cardX[i] = cd.offsetLeft + cd.offsetWidth / 2; });
+  }
+
+  /* resting scroll for "row i is the newest, h px tall": bottom-anchored on the composer like a real
+     messenger (negative = pushed down while the chat is short), then snapped UP to the next row
+     boundary so the top bubble always clears the header by CLEAR px. Rows above it fade out
+     completely (see --o), so nothing is ever guillotined. */
+  function rest(i, h) {
+    if (i < 0) return 0;
+    var need = rows[i].top + h + PAD_B - viewH;
+    return need;
+  }
+
+  function paint(p) {
+    /* ---- the conversation ---- */
+    var k = -1, mode = "", prog = 1, typingRow = null, youTyping = null;
+    for (var i = 0; i < rows.length; i++) {
+      var R = rows[i], rv = R.L < 0 ? 1 : clamp((p - R.L) / .025);
+      var typing = R.L >= 0 && R.pre > 0 && p >= R.L - R.pre && p < R.L;
+      R.el.style.setProperty("--r", rv.toFixed(3));
+      if (rv > 0) { k = i; mode = "land"; prog = rv; }
+      else if (typing) {
+        if (R.ai) { k = i; mode = "type"; prog = clamp((p - (R.L - R.pre)) / .015); typingRow = R; }
+        else youTyping = { R: R, t: clamp((p - (R.L - R.pre)) / (R.pre * .82)) };
+      }
+    }
+    var off = 0;
+    if (k >= 0) {
+      var R2 = rows[k], before = k > 0 ? rest(k - 1, rows[k - 1].h) : 0, e = ease(prog);
+      if (mode === "type") off = before + (Math.max(before, rest(k, TYP_H)) - before) * e;
+      else if (R2.L < 0) off = rest(k, R2.h);
+      else off = (R2.ai ? Math.max(before, rest(k, TYP_H)) : before) * (1 - e) + rest(k, R2.h) * e;
+    }
+    if (M.reduced) off = 0;   /* reduced motion: the window grows to hold the whole interview */
+    /* once the interview is done, the empty new-chat header has no job: under reduced motion the
+       whole thread shows, so it would sit above a full conversation */
+    var hideIntro = M.reduced && p >= .9;
+    if (intro.hidden !== hideIntro) intro.hidden = hideIntro;
+    log.style.setProperty("--off", off.toFixed(1));
+    /* while the chat is shorter than the window, the new-chat header stays up top and the messages
+       sit on the composer, like a fresh thread in any messenger */
+    var introShift = Math.min(0, off);
+    intro.style.transform = introShift ? "translate3d(0," + introShift.toFixed(1) + "px,0)" : "";
+    for (var j = 0; j < rows.length; j++) {
+      var vis = rows[j].top - off;
+      rows[j].el.style.setProperty("--o", (rows[j].el === intro && off <= 0 ? 1 : clamp((vis + rows[j].h * .55) / (rows[j].h * .55))).toFixed(3));
+    }
+
+    /* typing dots */
+    if (typingRow) {
+      dots.classList.add("on");
+      dots.style.setProperty("--y", (typingRow.top - off) + "px");
+      var ph = Math.floor((p * 900) % 3);
+      for (var d = 0; d < 3; d++) dotI[d].classList.toggle("hi", d === ph);
+    } else dots.classList.remove("on");
+
+    /* composer: the teacher's reply types in before it lands */
+    if (youTyping) {
+      compose.classList.add("is-typing");
+      var s = youTyping.R.txt; typed.textContent = s.slice(0, Math.max(1, Math.round(s.length * youTyping.t)));
+    } else { compose.classList.remove("is-typing"); typed.textContent = ""; }
+
+    /* title bar: the clock reaches ten minutes as the last line lands, then turns into a done check */
+    var m = clamp((p + .06) / (T_DONE + .06));
+    clockArc.style.setProperty("--m", m.toFixed(3));
+    clockN.textContent = Math.max(1, Math.round(m * 10));
+    clock.classList.toggle("is-done", m >= 1);
+    win.classList.toggle("is-named", p >= T_NAME);
+    win.classList.toggle("is-picked", p >= T_PICK);
+
+    /* the words re-ink */
+    keys.forEach(function (kk) {
+      var w = ease(clamp((p - kk.at - .005) / .02));
+      kk.el.style.setProperty("--w", w.toFixed(3));
+      kk.el.classList.toggle("is-got", w > 0);
+    });
+    file.style.setProperty("--fl", (p < T_DONE + .005 ? 0 : p < T_DONE + .025 ? 1 : 1 - ease(clamp((p - T_DONE - .025) / .05))).toFixed(3));
+
+    /* a courier carries each settled answer to its tick */
+    var live = null, lt = 0;
+    trips.forEach(function (t) {
+      var b = t.tick.at;
+      if (p >= t.at && p <= b + .004) { live = t; lt = clamp((p - t.at) / (b - t.at)); }
+    });
+    if (live && M.frozen === null) {   /* a parked dot in a still frame reads as a glitch: couriers only fly live */
+      var sx = vx + live.lx, sy = vy + live.ly - off;
+      var ex = live.tick.x, ey = live.tick.y;
+      var cx = (sx + ex) / 2, cy = Math.min(sy, ey) - 70;
+      fly.forEach(function (f, fi) {
+        var u = clamp(lt - fi * .03), ue = 1 - Math.pow(1 - u, 2.2);
+        var x = (1 - ue) * (1 - ue) * sx + 2 * (1 - ue) * ue * cx + ue * ue * ex;
+        var y = (1 - ue) * (1 - ue) * sy + 2 * (1 - ue) * ue * cy + ue * ue * ey;
+        f.style.setProperty("--x", x.toFixed(1) + "px"); f.style.setProperty("--y", y.toFixed(1) + "px");
+        f.style.setProperty("--s", (fi ? .5 - fi * .12 : 1 - .35 * ue).toFixed(3));
+        f.style.opacity = (u <= 0 ? 0 : (fi ? .55 - fi * .15 : 1) * clamp(Math.min(u * 6, (1 - u) * 8 + .15))).toFixed(3);
+      });
+    } else fly.forEach(function (f) { f.style.opacity = 0; });
+
+    ticks.forEach(function (t) {
+      var v = clamp((p - t.at) / .03);
+      t.box.style.setProperty("--k", v > 0 ? 1 : 0);
+      t.box.style.setProperty("--s", (v <= 0 ? .4 : .55 + .45 * v + .32 * Math.sin(Math.PI * v)).toFixed(3));
+      t.box.style.setProperty("--c", clamp((v - .35) / .65).toFixed(3));
+    });
+
+    /* ---- the ballot: three index cards wait face down. The Name tick turns them over one by one,
+       the class tallies, and the class circles its pick ---- */
+    var rot = phone ? [0, 0, 0] : [-4.5, 0, 4], yo = phone ? [0, 0, 0] : [6, 0, 6];
+    var wv = ease(clamp((p - T_WIN) / .05));
+    cards.forEach(function (cd, ci) {
+      var f = clamp((p - T_FLIP - ci * .028) / .05), e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+      var bump = Math.sin(Math.PI * f);
+      /* face down they sit as a tighter hand; turning over opens the fan */
+      var tx = phone ? 0 : (cardX[1] - cardX[ci]) * .16 * (1 - e);
+      var ty = yo[ci] * (.5 + .5 * e) - (phone ? 4 : 16) * bump;
+      var rr = rot[ci] * (.55 + .45 * e), sc = 1 + .04 * bump;
+      var isWin = cd === winCard;
+      if (isWin) { ty -= (phone ? 0 : 6) * wv; rr *= 1 - wv; sc *= 1 + (phone ? .02 : .03) * wv; }
+      else ty += (phone ? 0 : 5) * wv;
+      var turn = (180 * (1 - e)).toFixed(1);
+      cd.style.transform = "perspective(900px) translate3d(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px,0) rotate(" + rr.toFixed(2) + "deg) " +
+        (phone ? "rotateX(" + turn + "deg)" : "rotateY(" + turn + "deg)") + " scale(" + sc.toFixed(3) + ")";
+      cd.style.zIndex = bump > .05 ? 6 : "";
+      cd.classList.toggle("is-win", isWin && wv > .02);
+      cd.classList.toggle("is-lose", !isWin && wv > .02);
+    });
+    ring.style.setProperty("--g", ease(clamp((p - T_WIN - .01) / .05)).toFixed(3));
+    for (var q = 0; q < order.length; q++) {
+      var st = T_TALLY0 + q * ((T_TALLY1 - T_TALLY0) / order.length);
+      order[q].style.setProperty("--t", clamp((p - st) / .012).toFixed(3));
+    }
+
+    /* closing line */
+    close.style.setProperty("--c", ease(clamp((p - .88) / .07)).toFixed(3));
+
+    fadeHead();
+  }
+
+  /* phones/tablets: the head fades as it slides under the floating nav. Driven by the real scroll
+     position (not p), so it is right in frozen captures too. */
+  function fadeHead() {
+    if (narrow && !M.reduced && !document.documentElement.classList.contains("mca-flat")) {
+      var y = (window.scrollY || 0) - pinTop, hf = clamp((headH - y) / 60).toFixed(3);
+      head.style.opacity = hf; eye.style.opacity = hf;
+    } else { head.style.opacity = ""; eye.style.opacity = ""; }
+  }
+  addEventListener("scroll", function () { if (narrow) fadeHead(); }, { passive: true });
+
+  measure();
+  M.register(pin, "pin", paint);
+  var again = function () { measure(); M.refresh(); };
+  var tmr; addEventListener("resize", function () { clearTimeout(tmr); tmr = setTimeout(again, 80); });
+  addEventListener("load", again);
+  if (document.fonts) {
+    if (document.fonts.ready) document.fonts.ready.then(again);
+    document.fonts.addEventListener && document.fonts.addEventListener("loadingdone", again);
+  }
+  if (window.ResizeObserver) { var ro = new ResizeObserver(function () { again(); }); ro.observe(log); ro.observe(view); ro.observe(desk); }
+})();
+</script>

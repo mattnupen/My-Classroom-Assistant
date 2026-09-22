@@ -1,0 +1,166 @@
+<section id="footer">
+  <footer class="ft" role="contentinfo">
+    <div class="mca-container">
+
+      <!-- row 1: wordmark left, links right -->
+      <div class="ft-top">
+        <div class="ft-brand">
+        <a class="ft-word" href="#hero" aria-label="My Classroom Assistant, back to top">
+          <svg class="ft-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="17" fill="#14231F"/>
+            <rect x="1" y="1" width="62" height="62" rx="16" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2"/>
+            <rect x="16" y="16" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 31 31)"/>
+            <path d="M16.4 19.6l29.8-3.1.5 4.3-29.8 3.1z" fill="#14231F" opacity=".09"/>
+            <path d="M36 8.6C19 8.2 7 17.5 7 32s12 25 27 24 23-11 23-25c0-8.6-4.2-15-11.6-19.6" fill="none" stroke="#FF5A1F" stroke-width="4.4" stroke-linecap="round"/>
+          </svg>
+          <span class="ft-name">My Classroom Assistant</span>
+        </a>
+        <p class="ft-sign">Hand one classroom problem to an AI, and it keeps working on it all year.</p>
+        </div>
+
+        <nav class="ft-links" aria-label="Footer links">
+          <a class="ft-link" href="{{ROOT}}local-tools/ClassAI-dashboard.html" style="--tile:var(--note-mint);--r:-3deg">
+            <span class="ft-tile" aria-hidden="true"><svg class="ft-solid" viewBox="0 0 20 20"><path d="M7.4 5.8v8.4c0 .6.6.9 1.1.6l6.3-4.2c.4-.3.4-.9 0-1.2L8.5 5.2c-.5-.3-1.1 0-1.1.6z"/></svg></span>
+            <span class="ft-t">Try the demo</span>
+          </a>
+          <a class="ft-link" href="https://github.com/mattnupen/My-Classroom-Assistant" target="_blank" rel="noopener" style="--tile:var(--note-sky);--r:2deg">
+            <span class="ft-tile" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="6.2" cy="5.2" r="1.8"/><circle cx="6.2" cy="14.8" r="1.8"/><circle cx="13.8" cy="7.6" r="1.8"/><path d="M6.2 7v6M13.8 9.4c0 2.5-2.3 3-4.8 3.5-1.4.3-2.4.8-2.8 1.5"/></svg></span>
+            <span class="ft-t">GitHub<svg class="ft-out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.4 3.5h4.1v4.1"/></svg><span class="mca-sr"> (opens in new tab)</span></span>
+          </a>
+          <a class="ft-link" href="{{ROOT}}setup/permissions/privacy-one-pager.html" style="--tile:var(--note-lilac);--r:-2deg">
+            <span class="ft-tile" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 3l5.4 2v4.3c0 3.4-2.3 6.1-5.4 7.4-3.1-1.3-5.4-4-5.4-7.4V5z"/><path d="M7.7 9.9l1.6 1.6 3-3.1"/></svg></span>
+            <span class="ft-t">Privacy one-pager</span>
+          </a>
+          <a class="ft-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener" style="--tile:var(--note-sun);--r:3deg">
+            <span class="ft-tile" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 6.2C8.4 4.9 6.3 4.4 3.6 4.6v9.9c2.7-.2 4.8.3 6.4 1.6 1.6-1.3 3.7-1.8 6.4-1.6V4.6c-2.7-.2-4.8.3-6.4 1.6z"/><path d="M10 6.2v9.9"/></svg></span>
+            <span class="ft-t">Claude for <span class="ft-nw">Teachers<svg class="ft-out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.4 3.5h4.1v4.1"/></svg></span><span class="mca-sr"> (opens in new tab)</span></span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- phone only: the nav's links, handed off to the footer -->
+      <p class="ft-jump"><a class="ft-ml" href="#setup">How it works</a><span class="ft-dot" aria-hidden="true">·</span><a class="ft-ml" href="#data">Privacy</a><span class="ft-dot" aria-hidden="true">·</span><a class="ft-ml ft-totop" href="#hero">Back to top</a></p>
+
+      <!-- row 2: the fine print, in micro -->
+      <div class="ft-base">
+        <p class="ft-m">Free and open source <span class="ft-dot" aria-hidden="true">·</span> <a class="ft-ml" href="https://github.com/mattnupen/My-Classroom-Assistant/blob/main/LICENSE">MIT License</a></p>
+        <p class="ft-m">Made by a teacher <span class="ft-dot" aria-hidden="true">·</span> <a class="ft-ml" href="https://mattnupen.com">Matt Nupen</a></p>
+        <p class="ft-m ft-m--end">Sample names on this page are made up.</p>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<style>
+/* ---------- footer: quiet, two rows, on paper ---------- */
+#footer{ position:relative; background:var(--paper); color:var(--ink); }
+#footer .ft{ padding:clamp(56px, 2vw + 44px, 80px) 0 clamp(28px, 1vw + 22px, 40px); }
+
+/* row 1 */
+#footer .ft-top{ display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:24px 40px; }
+#footer .ft-brand{ display:flex; flex-direction:column; align-items:flex-start; }
+#footer .ft-word{
+  display:inline-flex; align-items:center; gap:11px; min-height:44px; color:var(--ink); text-decoration:none;
+  padding:0 8px; margin:0 -8px; border-radius:12px;
+}
+#footer .ft-sign{ margin:2px 0 0 43px; max-width:34ch; font:500 .9375rem/1.45 var(--f-body); color:var(--ink-3); }
+#footer .ft-mark{ width:32px; height:32px; flex:none; transition:transform var(--d-3) var(--ease-spring); }
+#footer .ft-word:hover .ft-mark{ transform:rotate(-6deg); }
+#footer .ft-name{ font:750 1.1875rem/1 var(--f-display); letter-spacing:-.02em; font-variation-settings:"opsz" 24; white-space:nowrap; }
+
+#footer .ft-links{ display:flex; flex-wrap:wrap; align-items:center; gap:4px 32px; }
+#footer .ft-link{
+  display:inline-flex; align-items:center; gap:10px; min-height:44px;
+  padding:0 8px 0 4px; margin:0 -8px 0 -4px; border-radius:10px;
+  font:650 .9375rem/1.2 var(--f-body); letter-spacing:-.005em; color:var(--ink-2); text-decoration:none; white-space:nowrap;
+  transition:color var(--d-2) var(--ease-out);
+}
+#footer .ft-link:hover{ color:var(--ink); }
+/* each link tile is a tiny sticky note: adhesive band on top, slight tilt */
+#footer .ft-tile{
+  display:grid; place-items:center; width:28px; height:28px; flex:none; border-radius:4px 4px 5px 8px;
+  background:linear-gradient(to bottom, rgba(20,35,31,.07) 0 5px, transparent 5px), var(--tile);
+  box-shadow:0 1px 1px rgba(20,35,31,.10), 0 3px 6px -3px rgba(20,35,31,.28), inset 0 0 0 1px rgba(20,35,31,.05);
+  transform:rotate(var(--r));
+  transition:transform var(--d-3) var(--ease-spring);
+}
+#footer .ft-link:hover .ft-tile{ transform:rotate(0deg) translateY(-1px); }
+#footer .ft-tile svg{ width:18px; height:18px; margin-top:1px; fill:none; stroke:var(--ink); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+#footer .ft-tile svg.ft-solid{ fill:var(--ink); stroke:none; }
+#footer .ft-t{
+  background:linear-gradient(currentColor,currentColor) 0 100%/0% 1.5px no-repeat; padding-bottom:3px; margin-bottom:-3px;
+  transition:background-size var(--d-3) var(--ease-out);
+}
+#footer .ft-link:hover .ft-t{ background-size:100% 1.5px; }
+#footer .ft-nw{ white-space:nowrap; }
+#footer .ft-out{
+  display:inline-block; vertical-align:.08em; width:11px; height:11px; margin-left:4px;
+  fill:none; stroke:currentColor; opacity:.7; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  transition:transform var(--d-2) var(--ease-out), opacity var(--d-2);
+}
+#footer .ft-link:hover .ft-out{ transform:translate(1.5px,-1.5px); opacity:1; }
+
+/* row 2 */
+#footer .ft-base{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 40px;
+  margin-top:28px; padding-top:20px; border-top:1px solid var(--line-2);
+  font:600 var(--t-micro)/1.4 var(--f-body); color:var(--ink-3);
+}
+#footer .ft-m{ margin:0; }
+@media (min-width: 1101px){ #footer .ft-base{ margin-top:36px; padding-top:24px; } }
+#footer .ft-jump{ display:none; }
+#footer .ft-m--end{ margin-left:auto; }
+#footer .ft-m{ position:relative; }
+#footer .ft-m + .ft-m:not(.ft-m--end)::before{
+  content:""; position:absolute; left:-20px; top:50%; width:1px; height:12px; margin-top:-6px; background:var(--line-2);
+}
+#footer .ft-dot{ margin:0 .3em; color:var(--ink-4); }
+#footer .ft-ml{
+  color:var(--ink-2); text-decoration:none; border-radius:4px; padding:2px 4px; margin:-2px -4px;
+  background:linear-gradient(currentColor,currentColor) 4px calc(100% - 1px)/calc(100% - 8px) 1px no-repeat;
+  background-color:transparent;
+  transition:color var(--d-2) var(--ease-out), background-size var(--d-2) var(--ease-out);
+}
+#footer .ft-ml:hover{ color:var(--ink); background-size:calc(100% - 8px) 1.5px; }
+
+/* ---------- tablet: wordmark on its own line, links spread to the full measure ---------- */
+@media (min-width: 641px) and (max-width: 1100px){
+  #footer .ft-links{ width:100%; justify-content:space-between; }
+}
+
+/* ---------- phone: stacked, left-aligned ---------- */
+@media (max-width: 640px){
+  #footer .ft{ padding:40px 0 24px; }
+  #footer .ft-top{ flex-direction:column; align-items:flex-start; gap:20px; }
+  #footer .ft-sign{ margin-top:0; font-size:.875rem; }
+  #footer .ft-links{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 20px; width:100%; }
+  #footer .ft-link{ font-size:.875rem; gap:9px; margin-right:0; }
+  #footer .ft-link:nth-child(2n){ padding-right:0; }
+  #footer .ft-jump{ display:flex; align-items:center; flex-wrap:wrap; margin:16px 0 0; font:650 .875rem/1.4 var(--f-body); color:var(--ink-3); }
+  #footer .ft-jump .ft-ml{ color:var(--ink-2); background-image:none; }
+  #footer .ft-jump .ft-ml:hover{ color:var(--ink); }
+  #footer .ft-base{ flex-direction:column; align-items:flex-start; gap:10px; margin-top:20px; padding-top:16px; }
+  #footer .ft-m + .ft-m:not(.ft-m--end)::before{ display:none; }
+  #footer .ft-ml{ display:inline-block; padding:5px 4px; margin:-5px -4px; background-position:4px calc(100% - 6px); }
+  #footer .ft-jump .ft-dot{ margin:0 .7em; }
+  #footer .ft-m--end{ margin-left:0; }
+}
+@media (max-width: 379px){
+  #footer .ft-link{ gap:8px; font-size:.8125rem; }
+  #footer .ft-links{ column-gap:8px; }
+}
+</style>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('#footer .ft-word, #footer .ft-totop');
+  Array.prototype.forEach.call(els,function(a){ a.addEventListener('click',function(e){
+    e.preventDefault();
+    var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
+    // keyboard focus follows the reader back up, so the next Tab starts at the top
+    var h=document.querySelector('#hero h1');
+    if(h){ h.setAttribute('tabindex','-1'); try{ h.focus({preventScroll:true}); }catch(err){ h.focus(); } }
+  }); });
+})();
+</script>

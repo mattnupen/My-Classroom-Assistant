@@ -1,0 +1,629 @@
+<section id="hero" aria-labelledby="hero-title">
+  <div class="h-pin" data-pin>
+    <div class="h-stage">
+      <div class="h-desk" aria-hidden="true"></div>
+
+      <!-- a finished thing already on the desk: this Monday's slide, printed and taped down -->
+      <figure class="h-slide mca-paper" aria-hidden="true">
+        <span class="mca-tape h-slide__tape"></span>
+        <div class="h-slide__screen">
+          <div class="h-slide__top">
+            <span class="h-slide__kicker">Monday · Week <b class="h-wk">1</b></span>
+            <span class="h-slide__title">This week’s strategy</span>
+          </div>
+          <div class="h-slide__body">
+            <p class="h-slide__moves"><span class="h-slide__move is-on">Open the doc you’re finishing and write one sentence.</span><span class="h-slide__move">Two-minute check: what’s one thing left to hand in?</span><span class="h-slide__move">Finish-line Friday: turn in one thing before the bell.</span></p>
+            <p class="h-slide__why"><span class="is-on">Strategy 1 · trying it</span><span>Strategy 2 · the first one stalled</span><span>Strategy 3 · building on what worked</span></p>
+            <p class="h-slide__foot"><span>Draft · you run it</span><span class="h-slide__dots"><i></i><i></i><i></i></span></p>
+          </div>
+        </div>
+      </figure>
+
+      <div class="mca-container h-main">
+        <div class="h-copy">
+          <h1 id="hero-title" class="mca-display mca-ring-host h-h1"><span class="mca-line">Hand <span data-mca-ring="load" data-ring-px=".24" data-ring-py=".13" data-ring-d="M62 5C26 1 4 7 2 48C0 89 22 98 54 97C86 96 99 89 98 50C97 17 82 3 44 11">one</span> classroom problem</span> <span class="mca-line">to an AI, and it keeps</span> <span class="mca-line">working on it all year.</span></h1>
+          <p class="mca-lead h-lead">A semi-autonomous AI agent that takes on one challenge in your class, like missing work or attendance. Each week it checks what’s working, adjusts its strategy and sends you the slides and plans to run. You decide what reaches students.</p>
+
+          <div class="mca-copy h-cta" data-copy-group>
+            <div class="h-cta__row">
+              <button class="mca-btn mca-btn--primary mca-copy__btn" type="button" data-copy-prompt>
+                <span class="mca-copy__glyph" aria-hidden="true">
+                  <svg class="mca-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2.6"/><path d="M9 4.6v-.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v.8"/><path d="M9 11h6M9 15h4"/></svg>
+                  <svg class="mca-copy__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                </span>
+                <span class="mca-copy__labels"><span class="mca-copy__idle">Copy the setup prompt</span><span class="mca-copy__done" aria-hidden="true">Copied. Paste it into Cowork.</span></span>
+              </button>
+              <span class="h-demo">Just looking? <a class="mca-link" href="{{ROOT}}local-tools/ClassAI-dashboard.html" title="A sample class with made-up names.">Try the live demo <span class="mca-arrow" aria-hidden="true">→</span><span class="mca-sr"> A sample class with made-up names.</span></a></span>
+            </div>
+            <p class="h-cap"><span>Paste it into Claude Cowork in the Claude desktop app. It downloads the project and walks you through setup. Verified US K-12 teachers can get Claude free with <a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a>.</span> <button class="mca-copy__toggle h-toggle" type="button" data-reveal-prompt aria-expanded="false"><span class="mca-copy__show">Show the prompt</span><span class="mca-copy__hide">Hide the prompt</span></button></p>
+            <div class="mca-copy__panel h-panel" hidden>
+              <p class="mca-copy__fail">Your browser blocked copying. Here it is. Select it and copy.</p>
+              <code class="mca-copy__prompt" tabindex="0"></code>
+            </div>
+            <span class="mca-sr" aria-live="polite" data-copy-status></span>
+          </div>
+        </div>
+
+        <div class="h-goals">
+          <p class="mca-sr">Example challenges: missing work, attendance, participation, students feeling heard, grades.</p>
+          <p class="mca-hand h-pick" aria-hidden="true">pick one<svg class="mca-stroke" viewBox="0 0 60 40"><path d="M4 6C16 2 38 6 50 26"/><path d="M50 26l-1.5-9M50 26l-8.5-3.2"/></svg><svg class="mca-stroke h-pick__down" viewBox="0 0 30 34"><path d="M3 5C17 5 25 14 21 30"/><path d="M21 30l-6.5-5.5M21 30l4.2-7.6"/></svg></p>
+          <p class="mca-hand h-madeby" aria-hidden="true">what it made<svg class="mca-stroke" viewBox="0 0 52 30"><path d="M3 6C18 3 34 8 46 22"/><path d="M46 22l-8.6-1.4M46 22l-.8-8.6"/></svg></p>
+          <!-- what it makes along the way: each lands on the desk as its week passes -->
+          <div class="h-made" aria-hidden="true">
+            <div class="h-m h-m--note mca-paper" data-k="note">
+              <span class="h-m__label">Note home</span>
+              <p class="h-m__text">Hi. This week we’re working on turning work in. Here’s one way to help at home.</p>
+              <span class="h-m__foot">Draft · you send it</span>
+            </div>
+            <div class="h-m h-m--badge" data-k="badge">
+              <span class="h-badge__tail h-badge__tail--l"></span><span class="h-badge__tail h-badge__tail--r"></span>
+              <span class="h-badge__disc"><span class="h-badge__star">★</span><span class="h-badge__t">Best question</span><span class="h-badge__s">of the week</span></span>
+            </div>
+            <div class="h-m h-m--cards" data-k="cards">
+              <span class="h-card h-card--3"></span><span class="h-card h-card--2"></span>
+              <span class="h-card h-card--1"><b>This week</b><i class="on"></i><i class="on"></i><i></i><em></em></span>
+            </div>
+            <div class="h-m h-m--event mca-paper" data-k="event">
+              <span class="h-ev__date">Fri</span>
+              <span class="h-ev__body"><b>Finish-line party</b><span class="h-ev__meta"><span class="h-nw">Celebration Friday</span><span class="h-nw">20 minutes</span></span><span class="h-m__foot">You run it</span></span>
+            </div>
+            <div class="h-m h-m--tool" data-k="tool">
+              <span class="h-tool__bar"><i></i><i></i><i></i><span>seating-chart.html</span></span>
+              <span class="h-tool__room"><span class="h-tool__desk"></span><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i class="on"></i></span>
+              <span class="h-tool__foot">Works offline</span>
+            </div>
+          </div>
+          <div class="mca-note h-n h-n2" style="--n:var(--note-sky)" aria-hidden="true">Attendance</div>
+          <div class="mca-note h-n h-n3" style="--n:var(--note-mint)" aria-hidden="true">Participation</div>
+          <div class="mca-note h-n h-n4" style="--n:var(--note-lilac)" aria-hidden="true">Students feeling heard</div>
+          <div class="mca-note h-n h-n5" style="--n:var(--note-coral)" aria-hidden="true">Grades</div>
+          <!-- the one orange marker on the desk -->
+          <svg class="h-pen" viewBox="0 0 232 44" aria-hidden="true">
+            <defs>
+              <linearGradient id="h-pen-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F6F2EA"/><stop offset="1" stop-color="#E4DDD0"/></linearGradient>
+              <linearGradient id="h-pen-cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF7A45"/><stop offset=".5" stop-color="#FF5A1F"/><stop offset="1" stop-color="#E24A12"/></linearGradient>
+            </defs>
+            <rect x="204" y="11" width="22" height="22" rx="6" fill="#14231F"/>
+            <rect x="58" y="7" width="152" height="30" rx="9" fill="url(#h-pen-barrel)"/>
+            <rect x="58.5" y="7.5" width="151" height="29" rx="8.5" fill="none" stroke="rgba(20,35,31,.14)"/>
+            <rect x="86" y="15" width="92" height="14" rx="3" fill="#14231F"/>
+            <text x="132" y="25.4" text-anchor="middle" font-family="Figtree, sans-serif" font-weight="800" font-size="8.6" letter-spacing="2.2" fill="#F6F2E8">MARKER</text>
+            <path d="M66 12h136" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
+            <path d="M10 10c0-3 2-5 5-5h48v34H15c-3 0-5-2-5-5z" fill="url(#h-pen-cap)"/>
+            <rect x="20" y="1.5" width="38" height="7" rx="3.5" fill="#D9460F"/>
+            <path d="M16 11h42" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+            <path d="M58 7v30" stroke="rgba(20,35,31,.18)" stroke-width="1.5"/>
+          </svg>
+          <div class="mca-note h-n h-n1" style="--n:var(--note-sun)" aria-hidden="true"><span class="h-n1__txt">Missing work<svg class="mca-stroke h-n1__ul" viewBox="0 0 100 10" preserveAspectRatio="none"><path pathLength="1" d="M2 6.5C26 3.5 62 3 98 5"/></svg></span><span class="h-n1__trend"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path pathLength="1" d="M2 6L12 5L22 9L32 8L42 13L52 12L62 17L72 19L82 22L98 25"/></svg><b>sample class</b></span><i class="h-check"></i></div>
+        </div>
+      </div>
+
+      <div class="mca-container h-year">
+        <p class="mca-sr">A school year from September to June. The challenge stays the same all year, and a sample line of missing work falls as the year goes. Along the way the assistant tries new strategies and makes a slide, a note home, a badge, cards, an event and a new tool.</p>
+        <div class="h-yearbox" aria-hidden="true">
+          <div class="mca-ruler h-ruler">
+            <div class="mca-ruler__pips"><span class="mca-ruler__line"></span><span class="h-tip"></span></div>
+            <div class="mca-ruler__months"><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+          </div>
+          <p class="mca-hand h-week"><svg class="mca-stroke" viewBox="0 0 40 34"><path d="M6 30C4 20 8 10 20 5"/><path d="M6 30l-3.6-7.2M6 30l6.4-5"/></svg>this week</p>
+          <p class="h-hint">See what it does <span aria-hidden="true">↓</span></p>
+          <p class="mca-hand h-allyear"><span class="h-allyear__txt">all year<svg class="mca-stroke h-allyear__ul" viewBox="0 0 100 12" preserveAspectRatio="none"><path pathLength="1" d="M3 7C30 3 64 3 97 6"/></svg></span><svg class="mca-stroke h-allyear__arrow" viewBox="0 0 44 30"><path d="M3 9C14 4 28 6 38 18"/><path d="M38 18l-8.2-1.6M38 18l-.4-8.4"/></svg></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ================= hero: pick one goal, watch it ride the year and fill the desk ================= */
+#hero{ --stage:clamp(700px, 100svh, 940px); position:relative; }
+#hero .h-pin{ position:relative; height:calc(var(--stage) + 120vh); }
+#hero .h-stage{ position:sticky; top:0; height:var(--stage); overflow:hidden; display:flex; flex-direction:column; padding-top:84px; }
+
+/* the desk: graph paper, fading from the right-centre, with a faint paper grain */
+#hero .h-desk{ position:absolute; inset:0; pointer-events:none;
+  background-image:linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:32px 32px; background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(80% 90% at 70% 55%, #000 30%, transparent 85%); mask-image:radial-gradient(80% 90% at 70% 55%, #000 30%, transparent 85%); }
+#hero .h-desk::after{ content:""; position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .14 0 0 0 0 .12 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* ---------- copy column ---------- */
+#hero .h-main{ position:relative; z-index:4; flex:1; display:grid; grid-template-columns:minmax(0,1fr); align-content:center; padding-bottom:168px; }
+#hero .h-copy{ display:grid; justify-items:start; position:relative; z-index:2; }
+#hero .h-h1{ margin-top:0; max-width:13.5em; font-size:clamp(2.5rem, 1.2rem + 3.1vw, 3.875rem); }
+#hero .h-br{ display:none; }
+@media (min-width: 641px){ #hero .h-h1 [data-mca-ring]{ margin-left:.2em; } }
+#hero .h-lead{ margin-top:26px; max-width:24em; }
+#hero .h-cta{ margin-top:34px; gap:16px; }
+#hero .h-cta__row{ display:flex; align-items:center; gap:14px 28px; flex-wrap:wrap; }
+#hero .mca-copy__btn{ transition:transform var(--d-2) var(--ease-out), box-shadow var(--d-2) var(--ease-out), background-color var(--d-2) var(--ease-out), color var(--d-2); }
+#hero .mca-copy__labels{ transition:width var(--d-3) var(--ease-out); }
+#hero .mca-copy__labels > span{ justify-self:start; white-space:nowrap; }
+#hero .h-demo{ display:inline-flex; gap:.35em; align-items:baseline; font:600 var(--t-small)/1.3 var(--f-body); color:var(--ink-3); }
+#hero .h-demo .mca-link{ color:var(--ink); font-weight:700; }
+#hero .h-demo .mca-link:focus-visible, #hero .h-toggle:focus-visible{ outline:3px solid var(--ink); outline-offset:2px; box-shadow:0 0 0 2px var(--paper); border-radius:4px; }
+#hero .h-cap{ max-width:36em; display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px; font:500 .875rem/1.4 var(--f-body); color:var(--ink-3); }
+#hero .h-toggle{ font-size:.875rem; }
+#hero .h-panel{ max-width:34em; }
+
+/* ---------- goals: five sticky notes, 3 + 2 ---------- */
+#hero .h-goals{ position:absolute; right:calc(var(--gutter) + 10px); bottom:168px; width:470px; height:300px; }
+#hero .h-n{ position:absolute; will-change:transform; transform:rotate(var(--r)); }
+#hero .h-n1{ left:0;     top:52px;  --r:-5deg; z-index:8; }
+#hero .h-n2{ left:150px; top:0;     --r:3.5deg; z-index:5; }
+#hero .h-n3{ left:304px; top:40px;  --r:-2deg; z-index:4; }
+#hero .h-n4{ left:92px;  top:168px; --r:2.5deg; z-index:3; }
+#hero .h-n5{ left:250px; top:176px; --r:-4deg; z-index:2; }
+#hero .h-n1__txt{ position:relative; display:block; }
+#hero .h-n1__ul{ position:absolute; left:-3px; bottom:-9px; width:84px; height:10px; }
+#hero .h-n1__ul path{ stroke-width:3px; stroke-dasharray:1 1.02; stroke-dashoffset:1; }
+#hero .h-n1{ flex-direction:column; align-items:stretch; justify-content:flex-end; }
+#hero .h-n1__trend{ display:grid; gap:3px; margin-top:10px; }
+#hero .h-n1__trend svg{ width:100%; height:22px; overflow:visible; }
+#hero .h-n1__trend path{ fill:none; stroke:var(--mint-ink); stroke-width:2.5px; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; stroke-dasharray:1 1.02; stroke-dashoffset:1; }
+#hero .h-n1__trend b{ font:600 .6875rem/1 var(--f-body); letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3); }
+#hero .h-pick{ position:absolute; left:-96px; top:136px; display:flex; flex-direction:column; align-items:flex-end; transform:rotate(-6deg); }
+#hero .h-pick svg{ width:54px; height:36px; margin:2px -30px 0 0; transform:scaleY(-1) rotate(-30deg); }
+#hero .h-pick path{ stroke-width:3px; }
+#hero .h-pick .h-pick__down{ display:none; }
+#hero .h-madeby{ position:absolute; left:-178px; top:112px; display:flex; align-items:flex-start; gap:4px; opacity:0; font-size:1.5rem; transform:rotate(-5deg); white-space:nowrap; }
+#hero .h-madeby svg{ width:46px; height:27px; margin-top:-8px; transform:scaleY(-1); }
+#hero .h-madeby path{ stroke-width:2.8px; }
+/* the mint check that lands when the year is done */
+#hero .h-check{ position:absolute; right:-13px; top:-13px; width:36px; height:36px; border-radius:50%; opacity:0; transform:scale(.4);
+  background:var(--mint-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;
+  box-shadow:0 0 0 3px var(--paper), 0 6px 12px -4px rgba(20,35,31,.35); }
+#hero .h-pen{ position:absolute; z-index:9; width:170px; height:auto; left:440px; top:212px; transform:rotate(-66deg); filter:drop-shadow(0 2px 1.5px rgba(20,35,31,.18)) drop-shadow(0 12px 12px rgba(20,35,31,.14)); will-change:transform; }
+
+/* ---------- what it made: real little objects that land where the other goals were ---------- */
+#hero .h-made{ position:absolute; inset:0; z-index:6; pointer-events:none; }
+#hero .h-m{ position:absolute; opacity:0; transform:rotate(var(--r)); will-change:transform, opacity; }
+#hero .h-m__label{ display:block; font:750 .6875rem/1 var(--f-body); letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
+#hero .h-m__foot{ display:block; margin-top:10px; padding-top:8px; border-top:1px dashed var(--line-2); font:700 .75rem/1 var(--f-body); color:var(--ink-3); }
+/* note home: ruled paper, sky rules, a real sentence on it */
+#hero .h-m--note{ left:0; top:30px; width:196px; padding:14px 16px 12px; --r:-3deg; }
+#hero .h-m--note .h-m__text{ margin-top:8px; font:600 .9375rem/22px var(--f-body); color:var(--ink); text-wrap:pretty;
+  background:repeating-linear-gradient(to bottom, transparent 0 21px, rgba(45,102,219,.16) 21px 22px); }
+/* badge: a sun rosette with two ribbon tails */
+#hero .h-m--badge{ left:238px; top:30px; width:112px; height:132px; --r:9deg; filter:drop-shadow(0 2px 2px rgba(20,35,31,.12)) drop-shadow(0 12px 14px rgba(20,35,31,.16)); }
+#hero .h-badge__disc{ position:absolute; left:0; top:0; width:112px; height:112px; border-radius:50%; display:grid; place-content:center; justify-items:center; text-align:center;
+  background:radial-gradient(circle, var(--note-sun) 0 60%, #fff 60% 64%, var(--note-sun) 64%);
+  -webkit-mask:radial-gradient(circle at 50% 50%, #000 52px, transparent 53px), repeating-conic-gradient(#000 0 7.5deg, transparent 7.5deg 15deg); -webkit-mask-composite:source-over;
+  mask:radial-gradient(circle at 50% 50%, #000 52px, transparent 53px), repeating-conic-gradient(from 0deg, #000 0 7.5deg, transparent 7.5deg 15deg) center/100% 100%; }
+#hero .h-badge__disc::before{ content:""; position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle, transparent 0 55px, var(--note-sun) 55px); }
+#hero .h-badge__star{ font-size:1rem; line-height:1; color:var(--sun-ink); }
+#hero .h-badge__t{ margin-top:3px; max-width:76px; font:800 .875rem/1.02 var(--f-display); letter-spacing:-.01em; color:var(--ink); text-wrap:balance; }
+#hero .h-badge__s{ margin-top:4px; font:700 .6875rem/1 var(--f-body); color:var(--ink-3); }
+#hero .h-badge__tail{ position:absolute; top:88px; width:26px; height:44px; background:var(--sky-ink); clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%); }
+#hero .h-badge__tail--l{ left:30px; transform:rotate(14deg); }
+#hero .h-badge__tail--r{ right:30px; transform:rotate(-14deg); background:#4A7FE6; }
+/* cards to hand out: a little printed stack */
+#hero .h-m--cards{ left:-4px; top:220px; width:104px; height:132px; --r:-5deg; }
+#hero .h-card{ position:absolute; inset:0; border-radius:6px; background:#fff; box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); }
+#hero .h-card--3{ transform:rotate(-7deg) translate(-6px,4px); }
+#hero .h-card--2{ transform:rotate(5deg) translate(5px,2px); }
+#hero .h-card--1{ display:grid; align-content:start; gap:8px; padding:30px 12px 12px; background:linear-gradient(var(--mint) 0 20px, #fff 20px); }
+#hero .h-card--1 b{ font:750 .75rem/1 var(--f-display); color:var(--ink); }
+#hero .h-card--1 i{ position:relative; height:9px; padding-left:18px; }
+#hero .h-card--1 i::before{ content:""; position:absolute; left:0; top:-2px; width:12px; height:12px; border-radius:50%; box-shadow:inset 0 0 0 1.5px var(--ink-4); }
+#hero .h-card--1 i.on::before{ background:var(--mint-ink); box-shadow:none; }
+#hero .h-card--1 i::after{ content:""; position:absolute; left:18px; right:0; top:2px; height:4px; border-radius:2px; background:rgba(20,35,31,.1); }
+#hero .h-card--1 em{ height:4px; width:60%; border-radius:2px; background:rgba(20,35,31,.07); }
+/* the class event: coral date block, the one allowed exclamation */
+#hero .h-m--event{ left:116px; top:216px; width:222px; padding:12px 14px 12px 12px; display:flex; gap:12px; align-items:flex-start; --r:-2deg; }
+#hero .h-ev__date{ flex:none; width:46px; height:50px; border-radius:8px; display:grid; place-content:center; background:var(--note-coral); color:var(--ink); font:800 .9375rem/1 var(--f-display); letter-spacing:.02em; text-transform:uppercase; box-shadow:inset 0 4px 0 color-mix(in srgb, var(--coral-ink) 30%, transparent); }
+#hero .h-nw{ white-space:nowrap; }
+#hero .h-ev__body{ display:grid; gap:3px; min-width:0; }
+#hero .h-ev__body b{ font:800 1.125rem/1.05 var(--f-display); letter-spacing:-.015em; color:var(--ink); }
+#hero .h-ev__body > span:not(.h-m__foot){ font:600 .8125rem/1.3 var(--f-body); color:var(--ink-2); }
+#hero .h-ev__meta{ display:grid; }
+#hero .h-ev__body .h-m__foot{ margin-top:6px; padding-top:6px; }
+/* a tool it wrote: a tiny window with a seating chart in it */
+#hero .h-m--tool{ left:362px; top:124px; width:160px; border-radius:12px; background:var(--card); box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); overflow:hidden; --r:3deg; }
+#hero .h-tool__bar{ display:flex; align-items:center; gap:4px; height:26px; padding:0 9px; background:#FCFBF8; border-bottom:1px solid var(--line); }
+#hero .h-tool__bar i{ width:6px; height:6px; border-radius:50%; background:#E4DFD4; }
+#hero .h-tool__bar span{ margin-left:6px; font:500 .6875rem/1 var(--f-mono); color:var(--ink-2); letter-spacing:-.01em; white-space:nowrap; }
+#hero .h-tool__room{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:12px 12px 8px; }
+#hero .h-tool__desk{ grid-column:1 / -1; height:8px; margin:0 26px 4px; border-radius:3px; background:var(--ink); opacity:.85; }
+#hero .h-tool__room i{ height:14px; border-radius:3px; background:var(--paper-2); box-shadow:inset 0 0 0 1px var(--line); }
+#hero .h-tool__room i.on{ background:var(--note-mint); box-shadow:inset 0 0 0 1.5px var(--mint-ink); }
+#hero .h-tool__foot{ display:flex; align-items:center; gap:6px; margin:0 12px 10px; padding-top:7px; border-top:1px dashed var(--line-2); font:700 .6875rem/1 var(--f-body); color:var(--ink-3); }
+#hero .h-tool__foot::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--mint-ink); }
+
+/* ---------- the slide print (HTML, crisp at any density) ---------- */
+#hero .h-slide{ position:absolute; z-index:1; top:96px; right:-64px; width:392px; margin:0; padding:6px; transform:rotate(5deg); will-change:transform; }
+#hero .h-slide__tape{ left:44%; top:-11px; transform:rotate(-4deg); z-index:2; }
+#hero .h-slide__screen{ aspect-ratio:16/9; border-radius:4px; overflow:hidden; display:grid; grid-template-rows:auto 1fr; background:var(--mint); }
+#hero .h-slide__top{ background:var(--ink); padding:16px 22px 14px; display:grid; gap:7px; }
+#hero .h-slide__kicker{ font:750 .6875rem/1 var(--f-body); letter-spacing:.14em; text-transform:uppercase; color:var(--note-sun); }
+#hero .h-slide__kicker b{ font-weight:750; font-variant-numeric:tabular-nums; }
+#hero .h-slide__title{ font:800 1.5rem/1 var(--f-display); letter-spacing:-.02em; font-variation-settings:"opsz" 48; color:#F6F2E8; }
+#hero .h-slide__body{ padding:16px 22px 12px; display:flex; flex-direction:column; justify-content:space-between; }
+#hero .h-slide__moves{ display:grid; }
+#hero .h-slide__move{ grid-area:1 / 1; opacity:0; transition:opacity 180ms var(--ease-out); position:relative; padding-left:14px; font:650 1.125rem/1.25 var(--f-display); letter-spacing:-.012em; font-variation-settings:"opsz" 24; color:var(--ink); text-wrap:balance; }
+#hero .h-slide__move.is-on{ opacity:1; }
+#hero .h-slide__move::before{ content:""; position:absolute; left:0; top:3px; bottom:3px; width:4px; border-radius:2px; background:var(--mint-ink); }
+#hero .h-slide__why{ display:grid; margin-top:6px; font:700 .75rem/1.2 var(--f-body); color:var(--mint-ink); }
+#hero .h-slide__why span{ grid-area:1 / 1; opacity:0; transition:opacity 180ms var(--ease-out); }
+#hero .h-slide__why span.is-on{ opacity:1; }
+#hero .h-slide__foot{ display:flex; justify-content:space-between; align-items:center; padding-right:40px; font:700 .75rem/1 var(--f-body); letter-spacing:.03em; color:var(--ink-2); }
+#hero .h-slide__dots{ display:flex; gap:4px; }
+#hero .h-slide__dots i{ width:6px; height:6px; border-radius:50%; background:var(--ink-4); }
+#hero .h-slide__dots i:first-child{ background:var(--ink-2); }
+
+/* ---------- the year ---------- */
+#hero .h-year{ position:relative; z-index:5; padding-bottom:72px; }
+#hero .h-yearbox{ position:relative; }
+/* the marker line runs UNDER the pips (a done week is filled, never struck through) */
+#hero .mca-ruler__line{ top:auto; bottom:-5px; height:3px; margin-top:0; border-radius:2px; }
+#hero .mca-ruler__pips i{ transform-origin:50% 50%; }
+#hero .mca-ruler__pips i.on{ background:var(--orange-tint); box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--orange) 70%, transparent); }
+#hero .h-tip{ position:absolute; bottom:-8.5px; left:0; width:10px; height:10px; margin-left:-5px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 2.5px var(--paper); opacity:0; }
+#hero .mca-ruler__months{ margin-top:14px; }
+/* the week's label for each thing it made, on a hairline stem down to its pip */
+#hero .h-tok{ position:absolute; left:0; bottom:calc(100% + 12px); opacity:0; display:inline-flex; align-items:center; gap:7px; padding:7px 11px 7px 8px; border-radius:10px; background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); font:650 .875rem/1 var(--f-body); color:var(--ink); white-space:nowrap; will-change:transform; }
+#hero .h-tok.is-hi{ bottom:calc(100% + 44px); }
+#hero .h-tok::before{ content:""; width:18px; height:13px; border-radius:2px; flex:none; }
+#hero .h-tok--slide::before{ background:linear-gradient(var(--ink) 0 45%, var(--mint) 45%); box-shadow:inset 0 0 0 1px var(--line); }
+#hero .h-tok--note::before{ width:13px; height:16px; background:repeating-linear-gradient(#fff 0 3px, var(--note-sky) 3px 4px); box-shadow:inset 0 0 0 1px var(--line-2); }
+#hero .h-tok--badge::before{ width:15px; height:15px; border-radius:50%; background:var(--note-sun); box-shadow:inset 0 0 0 3px var(--sun-ink); }
+#hero .h-tok--cards::before{ width:12px; height:15px; background:#fff; box-shadow:inset 0 0 0 1.5px var(--ink-4), 3px -2px 0 -1px #fff, 3px -2px 0 .5px var(--ink-4); }
+#hero .h-tok--event::before{ width:15px; height:15px; border-radius:4px; background:var(--note-coral); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 35%, transparent); }
+#hero .h-tok--tool::before{ width:12px; height:15px; background:linear-gradient(225deg, transparent 4px, var(--mint-ink) 4px); }
+#hero .h-stem{ position:absolute; left:50%; top:100%; width:1.5px; height:12px; margin-left:-.75px; background:var(--ink-4); }
+#hero .h-week{ position:absolute; left:2px; top:-54px; display:flex; align-items:flex-end; gap:4px; font-size:1.5rem; transform:rotate(-3deg); transform-origin:0 100%; }
+#hero .h-week svg{ width:30px; height:26px; }
+#hero .h-week path{ stroke-width:2.6px; }
+#hero .h-hint{ position:absolute; right:0; top:calc(100% + 10px); opacity:0; font:700 .8125rem/1 var(--f-body); letter-spacing:.02em; color:var(--ink-3); white-space:nowrap; }
+#hero .h-allyear{ position:absolute; right:0; top:-62px; display:flex; align-items:flex-start; gap:2px; font-size:1.625rem; will-change:transform; }
+#hero .h-allyear__txt{ position:relative; transform:rotate(-3deg); }
+#hero .h-allyear__ul{ position:absolute; left:-4px; bottom:-7px; width:calc(100% + 10px); height:10px; }
+#hero .h-allyear__ul path{ stroke-width:3px; stroke-dasharray:1 1.02; stroke-dashoffset:1; }
+#hero .h-allyear__arrow{ width:38px; height:26px; margin-top:10px; transform-origin:0 0; }
+#hero .h-allyear__arrow path{ stroke-width:2.6px; }
+
+/* ---------- short laptops: 1280×720, 1366×768 ---------- */
+@media (min-width: 861px) and (max-height: 820px){
+  #hero .h-stage{ padding-top:74px; }
+  #hero .h-h1{ margin-top:0; font-size:clamp(2.5rem, 1.2rem + 2.5vw, 3.25rem); }
+  #hero .h-lead{ margin-top:16px; max-width:28em; font-size:1.125rem; }
+  #hero .h-cta{ margin-top:22px; gap:10px; }
+  #hero .h-main{ padding-bottom:156px; }
+  #hero .h-goals{ transform:scale(.78); transform-origin:100% 100%; bottom:156px; }
+  #hero .h-slide{ top:58px; width:320px; right:-30px; }
+  #hero .h-year{ padding-bottom:56px; }
+}
+@media (max-width: 1180px){
+  #hero .h-goals{ transform:scale(.84); transform-origin:100% 100%; }
+  #hero .h-slide{ width:330px; right:-60px; }
+}
+
+
+/* ---------- tablet & phone: not pinned; the ride plays as you pass the ruler ---------- */
+@media (max-width: 860px){
+  #hero .h-pin{ height:auto; }
+  #hero .h-stage{ position:relative; height:auto; overflow:hidden; padding-top:96px; }
+  #hero .h-main{ padding-bottom:0; }
+  #hero .h-slide, #hero .h-pen{ display:none; }
+  #hero .h-lead{ max-width:26em; }
+  #hero .h-goals{ position:relative; right:auto; bottom:auto; transform:none; width:100%; max-width:440px; height:150px; margin:62px 0 0 auto; }
+  #hero .h-n{ width:calc((100% - 24px) / 3); min-height:112px; font-size:1.0625rem; padding:16px 12px 12px; }
+  #hero .h-n1{ left:0; top:20px; }
+  #hero .h-n2{ left:calc((100% - 24px) / 3 + 12px); top:6px; }
+  #hero .h-n3{ left:auto; right:0; top:22px; }
+  #hero .h-n4, #hero .h-n5{ display:none; }
+  #hero .h-n1__ul{ width:74px; }
+  /* "pick one" sits over the note that gets picked, with a short arrow down to it */
+  #hero .h-pick{ left:4px; right:auto; top:-50px; flex-direction:row; align-items:flex-end; gap:0; font-size:1.625rem; transform:rotate(-4deg); }
+  #hero .h-pick svg{ display:none; }
+  #hero .h-pick .h-pick__down{ display:block; width:28px; height:32px; margin:0 0 -22px 2px; transform:none; }
+  #hero .h-pick .h-pick__down path{ stroke-width:2.6px; }
+  #hero .h-madeby{ left:4px; top:-42px; font-size:1.625rem; transform:rotate(-4deg); }
+  #hero .h-madeby svg{ display:none; }
+  /* on small screens the note home takes the two right slots and the cards take the picked note's slot */
+  #hero .h-m--badge, #hero .h-m--event, #hero .h-m--tool{ display:none; }
+  #hero .h-m--note{ left:calc((100% - 24px) / 3 + 16px); right:22px; width:auto; top:10px; --r:-1.5deg; }
+  #hero .h-m--cards{ left:10px; top:8px; }
+  /* the year: months on top, pips, and what it made hangs underneath on stems in three lanes */
+  #hero .h-year{ padding-top:136px; padding-bottom:40px; }
+  #hero .h-yearbox{ padding-bottom:118px; }
+  #hero .h-ruler{ display:flex; flex-direction:column-reverse; }
+  #hero .mca-ruler__months{ margin:0 0 8px; }
+  #hero .mca-ruler__months span{ padding:0 0 6px 3px; margin:0 0 -6px; }
+  #hero .h-tok, #hero .h-tok.is-hi{ bottom:auto; top:calc(100% + 16px); }
+  #hero .h-tok.is-t1{ top:calc(100% + 48px); }
+  #hero .h-tok.is-t2{ top:calc(100% + 80px); }
+  #hero .h-stem{ top:auto; bottom:100%; }
+  #hero .h-week{ top:auto; bottom:62px; left:-2px; flex-direction:row; align-items:flex-start; transform:rotate(-3deg); transform-origin:0 0; }
+  #hero .h-week svg{ transform:scaleY(-1); margin-top:-18px; }
+  #hero .h-allyear{ top:-50px; }
+  #hero .h-allyear__arrow{ opacity:0; }
+  #hero .h-hint{ top:auto; bottom:4px; }
+}
+@media (max-width: 640px){
+  #hero .h-stage{ padding-top:84px; }
+  #hero .h-h1{ margin-top:6px; font-size:2.375rem; }
+  #hero .h-br{ display:inline; }
+  #hero .h-lead{ margin-top:18px; font-size:1.1875rem; }
+  #hero .h-cta{ margin-top:26px; }
+  #hero .h-cta__row{ width:100%; flex-direction:column; align-items:stretch; }
+  #hero .mca-copy__btn{ width:100%; justify-content:center; }
+  #hero .h-demo{ order:3; }
+  #hero .h-cap{ font-size:.875rem; }
+  #hero .h-goals{ height:146px; margin-top:76px; }
+  #hero .h-n{ width:calc((100% - 20px) / 3); min-height:106px; font-size:1rem; padding:15px 10px 11px; }
+  #hero .h-n2{ left:calc((100% - 20px) / 3 + 10px); }
+  #hero .h-m--note{ left:calc((100% - 20px) / 3 + 14px); right:12px; padding:12px 13px 10px; }
+  #hero .h-m--note .h-m__text{ font-size:.875rem; line-height:20px; background-size:100% 20px; background-image:repeating-linear-gradient(to bottom, transparent 0 19px, rgba(45,102,219,.16) 19px 20px); }
+  #hero .h-m--cards{ left:6px; top:6px; width:96px; height:120px; }
+  #hero .h-n1__ul{ width:68px; }
+  #hero .h-check{ width:30px; height:30px; right:-10px; top:-10px; }
+  #hero .mca-ring path{ stroke-width:4px; }
+  #hero .h-h1 [data-mca-ring]{ margin-left:.18em; }
+  #hero .h-year{ padding-top:128px; }
+  #hero .mca-ruler__months{ font-size:.6875rem; letter-spacing:.02em; }
+  #hero .mca-ruler__pips{ gap:2px; height:14px; }
+  #hero .mca-ruler__pips i{ height:10px; border-radius:2px; }
+  #hero .h-yearbox{ padding-bottom:134px; }
+  #hero .h-tok{ padding:5px 8px 5px 6px; font-size:.75rem; gap:5px; border-radius:8px; }
+  #hero .h-tok, #hero .h-tok.is-hi{ top:calc(100% + 14px); }
+  #hero .h-tok.is-t1{ top:calc(100% + 44px); }
+  #hero .h-tok.is-t2{ top:calc(100% + 74px); }
+  #hero .h-tok::before{ transform:scale(.85); }
+  #hero .h-tok{ z-index:2; }
+  #hero .h-tok.is-t1{ top:calc(100% + 48px); z-index:1; }
+  #hero .h-tok.is-off{ display:none; }
+  #hero .h-yearbox{ padding-bottom:104px; }
+  #hero .h-allyear, #hero .h-week{ font-size:1.5rem; }
+}
+/* the footer's back-to-top moves focus here; programmatic focus needs no ring */
+#hero h1[tabindex="-1"]:focus{ outline:none; }
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.getElementById("hero"); if (!root || !window.MCA) return;
+  var stage = root.querySelector(".h-stage");
+  var pin = root.querySelector(".h-pin");
+  var yearBlock = root.querySelector(".h-year");
+  var pipsEl = root.querySelector(".mca-ruler__pips");
+  var monthsEl = root.querySelector(".mca-ruler__months");
+  var line = root.querySelector(".mca-ruler__line");
+  var tip = root.querySelector(".h-tip");
+  var hero = root.querySelector(".h-n1");
+  var others = [root.querySelector(".h-n2"), root.querySelector(".h-n3"), root.querySelector(".h-n4"), root.querySelector(".h-n5")];
+  // each other goal leaves the desk as the thing it makes lands on its spot
+  var fadeBy = ["note", "badge", "cards", "cards"];
+  var noteUl = root.querySelector(".h-n1__ul path");
+  var check = root.querySelector(".h-check");
+  var pick = root.querySelector(".h-pick");
+  var madeBy = root.querySelector(".h-madeby");
+  var pen = root.querySelector(".h-pen");
+  var week = root.querySelector(".h-week");
+  var allyear = root.querySelector(".h-allyear");
+  var allUl = root.querySelector(".h-allyear__ul path");
+  var allArrow = root.querySelector(".h-allyear__arrow");
+  var hint = root.querySelector(".h-hint");
+  var slide = root.querySelector(".h-slide");
+  var wkNum = root.querySelector(".h-wk");
+  var moves = root.querySelectorAll(".h-slide__move");
+  var whys = root.querySelectorAll(".h-slide__why span");
+  var trend = root.querySelector(".h-n1__trend path");
+  var ringEl = root.querySelector("[data-mca-ring]");
+  var btn = root.querySelector(".mca-copy__btn");
+  var labels = root.querySelector(".mca-copy__labels");
+  var small = matchMedia("(max-width: 860px)");
+  var phone = matchMedia("(max-width: 640px)");
+  var pips = [];
+  var made = {};
+  Array.prototype.forEach.call(root.querySelectorAll(".h-m"), function (m) { made[m.dataset.k] = m; });
+
+  // the ring needs a looser loop at phone size so the marker never grazes "l."
+  function ringPad() { ringEl.setAttribute("data-ring-px", phone.matches ? ".28" : ".3"); ringEl.setAttribute("data-ring-py", phone.matches ? ".16" : ".13"); }
+  ringPad();
+  if (phone.addEventListener) phone.addEventListener("change", function () { ringPad(); if (window.MCA_RING) MCA_RING.refresh(); });
+
+  // the copy button hugs its label, and grows to fit "Copied. Paste it into Cowork."
+  var idle = labels.querySelector(".mca-copy__idle"), done = labels.querySelector(".mca-copy__done");
+  function fitButton() {
+    if (phone.matches) { labels.style.width = ""; return; }
+    labels.style.width = (btn.classList.contains("is-copied") ? done : idle).offsetWidth + "px";
+  }
+  if (window.MutationObserver) new MutationObserver(fitButton).observe(btn, { attributes: true, attributeFilter: ["class"] });
+
+  // what it makes along the way (0-based week of 40): one thing about every five or six weeks
+  var defs = [[2, "Slide", "slide"], [6, "Note home", "note"], [9, "Badge", "badge"], [12, "Progress cards", "cards"], [20, "Class event", "event"], [25, "Seating chart", "tool"]];
+  var toks = [];
+  defs.forEach(function (d) {
+    var t = document.createElement("span");
+    t.className = "h-tok h-tok--" + d[2]; t.textContent = d[1];
+    var s = document.createElement("span"); s.className = "h-stem"; t.appendChild(s);
+    t.dataset.w = d[0]; t.dataset.k = d[2];
+    pipsEl.appendChild(t); toks.push(t);
+  });
+  for (var j0 = 0; j0 < 40; j0++) { var pe = document.createElement("i"); pipsEl.insertBefore(pe, line); pips.push(pe); }
+
+  var geo = null;
+  function measure() {
+    var isSmall = small.matches;
+    fitButton();
+    var isPhone = phone.matches, vis = 0;
+    toks.forEach(function (t, k) {
+      // phones: four chips in two lanes (badge + progress cards stay on the desk only)
+      var off = isPhone && (t.dataset.k === "badge" || t.dataset.k === "cards");
+      t.classList.toggle("is-off", off);
+      var lane = off ? 0 : (vis++);
+      t.classList.toggle("is-hi", !isSmall && k % 2 === 1);
+      t.classList.toggle("is-t1", isSmall && (isPhone ? lane % 2 === 1 : k % 3 === 1));
+      t.classList.toggle("is-t2", isSmall && !isPhone && k % 3 === 2);
+      t.style.transform = "translate(-50%,0)";
+    });
+    var saved = hero.style.transform, savedA = allyear.style.transform, ev = made.event, savedE = ev.style.transform;
+    // kill transitions while measuring: under reduced motion (1ms transitions) a read taken
+    // straight after the override would return the old, already-moved rect
+    var tH = hero.style.transition, tA = allyear.style.transition, tE = ev.style.transition;
+    hero.style.transition = allyear.style.transition = ev.style.transition = "none";
+    hero.style.transform = "rotate(var(--r))"; allyear.style.transform = "none"; ev.style.transform = "rotate(var(--r))";
+    var h = hero.getBoundingClientRect(), pr = pipsEl.getBoundingClientRect(), st = stage.getBoundingClientRect();
+    var p0 = pips[0].getBoundingClientRect(), ar = allyear.getBoundingClientRect(), mr = monthsEl.getBoundingClientRect();
+    var hw = hero.offsetWidth, hh = hero.offsetHeight, er = ev.getBoundingClientRect(), txtW = allyear.firstElementChild.getBoundingClientRect().width;
+    hero.style.transform = saved; allyear.style.transform = savedA; ev.style.transform = savedE;
+    void hero.offsetWidth;
+    hero.style.transition = tH; allyear.style.transition = tA; ev.style.transition = tE;
+    var goalsEl = hero.parentNode, gk = goalsEl.getBoundingClientRect().width / (goalsEl.offsetWidth || 1) || 1;
+    var sc = isSmall ? (phone.matches ? 0.9 : 0.86) : 0.88;
+    var centres = pips.map(function (el) { var r = el.getBoundingClientRect(); return r.left + r.width / 2 - pr.left; });
+    toks.forEach(function (t) {
+      var x = centres[+t.dataset.w], half = t.offsetWidth / 2;
+      var clamped = Math.max(half, Math.min(pr.width - half, x));
+      t.style.left = clamped + "px";
+      var stem = t.querySelector(".h-stem");
+      stem.style.left = "calc(50% + " + (x - clamped).toFixed(1) + "px)";
+      var cr = t.getBoundingClientRect();
+      // the stem runs exactly from the chip's edge to its pip
+      if (isSmall) { stem.style.top = "auto"; stem.style.bottom = "100%"; stem.style.height = Math.max(0, cr.top - p0.bottom) + "px"; }
+      else { stem.style.bottom = "auto"; stem.style.top = "100%"; stem.style.height = Math.max(0, p0.top - cr.bottom) + "px"; }
+      t.dataset.cx = x; t.dataset.hw = half;
+    });
+    var noteW = hw * sc, noteH = hh * sc;
+    var laneTop = isSmall ? mr.top : p0.top;
+    var gap = isSmall ? 14 : 10;
+    geo = { hx: h.left + h.width / 2 - st.left, hy: h.top + h.height / 2 - st.top, hw: hw, hh: hh, k: gk, s: sc,
+            px: pr.left - st.left, pw: pr.width, laneTop: laneTop - st.top, gap: gap, small: isSmall };
+    var parkTop = laneTop - gap - noteH, noteL = pr.right - noteW;
+    // "all year" ends just left of the parked note, arrow pointing into it (every width)
+    geo.ayDx = (noteL - (isSmall ? 6 : 12)) - ar.right;
+    geo.ayDy = (parkTop + noteH * 0.46) - (ar.top + ar.height / 2);
+  }
+  function invalidate() { geo = null; MCA.refresh(); }
+  addEventListener("resize", invalidate);
+  addEventListener("load", invalidate);
+  if (document.fonts) {
+    if (document.fonts.ready) document.fonts.ready.then(function () { if (window.MCA_RING) MCA_RING.refresh(); invalidate(); });
+    if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", function () { if (window.MCA_RING) MCA_RING.refresh(); invalidate(); });
+    if (document.fonts.load) document.fonts.load('800 94px "Bricolage Grotesque"', "one classroom problem").then(function () { if (window.MCA_RING) MCA_RING.refresh(); invalidate(); }, function () {});
+  }
+
+  var C = MCA.clamp01, E = MCA.ease;
+  function smooth(t) { t = C(t); return t * t * (3 - 2 * t); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function back(t) { t = C(t); var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); }
+  function f(n) { return n.toFixed(1); }
+
+  var moveAt = [0, 14, 30];
+  function paint(p) {
+    if (!geo) measure();
+    var g = geo, end = p >= 0.999;
+    var a1 = C(p / 0.10);                       // pick: it lifts, straightens, gets underlined
+    var m = C((p - 0.10) / 0.14);               // carry it down to this week, then hold
+    var b = C((p - 0.24) / 0.64);               // ride Sep -> Jun (about Jan at .5, Apr at .75)
+    var c = C((p - 0.88) / 0.10);               // parked: mint check, "all year" underlined
+
+    // the rider
+    var em = E(m), sAct = lerp(lerp(g.k, g.k * 1.05, E(a1)), g.s, em);
+    var w2 = g.hw * g.s / 2, h2 = g.hh * g.s / 2;
+    var cxR = w2 + b * (g.pw - 2 * w2);         // note centre, ruler-relative
+    var tgtX = g.px + cxR, tgtY = g.laneTop - g.gap - h2;
+    var dx = (tgtX - g.hx) * smooth(m), dy = (tgtY - g.hy) * E(C(m * 1.35)) - 10 * E(a1) * (1 - em);
+    var rot = lerp(-5, -1.5, E(a1)) * (1 - em) + em * (Math.sin(b * Math.PI * 5) * 1.2 * (1 - c) - 2 * c);
+    hero.style.transform = "translate(" + f(dx / g.k) + "px," + f(dy / g.k) + "px) rotate(" + rot.toFixed(2) + "deg) scale(" + (sAct / g.k).toFixed(3) + ")";
+    var draw = E(C((p - 0.035) / 0.065));
+    noteUl.style.strokeDashoffset = (1 - draw).toFixed(3);
+    // the marker: it goes to the note, draws the underline, and goes back to rest
+    if (!g.small) {
+      // once the underline is drawn the pen slides off the desk: it has done its one job
+      var go = smooth((p - 0.004) / 0.032), off = smooth((p - 0.11) / 0.09);
+      var px = lerp(-461, -377, draw) * go + 40 * off, py = (lerp(-106, -112, draw) - 10 * E(a1)) * go * (1 - off);
+      pen.style.transform = "translate(" + f(px) + "px," + f(py) + "px) rotate(" + lerp(-66, -40, go).toFixed(2) + "deg)";
+      pen.style.opacity = (1 - off).toFixed(3);
+      pen.style.visibility = off > 0.999 ? "hidden" : "";
+    }
+
+    // the strip fills behind the note; week 1 is already "this week"
+    var riding = m > 0.98, t = riding ? lerp(cxR, g.pw, c) / g.pw : 0;
+    if (end) t = 1;
+    for (var i = 0; i < pips.length; i++) pips[i].classList.toggle("on", i === 0 || ((riding || end) && (i + 0.5) / pips.length <= t + 1e-6));
+    line.style.setProperty("--t", t.toFixed(4));
+    tip.style.left = (t * 100).toFixed(3) + "%";
+    tip.style.opacity = (riding && b > 0.004) || end ? "1" : "0";
+    var wk = Math.max(1, Math.min(40, Math.round((riding || end) ? t * 40 : 1)));
+    wkNum.textContent = String(wk);
+    var cur = wk >= moveAt[2] ? 2 : wk >= moveAt[1] ? 1 : 0;
+    for (var mv = 0; mv < moves.length; mv++) { moves[mv].classList.toggle("is-on", mv === cur); if (whys[mv]) whys[mv].classList.toggle("is-on", mv === cur); }
+    // the sample line of missing work draws as the year goes, trending down
+    trend.style.strokeDashoffset = (1 - ((riding || end) ? t : 0)).toFixed(3);
+
+    // what it made: its chip drops onto its week as the note passes, and the thing itself lands on the desk
+    var vOf = {};
+    for (var j = 0; j < toks.length; j++) {
+      var tk = toks[j], w = +tk.dataset.w;
+      var v;
+      if (end) v = 1;
+      else if (!riding) v = 0;
+      else if (g.small) v = C((cxR - +tk.dataset.cx + 4) / (g.pw * 2.5 / 40));   // dropped from under the note's centre
+      else v = C((cxR - w2 - (+tk.dataset.cx + +tk.dataset.hw) + 10) / 40);    // left behind as the note passes
+      vOf[tk.dataset.k] = v;
+      var ev = E(v);
+      tk.style.opacity = C(v * 1.6).toFixed(3);
+      tk.style.transform = "translate(-50%," + f((1 - ev) * (g.small ? 10 : -14)) + "px)";
+      // the week it lands on pulses once
+      var pul = Math.sin(Math.PI * C(v / 0.4));
+      pips[w].style.transform = pul > 0.01 && v < 1 ? "scale(" + (1 + 0.35 * pul).toFixed(3) + ")" : "";
+      var obj = made[tk.dataset.k];
+      if (obj) {
+        var ov = C(v * 1.15), bo = back(ov);
+        obj.style.opacity = C(ov * 2.2).toFixed(3);
+        obj.style.transform = "translate(" + f((1 - E(ov)) * -26) + "px," + f((1 - bo) * 46) + "px) rotate(calc(var(--r) + " + ((1 - bo) * -9).toFixed(2) + "deg)) scale(" + (0.72 + 0.28 * bo).toFixed(3) + ")";
+      } else if (tk.dataset.k === "slide" && slide) {
+        var sl = Math.sin(Math.PI * C(v * 1.4 - 0.1)) * (v < 1 ? 1 : 0);
+        slide.style.transform = "translateY(" + f(-8 * sl) + "px) rotate(" + (5 - 1.5 * sl).toFixed(2) + "deg) scale(" + (1 + 0.02 * sl).toFixed(3) + ")";
+      }
+    }
+
+    // the goals it didn't pick step back, then leave the desk as what it made takes their place
+    // once the pick lands they are gone by p=.22, so what it makes lands on a clean desk
+    var dim = smooth((p - 0.02) / 0.12), gone = smooth((p - 0.12) / 0.10);
+    for (var k = 0; k < others.length; k++) {
+      var n = others[k], dk = Math.max(gone, smooth(C((vOf[fadeBy[k]] || 0) / 0.3)));
+      n.style.transform = "translateY(" + f(lerp(18, 28, gone) * E(dim)) + "px) rotate(var(--r))";
+      n.style.opacity = (lerp(1, 0.35, dim) * (1 - dk)).toFixed(3);
+      n.style.filter = dim > 0.001 ? "saturate(" + lerp(1, 0.4, dim).toFixed(3) + ")" : "";
+      n.style.visibility = dk > 0.999 ? "hidden" : "";
+    }
+    pick.style.opacity = (1 - smooth(p / 0.08)).toFixed(3);
+    var mb = end ? 1 : smooth(((vOf.note || 0) - 0.3) / 0.7);
+    madeBy.style.opacity = mb.toFixed(3);
+    week.style.opacity = (1 - smooth((p - 0.18) / 0.08)).toFixed(3);
+
+    check.style.opacity = c.toFixed(3);
+    check.style.transform = "scale(" + (0.4 + 0.6 * back(c)).toFixed(3) + ") rotate(" + (-20 * (1 - c)).toFixed(1) + "deg)";
+
+    // "all year" waits at Jun; it steps aside as the note comes, and returns once the note is parked,
+    // beside it (never crossing its path), pointing in, and gets underlined
+    var away = smooth((b - 0.5) / 0.14), back2 = end ? 1 : smooth(c / 0.6);
+    var parked = back2 > 0;
+    allyear.style.opacity = (parked ? back2 : 1 - away).toFixed(3);
+    allyear.style.transform = parked ? "translate(" + f(g.ayDx) + "px," + f(g.ayDy + (1 - E(back2)) * 8) + "px)" : "translateY(" + f(-8 * away) + "px)";
+    allArrow.style.opacity = parked ? "1" : (g.small ? "0" : "1");
+    allUl.style.strokeDashoffset = (1 - E(c)).toFixed(3);
+    hint.style.opacity = c.toFixed(3);
+    hint.style.transform = "translateY(" + f((1 - E(c)) * -6) + "px)";
+  }
+
+  var lastP = null;
+  MCA.register(pin, "pin", function (p) { if (!small.matches) { lastP = p; paint(p); } });
+  MCA.register(yearBlock, "pass", function (p) { if (small.matches) { p = p >= 0.999 ? 1 : C((p - 0.15) / 0.85); lastP = p; paint(p); } });
+  if (small.addEventListener) small.addEventListener("change", invalidate);
+  if (window.ResizeObserver) {
+    var seen = false;
+    new ResizeObserver(function () {
+      if (!seen) { seen = true; return; }
+      if (window.MCA_RING) MCA_RING.refresh();
+      geo = null; if (lastP !== null) paint(lastP);
+    }).observe(ringEl);
+    new ResizeObserver(function () { geo = null; if (lastP !== null) paint(lastP); }).observe(stage);
+  }
+})();
+</script>

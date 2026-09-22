@@ -1,0 +1,540 @@
+<section id="tools" class="mca-section" aria-labelledby="tools-h">
+  <div class="mca-container tl-grid">
+
+    <!-- left: the head -->
+    <header class="mca-head tl-head">
+      <p class="mca-eyebrow">Tools</p>
+      <h2 class="mca-h2" id="tools-h"><span class="mca-line">Need a tool nobody makes?</span> <span class="mca-line">It writes one.</span></h2>
+      <p class="mca-lead tl-lead">Ask for a seating chart that keeps two kids apart, or a reading tracker for your room. It builds a working app, checks that it never sends data online, and adds it to your&nbsp;sidebar.</p>
+      <p class="tl-micro"><span class="tl-micro__doc" aria-hidden="true"></span><span>Each tool is one file you double-click.<br>No install. No account. No&nbsp;internet.</span></p>
+    </header>
+
+    <!-- right: one illustration. Screen readers get the caption; the drawing is hidden. -->
+    <figure class="tl-stage" aria-labelledby="tl-cap">
+      <figcaption id="tl-cap" class="mca-sr">Illustration: a sticky note says “Can you make me a seating chart that keeps two kids apart?” A desk printer prints a file called seating-chart.html: a seating chart where two desks that were side by side get moved apart. A slip stapled to it shows four checks: one file, no internet calls, doesn’t save student data, added to your sidebar. The sheet is stamped “Privacy checked”, and Seating Chart appears in the Class Tools sidebar marked New.</figcaption>
+
+      <div class="tl-art" aria-hidden="true">
+
+        <!-- 1 · the request, on a sticky note -->
+        <div class="tl-ask">
+          <div class="mca-note tl-note" style="--n:var(--note-sun)">
+            <span class="tl-note__who">From you</span>
+            <span class="tl-note__text">Can you make me a seating chart that keeps two kids apart?</span>
+          </div>
+        </div>
+
+        <!-- marker lines: note -> printer (feed), sheet -> sidebar (added) -->
+        <svg class="mca-stroke tl-lines">
+          <path class="tl-feed" d=""/>
+          <path class="tl-feed__head" d=""/>
+          <path class="mca-draw tl-add" pathLength="1" d=""/>
+          <path class="tl-add__head" d=""/>
+        </svg>
+        <span class="tl-added">added!</span>
+
+        <!-- 2 · the sheet, rising out of the printer -->
+        <div class="tl-out">
+          <div class="tl-rise">
+            <div class="tl-sheet">
+              <div class="tl-sheet__top">
+                <span class="tl-fname"><span class="tl-fname__doc"></span><span class="tl-fname__box"><span class="tl-fname__sizer">seating-chart.html</span><span class="tl-fname__typed">seating-chart.html</span><span class="tl-caret"></span></span></span>
+                <span class="tl-chip"><svg viewBox="0 0 16 16"><path d="M13 8a5 5 0 1 1-1.6-3.7M13 2.8v2.6h-2.6"/></svg>Shuffle</span>
+              </div>
+              <p class="tl-sheet__title">Seating Chart</p>
+              <p class="tl-sheet__sub">Period 4 · 20 seats</p>
+              <div class="tl-room">
+                <div class="tl-front">Front of room</div>
+                <div class="tl-apart">
+                  <svg class="mca-stroke tl-apart__svg" viewBox="0 0 280 40" preserveAspectRatio="none">
+                    <path class="mca-draw tl-apart__line" pathLength="1" d="M24 38 C 23 24, 30 17, 60 16 C 110 14, 190 18, 226 16 C 250 15, 256 24, 256 38"/>
+                    <path class="tl-link" d="M48 34 L 58 34"/>
+                  </svg>
+                  <span class="tl-apart__label">kept apart</span>
+                  <span class="tl-close">too close!</span>
+                </div>
+                <div class="tl-desks"></div>
+              </div>
+              <div class="tl-stampwrap"><span class="mca-stamp tl-stamp"><span>Privacy</span><span>checked</span></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- the printer -->
+        <div class="tl-printer">
+          <div class="tl-printer__lid"></div>
+          <div class="tl-printer__body">
+            <div class="tl-lcd">
+              <i class="tl-lcd__led"></i>
+              <span class="tl-lcd__t tl-lcd--w">Reading your note…</span>
+              <span class="tl-lcd__t tl-lcd--p">Writing seating-chart.html</span>
+              <span class="tl-lcd__t tl-lcd--s">Keeping two seats apart…</span>
+              <span class="tl-lcd__t tl-lcd--c">Checking it stays offline…</span>
+              <span class="tl-lcd__t tl-lcd--a">Adding to your sidebar…</span>
+              <span class="tl-lcd__t tl-lcd--r">Done · added to your sidebar</span>
+            </div>
+            <div class="tl-printer__knobs"><i class="tl-mark"></i><i class="tl-btn"></i><i class="tl-btn"></i></div>
+            <div class="tl-printer__tray"></div>
+          </div>
+          <div class="tl-printer__front"></div>
+        </div>
+
+        <!-- 3 · the inspection slip, stapled to the sheet's corner -->
+        <div class="tl-slip">
+          <span class="tl-staple"></span>
+          <p class="tl-slip__label">Checked before it’s yours</p>
+          <ul class="tl-checks">
+            <li class="mca-tick tl-tick">One file</li>
+            <li class="mca-tick tl-tick">No internet calls</li>
+            <li class="mca-tick tl-tick">Doesn’t save student data</li>
+            <li class="mca-tick tl-tick">Added to your sidebar</li>
+          </ul>
+        </div>
+
+        <!-- phone: slip -> sidebar arrow -->
+        <span class="tl-marrow"><svg class="mca-stroke" viewBox="0 0 40 56" width="40" height="56"><path class="mca-draw tl-marrow__p" pathLength="1" d="M14 4 C 6 18, 8 34, 20 48"/><path class="tl-marrow__h" d="M11 44 L 20 49 L 23 39"/></svg><span class="tl-marrow__t">added!</span></span>
+
+        <!-- 4 · the sidebar -->
+        <div class="tl-side">
+          <p class="tl-side__head"><span class="tl-side__mark"></span>Class Tools</p>
+          <ul class="tl-side__list">
+            <li class="tl-row"><span class="tl-ico" style="--i:var(--sky);--ik:var(--sky-ink)"><svg viewBox="0 0 16 16"><path d="M2.5 7.2 8 2.8l5.5 4.4V13a.6.6 0 0 1-.6.6H9.8V10H6.2v3.6H3.1a.6.6 0 0 1-.6-.6Z"/></svg></span>Dashboard</li>
+            <li class="tl-row"><span class="tl-ico" style="--i:var(--lilac);--ik:var(--lilac-ink)"><svg viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1.6"/><circle cx="5.8" cy="7.2" r="1.3"/><path d="M4 10.4c.5-1 1.1-1.4 1.8-1.4s1.3.4 1.8 1.4M9.6 6.6h2.6M9.6 9h2"/></svg></span>Student Cards</li>
+            <li class="tl-row"><span class="tl-ico" style="--i:var(--sun);--ik:var(--sun-ink)"><svg viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1.6"/><path d="m2.6 4.4 5.4 4.2 5.4-4.2"/></svg></span>Parent Messages</li>
+            <li class="tl-row"><span class="tl-ico" style="--i:var(--coral);--ik:var(--coral-ink)"><svg viewBox="0 0 16 16"><circle cx="8" cy="6.2" r="3.6"/><path d="m5.8 9.1-1.2 4.6L8 12.2l3.4 1.5-1.2-4.6"/></svg></span>Badges</li>
+            <li class="tl-row--new"><div class="tl-row__in"><span class="tl-ico tl-ico--new"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="tl-row__name">Seating Chart</span><span class="mca-badge mca-badge--new tl-new">New</span></div></li>
+          </ul>
+        </div>
+
+        <!-- the sheet, shrunk to its sidebar icon, on its way in -->
+        <div class="tl-ghost"><span class="tl-ghost__top"><i class="tl-ghost__doc"></i>Seating Chart</span><span class="tl-ghost__grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+#tools{ --tl-px:58px; --tl-py:44px; --tl-dw:48px; --tl-dh:30px; overflow:clip; }
+#tools .tl-grid{ display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); column-gap:24px; align-items:center; }
+#tools .tl-head{ grid-column:1 / span 5; position:relative; z-index:2; }
+#tools .tl-head .mca-h2{ letter-spacing:-.021em; }
+#tools .tl-lead{ font-size:1.1875rem; line-height:1.5; max-width:25em; }
+#tools .tl-micro{ display:flex; align-items:flex-start; gap:12px; font:600 var(--t-small)/1.5 var(--f-body); color:var(--ink-3); max-width:none; }
+#tools .tl-micro__doc{ flex:none; width:15px; height:19px; margin-top:2px; border-radius:3px; background:linear-gradient(225deg, transparent 5px, var(--mint-ink) 5px); }
+
+#tools .tl-stage{ grid-column:6 / span 7; margin:0; min-width:0; }
+#tools .tl-art{ position:relative; height:664px; }
+
+/* ---------- 1 · the sticky note ---------- */
+#tools .tl-ask{ position:absolute; left:0; top:4px; z-index:5; }
+#tools .tl-note{ width:272px; min-height:0; padding:34px 20px 20px; flex-direction:column; align-items:flex-start; gap:8px; transform:rotate(-3deg);
+  font-size:1.3125rem; line-height:1.14; }
+#tools .tl-note__who{ font:700 .6875rem/1 var(--f-body); letter-spacing:.1em; text-transform:uppercase; color:color-mix(in srgb, var(--ink) 72%, var(--sun-ink)); }
+#tools .tl-note__text{ display:block; text-wrap:balance; }
+
+/* ---------- marker lines ---------- */
+#tools .tl-lines{ position:absolute; inset:0; width:100%; height:100%; z-index:6; overflow:visible; }
+#tools .tl-lines .tl-feed{ stroke-width:3.5px; stroke-dasharray:0 9; opacity:.85; }
+#tools .tl-lines .tl-feed__head{ stroke-width:3.5px; opacity:.85; }
+#tools .tl-lines .tl-add{ stroke-width:4px; }
+#tools .tl-lines .tl-add__head{ stroke-width:4px; opacity:var(--ah,1); }
+#tools .tl-added{ position:absolute; left:0; top:0; z-index:7; font:650 1.75rem/1 var(--f-hand); color:var(--orange-ink); white-space:nowrap;
+  transform:translate(var(--ax,0px), var(--ay,0px)) rotate(-6deg); opacity:var(--al,1); }
+
+/* ---------- 2 · the sheet ---------- */
+#tools .tl-out{ position:absolute; left:var(--tl-sx,30px); top:176px; width:340px; height:386px; z-index:2;
+  clip-path:inset(-200px -400px 0 -200px); }
+#tools .tl-rise{ position:absolute; left:0; right:0; top:0; height:410px; transform:translateY(calc((1 - var(--rise,1)) * 400px)); will-change:transform; }
+#tools .tl-sheet{ position:absolute; inset:0; padding:18px 22px 0; background:var(--card); border-radius:5px 5px 0 0;
+  box-shadow:0 2px 4px rgba(20,35,31,.05), 0 20px 40px -18px rgba(20,35,31,.3), inset 0 0 0 1px var(--line);
+  transform:translateY(var(--jolt,0px));
+  background-image:linear-gradient(to bottom, transparent calc(100% - 40px), rgba(20,35,31,.06)); }
+#tools .tl-sheet__top{ opacity:var(--tp,1); display:flex; align-items:center; justify-content:space-between; gap:10px; height:28px; padding-bottom:12px; border-bottom:1px dashed var(--line-2); box-sizing:content-box; }
+#tools .tl-fname{ display:inline-flex; align-items:center; gap:9px; font:500 .8125rem/1 var(--f-mono); color:var(--ink); letter-spacing:-.01em; }
+#tools .tl-fname__doc{ width:12px; height:15px; border-radius:2px; background:linear-gradient(225deg, transparent 4px, var(--mint-ink) 4px); flex:none; }
+#tools .tl-fname__box{ display:inline-grid; align-items:center; }
+#tools .tl-fname__box > *{ grid-area:1/1; }
+#tools .tl-fname__sizer{ visibility:hidden; }
+#tools .tl-fname__typed{ white-space:pre; }
+#tools .tl-caret{ justify-self:start; width:1.5px; height:15px; background:var(--ink); transform:translateX(var(--cx,0px)); opacity:var(--co,0); }
+#tools .tl-chip{ display:inline-flex; align-items:center; gap:5px; height:24px; padding:0 9px 0 7px; border-radius:7px; background:var(--card);
+  box-shadow:inset 0 0 0 1px var(--line-2), inset 0 calc(var(--pr,0) * 2px) 0 rgba(20,35,31,.08); font:700 .6875rem/1 var(--f-body); color:var(--ink-2); white-space:nowrap;
+  background:color-mix(in srgb, var(--mint) calc(var(--pr,0) * 100%), var(--card)); transform:translateY(calc(var(--pr,0) * 1px)); }
+#tools .tl-chip svg{ width:12px; height:12px; fill:none; stroke:var(--ink-2); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+#tools .tl-sheet__title{ margin-top:16px; font:750 1.75rem/1 var(--f-display); letter-spacing:-.022em; font-variation-settings:"opsz" 48; color:var(--ink); }
+#tools .tl-sheet__sub{ margin-top:7px; font:650 .8125rem/1.3 var(--f-body); color:var(--ink-3); }
+
+#tools .tl-room{ position:relative; margin:16px auto 0; width:calc(var(--tl-px) * 4 + var(--tl-dw)); }
+#tools .tl-front{ height:22px; border-radius:6px; background:var(--paper-2); box-shadow:inset 0 0 0 1px var(--line); display:grid; place-items:center;
+  font:750 .625rem/1 var(--f-body); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); }
+#tools .tl-apart{ position:relative; height:42px; }
+#tools .tl-apart__svg{ position:absolute; left:0; bottom:-6px; width:100%; height:40px; }
+#tools .tl-apart__line{ stroke:#B8432A; stroke-width:2.5px; }
+#tools .tl-link{ stroke:#B8432A; stroke-width:2px; stroke-dasharray:3 3; stroke-linecap:butt; opacity:var(--lk,0); }
+#tools .tl-apart__label{ position:absolute; left:50%; top:3px; transform:translate(-50%,0) rotate(-2deg); padding:0 8px; background:var(--card);
+  font:700 1.5rem/1 var(--f-hand); color:#B8432A; white-space:nowrap; clip-path:inset(-4px calc((1 - var(--la,1)) * 100%) -6px -4px); }
+#tools .tl-close{ position:absolute; left:calc(var(--tl-px) * .5 + var(--tl-dw) * .5); top:5px; transform:translate(-50%,0) rotate(-4deg); white-space:nowrap;
+  font:700 1.5rem/1 var(--f-hand); color:#B8432A; opacity:var(--cl,0); }
+#tools .tl-desks{ position:relative; height:calc(var(--tl-py) * 3 + var(--tl-dh) + 10px); }
+#tools .tl-desk{
+  position:absolute; left:calc(var(--c) * var(--tl-px)); top:calc(var(--r) * var(--tl-py)); width:var(--tl-dw); height:var(--tl-dh); border-radius:6px;
+  background:var(--card); box-shadow:inset 0 0 0 1.5px var(--ink-4);
+  opacity:var(--t,1); transform:translate(calc(var(--nx,0) * var(--nd,0px)), calc((1 - var(--t,1)) * 8px)) scale(calc(.8 + var(--t,1) * .2));
+}
+#tools .tl-desk::after{ content:""; position:absolute; left:50%; bottom:-7px; width:20px; height:5px; margin-left:-10px; border-radius:0 0 5px 5px; background:var(--line-2); }
+#tools .tl-desk--hold{ background:none; box-shadow:none; border:1.5px dashed var(--ink-4); opacity:calc(var(--t,1) * .6 * (1 - var(--gone,0))); transform:none; }
+#tools .tl-desk--hold::after{ display:none; }
+#tools .tl-desk--kid{ background:var(--note-coral); z-index:2;
+  box-shadow:inset 0 0 0 1.5px var(--coral-ink), 0 0 0 calc(var(--warn,0) * 4px) rgba(210,87,58,.28); }
+#tools .tl-desk--kid::after{ background:color-mix(in srgb, var(--coral-ink) 55%, transparent); }
+#tools .tl-desk--kid::before{ content:""; position:absolute; left:50%; top:50%; width:8px; height:8px; margin:-4px 0 0 -4px; border-radius:50%; background:var(--coral-ink); }
+#tools .tl-desk--a{ transform:translate(calc(var(--shk,0) * -2px), calc((1 - var(--t,1)) * 8px)) scale(calc(.8 + var(--t,1) * .2)); }
+#tools .tl-desk--b{ z-index:3;
+  transform:translate(calc(var(--mv,1) * var(--tl-px) * 3 + var(--shk,0) * 2px), calc(var(--lift,0) * -30px + (1 - var(--t,1)) * 8px)) scale(calc((.8 + var(--t,1) * .2) * (1 + var(--lift,0) * .08)));
+  box-shadow:inset 0 0 0 1.5px var(--coral-ink), 0 0 0 calc(var(--warn,0) * 4px) rgba(210,87,58,.28), 0 calc(var(--lift,0) * 10px) calc(var(--lift,0) * 16px) calc(var(--lift,0) * -5px) rgba(20,35,31,.3); }
+
+#tools .tl-stampwrap{ position:absolute; right:26px; bottom:62px; z-index:3; }
+#tools .tl-stamp{ font-size:.875rem; line-height:1.12; padding:8px 13px 7px; gap:1px; border-width:2.5px; letter-spacing:.14em;
+  background:rgba(255,255,255,.9); border-color:var(--mint-ink); color:#146B3E;
+  outline:1px solid color-mix(in srgb, var(--mint-ink) 70%, transparent); outline-offset:-6px;
+  opacity:var(--st,1); transform:rotate(-9deg) scale(calc(1 + (1 - var(--st,1)) * .3)); }
+
+/* ---------- the printer ---------- */
+#tools .tl-printer{ position:absolute; left:0; top:548px; width:400px; height:112px; z-index:3; }
+#tools .tl-printer::after{ /* its shadow on the desk */
+  content:""; position:absolute; left:20px; right:20px; bottom:-14px; height:26px; border-radius:50%; z-index:-1;
+  background:radial-gradient(closest-side, rgba(20,35,31,.28), rgba(20,35,31,0)); }
+#tools .tl-printer__lid{ /* the top face with the slot */
+  position:absolute; left:10px; right:10px; top:0; height:30px; border-radius:16px 16px 4px 4px;
+  background:linear-gradient(to bottom, #2E4540, #22362F); box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
+#tools .tl-printer__lid::before{ /* the slot mouth */
+  content:""; position:absolute; left:34px; right:34px; top:11px; height:8px; border-radius:4px; background:#060E0B;
+  box-shadow:inset 0 2px 3px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.1); }
+#tools .tl-printer__front{ /* lip in front of the slot: sits over the sheet's bottom edge */
+  position:absolute; left:10px; right:10px; top:15px; height:15px; border-radius:0 0 4px 4px; z-index:2;
+  background:linear-gradient(to bottom, #263B35, #22362F); box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+#tools .tl-printer__front::before{ content:""; position:absolute; left:34px; right:34px; top:0; height:4px; border-radius:0 0 4px 4px; background:#060E0B; }
+#tools .tl-printer__body{
+  position:absolute; left:0; right:0; top:26px; bottom:0; border-radius:10px 10px 24px 24px;
+  background:radial-gradient(90% 120% at 20% 0%, #22362F, var(--chalk) 70%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1), inset 0 -4px 0 rgba(0,0,0,.25), var(--sh-2); }
+#tools .tl-lcd{ position:absolute; left:22px; top:18px; width:250px; height:40px; display:flex; align-items:center; gap:10px; padding:0 14px; border-radius:9px;
+  background:#0A1512; box-shadow:inset 0 2px 5px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.07);
+  font:500 .78125rem/1 var(--f-mono); color:#A8E6BF; letter-spacing:-.005em; white-space:nowrap; overflow:hidden; }
+#tools .tl-lcd__led{ flex:none; width:7px; height:7px; border-radius:50%; background:var(--note-sun); box-shadow:0 0 0 3px rgba(255,230,126,.16), 0 0 8px rgba(255,230,126,.6); }
+#tools[data-st="r"] .tl-lcd__led{ background:#6BD394; box-shadow:0 0 0 3px rgba(107,211,148,.18), 0 0 8px rgba(107,211,148,.6); }
+#tools .tl-lcd__t{ display:none; }
+#tools[data-st="w"] .tl-lcd--w, #tools[data-st="p"] .tl-lcd--p, #tools[data-st="s"] .tl-lcd--s, #tools[data-st="c"] .tl-lcd--c, #tools[data-st="a"] .tl-lcd--a, #tools[data-st="r"] .tl-lcd--r{ display:inline; }
+#tools .tl-printer__knobs{ position:absolute; right:24px; top:27px; display:flex; align-items:center; gap:12px; }
+#tools .tl-mark{ width:22px; height:22px; border-radius:6px; background:#0E1A17; position:relative; box-shadow:0 1px 0 rgba(255,255,255,.07); }
+#tools .tl-mark::after{ content:""; position:absolute; inset:5px; border-radius:2px; background:var(--note-sun); transform:rotate(-6deg); }
+#tools .tl-btn{ width:18px; height:18px; border-radius:50%; background:radial-gradient(circle at 40% 35%, #3A524B, #1B2C27 70%); box-shadow:0 2px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.14); }
+#tools .tl-printer__tray{ position:absolute; left:22px; right:22px; bottom:12px; height:8px; border-radius:4px;
+  background:linear-gradient(to bottom, #0B1613, #1A2B26); box-shadow:inset 0 2px 3px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.06); }
+
+/* ---------- 3 · the slip ---------- */
+#tools .tl-slip{
+  position:absolute; left:358px; top:362px; width:252px; z-index:4; padding:22px 18px 8px 18px;
+  background:#FFFCF2; border-radius:3px;
+  box-shadow:0 1px 2px rgba(20,35,31,.08), 0 16px 28px -14px rgba(20,35,31,.3), inset 0 0 0 1px rgba(20,35,31,.07);
+  background-image:repeating-linear-gradient(to bottom, transparent 0 33px, rgba(45,102,219,.1) 33px 34px); background-position:0 49px;
+  opacity:var(--sl,1); transform:translate(calc((1 - var(--sl,1)) * 24px), calc((1 - var(--sl,1)) * -10px)) rotate(calc(2.5deg + (1 - var(--sl,1)) * 6deg)); transform-origin:0 0;
+}
+#tools .tl-staple{ position:absolute; left:6px; top:12px; width:30px; height:6px; border-radius:2px; transform:rotate(-38deg);
+  background:linear-gradient(to bottom, #F4F6F5, #B9C0BD 55%, #8F9895); box-shadow:0 1px 1px rgba(20,35,31,.3), 0 0 0 .5px rgba(20,35,31,.2); }
+#tools .tl-slip__label{ font:750 .6875rem/1 var(--f-body); letter-spacing:.07em; white-space:nowrap; text-transform:uppercase; color:var(--ink-3); margin:0 0 10px 22px; }
+#tools .tl-checks{ display:grid; }
+#tools .tl-tick{ position:relative; height:34px; font-size:.875rem; gap:11px; white-space:nowrap;
+  color:color-mix(in srgb, var(--ink) calc(55% + var(--t,1) * 45%), var(--ink-3)); }
+#tools .tl-tick::before{ width:20px; height:20px; background:none; box-shadow:inset 0 0 0 1.5px var(--ink-4); }
+#tools .tl-tick::after{
+  content:""; position:absolute; left:0; top:50%; width:20px; height:20px; margin-top:-10px; border-radius:50%;
+  background:var(--mint-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;
+  opacity:var(--t,1); transform:scale(calc(.3 + var(--t,1) * .7)) rotate(calc((1 - var(--t,1)) * -45deg));
+}
+#tools .tl-marrow{ display:none; }
+
+/* ---------- 4 · the sidebar ---------- */
+#tools .tl-side{ position:absolute; right:0; top:54px; width:224px; z-index:4; padding:14px 10px 12px; border-radius:18px;
+  background:var(--card); box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
+#tools .tl-side__head{ display:flex; align-items:center; gap:9px; padding:2px 8px 12px; margin-bottom:6px; border-bottom:1px solid var(--line);
+  font:700 1rem/1 var(--f-display); letter-spacing:-.01em; font-variation-settings:"opsz" 24; color:var(--ink); }
+#tools .tl-side__mark{ width:18px; height:18px; border-radius:5px; background:var(--ink); position:relative; flex:none; }
+#tools .tl-side__mark::after{ content:""; position:absolute; inset:4px; border-radius:1.5px; background:var(--note-sun); transform:rotate(-6deg); }
+#tools .tl-side__list{ display:grid; }
+#tools .tl-row{ display:flex; align-items:center; gap:11px; height:40px; padding:0 8px; border-radius:10px; font:650 .875rem/1 var(--f-body); color:var(--ink-2); white-space:nowrap; }
+#tools .tl-ico{ width:26px; height:26px; flex:none; display:grid; place-items:center; border-radius:7px; background:var(--i); }
+#tools .tl-ico svg{ width:15px; height:15px; fill:none; stroke:var(--ik); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+/* the new row: a dashed empty slot until the sheet lands in it */
+#tools .tl-row--new{ position:relative; height:46px; margin-top:4px; border-radius:11px;
+  box-shadow:0 0 0 calc(var(--ring,0) * 7px) color-mix(in srgb, var(--mint-ink) calc(var(--ring,0) * 20%), transparent); }
+#tools .tl-row--new::before{ content:""; position:absolute; inset:0; border-radius:11px; border:1.5px dashed var(--line-2); opacity:calc(1 - var(--no,1)); }
+#tools .tl-row__in{ position:absolute; inset:0; display:flex; align-items:center; gap:10px; padding:0 8px 0 10px; border-radius:11px;
+  opacity:var(--no,1); transform:scale(var(--pulse,1)); transform-origin:0 50%;
+  clip-path:inset(-2px calc((1 - var(--nr,1)) * 100% - 2px) -2px -2px round 11px);
+  background:color-mix(in srgb, var(--mint) calc(var(--hl,1) * 100%), var(--card));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--mint-ink) calc(var(--hl,1) * 24%), transparent); }
+#tools .tl-row__in::before{ content:""; position:absolute; left:0; top:9px; bottom:9px; width:4px; border-radius:0 3px 3px 0; background:var(--mint-ink); opacity:var(--hl,1); }
+#tools .tl-row__name{ font:750 .875rem/1 var(--f-body); color:var(--ink); white-space:nowrap; }
+/* the icon is the sheet itself: a tiny seating grid with the coral pair apart */
+#tools .tl-ico--new{ background:var(--card); box-shadow:0 0 0 1px color-mix(in srgb, var(--mint-ink) 30%, transparent);
+  grid-template-columns:repeat(3, 5px); grid-auto-rows:4px; gap:3px 2px; align-content:center; justify-content:center; place-items:stretch; }
+#tools .tl-ico--new i{ border-radius:1px; background:var(--ink-4); }
+#tools .tl-ico--new i:nth-child(1), #tools .tl-ico--new i:nth-child(3){ background:var(--coral-ink); }
+#tools .tl-new{ margin-left:auto; height:22px; padding:0 9px; font-size:.6875rem; color:#A33A0E; }
+#tools .tl-new::before{ display:none; }
+
+/* ---------- the flying copy: a small, readable copy of the sheet ---------- */
+#tools .tl-ghost{
+  position:absolute; left:0; top:0; width:96px; height:72px; z-index:8; padding:9px 10px 0; border-radius:5px; box-sizing:border-box;
+  background:var(--card); box-shadow:0 10px 22px -8px rgba(20,35,31,.35), 0 1px 2px rgba(20,35,31,.1), inset 0 0 0 1px var(--line);
+  opacity:var(--go,0); transform:translate(var(--gx,0px), var(--gy,0px)) scale(var(--gs,1)) rotate(var(--gr,0deg)); transform-origin:50% 50%; pointer-events:none; }
+#tools .tl-ghost__top{ display:flex; align-items:center; gap:4px; font:750 9px/1 var(--f-display); letter-spacing:-.01em; color:var(--ink); white-space:nowrap;
+  padding-bottom:6px; border-bottom:1px dashed var(--line-2); }
+#tools .tl-ghost__doc{ width:6px; height:8px; border-radius:1px; background:linear-gradient(225deg, transparent 2px, var(--mint-ink) 2px); }
+#tools .tl-ghost__grid{ display:grid; grid-template-columns:repeat(5, 12px); grid-auto-rows:8px; gap:6px 4px; margin-top:9px; }
+#tools .tl-ghost__grid i{ border-radius:2px; box-shadow:inset 0 0 0 1px var(--ink-4); }
+#tools .tl-ghost__grid i:nth-child(1), #tools .tl-ghost__grid i:nth-child(5){ background:var(--note-coral); box-shadow:inset 0 0 0 1px var(--coral-ink); }
+
+/* ---------- laptop ---------- */
+@media (max-width: 1379px){
+  #tools .tl-side{ width:212px; }
+}
+/* ---------- tablet: head over stage ---------- */
+@media (max-width: 1179px){
+  #tools .tl-grid{ grid-template-columns:minmax(0,1fr); row-gap:64px; }
+  #tools .tl-head{ grid-column:1; max-width:640px; }
+  #tools .tl-stage{ grid-column:1; width:100%; max-width:720px; justify-self:center; }
+  #tools .tl-side{ width:224px; }
+}
+
+/* ---------- phone: one vertical story ---------- */
+@media (max-width: 699px){
+  #tools{ --tl-px:50px; --tl-py:42px; --tl-dw:42px; --tl-dh:28px; }
+  #tools .tl-grid{ row-gap:44px; }
+  #tools .tl-art{ height:auto; display:flex; flex-direction:column; align-items:center; }
+  #tools .tl-lines, #tools .tl-ghost, #tools .tl-added{ display:none; }
+  #tools .tl-ask{ position:relative; left:auto; top:auto; align-self:flex-start; margin:0 0 30px 6px; }
+  #tools .tl-note{ width:250px; font-size:1.25rem; }
+  #tools .tl-ask::after{ /* dotted feed line down to the printer */
+    content:""; position:absolute; left:50%; top:calc(100% + 6px); width:4px; height:24px;
+    background:radial-gradient(circle, var(--orange) 1.7px, transparent 2.1px) 0 0/4px 9px repeat-y; }
+  #tools .tl-out{ position:relative; left:auto; top:auto; width:calc(100% - 28px); height:360px; flex:none; }
+  #tools .tl-rise{ height:384px; transform:translateY(calc((1 - var(--rise,1)) * 374px)); }
+  #tools .tl-sheet{ padding:16px 16px 0; }
+  #tools .tl-sheet__title{ font-size:1.5rem; }
+  #tools .tl-stampwrap{ right:14px; bottom:66px; }
+  #tools .tl-stamp{ font-size:.75rem; }
+  #tools .tl-printer{ position:relative; left:auto; top:auto; width:100%; margin-top:-14px; }
+  #tools .tl-lcd{ width:auto; right:96px; font-size:.6875rem; padding:0 12px; gap:8px; }
+  #tools .tl-printer__knobs{ right:18px; gap:9px; }
+  #tools .tl-printer__knobs .tl-btn:last-child{ display:none; }
+  /* phone: the slip feeds out of the printer's front tray, under the body */
+  #tools .tl-slip{ position:relative; left:auto; top:auto; z-index:1; width:calc(100% - 64px); margin-top:-22px; padding-top:34px;
+    border-radius:0 0 4px 4px; background-position:0 61px;
+    opacity:calc(.45 + var(--sl,1) * .55); transform:translateY(calc((1 - var(--sl,1)) * -46px)); }
+  #tools .tl-staple{ display:none; }
+  #tools .tl-slip__label{ margin-left:0; }
+  #tools .tl-marrow{ display:flex; align-items:center; gap:4px; position:relative; height:64px; margin:8px 0 10px 40px; }
+  #tools .tl-marrow svg{ width:40px; height:56px; }
+  #tools .tl-marrow path{ stroke-width:3.5px; }
+  #tools .tl-marrow__h{ opacity:var(--mh,1); }
+  #tools .tl-marrow__t{ font:650 1.625rem/1 var(--f-hand); color:var(--orange-ink); opacity:var(--mh,1); transform:rotate(-5deg); }
+  #tools .tl-side{ position:relative; right:auto; top:auto; width:100%; padding-bottom:10px; }
+  #tools .tl-row{ height:40px; }
+  #tools .tl-row__in::before{ width:6px; }
+}
+@media (max-width: 359px){
+  #tools .tl-chip{ display:none; }
+  #tools .tl-note{ width:230px; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("tools");
+  if (!sec || !window.MCA) return;
+
+  // 5 x 4 room. The two kept-apart desks sit on the front row: A at column 0,
+  // B lands right beside it (column 1), then hops over the row to column 4.
+  // Until they arrive, columns 0, 1 and 4 show as dashed "reserved" seats.
+  var box = sec.querySelector(".tl-desks"), rest = [], front = [], frag = document.createDocumentFragment();
+  var mk = function (cls, c, r) { var e = document.createElement("i"); e.className = "tl-desk " + cls; e.style.setProperty("--c", c); e.style.setProperty("--r", r); frag.appendChild(e); return e; };
+  var holdA = mk("tl-desk--hold", 0, 0), holdM = mk("tl-desk--hold", 1, 0), holdB = mk("tl-desk--hold", 4, 0);
+  for (var r = 0; r < 4; r++) for (var c = 0; c < 5; c++) {
+    if (r === 0 && (c === 0 || c === 4)) continue;
+    var d = mk("", c, r);
+    if (r === 0) front.push({ el: d, c: c }); else rest.push(d);
+  }
+  var kidA = mk("tl-desk--kid tl-desk--a", 0, 0), kidB = mk("tl-desk--kid tl-desk--b", 1, 0);
+  box.appendChild(frag);
+
+  var $ = function (s) { return sec.querySelector(s); };
+  var art = $(".tl-art"), note = $(".tl-note"), out = $(".tl-out"), rise = $(".tl-rise"), sheet = $(".tl-sheet"),
+      typed = $(".tl-fname__typed"), caret = $(".tl-caret"), printer = $(".tl-printer"), lid = $(".tl-printer__lid"),
+      apart = $(".tl-apart__line"), apartLabel = $(".tl-apart__label"), close = $(".tl-close"), link = $(".tl-link"),
+      stamp = $(".tl-stamp"), slip = $(".tl-slip"), ticks = sec.querySelectorAll(".tl-tick"),
+      side = $(".tl-side"), newRow = $(".tl-row--new"), rowIn = $(".tl-row__in"), icoNew = $(".tl-ico--new"), ghost = $(".tl-ghost"),
+      feed = $(".tl-feed"), feedHead = $(".tl-feed__head"), add = $(".tl-add"), addHead = $(".tl-add__head"), added = $(".tl-added"),
+      marrowP = $(".tl-marrow__p"), marrow = $(".tl-marrow");
+  var NAME = "seating-chart.html";
+  var C = MCA.clamp01, E = MCA.ease;
+  var seg = function (p, a, b) { return C((p - a) / (b - a)); };
+  var bump = function (t) { return t > 0 && t < 1 ? Math.sin(t * Math.PI) : 0; };
+  var bz = function (x1, y1, x2, y2) { // cubic-bezier(x1,y1,x2,y2) as a function of t
+    return function (t) {
+      if (t <= 0) return 0; if (t >= 1) return 1;
+      var lo = 0, hi = 1, u, x;
+      for (var i = 0; i < 20; i++) { u = (lo + hi) / 2; x = 3 * (1 - u) * (1 - u) * u * x1 + 3 * (1 - u) * u * u * x2 + u * u * u; if (x < t) lo = u; else hi = u; }
+      u = (lo + hi) / 2; return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
+    };
+  };
+  var flightEase = bz(.5, 0, .2, 1), hopEase = bz(.5, 0, .35, 1.25);
+  var f1 = function (n) { return n.toFixed(1); };
+
+  // geometry, measured on resize (never inside paint)
+  var geo = null;
+  function atRest() {
+    rise.style.setProperty("--rise", "1"); stamp.style.setProperty("--st", "1"); slip.style.setProperty("--sl", "1");
+    rowIn.style.setProperty("--nr", "1"); rowIn.style.setProperty("--pulse", "1"); sheet.style.setProperty("--jolt", "0px");
+  }
+  function measure() {
+    atRest();
+    var s0 = sec.getBoundingClientRect();
+    if (getComputedStyle(ghost).display === "none") {
+      // Phone: the art is one tall column, so each block runs its beats while it is on
+      // screen. Cache each block's offset from the section top; paint turns p back into
+      // a scroll position (the pass reader, inverted), so paint stays pure in p.
+      var off = function (el) { return el.getBoundingClientRect().top - s0.top; };
+      geo = { phone: true, H: s0.height, vh: innerHeight, out: off(out), slip: off(slip), row: off(newRow) };
+      return;
+    }
+    var a = art.getBoundingClientRect(),
+        rel = function (el) { var q = el.getBoundingClientRect(); return { l: q.left - a.left, t: q.top - a.top, r: q.right - a.left, b: q.bottom - a.top, w: q.width, h: q.height }; };
+    var n = rel(note), lp = rel(lid), o = rel(out), rw = rel(newRow), ico = rel(icoNew);
+    // feed: from under the note, down well clear of the sheet, curving in to point down into the slot
+    var fx = n.l + 30, fy = n.b + 14, ex = o.l + 22, ey = lp.t + 6, gx = o.l - 46;
+    feed.setAttribute("d", "M" + f1(fx) + " " + f1(fy) + " C " + f1(gx) + " " + f1(fy + (ey - fy) * .5) + ", " + f1(gx) + " " + f1(ey - 70) + ", " + f1(ex) + " " + f1(ey - 22) + " L " + f1(ex) + " " + f1(ey));
+    feedHead.setAttribute("d", "M" + f1(ex - 7) + " " + f1(ey - 9) + " L" + f1(ex) + " " + f1(ey + 1) + " L" + f1(ex + 7) + " " + f1(ey - 9));
+    // added: the resting trail from the sheet's right edge into the new row (ends 10px short of it)
+    var sx = o.r + 8, sy = o.t + 96, rx = rw.l - 10, ry = rw.t + rw.h / 2;
+    add.setAttribute("d", "M" + f1(sx) + " " + f1(sy) + " C " + f1(sx + 26) + " " + f1(sy - 4) + ", " + f1(rx - 40) + " " + f1(ry) + ", " + f1(rx) + " " + f1(ry));
+    addHead.setAttribute("d", "M" + f1(rx - 10) + " " + f1(ry - 8) + " L" + f1(rx) + " " + f1(ry) + " L" + f1(rx - 10) + " " + f1(ry + 8));
+    // the flying copy lifts off the sheet's top-right corner, arcs over, and drops into the row icon
+    geo = { phone: false, ax: sx + 2, ay: sy - 50,
+            g0x: o.r - 40, g0y: o.t + 44, g1x: ico.l + ico.w / 2, g1y: ico.t + ico.h / 2, gs1: ico.w / 96,
+            gcx: (o.r + rw.l) / 2 + 10, gcy: Math.min(o.t, rw.t) - 70 };
+    added.style.setProperty("--ax", f1(geo.ax) + "px"); added.style.setProperty("--ay", f1(geo.ay) + "px");
+  }
+
+  // Three clocks: the sheet (a), the slip (s), the sidebar (r).
+  // Desktop: all three are p. Phone: each follows its own block's place on screen.
+  function clocks(p) {
+    if (!geo.phone || p >= 1) return { a: p, s: p, r: p };
+    var vh = geo.vh, top = vh * 0.85 - p * (geo.H + vh * 0.25);
+    var at = function (y, from, to) { return C((from - (top + y) / vh) / (from - to)); };
+    return {
+      a: 0.53 * at(geo.out, 0.92, 0.2),          // printing + the hop while the sheet crosses the screen
+      s: 0.5 + 0.22 * at(geo.slip, 0.85, 0.5),  // the slip ticks as it climbs to mid-screen
+      r: 0.7 + 0.3 * at(geo.row, 0.95, 0.62)   // the row lands as it climbs into the lower third
+    };
+  }
+
+  /* Beats (desktop p; the pass reader has the stage fully in view from ~.15 to ~.9):
+     .00      the note, the printer (“Reading your note…”), 8% of the sheet showing, the sidebar
+     .03–.24  the sheet prints up out of the slot; .07–.19 the file name types
+     .18–.27  the room fills around three dashed reserved seats; .27–.32 the pair lands side by side
+     .34–.40  conflict: both desks ring coral, a dashed link, “too close!”
+     .40–.50  seat B hops to the far end;  .50–.56 “kept apart” draws
+     .53–.58  the slip swings in and staples on; .58–.66 three ticks; .66–.70 the stamp lands
+     .72–.84  a copy flies along the marker arrow; .80–.86 the row opens; .86–.90 the fourth tick
+     .90–1    hold. At p=1 the arrow and “added!” stay, so the sheet visibly became the row. */
+  function paint(p) {
+    if (!geo) measure();
+    var k = clocks(p), a = k.a, s = k.s, rr = k.r, i;
+
+    // the sheet prints
+    var rs = E(seg(a, 0.03, 0.24));
+    rise.style.setProperty("--rise", (0.06 + 0.94 * rs).toFixed(4));
+    sheet.style.setProperty("--tp", seg(a, 0.03, 0.08).toFixed(3));
+    var tp = seg(a, 0.07, 0.19), n = Math.round(tp * NAME.length);
+    typed.textContent = NAME.slice(0, n);
+    caret.style.setProperty("--cx", (n / NAME.length * typed.parentNode.offsetWidth || 0).toFixed(1) + "px");
+    caret.style.setProperty("--co", tp > 0 && tp < 1 ? "1" : "0");
+
+    // the room, front row first
+    for (i = 0; i < front.length; i++) { var f = front[i]; if (f.c !== 1) f.el.style.setProperty("--t", C((a - 0.18 - f.c * 0.006) / 0.035).toFixed(3)); }
+    MCA.stepper(rest, a, 0.19, 0.0035, 0.035);
+    var hold = C((a - 0.18) / 0.035).toFixed(3);
+    holdA.style.setProperty("--t", hold); holdM.style.setProperty("--t", hold); holdB.style.setProperty("--t", hold);
+    MCA.stepper([kidA, kidB], a, 0.27, 0.02, 0.035);
+    holdA.style.setProperty("--gone", seg(a, 0.28, 0.3).toFixed(3)); holdM.style.setProperty("--gone", seg(a, 0.3, 0.32).toFixed(3));
+
+    // the conflict, then the hop
+    var warn = seg(a, 0.34, 0.36) * (1 - seg(a, 0.42, 0.47));
+    kidA.style.setProperty("--warn", warn.toFixed(3)); kidB.style.setProperty("--warn", warn.toFixed(3));
+    link.style.setProperty("--lk", (seg(a, 0.345, 0.37) * (1 - seg(a, 0.4, 0.42))).toFixed(3));
+    var sh = seg(a, 0.35, 0.4), shk = sh > 0 && sh < 1 ? Math.sin(sh * Math.PI * 6) * (1 - sh) : 0;
+    kidA.style.setProperty("--shk", shk.toFixed(3)); kidB.style.setProperty("--shk", shk.toFixed(3));
+    close.style.setProperty("--cl", (seg(a, 0.345, 0.37) * (1 - seg(a, 0.44, 0.48))).toFixed(3));
+    var h = seg(a, 0.4, 0.5), mv = hopEase(h), bx = 1 + 3 * mv;
+    kidB.style.setProperty("--mv", mv.toFixed(4));
+    kidB.style.setProperty("--lift", (h > 0 && h < 1 ? Math.sin(Math.min(h * 1.1, 1) * Math.PI) : bump(seg(a, 0.5, 0.53)) * 0.13).toFixed(4));
+    holdB.style.setProperty("--gone", C((bx - 3.6) / 0.3).toFixed(3));
+    front[0].el.style.setProperty("--t", C((bx - 1.6) / 0.3).toFixed(3)); // B's old seat fills once it has left
+    apart.style.setProperty("--t", E(seg(a, 0.5, 0.56)).toFixed(4));
+    apartLabel.style.setProperty("--la", seg(a, 0.54, 0.58).toFixed(3));
+
+    // the slip, three ticks, the stamp
+    slip.style.setProperty("--sl", E(seg(s, 0.53, 0.58)).toFixed(4));
+    MCA.stepper([ticks[0], ticks[1], ticks[2]], s, 0.58, 0.027, 0.025);
+    stamp.style.setProperty("--st", E(seg(s, 0.66, 0.7)).toFixed(4));
+    sheet.style.setProperty("--jolt", (bump(seg(s, 0.69, 0.73)) * 2).toFixed(2) + "px");
+    // it is software: the Shuffle button gets pressed and the plain desks twitch once
+    sheet.style.setProperty("--pr", bump(seg(s, 0.6, 0.66)).toFixed(3));
+    var nd = bump(seg(s, 0.62, 0.66)) * 2;
+    for (i = 0; i < rest.length; i++) { rest[i].style.setProperty("--nd", nd.toFixed(2) + "px"); rest[i].style.setProperty("--nx", (i % 3) - 1); }
+
+    // into the sidebar; the fourth tick only once it is really there
+    var nr = E(seg(rr, 0.82, 0.87));
+    rowIn.style.setProperty("--nr", nr.toFixed(4));
+    newRow.style.setProperty("--no", C(nr * 1.6 - 0.4).toFixed(3));
+    rowIn.style.setProperty("--hl", seg(rr, 0.84, 0.88).toFixed(3));
+    rowIn.style.setProperty("--pulse", (1 + bump(seg(rr, 0.84, 0.9)) * 0.03).toFixed(4));
+    newRow.style.setProperty("--ring", bump(seg(rr, 0.85, 0.95)).toFixed(3));
+    var t4 = seg(rr, 0.86, 0.9); ticks[3].style.setProperty("--t", t4.toFixed(3)); ticks[3].classList.toggle("on", t4 > 0);
+
+    // the printer's screen says what the picture shows
+    sec.setAttribute("data-st", rr >= 0.88 ? "r" : rr >= 0.72 ? "a" : s > 0.54 ? "c" : a >= 0.33 ? "s" : a >= 0.03 ? "p" : "w");
+
+    if (!geo.phone) {
+      // the copy flies (.73-.84); the resting trail draws in after it and stays
+      var g = seg(p, 0.73, 0.84), ge = flightEase(g);
+      add.style.opacity = p >= 0.72 ? "1" : "0";
+      add.style.setProperty("--t", E(seg(p, 0.78, 0.86)).toFixed(4));
+      addHead.style.setProperty("--ah", seg(p, 0.84, 0.87).toFixed(3));
+      added.style.setProperty("--al", seg(p, 0.84, 0.88).toFixed(3));
+      if (g > 0 && g < 1) {
+        var u = 1 - ge; // quadratic bezier through a lifted control point
+        var x = u * u * geo.g0x + 2 * u * ge * geo.gcx + ge * ge * geo.g1x,
+            y = u * u * geo.g0y + 2 * u * ge * geo.gcy + ge * ge * geo.g1y;
+        var sc = 1 - (1 - geo.gs1) * flightEase(seg(g, 0.7, 1)) - 0.06 * Math.sin(Math.min(g / 0.7, 1) * Math.PI) * -1;
+        ghost.style.setProperty("--gx", f1(x - 48) + "px");
+        ghost.style.setProperty("--gy", f1(y - 36) + "px");
+        ghost.style.setProperty("--gs", sc.toFixed(3));
+        ghost.style.setProperty("--gr", (-7 * Math.sin(g * Math.PI)).toFixed(2) + "deg");
+        ghost.style.setProperty("--go", (g < 0.06 ? g / 0.06 : g > 0.92 ? (1 - g) / 0.08 : 1).toFixed(3));
+      } else ghost.style.setProperty("--go", "0");
+    } else {
+      marrowP.style.setProperty("--t", E(seg(rr, 0.74, 0.82)).toFixed(4));
+      marrow.style.setProperty("--mh", seg(rr, 0.8, 0.84).toFixed(3));
+    }
+  }
+
+  var remeasure = function () { geo = null; if (MCA.refresh) MCA.refresh(); };
+  addEventListener("resize", remeasure);
+  addEventListener("load", remeasure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+  MCA.register(sec, "pass", paint);
+})();
+</script>

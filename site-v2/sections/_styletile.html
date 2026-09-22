@@ -1,0 +1,465 @@
+<section id="styletile">
+
+  <!-- ================= 1. HERO (pinned motion sample: one goal rides the year) ================= -->
+  <div class="st-pin" data-pin>
+    <div class="st-stage">
+      <div class="st-deskbg" aria-hidden="true"></div>
+
+      <!-- edge objects: finished things already on the desk -->
+      <figure class="st-slide mca-paper" aria-hidden="true">
+        <img src="{{IMG}}/slide.png" alt="" width="2112" height="1188">
+        <span class="mca-tape st-slide__tape"></span>
+      </figure>
+      <figure class="st-home mca-paper" aria-hidden="true">
+        <p class="st-home__to">To families · Period 4</p>
+        <p class="mca-ruled">Hi. A quick note about this week. Nothing’s wrong. I just want us on the same page. Monday’s a clean start.</p>
+        <p class="st-home__foot">Draft · you send it</p>
+      </figure>
+
+      <header class="mca-container st-bar">
+        <a class="st-word" href="#styletile"><span class="st-mark" aria-hidden="true"></span>My Classroom Assistant</a>
+        <nav class="st-nav" aria-label="Sample nav"><a href="#styletile">How it works</a><a href="#styletile">Privacy</a><a href="https://github.com/mattnupen/My-Classroom-Assistant">GitHub ↗</a></nav>
+      </header>
+
+      <div class="mca-container st-main">
+        <div class="st-copy">
+          <span class="mca-eyebrow">Free · open source · runs in Claude</span>
+          <h1 class="mca-display mca-ring-host st-h1"><span class="mca-line">Pick <span data-mca-ring="load">one goal.</span></span><span class="mca-line">It keeps at it all year.</span></h1>
+          <p class="mca-lead st-lead">An AI assistant for your whole class. Give it one goal. Every week it plans a move and makes what you need.</p>
+
+          <div class="mca-copy st-cta" data-copy-group>
+            <div class="mca-copy__row">
+              <button class="mca-btn mca-btn--primary mca-copy__btn" type="button" data-copy-prompt>
+                <span class="mca-copy__glyph" aria-hidden="true">
+                  <svg class="mca-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2.6"/><path d="M9 4.6v-.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v.8"/><path d="M9 11h6M9 15h4"/></svg>
+                  <svg class="mca-copy__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                </span>
+                <span class="mca-copy__labels"><span class="mca-copy__idle">Copy the setup prompt</span><span class="mca-copy__done" aria-hidden="true">Copied. Now paste it into Claude.</span></span>
+              </button>
+              <p class="mca-copy__note mca-hand" aria-hidden="true"><svg class="mca-stroke mca-copy__arrow" viewBox="0 0 44 30"><path d="M41 23C29 29 14 25 7 11"/><path d="M7 11l-.8 8.4M7 11l7.9 2.9"/></svg>Paste it into Claude.</p>
+            </div>
+            <div class="mca-copy__meta">
+              <button class="mca-copy__toggle" type="button" data-reveal-prompt aria-expanded="false"><span class="mca-copy__show">Show the prompt</span><span class="mca-copy__hide">Hide the prompt</span></button>
+              <span class="st-demo">No install. <a class="mca-link" href="{{ROOT}}local-tools/ClassAI-dashboard.html">Try the live demo <span class="mca-arrow">→</span></a></span>
+            </div>
+            <div class="mca-copy__panel" hidden>
+              <p class="mca-copy__fail">Your browser blocked copying. Here it is. Select it and copy.</p>
+              <code class="mca-copy__prompt" tabindex="0"></code>
+            </div>
+            <span class="mca-sr" aria-live="polite" data-copy-status></span>
+          </div>
+        </div>
+
+        <div class="st-goals" aria-label="Example goals: more work turned in, better attendance, more voices in the room, feeling heard, grades">
+          <div class="mca-note st-n st-n1" style="--n:var(--note-sun)">More work turned in</div>
+          <div class="mca-note st-n st-n2" style="--n:var(--note-sky)">Better attendance</div>
+          <div class="mca-note st-n st-n3" style="--n:var(--note-mint)">More voices in the room</div>
+          <div class="mca-note st-n st-n4" style="--n:var(--note-lilac)">Feeling heard</div>
+          <div class="mca-note st-n st-n5" style="--n:var(--note-coral)">Grades</div>
+          <p class="mca-hand st-pick" aria-hidden="true">pick one<svg class="mca-stroke" viewBox="0 0 60 40"><path d="M4 6C16 2 38 6 50 26"/><path d="M50 26l-1.5-9M50 26l-8.5-3.2"/></svg></p>
+        </div>
+      </div>
+
+      <div class="mca-container st-year" aria-hidden="true">
+        <div class="st-tokens"></div>
+        <div class="mca-ruler">
+          <div class="mca-ruler__pips"><span class="mca-ruler__line"></span></div>
+          <div class="mca-ruler__months"><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+        </div>
+        <p class="mca-hand st-allyear">all year</p>
+        <p class="mca-hand st-week"><svg class="mca-stroke" viewBox="0 0 40 34"><path d="M6 30C4 20 8 10 20 5"/><path d="M6 30l-3.6-7.2M6 30l6.4-5"/></svg>this week</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 2. THE THINGS IT MAKES (assistant set-piece, resting state) ================= -->
+  <div class="st-make">
+    <div class="st-make__stage">
+      <h2 class="mca-h2 st-make__words"><span class="mca-line">This is your assistant.</span><span class="mca-line">It helps you do <span class="st-under">things.<svg class="mca-stroke st-under__s" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" class="mca-draw" d="M4 15C60 7 150 5 236 10"/></svg></span></span></h2>
+      <p class="mca-lead st-make__after">All of it comes to you first. You change what you want, then use it.</p>
+
+      <figure class="st-o st-o-slide"><figcaption class="mca-hand">Monday’s slide</figcaption>
+        <div class="mca-paper st-print"><img src="{{IMG}}/slide.png" alt="A Monday opening slide on a classroom projector" width="2112" height="1188"></div>
+        <p class="st-cap">Fresh week. Fresh start.</p></figure>
+
+      <figure class="st-o st-o-note"><figcaption class="mca-hand">A note home</figcaption>
+        <div class="mca-paper st-letter">
+          <p class="st-home__to">To families · Period 4</p>
+          <p class="mca-ruled">Hi. A quick note about this week. Nothing’s wrong. I just want us on the same page. <span class="mca-hl mca-hl--sun">Monday’s a clean start.</span></p>
+          <p class="mca-card__foot">Draft · you send it</p>
+        </div></figure>
+
+      <figure class="st-o st-o-cards"><figcaption class="mca-hand">Cards to hand out</figcaption>
+        <div class="st-fan">
+          <div class="mca-paper st-fan__b"></div><div class="mca-paper st-fan__m"></div>
+          <div class="mca-paper st-fan__t"><img src="{{IMG}}/student-cards.png" alt="Printable progress cards, one per student, with sample names" width="970" height="652"></div>
+        </div>
+        <p class="st-cap">Printed, one per student</p></figure>
+
+      <figure class="st-o st-o-badge"><figcaption class="mca-hand">A badge</figcaption>
+        <div class="st-sticker"><span class="st-sticker__star" aria-hidden="true">★</span>Best question of the week</div></figure>
+
+      <figure class="st-o st-o-event"><figcaption class="mca-hand">A class event</figcaption>
+        <div class="mca-card st-event">
+          <div class="st-event__date" aria-hidden="true">FRI</div>
+          <div><p class="st-event__t">Goal hit!</p><p class="st-event__d">Celebration Friday · 20 min</p></div>
+          <p class="mca-card__foot st-event__foot">You run it</p>
+        </div></figure>
+
+      <figure class="st-o st-o-tool"><figcaption class="mca-hand">A tool it wrote</figcaption>
+        <div class="st-toolrow"><span class="mca-file" style="--f:var(--mint-ink)">seating-chart.html</span><span class="mca-badge mca-badge--mint">Works offline</span></div></figure>
+
+      <figure class="st-o st-o-dash">
+        <div class="mca-window"><div class="mca-window__bar"><i></i><i></i><i></i><span class="mca-window__title">Your home base</span></div>
+          <img src="{{IMG}}/dashboard.png" alt="The Class Tools dashboard showing a sample class" width="2170" height="1442"></div></figure>
+    </div>
+  </div>
+
+  <!-- ================= 3. THE SYSTEM ================= -->
+  <div class="mca-container st-sys">
+    <div class="st-sys__head">
+      <span class="mca-eyebrow">Style tile · Chalk &amp; Marker · r2</span>
+      <p class="mca-h3">Chalkboard ink, copy paper, one orange marker, and the things a teacher already has on the desk.</p>
+    </div>
+
+    <div class="st-cols">
+      <div class="st-block">
+        <p class="st-label">Type</p>
+        <div class="st-scale">
+          <div><span class="st-spec">Display · Bricolage Grotesque 800 · opsz 96 · 96/106 · −4.2%</span><p class="mca-display st-s-hero">Setting it up</p></div>
+          <div><span class="st-spec">H2 · 750 · 68/71 · −3.5%</span><p class="mca-h2">It does the reading first.</p></div>
+          <div><span class="st-spec">H3 · 700 · 34</span><p class="mca-h3">Once a week, it makes a plan. <span class="mca-dim">You decide.</span></p></div>
+          <div><span class="st-spec">Lead · Figtree 500 · 23/33</span><p class="mca-lead">Paste the prompt and it interviews you. About ten minutes. No settings screen.</p></div>
+          <div><span class="st-spec">Body · Figtree 400 · 17/26</span><p class="mca-body">It reads how the class is doing and what you and your students said. Then it plans the week’s move. Nothing reaches your students except through you.</p></div>
+          <div class="st-inline"><span class="mca-hand">Why it wrote that</span><span class="st-spec" style="margin:0">Caveat 650 · 31 · the teacher’s pen, ≤5 words</span></div>
+          <div class="st-inline"><span class="mca-file">period-4-grades.csv</span><span class="st-spec" style="margin:0">DM Mono · files and the prompt</span></div>
+        </div>
+      </div>
+
+      <div class="st-block">
+        <p class="st-label">Colour</p>
+        <div class="st-chips">
+          <div class="st-chip st-chip--big" style="--c:var(--ink);--fg:var(--on-chalk)"><b>Chalk ink</b><span>#14231F · text, the board</span></div>
+          <div class="st-chip st-chip--big" style="--c:var(--orange)"><b>Marker</b><span>#FF5A1F · button, strokes</span></div>
+          <div class="st-chip st-chip--big" style="--c:var(--paper)"><b>Paper</b><span>#FAF6EE</span></div>
+          <div class="st-chip" style="--c:var(--note-sky)"><b>Sky</b><span>setup</span></div>
+          <div class="st-chip" style="--c:var(--note-sun)"><b>Sun</b><span>research</span></div>
+          <div class="st-chip" style="--c:var(--note-mint)"><b>Mint</b><span>tools · ticks</span></div>
+          <div class="st-chip" style="--c:var(--note-lilac)"><b>Lilac</b><span>privacy</span></div>
+          <div class="st-chip" style="--c:var(--note-coral)"><b>Coral</b><span>students</span></div>
+          <div class="st-chip" style="--c:var(--ink-2);--fg:#fff"><b>Ink 2</b><span>body</span></div>
+        </div>
+
+        <p class="st-label" style="margin-top:48px">Primary button · default · hover · focus · pressed · copied</p>
+        <div class="st-btns">
+          <span class="mca-btn mca-btn--primary"><span class="mca-copy__glyph"><svg class="mca-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2.6"/><path d="M9 4.6v-.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v.8"/><path d="M9 11h6M9 15h4"/></svg></span>Copy the setup prompt</span>
+          <span class="mca-btn mca-btn--primary" data-demo="hover">Hover</span>
+          <span class="mca-btn mca-btn--primary" data-demo="focus">Focus</span>
+          <span class="mca-btn mca-btn--primary" data-demo="active">Pressed</span>
+          <span class="mca-btn mca-btn--primary mca-copy__btn is-copied"><span class="mca-copy__glyph"><svg class="mca-copy__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="mca-copy__labels"><span class="mca-copy__done">Copied. Now paste it into Claude.</span></span></span>
+        </div>
+        <div class="st-btns">
+          <span class="mca-btn mca-btn--primary mca-btn--sm">Copy the prompt</span>
+          <span class="mca-btn mca-btn--sm">Change it</span>
+          <span class="mca-btn mca-btn--chalk mca-btn--sm">Run it Monday</span>
+          <a class="mca-link" href="#styletile">Try the live demo <span class="mca-arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="st-label" style="margin-top:88px">Pieces</p>
+    <div class="st-pieces">
+      <div class="mca-card st-ev">
+        <p class="mca-card__label">Evidence card · Missing work</p>
+        <p class="mca-h4">Use natural fresh starts instead of “you’re behind.”</p>
+        <div class="mca-meter"><span class="mca-meter__bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="mca-meter__label">Moderate</span></div>
+        <p class="mca-micro">Evidence strength: Moderate · Dai, Milkman &amp; Riis (2014)</p>
+      </div>
+
+      <div class="st-shelfwrap">
+        <p class="mca-micro st-shelflabel">Research it already has</p>
+        <div class="mca-shelf" aria-hidden="true">
+          <span class="mca-tab mca-tab--on">Missing work</span><span class="mca-tab">Attendance</span><span class="mca-tab">Participation</span>
+          <span class="mca-tab">Calmer transitions</span><span class="mca-tab">Reading comprehension</span><span class="mca-tab mca-tab--new">Your goal →</span>
+        </div>
+      </div>
+
+      <div class="st-slip">
+        <div class="mca-paper st-printout">
+          <span class="mca-file" style="--f:var(--mint-ink)">seating-chart.html</span>
+          <div class="st-lines" aria-hidden="true"><i></i><i></i><i></i><i style="width:60%"></i></div>
+          <span class="mca-stamp st-stamp">Privacy checked</span>
+        </div>
+        <div class="mca-paper st-inspect">
+          <p class="mca-card__label" style="margin-bottom:10px">Inspection slip</p>
+          <span class="mca-tick">One file</span><span class="mca-tick">No internet calls</span><span class="mca-tick">Doesn’t save student data</span><span class="mca-tick">Added to your sidebar</span>
+        </div>
+      </div>
+
+      <div class="st-chatbit">
+        <div class="mca-chat">
+          <p class="mca-bubble mca-bubble--ai"><span class="mca-bubble__who">Your assistant</span>If this year went well, what would be different?</p>
+          <p class="mca-bubble mca-bubble--you"><span class="mca-bubble__who">You</span>Fewer kids with missing work.</p>
+        </div>
+        <div class="st-badges"><span class="mca-badge mca-badge--new">New</span><span class="mca-badge mca-badge--mint">Works offline</span><span class="mca-badge mca-badge--lilac">Sample data · made-up names</span></div>
+      </div>
+    </div>
+
+    <div class="st-sheets">
+      <div class="mca-sheet mca-sheet--sky st-sh"><span class="mca-micro">Sheet · sky · setup</span><p class="mca-h3">Setting it up is just talking.</p></div>
+      <div class="mca-sheet mca-sheet--sun st-sh"><span class="mca-micro">Sheet · sun · research</span><p class="mca-h3">It does the reading first.</p></div>
+      <div class="mca-sheet mca-sheet--lilac st-sh"><span class="mca-micro">Sheet · lilac · data</span><p class="mca-h3">Two safe ways to handle student data.</p></div>
+      <div class="mca-sheet mca-sheet--chalk st-sh mca-ring-host"><span class="mca-micro" style="color:var(--on-chalk-2)">Sheet · chalk · cta</span><p class="mca-h3">Give your class <span data-mca-ring="load" data-ring-px=".14" data-ring-py=".1">one goal.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------- hero ---------- */
+#styletile .st-pin{ position:relative; height:calc(clamp(700px, 100svh, 920px) + 520px); }
+#styletile .st-stage{ position:sticky; top:0; height:clamp(700px, 100svh, 920px); overflow:hidden; display:flex; flex-direction:column; }
+#styletile .st-deskbg{ position:absolute; inset:0; background-image:linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size:32px 32px; background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(80% 90% at 70% 55%, #000 30%, transparent 85%); mask-image:radial-gradient(80% 90% at 70% 55%, #000 30%, transparent 85%); pointer-events:none; }
+
+#styletile .st-bar{ position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; height:84px; }
+#styletile .st-word{ display:inline-flex; align-items:center; gap:11px; text-decoration:none; font:750 1.1875rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 24; }
+#styletile .st-mark{ width:32px; height:32px; border-radius:9px; background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='17' y='17' width='30' height='30' rx='3' fill='%23FFE67E' transform='rotate(-6 32 32)'/%3E%3Cpath d='M38 9C20 8 7 17 7 32s12 25 27 24 23-11 23-25S47 9 29 12' fill='none' stroke='%23FF5A1F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat; }
+#styletile .st-nav{ display:flex; gap:30px; font:650 .9375rem/1 var(--f-body); color:var(--ink-2); }
+#styletile .st-nav a{ text-decoration:none; }
+#styletile .st-nav a:hover{ color:var(--ink); }
+
+#styletile .st-main{ position:relative; z-index:2; flex:1; display:grid; grid-template-columns:minmax(0,1fr) 520px; column-gap:40px; align-content:center; padding-bottom:40px; }
+#styletile .st-copy{ grid-column:1 / -1; display:grid; justify-items:start; }
+#styletile .st-h1{ margin-top:22px; font-size:clamp(2.875rem, 1.5rem + 5.4vw, 5.875rem); }
+#styletile .st-lead{ margin-top:26px; max-width:24em; }
+#styletile .st-cta{ margin-top:36px; }
+#styletile .st-demo{ display:inline-flex; gap:.35em; align-items:baseline; }
+#styletile .st-demo .mca-link{ color:var(--ink); }
+
+/* goals: five sticky notes on the right of the lead/CTA row */
+#styletile .st-goals{ position:absolute; right:calc(var(--gutter) + 10px); bottom:44px; width:470px; height:300px; }
+#styletile .st-n{ position:absolute; will-change:transform; }
+#styletile .st-n1{ left:0;    top:52px;  --r:-5deg; transform:rotate(var(--r)); z-index:3; }
+#styletile .st-n2{ left:150px; top:0;    --r:3.5deg; transform:rotate(var(--r)); }
+#styletile .st-n3{ left:304px; top:40px; --r:-2deg; transform:rotate(var(--r)); }
+#styletile .st-n4{ left:92px; top:168px; --r:2.5deg; transform:rotate(var(--r)); }
+#styletile .st-n5{ left:250px; top:176px; --r:-4deg; transform:rotate(var(--r)); }
+#styletile .st-pick{ position:absolute; left:-118px; top:150px; display:flex; flex-direction:column; align-items:flex-end; transform:rotate(-6deg); }
+#styletile .st-pick svg{ width:54px; height:36px; margin:2px -30px 0 0; transform:scaleY(-1) rotate(-10deg); }
+#styletile .st-pick path{ stroke-width:3px; }
+
+/* edge objects */
+#styletile .st-slide{ position:absolute; z-index:1; top:108px; right:-170px; width:470px; transform:rotate(6deg); padding:0; overflow:visible; }
+#styletile .st-slide img{ border-radius:var(--r-sm); }
+#styletile .st-slide__tape{ left:40%; top:-12px; transform:rotate(-4deg); }
+#styletile .st-home{ position:absolute; z-index:1; right:-138px; top:430px; width:300px; padding:18px 22px 14px; transform:rotate(4deg); font:500 .9375rem/28px var(--f-body); color:var(--ink); opacity:.97; }
+#styletile .st-home__to{ font:750 .6875rem/1 var(--f-body); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:10px; }
+#styletile .st-home__foot{ margin-top:8px; font:700 .75rem/1 var(--f-body); color:var(--ink-3); }
+
+/* the year */
+#styletile .st-year{ position:relative; z-index:2; padding-bottom:56px; }
+#styletile .st-tokens{ position:relative; height:0; }
+#styletile .st-allyear{ position:absolute; right:calc(var(--gutter) - 4px); bottom:10px; transform:rotate(-3deg); font-size:1.625rem; }
+#styletile .st-traveller{ z-index:4; }
+
+/* ---------- the things it makes ---------- */
+#styletile .st-make{ position:relative; padding:24px 0 0; }
+#styletile .st-make__stage{ position:relative; max-width:1400px; height:880px; margin:0 auto; overflow:hidden; }
+#styletile .st-make__words{ position:absolute; left:50%; top:18%; transform:translateX(-50%); width:max-content; text-align:center; font-size:clamp(2.5rem, 1.6rem + 3.4vw, 4.75rem); line-height:1.02; }
+#styletile .st-under{ position:relative; display:inline-block; }
+#styletile .st-under__s{ position:absolute; left:-2%; bottom:-.1em; width:104%; height:.28em; z-index:-1; }
+#styletile .st-make__words{ isolation:isolate; }
+#styletile .st-make__after{ position:absolute; left:50%; top:calc(18% + 2.3 * clamp(2.5rem, 1.6rem + 3.4vw, 4.75rem)); transform:translateX(-50%); width:max-content; max-width:90vw; text-align:center; }
+#styletile .st-o{ position:absolute; display:grid; gap:6px; }
+#styletile .st-o figcaption{ padding-left:8px; font-size:1.625rem; }
+#styletile .st-cap{ font:600 .8125rem/1.3 var(--f-body); color:var(--ink-3); padding-left:8px; }
+#styletile .st-print{ padding:6px; }
+#styletile .st-print img{ border-radius:4px; }
+#styletile .st-o-slide{ left:3%; top:5%; width:320px; transform:rotate(-4deg); }
+#styletile .st-o-note{ right:3%; top:3%; width:300px; transform:rotate(3deg); }
+#styletile .st-letter{ padding:18px 22px 14px; font:500 .9375rem/28px var(--f-body); color:var(--ink); }
+#styletile .st-letter .mca-card__foot{ margin-top:10px; }
+#styletile .st-o-cards{ left:1.5%; top:47%; width:290px; transform:rotate(2deg); }
+#styletile .st-fan{ position:relative; }
+#styletile .st-fan > div{ padding:6px; }
+#styletile .st-fan__b,#styletile .st-fan__m{ position:absolute; inset:0; }
+#styletile .st-fan__b{ transform:rotate(-7deg) translate(-8px,6px); }
+#styletile .st-fan__m{ transform:rotate(-3.5deg) translate(-3px,3px); }
+#styletile .st-fan__t{ position:relative; }
+#styletile .st-o-badge{ right:6%; top:41%; transform:rotate(-5deg); }
+#styletile .st-sticker{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px 12px 12px; border-radius:var(--r-pill); background:var(--note-sun); white-space:nowrap; min-width:max-content; font:700 1rem/1 var(--f-display); letter-spacing:-.01em; box-shadow:var(--sh-note), inset 0 0 0 2px rgba(255,255,255,.7); }
+#styletile .st-sticker__star{ display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--note-sun); font-size:1rem; }
+#styletile .st-o-event{ right:2.5%; top:59%; width:300px; transform:rotate(2deg); }
+#styletile .st-event{ padding:16px 18px 14px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; align-items:center; }
+#styletile .st-event__date{ width:56px; height:56px; border-radius:12px; background:var(--coral); color:var(--coral-ink); display:grid; place-items:center; font:800 1rem/1 var(--f-display); letter-spacing:.04em; box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--coral-ink) 30%, transparent); }
+#styletile .st-event__t{ font:800 1.625rem/1 var(--f-display); letter-spacing:-.03em; margin-bottom:6px; }
+#styletile .st-event__d{ font:600 .875rem/1.2 var(--f-body); color:var(--ink-2); white-space:nowrap; }
+#styletile .st-event__foot{ grid-column:1 / -1; margin-top:2px; }
+#styletile .st-o-tool{ left:4%; top:84%; transform:rotate(-2deg); z-index:2; }
+#styletile .st-toolrow{ display:flex; gap:10px; align-items:center; }
+#styletile .st-o-dash{ left:50%; top:60%; width:640px; margin-left:-320px; z-index:1; }
+#styletile .st-o-dash img{ display:block; }
+
+/* ---------- system ---------- */
+#styletile .st-sys{ padding-top:120px; padding-bottom:112px; }
+#styletile .st-sys__head{ display:grid; gap:18px; max-width:760px; margin-bottom:72px; }
+#styletile .st-cols{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:72px; }
+#styletile .st-label{ font:750 .75rem/1 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); padding-bottom:12px; margin-bottom:24px; border-bottom:1px solid var(--line); }
+#styletile .st-scale{ display:grid; gap:26px; }
+#styletile .st-spec{ display:block; font:500 .75rem/1.2 var(--f-mono); color:var(--ink-3); margin-bottom:8px; }
+#styletile .st-s-hero{ font-size:clamp(2.875rem, 1.5rem + 5vw, 5.75rem); line-height:1; }
+#styletile .st-inline{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+#styletile .st-chips{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+#styletile .st-chip{ height:78px; border-radius:var(--r-md); background:var(--c); color:var(--fg,var(--ink)); padding:12px 14px; display:flex; flex-direction:column; justify-content:flex-end; box-shadow:inset 0 0 0 1px var(--line); }
+#styletile .st-chip--big{ height:112px; }
+#styletile .st-chip b{ font:700 1rem/1.1 var(--f-display); letter-spacing:-.01em; }
+#styletile .st-chip span{ font:500 .6875rem/1.4 var(--f-mono); opacity:.8; }
+#styletile .st-btns{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:14px; }
+
+#styletile .st-pieces{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:40px 32px; align-items:start; }
+#styletile .st-ev{ grid-column:span 4; display:grid; gap:14px; padding:24px; }
+#styletile .st-shelfwrap{ grid-column:span 8; align-self:end; }
+#styletile .st-shelflabel{ margin-bottom:12px; }
+#styletile .st-slip{ grid-column:span 7; position:relative; min-height:260px; }
+#styletile .st-printout{ position:relative; width:330px; padding:22px; transform:rotate(-2deg); display:grid; gap:16px; justify-items:start; }
+#styletile .st-lines{ display:grid; gap:9px; width:100%; }
+#styletile .st-lines i{ display:block; height:8px; border-radius:4px; background:var(--paper-2); }
+#styletile .st-stamp{ position:absolute; right:22px; bottom:24px; }
+#styletile .st-inspect{ position:absolute; left:290px; top:60px; width:270px; padding:18px 20px; display:grid; gap:10px; transform:rotate(3deg); background:#FFFDF6; }
+#styletile .st-inspect .mca-tick{ font-size:.9375rem; }
+#styletile .st-chatbit{ grid-column:span 5; display:grid; gap:18px; }
+#styletile .st-chatbit .mca-bubble{ font-size:.9375rem; }
+#styletile .st-badges{ display:flex; flex-wrap:wrap; gap:8px; }
+
+#styletile .st-sheets{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:88px; }
+#styletile .st-sheets .mca-sheet{ margin:0; }
+#styletile .st-sh{ min-height:190px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; gap:20px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1180px){
+  #styletile .st-goals{ transform:scale(.84); transform-origin:100% 100%; }
+  #styletile .st-slide{ right:-230px; }
+  #styletile .st-home{ display:none; }
+  #styletile .st-cols{ grid-template-columns:minmax(0,1fr); gap:64px; }
+}
+@media (max-width: 860px){
+  #styletile .st-pin{ height:auto; }
+  #styletile .st-stage{ position:relative; height:auto; min-height:0; }
+  #styletile .st-main{ grid-template-columns:minmax(0,1fr); }
+  #styletile .st-goals{ position:relative; right:auto; bottom:auto; transform:none; width:100%; height:176px; margin-top:44px; }
+  #styletile .st-slide{ display:none; }
+  #styletile .st-make__stage{ height:auto; overflow:visible; display:grid; gap:40px; padding:0 var(--gutter) 40px; }
+  #styletile .st-make__words,#styletile .st-make__after,#styletile .st-o{ position:relative; left:auto; right:auto; top:auto; transform:none; width:auto; margin:0; }
+  #styletile .st-make__words{ text-align:left; }
+  #styletile .st-make__after{ text-align:left; max-width:none; }
+  #styletile .st-o-dash{ display:none; }
+  #styletile .st-o-slide,#styletile .st-o-note,#styletile .st-o-cards,#styletile .st-o-event{ max-width:340px; }
+  #styletile .st-pieces > *{ grid-column:1 / -1; }
+}
+@media (max-width: 640px){
+  #styletile .st-bar{ height:68px; }
+  #styletile .st-nav{ display:none; }
+  #styletile .st-h1{ margin-top:18px; }
+  #styletile .st-lead{ margin-top:18px; }
+  #styletile .st-cta{ margin-top:26px; }
+  #styletile .st-goals{ height:150px; margin-top:40px; }
+  #styletile .st-n{ width:calc((100% - 20px) / 3); min-height:104px; font-size:.9375rem; padding:14px 11px 11px; }
+  #styletile .st-n1{ left:0; top:18px; }
+  #styletile .st-n2{ left:calc((100% - 20px) / 3 + 10px); top:0; }
+  #styletile .st-n3{ left:auto; right:0; top:14px; }
+  #styletile .st-n4,#styletile .st-n5{ display:none; }
+  #styletile .st-pick{ left:auto; right:6px; top:-38px; font-size:1.5rem; }
+  #styletile .st-pick svg{ display:none; }
+  #styletile .st-week{ top:-40px; font-size:1.375rem; }
+  #styletile .st-bar{ margin-bottom:12px; }
+  #styletile .st-year{ padding-top:36px; }
+  #styletile .st-allyear{ top:-6px; font-size:1.5rem; }
+  #styletile .mca-ruler__months{ font-size:.6875rem; }
+  #styletile .st-chips{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #styletile .st-sheets{ grid-template-columns:minmax(0,1fr); }
+  #styletile .st-inspect{ position:relative; left:auto; top:auto; margin:-20px 0 0 36px; }
+  #styletile .st-printout{ width:min(330px,100%); }
+  #styletile .st-btns .mca-btn{ white-space:normal; }
+  #styletile .st-sys{ padding-top:72px; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.getElementById("styletile"); if (!root) return;
+  var pin = root.querySelector(".st-pin");
+  var pipsEl = root.querySelector(".mca-ruler__pips");
+  var line = root.querySelector(".mca-ruler__line");
+  for (var i = 0; i < 40; i++) pipsEl.insertBefore(document.createElement("i"), line);
+  var pips = pipsEl.querySelectorAll("i");
+  var notes = root.querySelectorAll(".st-n");
+  var hero = notes[0], rest = [notes[1], notes[2], notes[3], notes[4]];
+  var pick = root.querySelector(".st-pick");
+  var allyear = root.querySelector(".st-allyear");
+  var week = root.querySelector(".st-week");
+
+  // the things it makes along the way: tiny tokens that drop above their week
+  var tokenDefs = [[1, "Slide", "slide"], [5, "Note home", "note"], [11, "Badge", "badge"], [17, "Cards", "cards"], [24, "Event", "event"], [30, "New tool", "tool"]];
+  var tokWrap = root.querySelector(".st-tokens"), toks = [];
+  tokenDefs.forEach(function (d) {
+    var t = document.createElement("span"); t.className = "st-tok st-tok--" + d[2]; t.textContent = d[1]; t.dataset.w = d[0];
+    tokWrap.appendChild(t); toks.push(t);
+  });
+
+  var geo = null;
+  function measure() {
+    hero.style.transform = "";
+    var h = hero.getBoundingClientRect(), pr = pipsEl.getBoundingClientRect(), tw = tokWrap.getBoundingClientRect();
+    geo = { hx: h.left + h.width / 2, hy: h.top + h.height / 2, hw: h.width, hh: h.height,
+            px: pr.left, pw: pr.width, py: pr.top, tl: tw.left };
+    toks.forEach(function (t) { t.style.left = (pr.left - tw.left + (+t.dataset.w + .5) / 40 * pr.width) + "px"; });
+  }
+  addEventListener("resize", function () { geo = null; });
+
+  var small = matchMedia("(max-width: 860px)");
+  MCA.register(pin, "pin", function (p) {
+    if (small.matches) p = MCA.frozen !== null || MCA.reduced ? p : 0;
+    if (!geo) measure();
+    var a = MCA.ease(MCA.clamp01(p / 0.22));           // choose + lift onto the year
+    var b = MCA.clamp01((p - 0.24) / 0.7);             // ride Sep -> Jun
+    rest.forEach(function (n, k) {
+      var t = MCA.clamp01(a * 1.25 - k * 0.08);
+      n.style.opacity = (1 - t * 0.62).toFixed(3);
+      n.style.filter = "saturate(" + (1 - t * 0.6).toFixed(2) + ")";
+      n.style.transform = "translateY(" + (t * 18).toFixed(1) + "px) rotate(var(--r))";
+    });
+    pick.style.opacity = (1 - MCA.clamp01(a * 2)).toFixed(3);
+    week.style.opacity = (1 - MCA.clamp01(a * 2)).toFixed(3);
+    var s = 1 - 0.3 * a;
+    var tx = geo.px + b * geo.pw - geo.hx + (1 - b) * 0 + 0;
+    var tgtX = geo.px + (b * 39 + .5) / 40 * geo.pw, tgtY = geo.py - 44 - geo.hh * s / 2;
+    var dx = (tgtX - geo.hx) * a, dy = (tgtY - geo.hy) * a;
+    var rot = -5 * (1 - a) + Math.sin(b * Math.PI * 6) * 2 * a;
+    hero.style.transform = "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px) rotate(" + rot.toFixed(2) + "deg) scale(" + s.toFixed(3) + ")";
+    hero.style.zIndex = 5;
+    for (var i = 0; i < pips.length; i++) pips[i].classList.toggle("on", i === 0 || (a > .98 && (i + .5) / 40 <= b + 1e-6));
+    line.style.setProperty("--t", (a > .98 ? b : 0).toFixed(4));
+    toks.forEach(function (t) {
+      var on = MCA.clamp01((b * 40 - (+t.dataset.w + .5)) / 2.2);
+      t.style.opacity = on.toFixed(3);
+      t.style.transform = "translate(-50%," + ((1 - on) * -14).toFixed(1) + "px) rotate(" + (((+t.dataset.w % 3) - 1) * 3) + "deg)";
+    });
+    allyear.style.opacity = (0.55 + 0.45 * b).toFixed(3);
+  });
+  if (window.MCA_RING) addEventListener("load", function () { geo = null; MCA.refresh(); });
+})();
+</script>
+<style>
+#styletile .st-tok{ position:absolute; bottom:10px; opacity:0; display:inline-flex; align-items:center; gap:6px; padding:5px 9px 5px 6px; border-radius:8px; background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); font:700 .6875rem/1 var(--f-body); color:var(--ink-2); white-space:nowrap; }
+#styletile .st-tok::before{ content:""; width:16px; height:12px; border-radius:2px; flex:none; }
+#styletile .st-tok--slide::before{ background:linear-gradient(var(--ink) 0 45%, var(--mint) 45%); }
+#styletile .st-tok--note::before{ width:12px; height:14px; background:repeating-linear-gradient(#fff 0 3px, var(--note-sky) 3px 4px); box-shadow:inset 0 0 0 1px var(--line-2); }
+#styletile .st-tok--badge::before{ width:13px; height:13px; border-radius:50%; background:var(--note-sun); box-shadow:inset 0 0 0 3px var(--sun-ink); }
+#styletile .st-tok--cards::before{ width:11px; height:14px; background:#fff; box-shadow:inset 0 0 0 1px var(--ink-4), 3px -2px 0 -1px #fff, 3px -2px 0 0 var(--ink-4); }
+#styletile .st-tok--event::before{ width:13px; height:13px; border-radius:4px; background:var(--note-coral); }
+#styletile .st-tok--tool::before{ width:11px; height:14px; background:linear-gradient(225deg, transparent 4px, var(--mint-ink) 4px); }
+#styletile .st-week{ position:absolute; left:calc(var(--gutter) + 2px); top:-50px; display:flex; align-items:flex-end; gap:4px; font-size:1.5rem; transform:rotate(-3deg); }
+#styletile .st-week svg{ width:30px; height:26px; }
+#styletile .st-week path{ stroke-width:2.6px; }
+</style>

@@ -1,0 +1,443 @@
+<section id="nav" aria-label="Site navigation">
+  <a class="nv-skip" href="#hero">Skip to content</a>
+
+  <!-- the fog: a progressive blur across the top edge of the window, so whatever scrolls up to the
+       bar softens and fades before it reaches it (no half-cut words beside or above the glass) -->
+  <div class="nv-fog" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="nv-bar" data-nv-state="top">
+    <div class="nv-inner">
+      <a class="nv-word" href="#" aria-label="My Classroom Assistant, back to top">
+        <svg class="nv-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="17" fill="#14231F"/>
+          <rect x="1" y="1" width="62" height="62" rx="16" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2"/>
+          <g class="nv-mark__note">
+            <rect x="16" y="16" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 31 31)"/>
+            <path d="M16.4 19.6l29.8-3.1.5 4.3-29.8 3.1z" fill="#14231F" opacity=".09"/>
+          </g>
+          <path class="nv-mark__loop" pathLength="1" d="M36 10.6C20 10.2 9 19 9 32s11 23 25 22 21-10 21-23c0-8-3.8-13.6-10.6-17.8" fill="none" stroke="#FF5A1F" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="nv-name">My Classroom Assistant</span>
+      </a>
+
+      <nav class="nv-links" aria-label="Main">
+        <a class="nv-link" href="#setup" data-nv-for="setup">How it works<svg class="nv-under" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 6.4C27 3.7 61 3.1 97 5.4"/></svg></a>
+        <a class="nv-link" href="#data" data-nv-for="data">Privacy<svg class="nv-under" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 6.4C27 3.7 61 3.1 97 5.4"/></svg></a>
+      </nav>
+
+      <div class="nv-right">
+        <!-- solid: GitHub steps aside as a quiet text link, left of the button -->
+        <a class="nv-link nv-link--out nv-gh-link" href="https://github.com/mattnupen/My-Classroom-Assistant" rel="noopener" tabindex="-1" aria-hidden="true">GitHub<svg class="nv-out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.4 3.5h4.1v4.1"/></svg></a>
+        <div class="nv-slot">
+        <!-- top: the slot holds GitHub as a plain text link, right-aligned on the column line -->
+        <a class="nv-chip" href="https://github.com/mattnupen/My-Classroom-Assistant" rel="noopener"><span>GitHub</span><svg class="nv-out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.4 3.5h4.1v4.1"/></svg></a>
+      <div class="mca-copy nv-cta" data-copy-group>
+        <button class="mca-btn mca-btn--primary mca-btn--sm mca-copy__btn nv-btn" type="button" data-copy-prompt tabindex="-1" aria-hidden="true">
+          <span class="mca-copy__glyph" aria-hidden="true">
+            <svg class="mca-copy__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2.6"/><path d="M9 4.6v-.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v.8"/><path d="M9 11h6M9 15h4"/></svg>
+            <svg class="mca-copy__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          </span>
+          <span class="mca-copy__labels"><span class="mca-copy__idle">Copy the prompt</span><span class="mca-copy__done" aria-hidden="true">Copied<span class="mca-sr">. Now paste it into Claude Cowork.</span></span></span>
+        </button>
+        <div class="mca-copy__panel nv-panel" hidden>
+          <p class="mca-copy__fail">Your browser blocked copying. Here it is. Select it and copy.</p>
+          <code class="mca-copy__prompt" tabindex="0"></code>
+          <button class="nv-close" type="button" data-reveal-prompt aria-expanded="false">Close</button>
+        </div>
+        <span class="mca-sr" aria-live="polite" data-copy-status></span>
+      </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
+
+<style>
+/* ---------- nav ----------
+   Three states, read from the page (not a scrub):
+   top   : transparent, sits on the hero like a letterhead
+   lift  : the hero has started to move under it, so it frosts over (no button yet)
+   solid : the hero's copy button is gone, so the nav's own one slides in (200ms, after the fill)
+   The links are centred on the page and never move; the button has its own reserved slot. */
+#nav{ position:relative; height:0; z-index:60; }
+#nav .nv-skip{
+  position:fixed; left:var(--gutter); top:14px; z-index:3; padding:10px 16px; border-radius:11px;
+  background:var(--ink); color:var(--on-chalk); font:750 var(--t-small)/1 var(--f-body); text-decoration:none;
+  transform:translateY(-160%); transition:transform var(--d-2) var(--ease-out);
+}
+#nav .nv-skip:focus-visible{ transform:none; box-shadow:var(--ring); }
+
+/* the bar is 28px wider than the page container, so at rest its contents sit exactly on the
+   container edge (in line with the hero headline); once it fills, the glass extends 14px past it */
+#nav .nv-bar{
+  --pad:14px; --fill:cubic-bezier(.2,.8,.2,1);
+  position:fixed; top:12px; left:0; right:0; margin-inline:auto;
+  width:min(calc(100% - 2 * (var(--gutter) - var(--pad))), calc(var(--w-page) + 2 * var(--pad)));
+  height:60px; border-radius:18px;
+}
+/* the glass lives on its own layer so it can fade as one piece (bg, blur, ring and shadow together) */
+#nav .nv-bar::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:linear-gradient(180deg, rgb(255 253 249 / .97), rgb(250 246 238 / .93));
+  -webkit-backdrop-filter:blur(40px) saturate(1.6); backdrop-filter:blur(40px) saturate(1.6);
+  box-shadow:
+    inset 0 0 0 1px rgb(20 35 31 / .11),
+    inset 0 1px 0 rgb(255 255 255 / .75),
+    0 1px 1px rgb(20 35 31 / .04),
+    0 6px 16px -8px rgb(20 35 31 / .14),
+    0 18px 36px -24px rgb(20 35 31 / .22);
+  opacity:0; transform:scale(.985);
+  transition:opacity 200ms var(--fill), transform 200ms var(--fill);
+}
+#nav .nv-bar:not([data-nv-state="top"])::before{ opacity:1; transform:none; }
+/* a short paper wash under the glass, so glyphs fade out before they meet its edge */
+#nav .nv-bar::after{
+  content:""; position:absolute; left:0; right:0; top:100%; height:14px; pointer-events:none;
+  background:linear-gradient(rgb(250 246 238 / .9), rgb(250 246 238 / 0));
+  opacity:0; transition:opacity 200ms var(--fill);
+}
+#nav .nv-bar:not([data-nv-state="top"])::after{ opacity:1; }
+
+/* progressive blur: three stacked layers, each blurrier and each masked to a shorter band,
+   so the blur ramps up toward the top edge instead of ending in a hard line */
+#nav .nv-fog{
+  position:fixed; top:0; left:0; right:0; height:76px; pointer-events:none;
+}
+/* opacity lives on each layer, never on the wrapper: a translucent wrapper would become the
+   backdrop root and the blur would see nothing behind it mid-fade */
+#nav .nv-fog i{ position:absolute; inset:0; opacity:0; transition:opacity 200ms cubic-bezier(.2,.8,.2,1); }
+#nav .nv-fog i:nth-child(1){
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  -webkit-mask-image:linear-gradient(to bottom, #000 45%, transparent 100%); mask-image:linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+#nav .nv-fog i:nth-child(2){
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  -webkit-mask-image:linear-gradient(to bottom, #000 30%, transparent 72%); mask-image:linear-gradient(to bottom, #000 30%, transparent 72%);
+}
+#nav .nv-fog i:nth-child(3){
+  -webkit-backdrop-filter:blur(14px) saturate(1.15); backdrop-filter:blur(14px) saturate(1.15);
+  background:linear-gradient(to bottom, rgb(250 246 238 / .96) 0 12px, rgb(250 246 238 / 0) 100%);
+  -webkit-mask-image:linear-gradient(to bottom, #000 20%, transparent 62%); mask-image:linear-gradient(to bottom, #000 20%, transparent 62%);
+}
+#nav.nv-fogged .nv-fog i{ opacity:1; }
+
+#nav .nv-inner{
+  position:relative; height:100%;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px;
+  padding:0 9px;
+}
+
+/* wordmark */
+#nav .nv-word{
+  justify-self:start; display:inline-flex; align-items:center; gap:11px; min-width:0; padding:4px 6px 4px 0;
+  margin-left:calc(var(--pad) - 9px);
+  color:var(--ink); text-decoration:none; border-radius:12px;
+  font:750 1.1875rem/1 var(--f-display); letter-spacing:-.024em; font-variation-settings:"opsz" 24;
+}
+#nav .nv-word:focus-visible{ outline:none; box-shadow:var(--ring); }
+#nav .nv-mark{
+  width:32px; height:32px; flex:none; overflow:visible; border-radius:9px;
+  box-shadow:0 1px 1.5px rgb(20 35 31 / .22), 0 5px 12px -5px rgb(20 35 31 / .4);
+}
+#nav .nv-mark__note{ transform-origin:32px 32px; transition:transform var(--d-3) var(--ease-spring); }
+#nav .nv-word:hover .nv-mark__note{ transform:rotate(-8deg) translateY(-1px); }
+#nav .nv-name{ white-space:nowrap; padding-top:1px; }
+
+/* links: centred on the page, fixed forever */
+#nav .nv-links{ justify-self:center; display:flex; align-items:center; gap:2px; }
+#nav .nv-link{
+  position:relative; display:inline-flex; align-items:center; gap:4px; height:40px; padding:0 14px; border-radius:11px;
+  font:650 var(--t-small)/1 var(--f-body); letter-spacing:-.003em; color:var(--ink-2);
+  text-decoration:none; white-space:nowrap;
+  transition:color var(--d-2), background-color var(--d-2);
+}
+#nav .nv-link:hover{ color:var(--ink); background:rgb(20 35 31 / .055); }
+#nav .nv-link:focus-visible{ outline:none; box-shadow:var(--ring); }
+#nav .nv-link[aria-current="location"]{ color:var(--ink); }
+#nav .nv-out{ width:12px; height:12px; margin-top:-1px; overflow:visible; }
+#nav .nv-out path{ fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:transform var(--d-2) var(--ease-out); }
+#nav .nv-link--out:hover .nv-out path{ transform:translate(1px,-1px); }
+
+/* where you are: the marker underlines the section you're in.
+   Idle paths are fully transparent (a hidden dash's round cap would still paint a dot). */
+#nav .nv-under{ position:absolute; left:11px; bottom:3px; width:calc(100% - 22px); height:8px; overflow:visible; pointer-events:none; }
+#nav .nv-under path{
+  fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round;
+  stroke-dasharray:1 2; stroke-dashoffset:1.02; opacity:0;
+  transition:stroke-dashoffset var(--d-3) var(--ease-out), opacity 0s linear var(--d-3);
+}
+#nav .nv-link[aria-current="location"] .nv-under path{
+  stroke-dashoffset:0; opacity:1;
+  transition:stroke-dashoffset var(--d-3) var(--ease-out), opacity 0s;
+}
+
+/* the right cluster: [GitHub text link (solid only)] [slot]. The slot is locked to the copy button's
+   width (set in JS) and holds either the GitHub chip (top, lift) or the copy button (solid), stacked
+   on one spot, so nothing else on the bar ever moves. */
+#nav .nv-right{ justify-self:end; display:flex; align-items:center; gap:6px; }
+#nav .nv-slot{ position:relative; margin-right:calc(var(--pad) - 9px); display:grid; justify-items:end; align-items:center; }
+#nav .nv-slot > *{ grid-area:1 / 1; }
+#nav .nv-cta{ display:block; position:static; flex:none; gap:0; }
+#nav .nv-slot > .nv-cta{ justify-self:stretch; } /* fills the locked slot, so "Copied" never changes the width */
+
+/* GitHub, top state: a plain text link like the others (no ring, nothing boxed competes with the
+   hero's orange button). Its arrow ends exactly on the page column, in line with the hero's right edge. */
+#nav .nv-chip{
+  position:relative; display:inline-flex; align-items:center; gap:4px; height:40px; padding:0 0 0 12px;
+  font:650 var(--t-small)/1 var(--f-body); letter-spacing:-.003em; color:var(--ink-2); text-decoration:none; white-space:nowrap;
+  transition:opacity 160ms var(--fill), transform 200ms var(--fill), visibility 0s, color var(--d-2);
+}
+#nav .nv-chip::before{ content:""; position:absolute; inset:0 -9px 0 0; border-radius:11px; transition:background-color var(--d-2); }
+#nav .nv-chip:hover{ color:var(--ink); }
+#nav .nv-chip:hover::before{ background:rgb(20 35 31 / .055); }
+#nav .nv-chip:hover .nv-out path{ transform:translate(1px,-1px); }
+#nav .nv-chip:focus-visible{ outline:none; }
+#nav .nv-chip:focus-visible::before{ box-shadow:var(--ring); }
+#nav .nv-bar[data-nv-state="solid"] .nv-chip{
+  visibility:hidden; opacity:0; transform:translateY(6px) scale(.97); pointer-events:none;
+  transition:opacity 140ms var(--fill), transform 200ms var(--fill), visibility 0s linear 200ms;
+}
+
+/* GitHub, solid state: it steps into the link row, left of the button */
+#nav .nv-gh-link{
+  visibility:hidden; opacity:0; transform:translateX(6px);
+  transition:opacity 200ms var(--fill), transform 200ms var(--fill), visibility 0s linear 200ms, color var(--d-2), background-color var(--d-2);
+}
+#nav .nv-bar[data-nv-state="solid"] .nv-gh-link{
+  visibility:visible; opacity:1; transform:none;
+  transition:opacity 200ms var(--fill) 110ms, transform 240ms var(--fill) 110ms, visibility 0s, color var(--d-2), background-color var(--d-2);
+}
+
+/* the copy button: waits hidden (and untabbable), then drops in 70ms after the glass */
+#nav .nv-btn{
+  width:100%; min-height:36px; padding:0 14px 0 12px; gap:8px; border-radius:10px; font-size:.875rem; font-weight:800; letter-spacing:-.01em;
+  --sh:inset 0 1px 0 rgb(255 255 255 / .25), inset 0 0 0 1px rgb(20 35 31 / .06), 0 1px 2px rgb(194 68 16 / .35), 0 4px 10px -6px rgb(194 68 16 / .45);
+  visibility:hidden; opacity:0; transform:translateY(-6px) scale(.98);
+  transition:opacity 200ms var(--fill), transform 220ms var(--fill), visibility 0s linear 200ms,
+             box-shadow var(--d-2) var(--ease-out), background-color var(--d-2) var(--ease-out), color var(--d-2);
+}
+#nav .nv-bar[data-nv-state="solid"] .nv-btn{
+  visibility:visible; opacity:1; transform:none;
+  transition:opacity 200ms var(--fill) 120ms, transform 220ms var(--fill) 120ms, visibility 0s,
+             box-shadow var(--d-2) var(--ease-out), background-color var(--d-2) var(--ease-out), color var(--d-2);
+}
+#nav .nv-bar[data-nv-state="solid"] .nv-btn:hover{
+  transform:translateY(-1px); transition-delay:0s;
+  --sh:inset 0 1px 0 rgb(255 255 255 / .3), inset 0 0 0 1px rgb(20 35 31 / .06), 0 2px 3px rgb(194 68 16 / .32), 0 6px 12px -7px rgb(194 68 16 / .55);
+}
+#nav .nv-bar[data-nv-state="solid"] .nv-btn:active{ transform:translateY(1px); transition-delay:0s; --sh:inset 0 1px 2px rgb(20 35 31 / .18), 0 1px 1px rgb(194 68 16 / .25); }
+#nav .nv-btn:focus-visible{ border-radius:10px; }
+#nav .nv-btn .mca-copy__glyph{ width:18px; height:18px; }
+#nav .nv-btn .mca-copy__labels{ white-space:nowrap; line-height:1; transform:translateY(-.5px); }
+/* "Copied" is shorter than the idle label: the slot is locked to the idle width and the
+   check + "Copied" pair centres inside it, so nothing jumps */
+#nav .nv-btn.is-copied .mca-copy__idle{ position:absolute; }
+
+/* copied: the page-wide ink chip (tokens.css .is-copied), same width, back to orange after 2.4s */
+
+/* clipboard blocked: the prompt drops in under the bar, selected and ready */
+#nav .nv-panel{
+  position:absolute; top:calc(100% + 10px); right:0; width:min(460px, calc(100vw - 2 * var(--gutter)));
+  padding:16px 18px 14px; border-radius:16px;
+}
+#nav .nv-panel .mca-copy__prompt{ font-size:.8125rem; }
+#nav .nv-close{
+  appearance:none; border:0; background:none; cursor:pointer; margin-top:10px; padding:4px 0;
+  font:700 var(--t-micro)/1 var(--f-body); color:var(--ink-3); border-radius:6px;
+}
+#nav .nv-close:hover{ color:var(--ink); }
+#nav .nv-close:focus-visible{ outline:none; box-shadow:var(--ring); }
+
+/* frozen captures and reduced motion switch state without travelling */
+#nav:not(.nv-ready) .nv-bar, #nav:not(.nv-ready) .nv-bar *, #nav:not(.nv-ready) .nv-bar::before,
+html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced #nav .nv-bar::before,
+#nav:not(.nv-ready) .nv-fog i, html.mca-reduced #nav .nv-fog i{ transition:none !important; }
+
+/* laptops and tablets: too narrow to centre the links against the wordmark, so they sit right,
+   in one row with the slot (still fixed: the slot never changes size) */
+@media (max-width: 1099px){
+  #nav .nv-inner{ display:flex; gap:4px; }
+  #nav .nv-word{ margin-right:auto; }
+  #nav .nv-link{ padding:0 11px; }
+  #nav .nv-links{ gap:2px; }
+  #nav .nv-right{ gap:4px; margin-left:12px; }
+}
+@media (max-width: 899px){
+  /* tablets keep GitHub, compact: the outbound arrow drops to save room */
+  #nav .nv-gh-link .nv-out, #nav .nv-chip .nv-out{ display:none; }
+  #nav .nv-link{ padding:0 9px; }
+}
+@media (max-width: 767px){
+  #nav .nv-links, #nav .nv-gh-link, #nav .nv-chip{ display:none; }
+}
+@media (max-width: 640px){
+  #nav .nv-bar{ --pad:10px; top:8px; height:56px; border-radius:16px; }
+  #nav .nv-fog{ height:72px; }
+  #nav .nv-fog i:nth-child(3){
+    background:linear-gradient(to bottom, rgb(250 246 238 / .7) 0%, rgb(250 246 238 / 0) 100%);
+    -webkit-mask-image:linear-gradient(to bottom, #000 35%, transparent 85%); mask-image:linear-gradient(to bottom, #000 35%, transparent 85%);
+  }
+  #nav .nv-inner{ padding:0 8px; gap:12px; }
+  #nav .nv-word{ margin-left:calc(var(--pad) - 8px); }
+  #nav .nv-slot{ margin-right:calc(var(--pad) - 8px); }
+  #nav .nv-word{ gap:9px; font-size:1.0625rem; letter-spacing:-.022em; }
+  #nav .nv-mark{ width:30px; height:30px; }
+  /* phones: the slot takes no room until it's needed, and the button is a compact marker chip.
+     Concentric: bar radius 16, inset 8, so the button is 8 */
+  #nav .nv-btn{ min-height:38px; padding:0 12px; font-size:.8125rem; letter-spacing:-.005em; gap:6px; border-radius:8px; }
+  #nav .nv-btn:focus-visible{ border-radius:8px; }
+  #nav .nv-btn .mca-copy__glyph{ width:14px; height:14px; }
+  #nav .nv-bar:not([data-nv-state="solid"]) .nv-right{ position:absolute; right:8px; pointer-events:none; }
+  #nav .nv-panel{ right:-8px; }
+}
+@media (max-width: 440px){
+  /* the brand never moves to make room for the button: one size in every state.
+     The button drops its clipboard glyph instead (it comes back as the check in "Copied") */
+  #nav .nv-name{ font-size:15px; letter-spacing:-.026em; }
+  #nav .nv-word{ gap:8px; }
+  #nav .nv-btn{ padding:0 12px; }
+  #nav .nv-btn .mca-copy__glyph{ display:none; }
+  #nav .nv-btn.is-copied .mca-copy__glyph{ display:block; }
+}
+@media (max-width: 374px){
+  #nav .nv-name{ font-size:13.75px; letter-spacing:-.02em; }
+  #nav .nv-btn{ padding:0 11px; }
+}
+@media (max-width: 359px){
+  /* the smallest phones: a two-line lockup, in every state, so it never reflows at the hand-off */
+  #nav .nv-name{ white-space:normal; max-width:6.6rem; font-size:13px; line-height:1.04; letter-spacing:-.016em; padding-top:0; }
+  #nav .nv-mark{ width:28px; height:28px; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("nav");
+  if (!sec) return;
+  var bar = sec.querySelector(".nv-bar");
+  var btn = sec.querySelector(".nv-btn");
+  var slot = sec.querySelector(".nv-slot");
+  var chip = sec.querySelector(".nv-chip");
+  var ghLink = sec.querySelector(".nv-gh-link");
+  var links = sec.querySelectorAll("[data-nv-for]");
+  var cta = null, head = null, targets = [], state = "", current = null, queued = false;
+  // the bar's bottom edge, measured (72 on desktop: 12 + 60; 64 on phones: 8 + 56)
+  function barBottom() { return bar.getBoundingClientRect().bottom || 72; }
+
+  // harness hook: ?nav=solid|lift|top forces a state. In a frozen capture of the nav alone
+  // (no hero on the page), p >= .5 shows the solid bar so both states can be reviewed.
+  var force = (/[?&]nav=(solid|lift|top)\b/.exec(location.search) || [])[1] || null;
+  // ?at=setup|data marks that link as the current location, so the underline can be reviewed alone
+  var forceAt = (/[?&]at=([a-z-]+)/.exec(location.search) || [])[1] || null;
+
+  function find() {
+    // the hero's own copy button is the thing we wait on; fall back to the first one outside the nav
+    cta = document.querySelector("#hero [data-copy-prompt]");
+    if (!cta) {
+      var all = document.querySelectorAll("[data-copy-prompt]");
+      for (var i = 0; i < all.length; i++) if (!sec.contains(all[i])) { cta = all[i]; break; }
+    }
+    // the first thing that would slide under the bar: the hero's eyebrow or headline
+    head = document.querySelector("#hero .mca-eyebrow") || document.querySelector("#hero h1");
+    // each link owns a range of the page: How it works = #setup up to #data; Privacy = #data only
+    targets = [];
+    var dataEl = document.getElementById("data");
+    for (var j = 0; j < links.length; j++) {
+      var id = links[j].getAttribute("data-nv-for"), t = document.getElementById(id);
+      if (!t) continue;
+      var to = id === "data" ? t.nextElementSibling : dataEl;
+      targets.push({ link: links[j], from: t, to: to });
+    }
+  }
+
+  function pick() {
+    if (force) return force;
+    var y = window.scrollY || 0;
+    if (!cta && window.MCA && MCA.frozen !== null) return MCA.frozen >= 0.5 ? "solid" : "top";
+    var bb = barBottom();
+    // hand-off: only once the hero's own button has gone fully under the bar, so there is never
+    // more than one orange "copy" on screen
+    if (cta && cta.offsetParent !== null && cta.getBoundingClientRect().bottom < bb - 8) return "solid";
+    if (!cta && y > 320) return "solid";
+    // the glass arrives the moment the page starts to move; the button waits for the hero CTA
+    if (head ? head.getBoundingClientRect().top < bb + 6 : y > 24) return "lift";
+    return "top";
+  }
+
+  function setState(s) {
+    if (s === state) return;
+    state = s;
+    bar.setAttribute("data-nv-state", s);
+    sec.classList.toggle("nv-fogged", s !== "top");
+    var on = s === "solid";
+    // only the visible one of each pair is reachable: button + text link in solid, the chip otherwise
+    swap(btn, on); swap(ghLink, on); swap(chip, !on);
+  }
+
+  function swap(el, show) {
+    el.tabIndex = show ? 0 : -1;
+    if (show) el.removeAttribute("aria-hidden"); else el.setAttribute("aria-hidden", "true");
+  }
+
+  function update() {
+    queued = false;
+    setState(pick());
+
+    // where you are: the last linked section whose top has passed 40% of the viewport and is still on screen
+    var line = innerHeight * 0.4, hit = null;
+    if (forceAt) { for (var f = 0; f < links.length; f++) if (links[f].getAttribute("data-nv-for") === forceAt) hit = links[f]; }
+    else if (state !== "top") for (var i = 0; i < targets.length; i++) {
+      var tg = targets[i], ft = tg.from.getBoundingClientRect().top;
+      var tt = tg.to ? tg.to.getBoundingClientRect().top : tg.from.getBoundingClientRect().bottom;
+      if (ft <= line && tt > line) hit = tg.link;
+    }
+    if (hit !== current) {
+      if (current) current.removeAttribute("aria-current");
+      if (hit) hit.setAttribute("aria-current", "location");
+      current = hit;
+    }
+  }
+  function soon() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  function motion() { return (window.MCA && MCA.reduced) ? "auto" : "smooth"; }
+
+  // back to top without a "#" in the address bar
+  sec.querySelector(".nv-word").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: motion() });
+  });
+  // section links land 20px clear of the bar's bottom edge (92 desktop, 84 phones), and keep their hash
+  for (var k = 0; k < links.length; k++) links[k].addEventListener("click", function (e) {
+    var id = this.getAttribute("data-nv-for"), el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    var top = el.getBoundingClientRect().top + (window.scrollY || 0) - (barBottom() + 20);
+    window.scrollTo({ top: Math.max(0, top), behavior: motion() });
+    if (history.pushState) history.pushState(null, "", "#" + id);
+    el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
+  });
+
+  function lock() {
+    // lock the slot to the idle button's width so the shorter "Copied" state can centre without resizing
+    // measure the idle label only: a resize mid-"Copied" must not shrink the slot
+    if (btn.classList.contains("is-copied")) return;
+    slot.style.width = "";
+    var w = Math.max(btn.offsetWidth, chip.offsetWidth);
+    if (w) slot.style.width = w + "px";
+  }
+
+  function boot() {
+    find(); lock(); update();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(lock);
+    // arm transitions only after the first state is painted, so a reload mid-page doesn't animate in
+    requestAnimationFrame(function () { requestAnimationFrame(function () { sec.classList.add("nv-ready"); }); });
+    // not a scrub: the bar listens for itself so it stays live in frozen and reduced-motion modes too
+    addEventListener("scroll", soon, { passive: true });
+    addEventListener("resize", function () { find(); lock(); soon(); });
+    addEventListener("load", function () { find(); soon(); });
+    if (window.MCA) MCA.register(sec, "pass", function () { soon(); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
