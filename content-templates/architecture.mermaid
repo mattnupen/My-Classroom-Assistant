@@ -1,14 +1,14 @@
 flowchart LR
-    subgraph laptop["Your laptop — names never leave this box"]
+    subgraph laptop["Your laptop — on the Offline option, names never leave this box"]
         GB["Gradebook / LMS export"] --> APPS["Offline apps<br/>(browser, wifi optional)"]
         FB["Student feedback"] --> CLEAN["Feedback Cleaner"]
-        APPS --> PULSE["Name-free pulse<br/>counts + tiers only"]
+        APPS --> PULSE["Name-free weekly summary<br/>class totals only"]
         CLEAN --> DIGEST["Name-free digest"]
     end
     PULSE --> T(("You"))
     DIGEST --> T
-    T -->|"drop into my-classroom/pulses/"| AI["Your class's AI<br/>in Claude Cowork"]
-    AI -->|"slides · cards · messages<br/>(aggregate-only, always)"| T
+    T -->|"paste in, or drop in the pulses folder"| AI["Your class's AI<br/>in Claude Cowork"]
+    AI -->|"slides · cards · messages<br/>(class totals; never a name on class materials)"| T
     T --> CLASS["Your class"]
     CLASS -.->|"anonymous feedback"| FB
-    GB -. "Direct mode only, district-approved:<br/>my-classroom/inbox/" .-> AI
+    GB -. "Claude for Teachers option only, with district permission:<br/>chat or my-classroom/inbox/" .-> AI

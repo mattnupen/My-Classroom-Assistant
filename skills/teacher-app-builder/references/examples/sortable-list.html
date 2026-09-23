@@ -1,41 +1,70 @@
 <!--
   PATTERN: sortable-list
-  Use when the teacher wants an on-screen table they can sort/filter, no printing.
+  Use when the teacher wants an on-screen table they can sort and search, no printing.
   Body and logic blocks plug into the scaffold's {{BODY_SLOT}} and {{LOGIC_SLOT}}.
+  Needs the SheetJS script in {{SHEETJS_SLOT}}.
 -->
 
 <!-- BODY -->
 <section class="step screen-only">
-  <h2>Load your data</h2>
+  <h2>Load your class</h2>
   <input type="file" id="file-input" accept=".csv,.xlsx,.xls">
+  <button class="secondary" id="btn-practice">Try it with a made-up class</button>
+  <p class="privacy-note">Your file stays on this computer. Nothing is saved or sent.</p>
 </section>
 
 <section class="step screen-only" id="filters" hidden>
-  <input type="text" id="filter-text" placeholder="Filter rows…">
+  <label for="filter-text">Search</label>
+  <input type="text" id="filter-text" placeholder="Type to narrow the list…">
+  <p style="margin:8px 0 0; font-size:14px; color:var(--muted);">Click a column heading to sort.</p>
 </section>
 
-<table id="table" hidden style="width:100%; border-collapse:collapse;">
+<table id="table" hidden style="width:100%; border-collapse:collapse; background:#fff;">
   <thead><tr id="thead-row"></tr></thead>
   <tbody id="tbody"></tbody>
 </table>
 
 <!-- LOGIC -->
-let rows = [];
+// Invented students for the practice button. ADAPT: 12 fresh, obviously fictional
+// names, with the same columns this app expects from the teacher's file.
+const PRACTICE_ROWS = [
+  { Student: 'Avery Brookfield' /* ADAPT: add this app's columns */ },
+  { Student: 'Marcus Whitlow' }
+];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+
+let rows = [];     // in memory only — never saved
 let headers = [];
-document.getElementById('file-input').addEventListener('change', async (e) => {
-  const buf = await e.target.files[0].arrayBuffer();
-  const wb = XLSX.read(buf, { type: 'array' });
-  rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
+function loaded(newRows) {
+  rows = newRows.slice();
   headers = Object.keys(rows[0] || {});
   render();
   document.getElementById('filters').hidden = false;
   document.getElementById('table').hidden = false;
+}
+document.getElementById('file-input').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+  loaded(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]));
 });
+document.getElementById('btn-practice').addEventListener('click', () => loaded(PRACTICE_ROWS));
 document.getElementById('filter-text').addEventListener('input', render);
+// One listener on the header row; the column comes from a data attribute, so no
+// inline onclick (the IIFE hides functions from those).
+document.getElementById('thead-row').addEventListener('click', (e) => {
+  const th = e.target.closest('th');
+  if (!th) return;
+  const col = headers[Number(th.dataset.col)];
+  rows.sort((a, b) => String(a[col] ?? '').localeCompare(String(b[col] ?? ''), undefined, { numeric: true }));
+  render();
+});
 function render() {
   const q = document.getElementById('filter-text').value.toLowerCase();
-  const filtered = rows.filter(r => JSON.stringify(r).toLowerCase().includes(q));
-  document.getElementById('thead-row').innerHTML = headers.map(h => `<th style="text-align:left; padding:6px; border-bottom:1px solid var(--line); cursor:pointer;" onclick="sortBy('${h}')">${h}</th>`).join('');
-  document.getElementById('tbody').innerHTML = filtered.map(r => `<tr>${headers.map(h => `<td style="padding:6px; border-bottom:1px solid var(--line);">${r[h] ?? ''}</td>`).join('')}</tr>`).join('');
+  const shown = rows.filter(r => headers.some(h => String(r[h] ?? '').toLowerCase().includes(q)));
+  const cell = 'padding:6px; border-bottom:1px solid var(--line);';
+  document.getElementById('thead-row').innerHTML = headers.map((h, i) =>
+    `<th data-col="${i}" style="text-align:left; cursor:pointer; ${cell}">${esc(h)}</th>`).join('');
+  document.getElementById('tbody').innerHTML = shown.map(r =>
+    `<tr>${headers.map(h => `<td style="${cell}">${esc(r[h])}</td>`).join('')}</tr>`).join('');
 }
-function sortBy(col) { rows.sort((a,b) => String(a[col]).localeCompare(String(b[col]))); render(); }

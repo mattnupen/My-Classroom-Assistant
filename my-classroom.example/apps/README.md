@@ -1,3 +1,5 @@
 # Your apps
 
-Tools the teacher-app-builder skill made for this classroom — one folder per app: `app.html` (double-click to use), `spec.md` (what you asked for — makes rebuilds possible after engine updates), and `sandbox.csv` if the app takes a data file (fictional students; try it first). Registered in `../my-apps.js`; they appear under "Your apps" in the Class Tools sidebar.
+Apps Claude has built for your class. Open them from Class Tools, in the sidebar under "Your apps."
+
+Each app has its own folder: `app.html` is the app itself (you can also double-click it), and `spec.md` is Claude's note of what you asked for, so it can rebuild the app after an update. Updates never touch this folder.

@@ -14,7 +14,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, R
 const LABELS = {
   aiName: "[AI name]",
   challenge: "[Challenge name]",
-  metric: "[Metric, e.g., Missing assignments]",
+  metric: "[What we're counting, e.g., Missing assignments]",
   weekOf: "[Finale date]",
 };
 const TARGET = 50; // the number the class chose
@@ -52,7 +52,7 @@ export default function SeasonSnapshot() {
       <div style={{ fontSize: 20, color: C.dim, marginBottom: 20 }}>
         {LABELS.metric}: <b style={{ color: C.ink }}>{baseline} → {now}</b>
         {" "}({delta >= 0 ? "down " + delta : "up " + -delta}) · target {TARGET} —{" "}
-        <b style={{ color: hit ? C.line : C.target }}>{hit ? "made it" : "close — retro time"}</b>
+        <b style={{ color: hit ? C.line : C.target }}>{hit ? "made it" : "close — let's look back"}</b>
       </div>
       <div style={{ background: C.panel, borderRadius: 12, padding: 16, height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">

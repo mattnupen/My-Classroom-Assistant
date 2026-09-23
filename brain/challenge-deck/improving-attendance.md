@@ -1,47 +1,27 @@
 # Challenge: Everybody Here
-*"For the next six weeks we're working on one thing: this room is better when all of us are in it. Not a rule — a goal."*
+*"This room is better when all of us are in it. Not a rule, a goal."*
 
-**The problem.** Absence compounds quietly. A day here and a day there doesn't feel like much to a family, and by the time the pattern is obvious it's a hard conversation instead of an easy one. This challenge replaces that conversation with accurate information, sent early and kindly.
+**The problem.** Absences add up quietly. A day here and a day there doesn't feel like much to a family, and by the time the pattern is obvious, it's a hard conversation instead of an easy one.
 
-**Season length:** 6 weeks · **Evidence pack:** `brain/evidence-packs/improving-attendance.md`
+**Ask first:** "About how many kids are out a lot, and what happens now when a kid has been out?"
 
-**Why this works.** The pack's strongest card is a large randomized trial — Rogers & Feller (2018), 28,080 students — where mailing families personalized attendance information cut chronic absence by 10% or more. The mechanism was not pressure: it worked by correcting parents' underestimate of how many days their child had actually missed. The second engine is belonging — a student who feels genuinely known is more likely to show up. This challenge is those two moves on a weekly rhythm.
+**The number to watch. The percent of possible days attended, class-wide, for the week. It comes from your attendance system, not the gradebook, so Class Pulse can't make it. Type in how many absences your class had this week (and if it was a short week, how many days). Your AI works out the percentage. It takes about a minute.
 
-## The metric
+**Be honest about the noise.** In a class of 25, one student's flu week moves this number by several points. The research effects below are much smaller than that (about 2% fewer absences across six recent trials), so this number can't show whether a move worked. Don't switch a move because the number stayed flat: follow "When the number can't show it" in `brain/challenge-cycle.md`. Say so when the line dips for reasons nobody controls.
 
-**Percent of possible days attended, class-wide, per week.** Count it once a week from your attendance system.
+**Evidence:** `brain/evidence-packs/improving-attendance.md`
 
-This is the one card in the deck whose number **Class Pulse can't produce** — Class Pulse reads a gradebook, and attendance lives in your SIS. Pull the weekly percentage yourself and either type it into chat or write it at the top of the pulse file before you drop it in. Two numbers, ten seconds.
+## Week 1: start now
 
-Set the target *with* the class in week 1, after they've seen the baseline. A percentage-point gain lands better than a perfect week — "we're at 91%, let's finish the season above 94%" is a real goal; "nobody misses a day" is over by Tuesday and teaches them the goal was fake.
+The last three weeks' attendance is usually already in the attendance system, so use those as the starting numbers and start move 1 this week. A student who has been out a lot and turned in nothing needs a person first: an email to the counselor, then a warm call home ("Nothing's wrong, we miss her in class"). Set a target range with the class ("We're at 91%; let's finish the season above 93%"), framed as the room being better full, never as a crackdown.
 
-**One piece of honesty to carry through the season.** The research effect is on *chronic* absence measured across a year. Six weeks of weekly percentages is a noisier, smaller thing — in a class of 25, one student's flu week moves the number a full point. Read the trend, not the wiggle, and say that to the class when the line dips for reasons nobody controls.
+## The moves, one at a time (about two weeks each)
 
-## Week 1 — Baseline & launch
-
-1. Pull last month's attendance percentage **before changing anything**. That's the baseline — the AI records it in `my-classroom/dashboard.md`.
-2. Run the launch: pitch the challenge (or put it on the ballot with `content-templates/student-voting-form.md`), show the baseline on the projector, set the target together. Frame it as the room being better full — never as a compliance push.
-3. The AI drafts the first round of family messages (below) with the numbers left blank. You fill those in from your own records; the AI never sees them.
-
-## The weekly play pattern (weeks 2–6)
-
-**Monday.** You give the AI the week's attendance percentage and say "run Monday." It updates the dashboard, shows the movement, and proposes this week's moves — each tagged to a pack card.
-
-**Midweek — the one classroom move.** Rotate through the pack, one per week, never all at once:
-- **The accurate family note** (Rogers & Feller card): a warm message stating the real total plainly and naming the next school day as a clean start. Every one the AI writes has a **[#]** where the number goes — it supplies the words, you supply the count. That split is not a limitation to work around; it's the design.
-- **Correct the picture, don't scold** (misperception card): lead with the gap between what a family assumes and what's true — "most of us picture a couple of days; the actual count is [#]" — then move straight to partnership. No warning, no consequence language.
-- **"We missed you," never "you missed a lot"** (belonging card): short welcome-back lines that name something specific the class actually needed from that student. The AI drafts them; you say them at the door.
-- **Fresh-start framing** (landmark card): tie re-entry to a real landmark — a Monday, a new unit, the start of a month. Use the landmarks that exist; don't manufacture one every day or the word stops meaning anything.
-
-**Friday.** Two minutes: the AI drafts an aggregate callout for the slide ("94% this week — our best yet") and one line goes into `my-classroom/class-story.md`.
-
-## The finale
-
-Week 6, the AI generates the season snapshot from `content-templates/season-snapshot.jsx` — baseline to finale, on the projector. Then the three-question retro, whole class: *What actually helped? What did we ignore? What should [AI name] do differently next season?* The answers go through the Feedback Cleaner into the class story. Then the deck comes back out.
-
-Hit or miss, the season *ends*. A near-miss with a real retro beats a quietly abandoned streak — say that out loud to the class.
+1. **Tell families the real count, kindly.** A warm note stating how many days the child has missed, and naming Monday as a fresh start. The AI writes the words. In the Offline option, copy the note into your email or school messaging app and fill in the name and the number of days from your attendance system. In the Claude for Teachers option, the AI can fill them into drafts in the chat. *Strong research behind this: large randomized trials (Rogers & Feller, 2018). Parents typically think their child has missed about half as many days as they have. The effect per student is real but small.*
+2. **A "what we did while you were out" note after an absence.** Two lines about what the class learned that day. *Good research, with limits: one randomized trial (Himmelsbach et al., 2022), pre-K to 2nd grade, absences down about 8%.*
+3. **Welcome back, never "you missed a lot."** A specific line at the door about something the class needed from them. *Promising, less proven: one small middle-school study (Cook et al., 2018) found students more engaged; nobody has tested it on attendance.*
 
 ## Watch out
 
-- **Never name an absent student publicly.** No attendance leaderboard, no wall chart, no "let's see who's here every day this week." The scoreboard is a class percentage and nothing else. A student's absences are frequently about things they don't control and wouldn't choose to explain in front of anyone.
-- **Don't let this become an incentive program.** The pack is explicit: information beat prizes, which cost more and often showed no effect at all. And a punitive version — grade penalties, truancy threats — has weak evidence behind it and pushes exactly the families you most need to keep talking to you. If the season turns into rewards and consequences, it has stopped being this challenge.
+- **No attendance awards, charts, or leaderboards.** In a randomized trial, surprise perfect-attendance awards made later attendance *worse*. And never name an absent student in front of the class. Absences are often about things students don't control.
+- **No punishments.** Grade penalties and truancy threats have weak evidence behind them, and they push away the families you most need.

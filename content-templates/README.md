@@ -1,27 +1,18 @@
-# Content Templates
+# Templates
 
-Student-facing materials you'll need at different points in the experiment. Each file is a starting point — copy it, paste it into your LMS or doc tool, and adjust the language to fit your class and your school.
+Starting points for things your class will see and things you'll hand out. Your AI fills most of these in for you; the rest you can copy, adjust, and use.
 
-## The files
-
-| File | When you use it |
+| File | What it is |
 |---|---|
-| `day-one-lesson-plan.md` | The first day you introduce the AI to your class. 10–15 minute mini-lesson. |
-| `lms-intro-page.md` | A page you post in your LMS (Canvas, Google Classroom, Schoology, etc.) explaining the project to students. Lives there for the duration. |
-| `student-voting-form.md` | If you chose to have students help name and shape the AI — the form (Google Form or paper) you use during the co-creation session. Also works as the ballot for picking a challenge card. |
-| `persona-card.html` | The "meet your AI" card. Project it on day one, or print and pin it. Your AI fills it in once the persona exists. |
-| `slide-template.html` | A real projectable opening slide in the default theme. Your AI clones this rather than inventing a layout. |
-| `season-snapshot.jsx` | The finale scoreboard — baseline to target, rendered in Cowork. Your AI copies it into `my-classroom/for-class/[date]/` with your trend data baked in. |
-| `architecture.mermaid` | The data-flow diagram as source: what stays on your laptop, what crosses to the AI. Useful when someone asks how this works. |
-| `classroom-display-rules.md` | Design rules your AI follows when generating slides, posters, or anything else students will see. The AI reads this file. You can edit it. |
-| `app-ui-guidelines.md` | The visual standard for the teacher-facing tool pages, and the four privacy invariants every tool obeys. For the AI, not for students. |
+| `day-one-lesson-plan.md` | A 15-minute script for telling your class about the AI. For you. |
+| `lms-intro-page.md` | A page to post in Canvas, Google Classroom, Schoology, or wherever your class lives online. For students. |
+| `student-voting-form.md` | The form for letting students name and shape the AI — or vote on which challenge to take on. |
+| `persona-card.html` | A "meet your AI" card to project or pin up on launch day, once your AI has a name. Your AI fills it in. |
+| `slide-template.pptx` | The starting layouts for slides (opens in PowerPoint or Google Slides). Your AI fills it in. |
+| `slide-template.html` | The same slide design as a web page, if you'd rather project from your browser. |
+| `season-snapshot.jsx` | The end-of-challenge scoreboard: where the class started and where it finished. Your AI fills it in. |
+| `architecture.mermaid` | A diagram of what stays on your computer and what the AI sees. Handy when someone asks how this works. |
+| `classroom-display-rules.md` | The AI's rules for anything students see: big text, strong contrast, never a student's name on display. |
+| `app-ui-guidelines.md` | The AI's rules for building the offline apps you use. Not for students. |
 
-## How these fit together
-
-- **`day-one-lesson-plan.md`** is for the teacher (you).
-- **`lms-intro-page.md`** is for the students (you copy it into your LMS).
-- **`student-voting-form.md`** is a template you adapt for whatever tool you use to collect input.
-- **`persona-card.html`, `slide-template.html`, `season-snapshot.jsx`** are things your AI fills in and hands back — you don't edit them by hand.
-- **`classroom-display-rules.md`** and **`app-ui-guidelines.md`** are for the AI: the first governs anything students see, the second anything you use.
-
-Edit any of these freely. If your school has different communication norms, different student demographics, or a different tone, change what doesn't fit.
+Change anything that doesn't fit your school or your class.

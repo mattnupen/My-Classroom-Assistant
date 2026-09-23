@@ -1,12 +1,12 @@
 # Crisis Routing Card
 
-**Fill this in. Print it. Keep it visible — your desk, your bag, your lanyard. Do NOT paste this card into Cowork.** Your AI does not need to know any of this. Your job is to act on what the AI surfaces; this card is what you act with.
+**Print it, fill it in by hand, and keep it where you can grab it — your desk, your bag, your lanyard.** (Or keep a copy of your own outside this folder. Don't fill in this file itself: updates replace it.) Your AI doesn't need any of this, so don't paste it into the chat. When the AI brings you a concern, this card is what you act with.
 
 ---
 
 ## When to use this card
 
-Your AI is instructed to flag any signal of:
+Your AI is told to stop and tell you right away if anything a student wrote, said, or implied suggests:
 
 - Self-harm or suicidal thoughts
 - Abuse at home (physical, sexual, emotional, neglect)
@@ -14,7 +14,7 @@ Your AI is instructed to flag any signal of:
 - A substance crisis
 - Sudden severe distress
 
-When the AI flags something, **stop what you were doing**. Open this card. Act.
+When it does, **stop what you're doing**. Open this card. Act.
 
 ---
 
@@ -55,15 +55,13 @@ Every state has slightly different requirements. Fill in yours:
 
 ## The script (use as a starting point)
 
-When the AI flags something, here's a simple flow you can adapt:
+When the AI brings you a concern, here's a simple flow you can adapt:
 
-1. **Re-read what the AI flagged.** Don't summarize it back to the AI for clarification — read the original source yourself.
-2. **Pull the student aside privately** when you can. Keep it low-key. Don't refer to "the AI flagging" anything — speak from your own observation.
-3. **Listen more than you talk.** Open-ended: "How are things going? Anything I should know about?"
-4. **If the concern is confirmed or strongly suggested:**
-   - Walk the student to the counselor's office (or call counselor to come to you)
-   - You stay with the student until they're in adult care
-5. **Report.** Use the state's process above. Document what was reported, when, and to whom — in your own private notes, not in any AI-touched file.
+1. **Read the original yourself** — the student's own words, not the AI's description of them. Don't go back to the AI to talk it through.
+2. **Take it to the counselor today, in person,** with the page or the exact words. Counselor gone for the day? An administrator. You don't have to decide whether it's serious; that isn't your job. An email alone can sit unread overnight.
+3. **Don't promise the student secrecy,** and don't try to assess them yourself. If you talk with them before the counselor does, keep it low-key, listen more than you talk, and don't mention the AI.
+4. **If the student may be in danger right now:** call 911 (or your local emergency number), stay with them, and get the counselor or an administrator to you.
+5. **Report.** Use the state's process above. Document what was reported, when, and to whom — in your own private notes, never in the chat with the AI or in your classroom assistant folder.
 6. **Follow up.** Check on the student within a day. Check on yourself within a week.
 
 ## Your wellbeing
@@ -81,15 +79,15 @@ These moments are hard. After one:
 
 ## A note about anonymous channels
 
-If your project includes an anonymous suggestion box, anonymous survey, or any channel where students can submit content without identifying themselves, your mandated reporter obligation **still applies** — but it's harder to act because you may not know which student to help.
+If you use an anonymous suggestion box, anonymous survey, or any other way students can share without giving their name, your mandated reporter obligation **still applies** — but it's harder to act because you may not know which student to help.
 
 If an anonymous message suggests crisis:
 
 - Try to identify the student through context clues (period, recent topics, anything specific they reference) — but do not pressure or confront the class.
 - If you can identify them, follow the steps above.
-- If you cannot, document the message, the date, and your good-faith attempt to identify the student. Notify the counselor and admin of the anonymous flag so the building is aware.
-- Consider whether the anonymous channel needs to be paused or restructured to require minimal identifying info (e.g., period only).
+- If you cannot, document the message, the date, and your good-faith attempt to identify the student. Tell the counselor and admin about the anonymous message so the building is aware.
+- Consider pausing the anonymous channel, or asking for a little identifying info (period only, for example).
 
 ---
 
-*This card is yours. It's not part of the project's defaults — it's specific to your school, your students, your district. Update it whenever any name or number changes.*
+*This card is yours — your school, your students, your district. Update it whenever a name or number changes.*

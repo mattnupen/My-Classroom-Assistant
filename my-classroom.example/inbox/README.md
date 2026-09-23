@@ -1,5 +1,5 @@
-# Inbox — Direct mode only
+# Inbox
 
-In **Direct mode** (district-approved, recorded in `../data-policy.md`), this is the one place the AI may open files you deliberately put here — gradebook or LMS exports. In Locked-Room mode this folder stays empty and the AI won't touch it.
+Only for the Claude for Teachers option (see `../data-policy.md`). Drop a gradebook or roster file here when you want your AI to work from it — or just paste or attach it in the chat instead.
 
-This folder is yours to empty. Files here can contain student names; nothing the AI *writes* anywhere ever will.
+This folder is yours to empty. Delete files when you're done; your AI will remind you once. On the Offline option, leave it empty — your AI won't use anything here.

@@ -1,77 +1,45 @@
-# Invariants Checklist (the privacy gate)
+# The safety check
 
-This is the gate. Apply it to every generated HTML file BEFORE registering the app in `my-classroom/my-apps.js`. The model running the skill applies the checks to its own output — there is no separate reviewer.
+Run this on every app you build, before adding it to `my-classroom/my-apps.js`. You are checking your own work; there is no separate reviewer. The teacher doesn't see any of this — they hear one sentence at the end.
 
-**Be honest.** If you cannot prove an invariant holds by reading the file, fail the check. The cost of a false PASS is leaked student data; the cost of a false FAIL is the teacher re-running the skill.
+**Be honest.** If you can't show a rule holds by reading the file, it fails. A false pass can leak student information; a false fail only costs a rebuild.
 
-## Process
+## How
 
-1. Read the **full** text of the `app.html` file you just wrote, using the Read tool. Do not rely on what you intended to write — read what is actually on disk.
-2. For each invariant below, search the file exhaustively. Write out each finding explicitly. Do not skim and assume.
-3. After all four checks, output `VERIFICATION: PASS` or `VERIFICATION: FAIL`. On fail, list each violation with the line number and snippet.
+1. Read the **whole** `app.html` from disk with the Read tool. Check what's actually there, not what you meant to write.
+2. For each check below, search for every listed string and note each match and your decision. Don't skip a string because you "know" you didn't use it.
+3. End with `CHECK: PASS` or `CHECK: FAIL` (with each problem's line and snippet) in your own reasoning.
 
-## Invariant 1 — Single static HTML file
+## Check 1 — One file
 
-- The file path ends in `.html`.
-- The file does not load sibling local JS/CSS/JSON files (other than via the CSP-allowlisted SheetJS CDN script).
-- Inline `<script>` and `<style>` are allowed and expected.
+- The file ends in `.html`.
+- Nothing loads a local sibling file: no `<script src=` other than the SheetJS address, no `<link href=`, no `<iframe`, no `type="module"` scripts or `import` statements.
 
-**Output:** state whether the file is a single self-contained HTML file. If any local sibling reference exists, fail and quote it.
+## Check 2 — Nothing sent off the computer
 
-## Invariant 2 — No outbound network calls outside the allowlist
+Search for: `http:` · `https:` · `//` at the start of a `src` or `href` · `fetch(` · `XMLHttpRequest` · `navigator.sendBeacon` · `EventSource` · `WebSocket` · `import(` · `window.open` · `location.href` · `location.assign` · `location.replace` · `<form` · `mailto:`
 
-Search the file for each of these strings (case-sensitive):
+The only allowed matches: the SheetJS `<script src="https://cdn.sheetjs.com/...">` tag, and the scaffold's Content-Security-Policy line (which names that same address). Anything else fails.
 
-- `fetch(`
-- `XMLHttpRequest`
-- `navigator.sendBeacon`
-- `new EventSource`
-- `new WebSocket`
-- `import(`
-- `<script src=`
+## Check 3 — Nothing kept in the browser
 
-For every match, quote the line and decide. The **only** allowed match is `<script src="https://cdn.sheetjs.com/...">`. Any other match fails this invariant.
+Search for: `localStorage` · `sessionStorage` · `indexedDB` · `caches.open` · `navigator.storage` · `document.cookie`
 
-**Output:** "no violations" OR a list of every offending line.
+Any match fails. (Generated apps have no settings worth remembering; the download-and-reload pattern covers the rest.)
 
-## Invariant 3 — No persistent storage of uploaded data
+## Check 4 — Output only by print, download, screen, or copy
 
-Search the file for each of:
+Search for: `showSaveFilePicker` · `showDirectoryPicker` · `showOpenFilePicker` · `FileSystemFileHandle` · `requestFileSystem`
 
-- `localStorage`
-- `sessionStorage`
-- `indexedDB`
-- `caches.open`
-- `navigator.storage`
+Any match fails. Allowed output: `window.print()`, an `<a download>` link with a `URL.createObjectURL()` blob (it lands in the browser's Downloads folder), text on the page, and `navigator.clipboard.writeText`.
 
-For every match, read the surrounding code and decide: is the value being stored **only** a UI preference (a remembered text default, a toggle setting) that cannot contain uploaded data? If yes, allow. If uploaded data could flow into the call, or you cannot prove it cannot, fail.
+## Check 5 — No real student information inside
 
-**Output:** "no violations" OR each match with one sentence of reasoning.
+- The Content-Security-Policy `<meta>` line is unchanged from `scaffold-base.html`.
+- Every name in `PRACTICE_ROWS` (if present) is one you invented for this app. No name, grade, or note the teacher shared in this chat appears anywhere in the file.
+- Anything from the teacher's file reaches the page through `textContent` or `esc()`, not raw `innerHTML`.
 
-## Invariant 4 — No save-to-filesystem inside the project
+## After the check
 
-Search the file for:
-
-- `showSaveFilePicker`
-- `showDirectoryPicker`
-- `FileSystemFileHandle`
-- `requestFileSystem`
-
-Any match fails. The only allowed output mechanisms are `window.print()` (system print dialog) and `<a download>` with a `URL.createObjectURL()` blob (lands in the browser's default Downloads folder).
-
-**Output:** "no violations" OR a list of every offending line.
-
-## Verdict
-
-After all four checks, output exactly one of:
-
-- `VERIFICATION: PASS` — proceed to Step 5 of SKILL.md.
-- `VERIFICATION: FAIL` followed by the list of violations — stop. Do **not** register the app in `my-classroom/my-apps.js`. Tell the teacher the gate failed, show the violations and what they mean, and (if a compliant alternative exists) offer to build that instead. Leave the failing `app.html` in place so the teacher can inspect it.
-
-## A note on rigor
-
-You are reviewing code you just wrote. The temptation to rubber-stamp is real. Defenses:
-
-- Output the result of each search literally — do not skip a string just because you "know" you didn't use it.
-- A short PASS verdict that doesn't quote any of the file is suspicious. Show your work.
-- When in doubt, fail. The teacher would rather rebuild than ship a tool that leaks student data.
+- **PASS:** go on to adding it to the sidebar. Tell the teacher only: "I checked: it never sends anything off your computer."
+- **FAIL:** fix the problem and run the whole check again. If you can't fix it: for a NEW app, remove the `app.html` you just wrote and its new, empty folder (you created it this turn and it was never in the sidebar); for an UPDATE, write the previous `app.html` back, as in SKILL.md Step 2. Either way, no `spec.md` and no sidebar entry. Tell the teacher in plain words what you couldn't make safe and offer the closest safe version, e.g. "I couldn't make that part work without going online, so I didn't keep it. I can build it with a list you paste in instead — want that?"

@@ -1,19 +1,15 @@
-# Evidence Packs
+# Evidence Packs (shipped)
 
-This folder holds the goal-specific research the evidence engine has built (see `../evidence-engine.md`). Each file is one teaching goal: a short set of evidence cards, each ending in a concrete move the AI uses when it writes for students. The AI checks the pack matching the current mission alongside the universal base in `../research-foundations.md` and the eleven principles in `../teaching-principles.md`.
+The research behind each ready-made challenge. One file per goal. Each card is one move to try, and says how strong the research is, who was studied, the number to watch, and when the move backfires. The rules for writing and checking cards are in `../evidence-engine.md`. The order for trying them, one at a time, is in `../challenge-cycle.md`.
 
-## Packs built so far
+| Pack | Goal | Strongest card |
+|---|---|---|
+| `reducing-missing-work.md` | More work turned in, less nagging | If-then plans; weekly missing-work notes to families |
+| `improving-attendance.md` | Fewer absences, through families | Telling families the real count |
+| `class-participation.md` | More different voices in the room | Wait time; everyone answers at once |
+| `calmer-transitions.md` | Smoother starts, stops, and switches | Teach, remind, acknowledge (strongest for K–5) |
+| `reading-comprehension.md` | Understanding, not just decoding | Explicit strategy teaching |
 
-| Pack | Goal |
-|---|---|
-| `reducing-missing-work.md` | More work turned in, with less nagging |
-| `reading-comprehension.md` | Understanding more of what you read, not just decoding |
-| `class-participation.md` | More voices in the room, with less fear |
-| `calmer-transitions.md` | Smoother starts, stops, and switches |
-| `improving-attendance.md` | Fewer absences, worked through families |
+These files are part of the engine and are replaced on update, so don't write in them. Research built for a particular class, and the teacher's notes on what worked in their room, go in `my-classroom/evidence-packs/`. Check that folder first.
 
-## How a new one gets added
-
-When a teacher sets a mission this folder doesn't cover, the AI runs the engine, builds a pack here named for the goal (lowercase-kebab), and tells the teacher in a sentence or two. If a mission matches a pack above, the AI reuses it instead of starting from a blank page — that reuse is the whole point of keeping them.
-
-Every pack holds zero classroom-specific content by design. That's what makes them safe to reuse across classes and to share between teachers.
+Last full check against the sources: 2026-09-22.

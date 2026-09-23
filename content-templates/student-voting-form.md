@@ -1,6 +1,6 @@
 # Student Voting Form
 
-*This is the template for the form your students fill out when they help shape the AI. Adapt the questions to fit what you're letting them decide. Put it in Google Forms, Microsoft Forms, or hand it out on paper — whatever your class uses.*
+*The form your students fill out when they help shape the AI. Keep the questions that fit what you're letting them decide. Use Google Forms, Microsoft Forms, or paper.*
 
 ---
 
@@ -17,6 +17,8 @@ A 5-minute intro before you hand out the form. The day-one lesson plan covers th
 ---
 
 ## The form (copy into Google Forms / paper / whatever you use)
+
+*Teacher note: in Google or Microsoft Forms, turn off "Collect email addresses" so the vote really is anonymous.*
 
 ---
 
@@ -79,17 +81,19 @@ You're voting on the name, personality, and mission of the AI assistant we'll be
 
 ### Question 4 — Mission (what should the AI focus on?)
 
-**Question:** What's the one thing you'd most want the AI to help with this [quarter/semester]?
+**Question:** What's the one thing our class should work on together this [quarter/semester]?
 
-**Type:** Multiple choice (pick one) — OR — short answer
+**Type:** Multiple choice (pick one)
 
-**Options (if multiple choice):**
-- Help me stay on top of missing assignments
-- Help me prepare for tests
-- Help me get unstuck when I don't know how to start
-- Help me feel more recognized for the work I do
-- Help me reflect on what I'm learning
-- Other (write in below)
+**Options:**
+- Fewer missing assignments
+- Everyone here more often
+- More people speaking up in class
+- Smoother starts and switches between activities
+- Getting better at reading
+- Other (write in)
+
+*Teacher note: these are the five ready-made challenges your AI knows how to work on. Cut any that don't fit your room. If a write-in doesn't match one (say, "test prep"), your AI will help you turn it into one.*
 
 ---
 
@@ -129,9 +133,9 @@ You're voting on the name, personality, and mission of the AI assistant we'll be
 2. **Run a runoff vote.** Same form, but the only question is "pick one of these finalists." Takes 2 minutes in class.
 3. **Tally the personality traits.** Pick the top 2–3. These shape the AI's voice.
 4. **Read the voice samples.** Use the most-picked one as a starting point for how the AI talks.
-5. **Read the "what the AI should never do" responses.** Add the recurring ones to the "What [AI NAME] will never do" section in `my-classroom/your-classroom-ai.md`.
-6. **Update `my-classroom/your-classroom-ai.md`** with what students chose.
-7. **Open Cowork**, say hi, ask the AI to introduce itself in its new voice. Read its first message to your class.
+5. **Read the "never do" answers.** The ones that come up more than once go on the AI's never-do list.
+6. **Tell your AI what the class chose** — name, traits, voice, never-do list. It updates its own description. Share the counts and the answers that came up more than once, not the response sheet itself: it can have names and emails in it. If you want help reading the written answers, run them through the Feedback Cleaner first.
+7. **Ask it to introduce itself in its new voice.** Read that first message to your class.
 
 If the kids' first reaction is "that doesn't sound right" — adjust the voice description and try again. They'll know within 10 seconds whether you got it.
 
@@ -142,4 +146,4 @@ If the kids' first reaction is "that doesn't sound right" — adjust the voice d
 - **Some students will try to troll the name vote.** That's normal. Either screen suggestions before the runoff, or let one obviously-not-going-to-win troll name into the finalists so they feel heard. (Usually it loses.)
 - **Don't promise to use the #1 vote no matter what.** Give yourself an out: "I'll go with what you pick unless there's a real problem (copyrighted, offensive, etc.). I'll explain if I have to override."
 - **The voice samples question is the most valuable one.** Pay close attention to which one wins. If a class picks the "direct, clipped" style and the AI keeps sounding "warm and specific," the kids will tune out.
-- **You can repeat the voice sample question mid-semester.** As the AI evolves with your class, run a quick 30-second check-in: "Which version of the AI's voice is working for you now?" Adjust accordingly.
+- **You can repeat the voice sample question mid-semester.** Run a quick 30-second check-in: "Which version of the AI's voice is working for you now?" Adjust accordingly.

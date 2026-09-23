@@ -113,10 +113,10 @@ Your DNS is correct — all four GitHub Pages A records on the apex, no conflict
 
 ### Decisions waiting on you
 
-1. **`index.html` still asserts the absolute** in four places ("the AI never sees student-identifying data"). You scoped the website to naming-only, so I left the privacy framing. The public site now claims something stronger than the product guarantees for a Direct-mode teacher. Two minutes to port the README's "private by default, direct by permission" line if you want it.
+1. **`index.html` still asserts the absolute** in four places ("the AI never sees student-identifying data"). You scoped the website to naming-only, so I left the privacy framing. The public site now claims something stronger than the product guarantees for a Direct-mode teacher. Two minutes to port the README's "private by default, direct by permission" line if you want it. *(2.1: still open. The option names are now "the Offline option" and "the Claude for Teachers option", and the latter allows sharing in the chat, so the site's claim should be scoped to "by default".)*
 2. **`docs/about.md`** — I preserved the origin story, pilot data, four constraints, app descriptions, file map, and all five screenshots there rather than deleting them with the old README (which would have orphaned `images/`). If you'd rather the short README stand alone, that's one commit to revert.
 3. **`CHANGELOG.md`** still says `## 2.0.0 — [release date]`. Yours to date at tag time.
-4. **`reading-comprehension.md` carries a TODO.** Its evidence pack has no assessment cadence, so its metric is a stated proposal, not research — the only metric in the deck not traceable to its pack. The card says so plainly rather than inventing a number. Close it by running the evidence engine (maze/cloze and curriculum-based measurement are the obvious places to look) or by making that season deliberately unmeasured.
+4. ~~**`reading-comprehension.md` carries a TODO.**~~ **Closed in 2.1:** the reading challenge now counts groups using a strategy unprompted, and the pack's "How to tell if it's working" section explains why a weekly reading test can't show progress within a season.
 5. **`privacy-one-pager.html` gained ~4 lines** — worth a ⌘P to confirm it still fits one page.
 
 ### Your manual verification list (browser work, not mine)

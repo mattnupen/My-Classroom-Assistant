@@ -1,141 +1,111 @@
-# Evidence Pack — Reducing Missing & Late Work
+# Evidence Pack: Reducing Missing and Late Work
 
-**Goal:** Help more students turn in more of their work, with less nagging.
-**Built:** 2026-06-14 · **Built by:** the evidence engine (see `brain/evidence-engine.md`)
-**Sources checked:** EEF Teaching & Learning Toolkit; Gollwitzer & Sheeran (2006) meta-analysis; Locke & Latham goal-setting theory; Dai, Milkman & Riis (2014); Lepper, Greene & Nisbett (1973).
+**Goal:** More students turn in more of their work, with less nagging.
+**Checked:** 2026-09-22 (first built 2026-06-14; claims re-checked against sources, strengths corrected)
+**Number to watch for this goal:** total missing assignments across the class, from the weekly class summary.
 
-> How to read this. Each card has two layers. The **top** (claim, strength, source, effect) is the index — what to reach for and how sure we are. The **bottom** (what the research found, the move, a worked example, done-well-vs-badly) is what the AI actually generates from. The worked example is the anchor: the AI matches its tone and shape, it doesn't copy it. Every move obeys the eleven principles in `teaching-principles.md`. This pack *adds* to the universal base; it doesn't replace it.
+> The cards are in the order to try them, **one at a time** (see `../challenge-cycle.md`). Strength labels are defined in `../evidence-engine.md`. Every move also has to pass `../teaching-principles.md`.
 
 ---
 
-### Turn every nudge into an if-then plan
+### 1. Turn every nudge into an if-then plan
 
-- **Evidence strength:** Strong · **Source:** Gollwitzer & Sheeran (2006), meta-analysis of 94 tests · **Effect:** d ≈ 0.65 overall; d ≈ 0.61 on *getting started* · **Retrieved:** 2026-06-14
+- **How strong:** Good research, with limits · **Source:** Gollwitzer & Sheeran (2006), meta-analysis of 94 tests, 8,000+ people · **Effect:** d ≈ 0.65 on reaching goals; d ≈ 0.61 on *getting started* · **Who was studied:** mostly adults and college students. One small high-school study (Duckworth et al., 2011: 66 students preparing for a big test; plans paired with naming the obstacle) found more practice work done · **Checked:** 2026-09-22
 
-**What the research found.** Across 94 studies, attaching a goal to a specific "if [situation], then [action]" cue produced a medium-to-large boost, with the largest gains on the hardest part — *starting*. The effect depends on the cue naming a concrete situational trigger (a time, a place) the person will actually encounter. Vague intent ("I'll try to catch up") does not produce it.
+**What the research found.** Tying a goal to a specific "when [situation], then I'll [action]" cue produced a medium-to-large boost. The biggest gains came on the hardest part, which is getting started. It only works when the cue is a real time and place the person will actually hit. Vague intentions ("I'll try to catch up") don't produce it.
 
-**The move.** The AI never writes "try to catch up." It writes a plan bound to a trigger that already exists in the student's day.
+**The move.** Every reminder you write for students names one task and ties it to a moment already in their day. A natural fresh start (a Monday, a new unit) makes a good trigger. That part is a practical idea: the "fresh start" research (Dai, Milkman & Riis, 2014) is on adults, not classrooms.
+
+**The number to watch.** Total missing assignments, weekly.
 
 **Worked example.**
 > "When you sit down in advisory on Monday, open the lab doc and write the first sentence. That's the whole job for today."
 
-**Done well vs. done badly.** *Well:* one action, tied to a time-and-place the student already has. *Badly:* "find some time this week to work on your missing assignments" — no trigger, and several tasks bundled into one.
+**Done well vs. done badly.** *Well:* one task, one real time and place, kept private. *Badly:* "find some time this week to work on your missing assignments"; or cards handed back in front of the class, where one read aloud as a joke sinks the rest.
 
-**Watch out.** The trigger has to be real and specific. "When you have a free moment" is not a trigger; "when you walk into 3rd period" is.
+**Watch out.** "When you have a free moment" isn't a trigger. "When you walk into 3rd period" is.
 
 ---
 
-### Teach students to plan and track their own work
+### 2. Let families see what's missing, every week
 
-- **Evidence strength:** Very strong · **Source:** EEF — Metacognition and self-regulation (top evidence rating) · **Effect:** ≈ +7 months (secondary), +8 (primary) · **Retrieved:** 2026-06-14
+- **How strong:** Good research, with limits · **Source:** Bergman & Chan (2021), *Journal of Human Resources*; Kraft & Rogers (2015), *Economics of Education Review* · **Effect:** course failures down 27% and class attendance up 12% (Bergman & Chan); students failing to earn credit fell from 15.8% to 9.3% (Kraft & Rogers) · **Who was studied:** middle and high schools (22 schools in West Virginia); a high school summer credit-recovery program · **Checked:** 2026-09-22
 
-**What the research found.** This is the highest-impact strand in the EEF Toolkit — *and* the one EEF flags as hardest to do well. The gain comes from students planning, monitoring, and evaluating *their own* work. When an adult holds the list and chases the student, the effect disappears; the point is to move that ownership to the student.
+**What the research found.** In Bergman & Chan's randomized trial, automatic weekly texts from the gradebook to parents about missed assignments, low grades and absences cut course failures, most for high schoolers and students with below-median grades. There was no effect on state test scores. Parents tend to think their child is doing more work than they are (Bergman, 2021). In Kraft & Rogers, messages about *what the student could do better* worked better than general praise.
 
-**The move.** Instead of the AI (or the teacher) holding the list of what's missing, the AI generates a tiny self-check the student fills in.
+**The move.** First, check whether your gradebook can send families automatic missing-work alerts. Many can. If yours can, this is the zero-effort option: ask once, turn it on, done. That's close to what was studied (which also included grade and absence alerts), and it costs you nothing each week. Send families one short note explaining the alerts. If your gradebook can't send them, use the Parent Messages app on your computer to send a short weekly note from one template.
+
+**The number to watch.** Total missing assignments, weekly.
+
+**Worked example.** In the Offline option, give the teacher this template for the Parent Messages app. It uses the app's own fill-in fields, so the app puts in each student's name, class, and missing work. Tell the teacher to paste it into the boxes for students with missing work and leave the "Strong" box (nothing missing) blank:
+> "Hi {first_name}'s family: a quick heads-up that {first_name} has {missing_count} assignments open in {period}: {missing_list_inline}. Anything I can do on my end?"
+
+In the Claude for Teachers option, you can write the same note for named drafts in the chat, and add one line naming the assignment to start with if the teacher wants it. Never save a filled-in copy.
+
+**Done well vs. done badly.** *Well:* specific, weekly, lists what's missing, sounds like a partner. *Badly:* a vague "some missing work" note, or a threat.
+
+**Watch out.** Families with no phone or email on file get nothing. Check who's missing from the contact list (using your own records, offline).
+
+---
+
+### 3. Students plan and check off their own work
+
+- **How strong:** Promising, less proven (for turning work in) · **Source:** WWC practice guide, *Teacher-Delivered Behavioral Interventions in Grades K–5* (2024), "teach students to monitor and reflect on their own behavior," rated moderate; Langberg et al. (2012), the HOPS program · **Effect:** HOPS: parent-rated homework completion d ≈ 0.85 · **Who was studied:** K–5 behavior studies; HOPS was 47 middle schoolers with ADHD, coached one-on-one · **Checked:** 2026-09-22
+
+**What the research found.** Teaching students to plan and check their own work helps in the studies that tried it. But those studies were either about behavior in elementary classrooms, or used one-on-one coaching for students with ADHD. The EEF's high rating for "metacognition" (+8 months) is about *learning* subject content, so it doesn't back up claims about work completion. In the studies, students did the planning themselves. A teacher-held tracking list is a different thing and hasn't been shown to do the same job.
+
+**The move.** A 60-second self-check, with the same three prompts every week. The student writes it and the student keeps it.
+
+**The number to watch.** Total missing assignments, weekly.
 
 **Worked example.**
 > **My plan (60 seconds)**
 > One thing I owe: ________________
-> I'll start it: (when / where) ________________
+> I'll start it (when / where): ________________
 > I'll know it's done when: ________________
 
-**Done well vs. done badly.** *Well:* light, the same three prompts every week, the student writes it. *Badly:* a long teacher-filled tracking sheet, or a new format each time — that's just another worksheet, and the ownership never transfers.
+**Done well vs. done badly.** *Well:* short, the same every week, in the student's hands. *Badly:* a long tracking sheet the teacher collects, or a new format every week.
 
-**Watch out.** This is the highest-impact card here and the easiest to ruin. If it starts feeling like surveillance or paperwork, it's being done badly.
+**Watch out.** If it starts to feel like paperwork or being watched, it has stopped being self-monitoring.
 
 ---
 
-### Make the next action almost too small to refuse
+### 4. Shrink the next step to one near, specific action
 
-- **Evidence strength:** Moderate (classic experiment + behavioral-design support) · **Source:** Leventhal, Singer & Jones (1965), "channel factors"; B.J. Fogg behavior model · **Retrieved:** 2026-06-14
+- **How strong:** Promising, less proven · **Source:** Bandura & Schunk (1981), near goals; Leventhal, Singer & Jones (1965), "channel factors" · **Who was studied:** 40 children aged 7–10 learning subtraction; college students · **Checked:** 2026-09-22
 
-**What the research found.** In the 1965 study, persuasion changed people's *intentions* but not their *behavior* — what changed behavior was a concrete, low-friction action plan: a specific next step, and the path to it cleared. People who got the plan acted; people who got only the message mostly didn't.
+**What the research found.** Children given a near, specific goal (a few pages per session) did better and felt more capable than children given only a distant goal. In the 1965 study, a persuasive message changed what students *intended* to do. Only a concrete plan with a clear path changed what they *did*. Both studies are small and old, but they fit the if-then research well.
 
-**The move.** The AI strips the next step to one frictionless action and removes the obstacles around it: name the exact document, the exact first prompt, the single sentence.
+**The move.** Turn a pile of missing work into one named task for this week, with the first step made tiny.
+
+**The number to watch.** Total missing assignments, weekly.
 
 **Worked example.**
-> "Open the lab doc (it's the one pinned in our class page). Read prompt 1. Write one line. Stop there if you want."
+> "This week: just the Unit 3 lab. Open it (it's pinned on our class page), read prompt 1, write one line. We'll pick the next one Friday."
 
-**Done well vs. done badly.** *Well:* one cushion-sized action, path cleared. *Badly:* three "small" steps stacked into one ask, or a step that still requires the student to go hunting for the file.
+**Done well vs. done badly.** *Well:* one task, one small first step, and the file is easy to find. *Badly:* "get caught up," or a five-item list.
 
-**Watch out.** Don't let "small" quietly become a couch. One action.
-
----
-
-### Set specific, near-term sub-goals — not "catch up"
-
-- **Evidence strength:** Strong · **Source:** Locke & Latham goal-setting theory; Bandura & Schunk (1981), proximal goals · **Retrieved:** 2026-06-14
-
-**What the research found.** Specific, near, moderately-challenging goals beat vague distal ones ("do your best," "catch up by the end of term") on both achievement *and* self-efficacy. Bandura & Schunk found proximal goals raised children's confidence as well as their performance.
-
-**The move.** The AI converts a backlog into one named, near target and resists listing everything at once.
-
-**Worked example.**
-> "This week: just the Unit 3 lab. Not the whole backlog — that one. We'll pick the next one Friday."
-
-**Done well vs. done badly.** *Well:* one concrete sub-goal that's real progress. *Badly:* "get caught up" (distal, vague), or a five-item list that reads as a mountain.
-
-**Watch out.** Proximal doesn't mean trivial — the sub-goal should still feel like genuine progress, not busywork.
+**Watch out.** Small shouldn't mean pointless. The one task has to be real progress.
 
 ---
 
-### Use natural fresh starts instead of "you're behind"
+## Handle with care
 
-- **Evidence strength:** Moderate · **Source:** Dai, Milkman & Riis (2014), *The Fresh Start Effect* · **Retrieved:** 2026-06-14
-
-**What the research found.** Motivation to pursue a goal rises right after a temporal landmark — a Monday, a new month, the start of a unit. The landmark creates a psychological "new chapter" that makes restarting feel possible.
-
-**The move.** The AI frames restarts around landmarks the class already feels, not around the deficit — and it pairs naturally with the if-then card (the landmark *is* the trigger).
-
-**Worked example.**
-> "New unit starts Monday — clean slate. Pick it up there; what came before doesn't have to follow you in."
-
-**Done well vs. done badly.** *Well:* tied to a real landmark the class is already aware of. *Badly:* manufacturing a fake "fresh start" every other day, which empties the word of meaning.
-
-**Watch out.** The effect comes from landmarks that genuinely feel like a new chapter — use them, don't invent them.
-
----
-
-### Name the positive norm, never the comparison
-
-- **Evidence strength:** Strong · **Source:** Cialdini social-norming research (also in the universal base) · **Retrieved:** 2026-06-14
-
-**What the research found.** "Most people are doing X" is among the strongest known behavioral nudges; "you're behind your peers" is among the most damaging. The first invites belonging; the second triggers shame and withdrawal.
-
-**The move.** The AI states a true majority norm and an open door — never a count of who hasn't.
-
-**Worked example.**
-> "Three-quarters of the class turned the lab in by Friday — that's the rhythm, and it's an easy one to join."
-
-**Done well vs. done badly.** *Well:* a true, majority, positive norm with a way in. *Badly:* "you have more missing work than most of the class" — a deficit comparison, which backfires.
-
-**Watch out.** The norm has to be true and an actual majority. If most of the class hasn't turned it in, drop the norm and switch to the fresh-start framing instead.
-
----
-
-## Handle with care (for this goal)
-
-- **Zeros and big late penalties as motivation.** The professional case against them (Reeves, *The Case Against the Zero*, 2004; Feldman, *Grading for Equity*) is strong on grading *accuracy*, but the evidence that penalties *increase* completion is weak-to-contested. The AI won't frame missing work around punishment, and will flag if a request leans that way.
-- **Prizes or points for turning work in.** The overjustification effect (Lepper, Greene & Nisbett, 1973) shows tangible rewards for an activity can *reduce* the underlying motivation to do it. Occasional celebration is fine; a standing rewards economy for compliance can backfire.
-- **Public deficit lists of any kind.** Hard no — violates principle 7. Not a judgment call.
-
----
-
-## Practitioner notes
-
-*The AI adds dated, aggregate-only notes here as you report what actually happened in your room.*
-
-- `2026-09-15 — The one-sentence "open the doc, write one line" move landed well with 1st period; 4th period needed the if-then trigger tied to a specific class, not just "advisory."`
-
-*(Aggregate only. Never a student's name.)*
-
----
+- **Zeros and heavy late penalties as motivation.** The argument against them is mostly about grading accuracy (Reeves, 2004; Feldman, 2018). The evidence that penalties get more work turned in is weak. Don't build messages around punishment.
+- **Prizes or points per student for turning work in.** These haven't been shown to help with missing work, and a public points tally shows the class who is behind, which breaks principle 7. An occasional class celebration is fine.
+- **Comparing students** ("you have more missing than most"): never. That's principle 6 and safety rule 4.
+- **Public lists of who owes what:** never.
 
 ## Sources
 
-- [Gollwitzer & Sheeran (2006), *Implementation Intentions and Goal Achievement: A Meta-Analysis*](https://www.scirp.org/reference/referencespapers?referenceid=2077487)
-- [EEF — Metacognition and self-regulation](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation)
-- [Leventhal, Singer & Jones (1965), *Effects of fear and specificity of recommendation upon attitudes and behavior*](https://www.researchgate.net/publication/9270073_Effects_of_fear_and_specificity_of_recommendation_upon_attitudes_and_behavior)
-- Locke & Latham, goal-setting theory; Bandura & Schunk (1981), proximal goals
-- Dai, Milkman & Riis (2014), *The Fresh Start Effect*, Management Science
-- Lepper, Greene & Nisbett (1973), overjustification effect
+- Gollwitzer & Sheeran (2006), *Implementation intentions and goal achievement: A meta-analysis of effects and processes*, Advances in Experimental Social Psychology 38. [KOPS record](https://kops.uni-konstanz.de/handle/123456789/10973)
+- Bergman & Chan (2021), *Leveraging parents through low-cost technology*, Journal of Human Resources 56(1). [Journal page](https://jhr.uwpress.org/content/56/1/125)
+- Bergman (2021), *Parent-child information frictions and human capital investment*, Journal of Political Economy 129(1). [Journal page](https://www.journals.uchicago.edu/doi/10.1086/711410)
+- Duckworth, Grant, Loew, Oettingen & Gollwitzer (2011), *Self-regulation strategies improve self-discipline in adolescents*, Educational Psychology 31(1), 17–26. [NYU Scholars](https://nyuscholars.nyu.edu/en/publications/self-regulation-strategies-improve-self-discipline-in-adolescents)
+- Kraft & Rogers (2015), *The underutilized potential of teacher-to-parent communication*, Economics of Education Review 47. [Journal page](https://www.sciencedirect.com/science/article/abs/pii/S0272775715000497)
+- What Works Clearinghouse (2024), *Teacher-Delivered Behavioral Interventions in Grades K–5*. [Practice guide](https://ies.ed.gov/ncee/wwc/practiceguide/31)
+- Langberg et al. (2012), HOPS intervention, School Psychology Review 41(3). [ERIC EJ1001218](https://eric.ed.gov/?id=EJ1001218)
+- EEF, *Metacognition and self-regulation* (+8 months, high security; about learning outcomes). [Toolkit](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation)
+- Bandura & Schunk (1981), Journal of Personality and Social Psychology 41(3); Leventhal, Singer & Jones (1965), Journal of Personality and Social Psychology 2(1)
+- Dai, Milkman & Riis (2014), *The fresh start effect*, Management Science 60(10)
+- Reeves (2004), *The case against the zero*, Phi Delta Kappan; Feldman (2018), *Grading for Equity*

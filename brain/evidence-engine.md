@@ -1,133 +1,100 @@
-# Evidence Engine
+# The Research Routine (evidence engine)
 
-`teaching-principles.md` holds the eleven moves your AI uses by default. `research-foundations.md` is the universal base — the research every classroom gets for free. But your goal isn't every classroom's goal. A class working toward *zero missing assignments* needs different research than one working toward *deeper reading* or *calmer transitions*.
-
-This file is how your AI closes that gap. It doesn't stock a library in advance and hope your goal is in it. It gathers the research for **your** goal at the moment your goal becomes known, checks it against trusted sources, and writes it down as a small, reviewable set of evidence cards your AI then treats as its primary guide for that goal.
-
-You don't run this. Your AI does, during the conversations you're already having.
+`teaching-principles.md` is how you always write. `research-foundations.md` is the research every classroom gets. This file is how you find research for **this teacher's challenge**, write it down honestly, and keep it current. To the teacher, this is "the research I've gathered on [goal]." Never say "evidence engine" or "evidence pack" to them.
 
 ---
 
-## Why this works without pre-loading
+## When to look things up
 
-There's one AI here: Claude, in Cowork, online. It can read research the moment you name a goal — so nothing has to be stocked in advance. "We can't prepare the research ahead of time" stops being a problem, because the AI prepares it exactly when there's a goal to prepare it for.
+- **A challenge is chosen or changed.** Check `my-classroom/evidence-packs/` first, then `brain/evidence-packs/`. If one matches, use it. If none does, build one. (In a first session, offer first: "Want me to look up what the research says works for this?")
+- **The research you have runs out.** The card has no move left, or none fits this class (their grade level, their subject, their schedule).
+- **The evidence is thin.** Every option you have is "promising, less proven" and the teacher is about to spend a season on it.
+- **The teacher asks** what the research says, or mentions a problem that keeps coming back.
 
-So why write findings into evidence packs at all, instead of just looking things up live each time? Because writing them down buys five things a quick search can't:
+**Permission.** Ask once whether they'd like you to look up research for them. After a yes, don't ask again before each search. Just do it, then tell them in one sentence: *"I looked up what the research says about getting quieter students talking, and saved the two strongest ideas."* Write their yes into `my-classroom/class-story.md` (one line, dated). If they say no, work from what's already here and tell them how strong it is.
 
-- **Durability.** Each Cowork session starts fresh, but the brain files persist. A pack means the research is remembered and reused — not re-derived, and re-derived differently, every session.
-- **Vetting.** Building a pack is a deliberate step — search the canon, label the strength, run the handle-with-care check — which beats whatever a mid-conversation search happens to turn up.
-- **Reviewability.** You can read, question, and edit the evidence base. That's the whole point of "grounded": you can check the work.
-- **Reuse.** A pack holds zero classroom-specific content, so it's portable — the next teacher with the same goal starts from it, not a blank page.
-- **Consistency.** Every slide, poster, and card checks the same vetted pack, so the AI's grounding doesn't drift with the day's search results.
+## Where to look, in this order
 
-A note on where this sits relative to the privacy boundary. The *offline* part of this project — the local HTML tools teachers use to process student data — has no AI in it at all. That separation is deliberate: it's how student data stays away from Claude. The evidence engine lives entirely on the online side, with the AI you actually talk to. It never touches student data because it only ever works with published research about teaching *methods* — no card contains a name, a grade, or anything about a specific child. It stays on the safe side of the boundary by its nature.
+1. **The EEF Teaching and Learning Toolkit** (Education Endowment Foundation, UK). It averages many studies, gives an impact in "months of progress" and a rating for how secure the evidence is.
+2. **The What Works Clearinghouse** (US Institute of Education Sciences). Its practice guides rate each recommendation strong, moderate, or minimal. Its intervention reports rate specific programs.
+3. **Peer-reviewed meta-analyses and large randomized trials**, found through ERIC or the journals.
+4. **Named researchers whose findings have been repeated by others.** Dunlosky et al. (2013) on study techniques and the Deans for Impact *Science of Learning* summary are good examples. Use Hattie's *Visible Learning* numbers carefully, if at all: researchers have criticized how its averages are calculated. Look up the original studies instead.
 
----
+Blogs, vendor sites, and "studies show" posts don't count. If a program's only evidence comes from the people selling it, say so. The EEF warns that these studies tend to show bigger effects.
 
-## When the engine fires
+**Check before you cite.** Open the source. Make sure the number you write down matches it, and write down who was studied (their age, the setting, how many students). If you can't open a source, or can't confirm a number, leave the number out and label the card **"not yet checked."** Never guess at an author, a year, or an effect size.
 
-The AI runs this routine when any of these happens — building right away in steady state, but *offering first* during a first session rather than running off silently:
+## How strong is it? Four labels, in plain words
 
-1. **A mission is set or changed** in `your-classroom-ai.md`. A new mission means a new evidence pack.
-2. **You name a recurring challenge** in conversation ("the late-work thing is getting worse," "they freeze on word problems"). The AI offers to build a pack for it.
-3. **You ask directly** — "what does the research actually say about X?"
-4. **The monthly freshness check** (see below) finds the field has moved.
+These labels go on every card, and you use the same words when you talk to the teacher:
 
-When it fires, the AI tells you in one plain sentence what it's doing and shows you the result. It never silently rewrites how it teaches.
+| Label | Means |
+|---|---|
+| **Strong research behind this** | Several good studies in real schools agree. For example: a large, secure EEF strand, a WWC "strong" rating, or more than one large randomized trial. |
+| **Good research, with limits** | Real school studies, but narrower. For example: one big trial, one age range, one kind of student, or older work that hasn't been repeated. Always name the limit. |
+| **Promising, less proven** | Small studies, studies done outside schools (with adults, in labs, in colleges), or mixed results. |
+| **A practical idea, not tested research** | It makes sense, but there's no direct research. Say so plainly. |
 
----
+Two traps to avoid. First, an EEF "months of progress" figure is about **learning** (test scores), not behavior. Don't use a reading-gains figure to promise more hands in the air, or more work turned in. Second, an effect found for one group (students with ADHD, college students, kindergarten families) doesn't transfer to your class automatically. Say who was studied.
 
-## The trusted-source canon
+## The card
 
-The AI does **not** search the open web and grab the first confident-sounding blog. Education is full of appealing claims with nothing under them. The AI searches these sources first, in roughly this order of trust:
-
-1. **EEF Teaching & Learning Toolkit** (Education Endowment Foundation) — already meta-analyzed; gives an effect size in *months of progress*, a cost, and an evidence-strength rating. The single best starting point.
-2. **What Works Clearinghouse** (US Dept. of Education, IES) — vetted intervention reports with effect sizes and study quality.
-3. **ERIC** and peer-reviewed journals — for primary studies and meta-analyses.
-4. **Named, replicated researchers** — Hattie's *Visible Learning* syntheses, Dunlosky et al. (2013) on learning techniques, the Deans for Impact *Science of Learning* summary.
-
-A claim that can't be traced to something in this tier does not become a card. If the AI can only find weak support, it says so on the card rather than dressing it up.
-
----
-
-## The unit: an evidence card
-
-Every finding the AI adopts becomes one card with the same shape — two layers. The **top line** is the index: what to reach for and how sure we are. The block **below** is what the AI actually generates from. This is what makes grounding *visible* instead of vague, and reliable instead of hit-or-miss:
+Every finding becomes one card with this shape:
 
 ```
-### [Plain-language claim — what works]
+### [What works, in plain words]
 
-- **Evidence strength:** [Very strong / Strong / Moderate / Mixed / Weak] · **Source:** [Author (year) and/or EEF/WWC] · **Effect:** [e.g. d ≈ 0.65, or "+7 months" — omit if none] · **Retrieved:** [YYYY-MM-DD]
+- **How strong:** [one of the four labels] · **Source:** [Author (year), or EEF/WWC entry] · **Effect:** [only if the source gives one] · **Who was studied:** [age, setting] · **Checked:** [YYYY-MM-DD]
 
-**What the research found.** [2–3 sentences with the specifics: what was measured, in whom, how big — and, most important, the condition the effect depends on. This is where the nuance that's easy to lose lives.]
+**What the research found.** [2–3 sentences: what was measured, in whom, how big, and the condition it depends on.]
 
-**The move.** [How the AI applies this when it writes slides/cards/messages. Must obey the eleven principles in teaching-principles.md.]
+**The move.** [One concrete thing the teacher does. Must pass the principles in teaching-principles.md.]
+
+**The number to watch.** [What to count, name-free, and where it comes from.]
 
 **Worked example.**
-> [A real mini-artifact — the actual words or format the AI should produce. An anchor the AI matches in tone and shape, not something it copies verbatim.]
+> [The actual words or format you'd produce. Something to match in tone and shape, not copy.]
 
-**Done well vs. done badly.** [One line each: the difference that decides whether the effect actually shows up.]
+**Done well vs. done badly.** [One line each: the difference that decides whether it works.]
 
-**Watch out.** [The condition under which this backfires or doesn't transfer.]
+**Watch out.** [When it backfires or doesn't transfer.]
 ```
 
-Two parts carry the weight. The **worked example** — an LLM produces far more consistent output when it has one to match than when it works from a description alone. And **done well vs. done badly** — it encodes the implementation condition the research hinges on, because many high-impact moves fail when done badly and the AI needs to know the difference. A card without these is an index entry, not something to act from.
+## Building a pack
 
----
+1. Name the goal in plain words ("more work turned in," not "compliance").
+2. Search the sources above, strongest first.
+3. Write **three to five** cards. Fewer strong cards beat many weak ones. Order them as moves to try one at a time, strongest or easiest first.
+4. Drop anything that would break a principle (anything that relies on public ranking, for example) or a safety rule.
+5. Add the ideas that *don't* work to the "Handle with care" list.
+6. Save the pack in `my-classroom/evidence-packs/[goal].md`, dated. The shipped packs in `brain/evidence-packs/` are read-only. If a shipped pack needs more, write the new cards into a same-named file in `my-classroom/evidence-packs/`, which you read alongside the shipped one.
+7. Tell the teacher in one or two sentences what you found and how strong it is.
 
-## The "handle with care" list
+A pack never contains anything about a specific student or class. That's what makes it safe to keep and to share.
 
-A grounding system earns trust by knowing what's **not** true. The AI keeps a running list of popular ideas it will not ground itself in, and will gently push back if you ask for them:
+## What the teacher saw
 
-- **Learning styles** (visual/auditory/kinesthetic matching) — repeatedly tested, no effect on learning (Pashler et al., 2008). The AI does not tailor content to "styles."
-- **Brain Gym / hemisphere "training"** — no credible support.
-- **"Digital natives" learn differently** — not supported.
-- Anything the AI itself flagged as weak when building a pack gets added here.
+When the teacher tells you how a move went ("the if-then plans worked in 1st period, not 4th"), add a dated, class-level line to `my-classroom/evidence-packs/[goal]-notes.md`. Never a student's name. These notes count as evidence alongside the research, especially when you're deciding keep, adjust, or switch (`challenge-cycle.md`).
 
-This list grows. When a card's evidence turns out thin, it moves here rather than quietly staying in rotation.
+## Keeping it current
 
----
+Once a season, quietly re-check the sources behind the active pack. Only mention it if something changed: a bigger or smaller effect, a failed replication, a retraction. Then show the teacher exactly what you'd change, in plain words. They decide.
 
-## How the AI builds a pack (the steps)
+## Handle with care
 
-1. **Name the goal in plain terms.** "Reduce missing/late assignments," not "improve compliance metrics."
-2. **Search the canon** (above), newest strong evidence first.
-3. **Draft 3–6 cards.** Prefer fewer, stronger cards over a long weak list.
-4. **Translate each into a classroom move *and a worked example*** that pass the eleven principles. If a finding can't be applied without breaking a principle (e.g., it relies on public ranking), it doesn't make the pack.
-5. **Run the handle-with-care check.** Drop or flag anything shaky.
-6. **Write the pack** to `brain/evidence-packs/<goal-slug>.md` and tell the teacher what's in it in two or three sentences.
-7. **Date it.** Every pack carries the date it was built so staleness is visible.
+Popular ideas you won't build on. Push back gently if you're asked:
 
----
+- **Learning styles** (matching lessons to "visual" or "auditory" learners): tested repeatedly, no benefit (Pashler et al., 2008).
+- **Brain Gym and "left brain / right brain" training:** no credible support.
+- **"Digital natives" learn differently:** not supported.
+- **Ongoing prizes or points per student for reading or speaking up.** For activities students can come to enjoy, expected rewards can lower interest once they stop (Deci, Koestner & Ryan, 1999; the finding is debated and applies mainly to tasks that are already interesting). For routine behavior, the WWC K–5 guide rates praise and small rewards as strong, so an occasional class celebration is fine.
+- **Public charts of individual behavior** (clip charts, color charts, shame boards): break principle 7, and there's no good evidence for them.
+- Add anything you find weak while building a pack.
 
-## Where packs live, and how the layers fit
+## The honesty rules
 
-```
-research-foundations.md   →  universal base (every class gets this)
-teaching-principles.md    →  the eleven moves (how the AI always writes)
-evidence-packs/<goal>.md  →  YOUR goal's specific research (this engine)
-```
-
-When the AI generates anything for students, it silently checks the **active pack** (the one matching the current mission) on top of the universal base. The pack doesn't replace the principles — it points them at your goal.
-
-Packs are plain markdown with zero classroom-specific content, which means they are **portable**. A pack built for one teacher's "reduce missing work" goal is, by construction, usable by any teacher with that goal. That's the long game: the first teacher to need a goal funds the research once; every teacher after can start from that pack instead of a blank page. Nothing personal travels with it because there was never anything personal in it.
-
-## The practitioner loop
-
-Research tells the AI what works *on average*. You know what works *in your room*. When you tell the AI how a move actually landed — "the if-then thing worked," "the Monday reset fell flat with this group" — it adds a dated, aggregate-only note to the bottom of the pack under **Practitioner notes**. Over time the pack reflects both the published evidence and your lived correction of it. (Aggregate only: "landed with 1st period," never anything about a specific student.)
-
-## Staying fresh
-
-Evidence moves. Effect sizes get revised; some celebrated findings shrink under replication. Once a pack exists, the AI offers to re-check the canon for that goal about once a month (this pairs naturally with a scheduled task). If it finds a stronger study, a contradiction, or a retraction, it proposes an edit and shows you exactly what would change, in plain language. You decide.
-
----
-
-## The honesty rules (non-negotiable)
-
-- **Always show evidence strength.** Never present a moderate finding as settled fact.
-- **Name the source.** If the AI can't, the claim doesn't become a card.
-- **Say what you don't know.** "There's surprisingly little good research on this" is a valid, trust-building answer.
-- **Date everything.** A 2014 effect size labeled as such is honest; one presented as timeless is not.
-- **Prefer fewer strong cards** to many weak ones.
-
-The goal isn't to *sound* grounded. It's to be grounded, visibly, so you can check the AI's work and show it to anyone who asks.
+- Every card carries a strength label. Never present a promising finding as settled.
+- Name the source. If you can't, it isn't a card.
+- Say who was studied, and date everything.
+- "There isn't much good research on this" is a good answer. Say it.
+- The research informs the teacher's judgment. It doesn't overrule it.

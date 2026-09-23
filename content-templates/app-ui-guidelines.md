@@ -1,6 +1,8 @@
 # App UI Guidelines
 
-The visual standard for the **teacher-facing tool pages** in `local-tools/` (the dashboard and every app in the sidebar). This keeps the suite looking like one product.
+The visual standard for the **teacher-facing tool pages** in `local-tools/` (Class Tools and every app in its sidebar). This keeps the suite looking like one product.
+
+**Names.** The browser home page (`ClassAI-dashboard.html`) is **Class Tools**, and that is its sidebar label and its heading until the AI has a name (then "[AI name] — [class]"): the page the teacher double-clicks to open the offline apps. The page the AI keeps in the chat (`my-classroom/dashboard.md`) is **your class page**. Never call either one just "the dashboard" on a page a teacher reads.
 
 *Not to be confused with `classroom-display-rules.md`, which governs **student-facing** output — slides, posters, printed cards. This file is about the apps the teacher uses.*
 
@@ -10,12 +12,12 @@ The visual standard for the **teacher-facing tool pages** in `local-tools/` (the
 
 ## The header (every app page uses it)
 
-One consistent header — a dark "Ocean Depths" hero band — opens every tool page:
+One consistent header — a dark **chalkboard sheet**, the same "Chalk & Marker" look as the homepage (`site-v2/design.md`) — opens every tool page:
 
-- A **seafoam icon chip** on the left (the app's matching sidebar icon).
+- A **sticky-note icon tile** on the left (the app's matching sidebar icon, on a yellow note).
 - The **app name as the `<h1>`** — the large text. Always the real app name (e.g., "Class Pulse"), never a tagline.
-- A **one-line description as the `<h2>`** directly below it.
-- Optional: one **cream pill action button** on the right (e.g., Feedback Cleaner's "Need a form?").
+- A **one-line description as the `<h2>`** directly below it: what the tool is for, then **when** to use it ("Use it before group work.").
+- Optional: one **cream action button** on the right (e.g., Feedback Cleaner's "Need a form?").
 
 The CSS lives once in `local-tools/_nav.js` (class `.app-hero`), so pages only supply the markup and every page matches automatically. Put the header as the first child of the page's main content container so it inherits the page padding.
 
@@ -34,34 +36,47 @@ Rules:
 
 - The `<h1>` is the **app name**; the `<h2>` is the **description**. Don't put the name in a small eyebrow/kicker.
 - **One description per page.** The sidebar shows titles only, so the page's `<h2>` is where the description lives. Don't repeat it again below the header.
-- The icon SVG uses `stroke="currentColor"` so it picks up the seafoam color from `.app-hero-ico`.
+- The icon SVG uses `stroke="currentColor"` so it picks up the ink color from `.app-hero-ico`.
 
-**The Dashboard is the one exception** — it's the home/overview, so its hero shows the *class's* identity (the AI's name, mission, tier chips) rather than the word "Dashboard." It still uses the same dark band and an `<h1>`.
+**Class Tools is the one exception** — it's the home page, so it looks like the homepage hero instead of a chalk band: a big headline on graph paper showing the *class's* identity (the AI's name, mission, group chips), with **See a demo class** beside it and a handwritten margin note pointing at the button. Below it sits the "How Class Tools works" panel (a sky-blue sheet: what this is, what to do first, how it fits with the chat in both options); keep it, and keep it short. Its cards are objects, chosen by card `type`: the current move (`text` card whose id mentions focus) is a **sticky note**, `progress` is the homepage's **year ruler**, `checklist` uses **tick discs**, `dates` get **date chips**, `files` become **file chips**. Opening it with `#demo` at the end of the address starts it in the demo class.
 
 ---
 
-## Palette (teacher-app theme)
+---
 
-The apps use the Ocean Depths colors as a light UI (distinct from the projection edition):
+## Words on the page
+
+Teachers read every word, so use theirs:
+
+| Instead of | Say |
+|---|---|
+| CSV / XLSX | your gradebook file (a .csv or Excel file) |
+| export | download — except when naming the gradebook's own **Export** button |
+| JSON, state file | memory file (Badges, Random Groups) · comparison file (Class Pulse) |
+| snapshot, pulse | weekly class summary (the app can keep its name, Class Pulse) |
+| sandbox, fictional | demo class, made-up students |
+| tier | group (Strong / Steady / Struggling can stay) |
+
+**The first step is obvious.** Any tool that reads a gradebook opens with a drop zone that says "Drop your gradebook file here," a **Load demo class** button (the fictional `CLASSAI_DEMO` in `_nav.js`), and one hint: how to get the file from the gradebook. Anything the teacher hands to the chat gets numbered steps and a paste-it-instead fallback (see Class Pulse).
+
+## Palette and type ("Chalk & Marker", shared with the homepage)
+
+The shell (sidebar, header, buttons, Class Tools) uses the homepage's system from `site-v2/design.md`. In `_nav.js` its colors are prefixed `--ct-` so they never collide with a tool page's own variables.
 
 | Role | Hex |
 |------|-----|
-| App canvas background | `#eef4f1` |
-| Card / surface | `#ffffff` |
-| Primary text (ink) | `#0d1b2a` |
-| Hero band | `#1a2332` → `#143a45` gradient |
-| Accent (links, progress, key terms) | Deep Teal `#1f6b6b` |
-| Fills / chips | Seafoam `#a8dadc`, pale `#e3f1ef` |
-| Muted text (AA on white) | `#51646d` |
-| Hairline borders | `#d8e6e1` |
+| Page paper | `#FAF6EE` (recessed `#F3EDE1`) |
+| Card / surface | `#FFFFFF` |
+| Ink (text, the chalkboard sidebar and header) | `#14231F` · body `#3F4F49` · meta `#5A6862` |
+| The marker — the only color that points (arrows, margin notes, the demo stamp, the current-page icon) | `#FF5A1F` · as text `#C24410` · tint `#FFE3D3` |
+| Supply-cupboard tints (one per card type) | sky `#E7F0FF` · sun `#FFF2C4` · mint `#E0F3E7` · coral `#FFE6DD` · lilac `#EEE8FF` |
 
-## Type & components
-
-- Base body text **16px**; never below 11px.
-- Header: `h1` 27px / 700, `h2` 16px / 500.
-- Cards: white background, `1px` hairline border, `14px` radius, soft shadow, ~17–19px padding. A small seafoam icon chip + bold title is the card-head pattern.
-- Buttons: teal for primary actions; cream pill on the dark hero.
-- Honor `prefers-reduced-motion`; keep motion subtle (this is teacher-facing, not student-facing).
+- **Fonts are bundled** in `local-tools/fonts/` (Bricolage Grotesque for headings, Figtree for everything else, Caveat for handwritten notes, DM Mono for file names; all SIL Open Font License, licenses alongside). Nothing is fetched from the internet. Never link Google Fonts from a tool page.
+- Base body text **16px**; never below 11px. Header `h1` 30px Bricolage 750, `h2` 16.5px Figtree 500.
+- Cards: white, 20px radius, soft ink-tinted shadow plus a hairline inset, ~22px padding; a small tinted icon tile + Bricolage title is the card-head pattern. No hover lift on cards that aren't clickable.
+- Buttons: ink (chalk) for the main action, white with a hairline for secondary; hover lifts 1px, press sinks 1px. Orange is never a button fill in the tools.
+- Motion only shows a change of state (the demo swap, the ruler line drawing in, the drawer). Honor `prefers-reduced-motion`.
+- **Inside the older tool pages** (drop zones, steps, results) the Ocean Depths light palette still applies until each page is restyled: canvas `#eef4f1`, ink `#0d1b2a`, accent teal `#1f6b6b`, hairlines `#d8e6e1`. The skill's scaffold (`scaffold-base.html`) also still carries that older palette; bring it into sync the next time the app builder is updated.
 
 ## Wiring (every tool page)
 
@@ -69,17 +84,17 @@ The apps use the Ocean Depths colors as a light UI (distinct from the projection
 - Wrap any inline `<script>` logic in an IIFE — `_nav.js` declares globals (`ICONS`, `state`, …) and a bare top-level `const` with the same name will collide and silently break the page.
 - **Apps generated by the skill are the exception:** they live outside `local-tools/`, load neither script, and carry their own copy of this style. They get a plain "← Back to Class Tools" link instead of the sidebar.
 
-## Privacy invariants (non-negotiable for any tool)
+## The app rules (non-negotiable for any tool)
 
 Every local tool is one **static, offline HTML file**. It must:
 
 1. Be a single `.html` file — no build step.
 2. Make **no network calls** except the SheetJS CDN (`https://cdn.sheetjs.com`) when it needs to read `.xlsx`.
 3. **Never** store uploaded student data in `localStorage` / `sessionStorage` / `indexedDB`.
-4. **Never** write to the filesystem inside the project folder — output is print or an `<a download>` blob only.
+4. **Never** write to the filesystem inside the project folder — output is print, an `<a download>` blob, on-screen, or copy to clipboard.
 
 And the fifth rule, which decides where a thing belongs in the first place:
 
-5. **If it touches a name, it opens in your browser. If it's aggregate-only, it can live in Cowork.**
+5. **If an app touches names, it runs offline in the teacher's browser.** If it only uses class totals, it can live in Cowork.
 
-The first four are enforced by construction when you build via the `teacher-app-builder` skill — its gate refuses to register an app that breaks one. See `docs/teacher-app-builder.md`.
+The first four are enforced by construction when you build via the `teacher-app-builder` skill — its safety check refuses to add an app that breaks one to the sidebar. See `docs/teacher-app-builder.md`.

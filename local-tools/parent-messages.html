@@ -221,7 +221,7 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></span>
     <div class="app-hero-text">
       <h1>Parent Messages</h1>
-      <h2>One message per tier, mail-merged per student — ready to paste into ParentSquare or email.</h2>
+      <h2>Write one template per group and get a personal note home for every student, ready to paste into email. Use it before conferences or report cards.</h2>
     </div>
   </header>
 
@@ -229,11 +229,12 @@
   <section class="step">
     <h2>Step 1 &mdash; Load your gradebook</h2>
     <label class="dropzone" id="dz-gradebook">
-      <strong>Drop a CSV or XLSX file</strong>
-      <span>or click to choose &middot; nothing leaves your computer</span>
+      <strong>Drop your gradebook file here</strong>
+      <span>or click to choose &middot; a .csv or Excel file &middot; stays on this computer</span>
       <input type="file" id="file-gradebook" accept=".csv,.xlsx,.xls">
     </label>
-    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+    <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
+    <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     <div id="status-gradebook" class="file-status" style="display:none;"></div>
   </section>
 
@@ -320,12 +321,12 @@
 
     <div class="actions" style="margin-top:14px;">
       <button class="secondary small" id="btn-load-defaults">Load sample templates</button>
-      <button class="secondary small" id="btn-export-templates">Export templates as JSON</button>
-      <button class="secondary small" id="btn-import-templates">Import templates from JSON</button>
+      <button class="secondary small" id="btn-export-templates">Save templates to a file</button>
+      <button class="secondary small" id="btn-import-templates">Open saved templates</button>
       <input type="file" id="import-templates-input" accept=".json" hidden>
       <button class="secondary small" id="btn-clear-templates">Clear all templates</button>
     </div>
-    <p class="hint">Templates auto-save in this browser. Export to a JSON file if you want to back them up or share with a colleague.</p>
+    <p class="hint">Your templates (not student names) are remembered in this browser. Save them to a file to back them up or share with a colleague.</p>
   </section>
 
   <!-- STEP 4: Filter & generate -->
@@ -509,7 +510,7 @@ $('#file-gradebook').addEventListener('change', e => { const f = e.target.files[
 
 // Demo class (fictional data in _nav.js, which loads at the end of <body>)
 document.getElementById('btn-demo').addEventListener('click', () => {
-  if (typeof CLASSAI_DEMO === 'undefined') { alert('Demo data unavailable — _nav.js did not load.'); return; }
+  if (typeof CLASSAI_DEMO === 'undefined') { alert("The demo class didn't load. Keep this page inside the local-tools folder and try again."); return; }
   loadGradebook(CLASSAI_DEMO.makeFile());
 });
 
@@ -629,7 +630,7 @@ Quick update on {first_name} in {period}. Current grade: {grade_pct}% ({grade_le
 
 {missing_list}
 
-These can still earn full credit through the end of the unit. Please ask {first_name} about them this week — I'm happy to help during advisory if they want support getting started.
+[Your late-work policy, e.g., "I accept late work until the end of the unit."] Could you ask {first_name} which one they'll do first, and when? I'm happy to help during advisory if they want support getting started.
 
 Thanks,
 [Your name]`;
@@ -682,7 +683,7 @@ $('#import-templates-input').addEventListener('change', e => {
       $('#tmpl-struggling').value = t.struggling || '';
       saveTemplates();
     } catch (err) {
-      alert('Could not read that JSON: ' + err.message);
+      alert('Could not read that templates file: ' + err.message);
     }
   };
   reader.readAsText(f);

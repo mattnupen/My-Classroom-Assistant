@@ -1,157 +1,128 @@
 # Getting Started
 
-There are two tracks here, and they run on completely different clocks.
+Two tracks, on very different clocks.
 
-**Track 1 — Try it today.** About 30 minutes, all on fictional students. Install Cowork, let your AI set itself up, run the offline tools against a fake gradebook, and pick a challenge. Nothing you do in Track 1 touches a real kid's data, so nothing in it needs anyone's permission.
+**Track 1 — Try it.** About 45 minutes once you have Claude, using a made-up class. Signing up can take a day or two to be approved, so do step 1 today and the rest when you hear back. Nothing in it touches a real student, so nobody's permission is needed.
 
-**Track 2 — Launch with students.** Days, not minutes, and mostly on your district's clock: admin sign-off, family notification, your crisis card. This is the governance track.
+**Track 2 — Launch with students.** Days to weeks, mostly on your district's clock: your principal's sign-off, a letter home, your crisis card. This is only for introducing your AI to your class by name. The weekly help with your challenge (what to try, what to say, what to print) is ordinary teaching that never mentions the AI, so it can start in your first week.
 
-**Do Track 1 first.** It takes an evening, it costs nothing, and it's the only honest way to know whether you want to spend the effort Track 2 asks for. Plenty of teachers stop after Track 1 and just use the offline tools — that's a completely legitimate place to land.
+**Do Track 1 first.** It's the honest way to find out whether this is worth the effort Track 2 asks for. Stopping after Track 1 and just using the offline apps is a fine place to land.
 
 ---
 
-# Track 1 — Try it today
+# Track 1 — Try it
 
-*~30 minutes · fictional data only · no permissions needed*
+*About 45 minutes once you have Claude · made-up students only · no permission needed*
 
-## 1. Install Claude Cowork
+## 1. Get Claude (about 10 minutes, then a wait of up to a day or two)
 
-Download and install Claude from **[claude.com/download](https://claude.com/download)**. Confirm you can open the app and that it can see folders on your computer.
+**If you teach K-12 in the US, it's very likely free.** Sign up for [Claude for Teachers](https://claude.com/solutions/teachers) with your school email.
 
-**If you teach K-12 in the US, this is very likely free for you.** Anthropic verifies educators through their school email and gives them Claude at no cost — see [Claude for Teachers](https://claude.com/solutions/teachers). Verification takes a day or two, so start it before the evening you actually want to use this.
+Once you're approved, download the Claude app for Mac or Windows from **[claude.com/download](https://claude.com/download)**, install it, and sign in. **Cowork** is part of that app — it's the side of Claude that can work with the files in a folder on your computer.
 
-Test that Cowork works:
-- Open Cowork in this `MyClassroomAssistant/` folder
-- Say "hi"
-- Your AI should read its instructions and respond
+Can't find Cowork, or something won't install? That's a Claude question, not a project one: [support.claude.com](https://support.claude.com) has current instructions. (Chromebooks can run the offline apps but not the Claude app — see Track 2, step 1.)
 
-If you get errors, that's a Cowork issue, not a project issue — check [support.claude.com](https://support.claude.com) first.
+## 2. Download this project (2 minutes)
 
-## 2. Say "set up my classroom"
+Download the [ZIP file](https://github.com/mattnupen/My-Classroom-Assistant/archive/refs/heads/main.zip), double-click it to unzip, and move the folder somewhere easy to find, like Documents. You can rename the folder; just don't move things around inside it.
 
-Open Cowork in this folder and type exactly that. Your AI runs a ten-minute interview instead of handing you a form:
+## 3. Open the folder in Cowork (2 minutes)
 
-- What you teach and what the class is like
-- What one thing would be different if this semester went well — that becomes the mission, and it'll offer you the challenge deck rather than a blank page
-- **The data question**, asked once, plainly: Locked-Room (the default — your gradebook only ever touches the offline apps on your laptop) or Direct (only if your district has approved Claude for student data). If you're not sure, say so; it records Locked-Room and you can change it later. See Track 2 step 2 if the question comes up with your admin.
-- Whether your students help name and shape the AI, or you decide solo
-- Anything it should never do in your room
+In the Claude app, start a Cowork conversation and choose this folder as the one to work in. If Cowork asks whether it can read and change files in the folder, say yes — that's how your AI remembers your class between chats.
 
-**You don't have to decide everything right then.** If you want to think about the student-involvement question, say so — your AI will move on and come back to it.
+## 4. Say hi (10–15 minutes)
 
-It writes your answers into `my-classroom/`, and ends by *making something*: a real opening slide for your class, in the built-in projector theme. That's the point of the first session — you leave with an artifact, not a to-do list.
+Type **"set up my classroom"** — or just **"hi."** Here's what happens:
 
-## 3. Do a dry run with the fictional class
+- **A short hello**, then **five quick questions, one at a time.** Each shows an example answer. Short answers are fine, and so is "not sure."
+  1. What you teach and what the class is like
+  2. The one thing you'd most like to be different this semester. Name several and it helps you pick the one that bugs you most, from five ready-made challenges: **missing work, attendance, participation, transitions, or reading**. The others are parked, not forgotten.
+  3. How it goes now (for missing work, say, what happens when a kid falls behind, and your late-work policy)
+  4. Whether you'll share student names and grades with it. The default, and the answer if you're not sure, is no: names stay on your computer and you share class totals. (Only if you use Claude for Teachers *and* your district has said yes can you share more. See Track 2, step 2.)
+  5. Anything it should never do in your room
+- **It gives you this week, right then.** One thing to try, starting now, on one page: what to do tomorrow, what to say, and how you'll know by Friday. If it needs a count from your gradebook, that's one line of the week, not homework before the plan.
+- **It ends with one next step,** and how long it takes. Naming your AI, the practice run, and launch come later, one at a time, when you have room.
 
-The `sandbox/` folder has a fictional gradebook (`fictional-gradebook.csv`) with 24 fake students. Use it to try every tool before touching real data.
+Have to leave partway? It saves as it goes. Next time, say **"let's keep going."**
 
-- Open `local-tools/ClassAI-dashboard.html`. This is your home base — the sidebar gets you to every other app from one place.
-- From the sidebar, open **Progress Cards**. Drop in the fictional gradebook. Print sample cards.
-- Open **Class Pulse**. Generate a summary, then **Download this pulse** and drop the file into `my-classroom/pulses/`.
-- Open **Gradebook Analytics**. Drop in the same gradebook. Sort by tier and skim the per-student view.
-- Open **Parent Messages**. Load the sample templates. Generate messages.
-- Open **Badges**. Start a new state file. Award some badges. Print certificates.
-- Open **Random Groups**. Generate groups with the state file.
+**Coming back, any day:** open Claude and click your classroom chat in the list on the left, and say hi. (Can't find it? Start a new Cowork chat in this same folder.)
 
-Then go back to Cowork and say **"run Monday."** Your AI reads the pulse you just dropped in, updates your dashboard, and proposes the week's moves — each one tagged with the research it draws from. That's the whole loop, running on fictional students.
+## 5. Practice run with a made-up class (about 20 minutes)
 
-After the dry run, you should have a real feel for what the project does — and you'll catch any tool that doesn't fit your style before students are involved.
+In Cowork, say **"show me the practice run"** and your AI walks you through it one step at a time. Or do it yourself:
 
-You'll also have a `class-state.json` file from the badges/groups session. **Move it out of the project folder** to your Documents or Drive, where you'll keep it for your real class.
+1. In the project folder, open the **local-tools** folder and double-click **ClassAI-dashboard**. It opens in your web browser. This is **Class Tools**, your home base; the sidebar on the left gets you to every app.
+2. Click **Class Pulse** → **Load demo class** → **Generate**. You get a short summary of a made-up class — counts only, no names.
+3. Click **Copy** next to the summary, paste it into Cowork, and say **"this is the practice class — show me a Monday."** Your AI reads the numbers, suggests one thing to try first, says how strong the research behind it is, and names the number to watch and when you'll check it. That's the weekly routine, start to finish.
+4. Try any other app in the sidebar the same way — each has a **Load demo class** button. **Progress Cards** (print a sample card) and **Parent Messages** are good next ones.
 
-## 4. Meet the Challenge Deck
-
-`brain/challenge-deck/` has five cards, one per classroom problem: missing work, attendance, participation, transitions, reading comprehension. Each card comes with its research, a weekly play pattern, a metric you can actually count, and a season length that ends.
-
-Ask your AI to **"pitch me the challenge deck"** and it'll give you each card in a line. Pick one, or put two or three on a ballot and let the class vote (`content-templates/student-voting-form.md`). Picking a card is the whole setup — the mission, the moves, and the scoreboard come with it.
+Those apps run entirely in your browser and send nothing anywhere. When real students come in, their names stay there.
 
 ---
 
 # Track 2 — Launch with students
 
-*Days, on your district's clock · this is the governance track*
+*Days to weeks, on your district's clock*
 
-**Your AI project-manages this.** Ask it to **"run the launch checklist"** — it will draft the admin pitch and the parent letter with your details filled in, and track what's done in `my-classroom/`. The full checklist lives in `setup/permissions/checklist.md`; print it and tape it to your wall.
+**Your AI can run this for you.** Say **"run the launch checklist"** — it drafts the note to your principal and the letter home with your details filled in, and keeps track of what's done. If you'd like a paper copy to tape to the wall, say **"print me the launch checklist."**
 
 ## 1. Make sure this fits your situation
 
-Before you commit any more time, check the basics:
+- **Devices.** The offline apps run in any modern browser — Mac, Windows, **and Chromebooks**. The Claude app needs a Mac or Windows computer. A Chromebook classroom can use every app; you'd just need a Mac or Windows machine for the Cowork part. Check [support.claude.com](https://support.claude.com) for what's current.
+- **A class you see often.** Daily or every other day, for at least six weeks.
+- **Your school allows AI tools.** Some districts don't. If you're unsure, ask your tech coordinator.
+- **A gradebook you can download, if you pick missing work.** Anything with an Export button that gives you a `.csv` or `.xlsx` file (PowerSchool, Infinite Campus, Skyward, Canvas, Synergy, and so on) works.
+- **About 10 minutes a week at minimum,** a bit more every second Monday for the check. More only if you want it, and a missed week breaks nothing.
+- **You're okay with it being an experiment.** Your students will know they're trying something new. That helps — but expect to adjust along the way.
 
-- **Devices.** The offline tools in `local-tools/` run in any modern browser on any device — Mac, Windows, **and Chromebooks**. It's the AI side that's pickier: Cowork is a desktop app for Mac or Windows. So a Chromebook classroom can use every tool in this project; you'd just need a Mac or Windows machine for the Cowork half. Cowork's platform support changes — check [support.claude.com](https://support.claude.com) before you rule anything out on this basis.
-- **You teach at least one class regularly.** This works best in a class you see daily or every other day for at least a unit (~6 weeks).
-- **Your school allows AI tools.** Some districts have policies banning AI in instruction. Check before you go further. If unsure, ask your tech coordinator.
-- **You have a gradebook you can export.** Any system that lets you export a `.csv` or `.xlsx` (PowerSchool, Infinite Campus, Skyward, Canvas, Synergy, etc.) works.
-- **You can spend 15–30 minutes a day on this for the duration of your experiment.** Some days less, Sundays more.
-- **You're okay with this being an experiment.** Your students will know they're part of something new. That's actually a feature — but be ready for things to need adjustment.
+If any of those is a no, this may not be the project for you right now. The offline apps are still yours to use.
 
-If any of those is a no, this might not be the right project for you right now. That's totally fine — and the offline tools are still yours to use.
+## 2. Get permission from your principal
 
-## 2. Get permission from your admin
+Don't skip this.
 
-This is the biggest barrier for most teachers. Don't skip it.
+Say **"draft the note to my principal."** Your AI fills in a one-page note with your details: what the project is, how student information is handled, and what students will and won't see. If they want more, say **"draft the longer privacy explainer"** (FERPA, district agreements, and exactly how student information stays out of the AI).
 
-Open `setup/permissions/admin-pitch.md` — it's a one-page summary you can email to your principal or print and hand them. It explains what the project is, how student data is handled, what kids will and won't experience, and what you're asking permission for.
+If they say no, respect it. You can still use the offline apps on their own, or try again next year.
 
-If your admin says yes — great, move on.
+**About student names and grades.** Everything above describes **the Offline option** — the default, and the one you're on unless you change it. Names and grades stay in the offline apps on your computer; your AI works from class totals. You don't have to do anything to get it.
 
-If they want more detail, hand them `setup/permissions/privacy-explainer.md`. That's the longer version that covers FERPA, district vendor agreements, and exactly how this project keeps student data out of the AI.
+The other choice is **the Claude for Teachers option**: if you use Claude through Claude for Teachers *and* your district has given permission to share student information with it (usually after reviewing [its data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms)), you can tell your AI about students directly — handy for individual progress notes. Tell your AI when you have that permission; it writes down who approved it and when, and fills in a one-page record for your files. Don't go looking for this. The Offline option works well, and nothing in this guide depends on switching.
 
-If they say no — respect that. Some districts have legitimate concerns about AI in classrooms. You can try again next year, or with a stripped-down version (just the local tools, no Claude integration).
+## 3. Tell families
 
-**A note on data modes.** Everything above describes **Locked-Room mode** — the default, and the one you're in unless you deliberately change it. Student data stays on your laptop and the AI works from name-free summaries. You don't have to do anything to get this.
+Some districts require families to agree to anything involving AI; others only require a notice. Ask your principal.
 
-Some districts, having reviewed [Anthropic's Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), approve teachers to hand gradebook exports to the AI directly — it saves the summarize-and-paste step. If that conversation comes up with your admin, `setup/permissions/data-mode-record.md` is the one-page record to fill in and keep on file, and your AI will set the mode when you tell it the approval exists. Don't go looking for this. Locked-Room is the right default for almost everyone, and nothing in this guide assumes you leave it.
+Either way, say **"draft the letter home."** It explains what's happening, what students will see, and how families can opt out. Send it in the first week. If families have questions, they come to you, not the AI.
 
-## 3. Notify families
+## 4. Fill in your crisis card
 
-Some districts require active consent for any AI involvement; others only require notification. Check with your admin.
+The most important page in the project. It has room for your school counselor, your principal, crisis lines (988 and local), and your district's mandated-reporter steps.
 
-Either way, `setup/permissions/parent-letter.md` is a template you can adapt. It explains what's happening, what the AI does and doesn't do, what kids will see, and how families can opt out. Keep it brief, send it home in the first week.
+Say **"give me a blank crisis card to print."** Fill it in by hand and keep it on your desk or in your bag. **Don't type your contacts into the chat.** If your AI ever flags something that sounds like a student in trouble, it comes straight to you — and this card is what you act with.
 
-If parents have questions, route them to you — not to the AI.
+## 5. Plan the naming vote (if your students are naming the AI)
 
-## 4. Set up your crisis card
+- **Week 1:** a 10-minute introduction to the project, then a quick vote on the name and one or two personality traits
+- **A few days later:** a runoff between the top picks
+- **Next time you open Cowork:** tell your AI what they chose. It saves it and introduces itself in its new voice.
 
-This is the most important file in the whole project. Open `setup/crisis-card.md` and fill it in.
-
-It's a one-page document with:
-- Your school counselor's name and contact
-- Your admin's name and contact
-- Crisis hotline numbers (988, local mental health)
-- Your district's mandated reporter protocol
-
-You keep this card on your desk, in your bag, somewhere visible. **You do not paste it into Cowork.** The AI does not need to know any of this — the rule is that anything the AI flags as crisis-related becomes your problem to act on, and this card is what you act with.
-
-## 5. Plan student involvement
-
-If you chose to have students help shape the AI (Option A in `my-classroom/your-classroom-ai.md`), now's the time to plan the session.
-
-Typically:
-- **Week 0 or Week 1:** explain the project to students (a 10-minute mini-lesson — the script is in `content-templates/day-one-lesson-plan.md`)
-- **Same day:** open a vote (Google Form or anonymous slips) for the AI's name and one or two personality traits
-- **Within a few days:** narrow the top finalists, then a runoff vote
-- **Same week:** your AI fills in the persona with what they chose
-- **Next session in Cowork:** your AI introduces itself in its new voice
-
-A template for the student voting form is in `content-templates/student-voting-form.md`.
+Say **"help me plan the vote"** and your AI drafts the lesson and the ballot.
 
 ## 6. Launch
 
-You're ready. On launch day:
+- Introduce your AI to the class (ask for its "meet your AI" card) and tell students what to expect in a sentence or two. Keep doing what you've already started.
+- Go gently the first few days. Watch for confusion or pushback.
+- **Each Monday:** give your AI this week's number for your challenge and just say hi (or "what am I doing this week?"). For missing work, type the total missing and how many kids have 3 or more missing, or let **Class Pulse** count them: download the gradebook from its Export button, drag it into Class Pulse, click **Generate**, then **Copy**, and paste it into Cowork. For attendance, participation, transitions, or reading, it's a number you jot down during the week (your AI shows you how), so just type it in. Either way, tell your AI anything you noticed that the numbers don't show.
 
-- Tell students what they're going to see ("you'll get cards from [AI name] this week — they're not graded, they're a tool to help you stay on top of things")
-- Hand out the first round of missing-work cards or progress sheets
-- Run the first few days as gently as possible — watch for confusion or pushback
-- After Week 1, drop that Friday's pulse into `my-classroom/pulses/`, say "run Monday," and tell your AI what you noticed that the numbers don't show
-
-If something breaks early, that's normal. Tell your AI what felt wrong and it will adjust the relevant file. Most teachers find the rhythm in 2–3 weeks.
+Something will feel off in the first week or two; that's normal. Tell your AI what felt wrong and it will help you fix how it's running before changing anything.
 
 ---
 
 ## When you're stuck
 
-- **Tool not working?** Check that you have internet (the tools download a small library on first use). Try a different browser.
-- **AI sounds off?** Tell it so — or read `my-classroom/your-classroom-ai.md` and tighten the voice description.
-- **Workflow feels heavy?** Read `brain/weekly-rhythm.md`'s "skip everything minimum" section.
-- **Not sure anything's set up right?** Say **"check my setup"** in Cowork. Your AI runs a doctor check and tells you plainly what's missing.
-- **Something more serious?** Take a week off. The project will be here when you come back.
+- **An app isn't working?** Check your internet connection (the apps download one small piece the first time you use them), or try a different browser.
+- **Your AI sounds off?** Tell it: "you sound too chirpy," "shorter, please." It will adjust.
+- **Too much this week?** Say **"what's the least I can do this week?"**
+- **Not sure it's all set up right?** Say **"check my setup."**
+- **Something bigger going on?** Take a week off. Everything will be here when you come back.

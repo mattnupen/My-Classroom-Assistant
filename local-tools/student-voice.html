@@ -89,14 +89,14 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a4 4 0 0 1 0 8"/></svg></span>
     <div class="app-hero-text">
       <h1>Feedback Cleaner</h1>
-      <h2>Strip names and emails from responses, then get a name-free digest.</h2>
+      <h2>Takes names and emails out of student survey answers and sums them up, ready for your AI. Use it after a class survey.</h2>
     </div>
     <div class="app-hero-action"><button type="button" class="app-hero-btn" id="open-form">Need a form?</button></div>
   </header>
 
   <section class="card">
     <h2>Paste the responses</h2>
-    <p class="sub">Paste your form export (a Google Forms / Sheets copy works — commas or tabs), or just paste the answers one per line.</p>
+    <p class="sub">Copy the answers from your survey's spreadsheet (Google Forms or Sheets works) and paste them here &mdash; or type one answer per line. Then click <strong>Clean &amp; summarize</strong>.</p>
     <textarea id="input" placeholder="Timestamp, Name, Email, What's helping you?, What's in your way?&#10;9/12 8:01, Jordan P, jordan@school.org, the warm-ups help, I keep forgetting the homework&#10;9/12 8:03, Sam R, sam@school.org, group work, too much going on at home this week"></textarea>
     <div class="controls">
       <button type="button" class="go" id="run">Clean &amp; summarize</button>
@@ -116,6 +116,7 @@
         <h2>Anonymous responses</h2>
         <button type="button" class="ghost" id="copy-digest">Copy for my AI</button>
       </div>
+      <p class="sub">Click <strong>Copy for my AI</strong>, then paste it into the chat. Skim it first &mdash; a name typed inside an answer can slip through.</p>
       <pre class="digest" id="digest"></pre>
     </div>
   </section>
@@ -210,7 +211,7 @@
   function buildDigest(res, words){
     var L=[];
     L.push('ANONYMOUS FEEDBACK — summary');
-    L.push('(no names, no emails — safe to paste to your AI)');
+    L.push('(name and email columns removed, emails scrubbed from answers)');
     L.push('Responses: '+res.count);
     if(res.emails||res.dropped.length){
       L.push('Stripped: '+res.emails+' email(s)'+(res.dropped.length?'; columns dropped: '+res.dropped.join(', '):''));

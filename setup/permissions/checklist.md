@@ -13,40 +13,39 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 - [ ] Families have been sent the parent letter.
 - [ ] At least one week has passed since the parent letter went out, giving families time to opt out.
 - [ ] I have a quiet list of any students whose families opted out.
-- [ ] I know which data mode I'm in. (Locked-Room is the default and needs nothing from me. If — and only if — my district has approved Direct mode, the approval is recorded in `setup/permissions/data-mode-record.md` and in `my-classroom/data-policy.md`, and my parent letter uses the Direct-mode paragraph.)
+- [ ] I know which option I'm using for student information. (Offline is the default and needs nothing from me. If — and only if — I use Claude for Teachers and my district has given permission, that permission is on the one-page record my AI filled in, my AI has it written down, and my parent letter uses the Claude for Teachers paragraph.)
 
 ## Safety
 
-- [ ] `setup/crisis-card.md` is filled in and printed.
+- [ ] My crisis card is printed and filled in by hand (say "give me a blank crisis card to print").
 - [ ] The crisis card is somewhere I can see it (desk, bag, lanyard).
 - [ ] I have read `brain/safety-rules.md` and understand the mandated-reporter flow.
 - [ ] I know exactly what I'll do if the AI surfaces something crisis-related (whom to call, in what order).
-- [ ] I have not put any student names, real grades, or personal information into the AI — and in Locked-Room mode (the default) I never will. (Direct mode changes exactly one thing: exports I deliberately place in `my-classroom/inbox/`. Names still never go in a chat message, and the AI still never writes one down.)
+- [ ] On the Offline option (the default), I haven't shared student names, real grades, or personal information with the AI, and I won't. (On the Claude for Teachers option, I share only what a task needs, never sensitive records like IEP or health details, and the AI still never saves a name in its notes.)
 
 ## Technical
 
 - [ ] Claude Cowork is installed and tested.
-- [ ] I can open this project folder in Cowork and the AI responds.
+- [ ] I can open this folder in Cowork, say hi, and my AI answers.
 - [ ] I've checked my Anthropic account's data retention settings.
-- [ ] I have a gradebook export I can produce in `.csv` or `.xlsx` format on demand.
-- [ ] I've done a dry run with the fictional class in `sandbox/` and used every tool at least once.
-- [ ] I've moved my `class-state.json` file out of the project folder to a permanent home (Documents / Drive / USB).
+- [ ] If my challenge is missing work, I can download my gradebook as a `.csv` or `.xlsx` file.
+- [ ] I've done the practice run with the made-up class (Getting Started, Track 1, step 5).
+- [ ] If I use Badges or Random Groups, I keep their memory file (`class-state.json`) outside the project folder (Documents, Drive, or a USB stick).
 
 ## AI Setup
 
-- [ ] `my-classroom/your-classroom-ai.md` is filled in (or I've planned the student co-creation session).
+- [ ] My AI has its mission, and a name (or I've planned the naming vote).
 - [ ] I've decided whether students will help shape the AI's identity, and when.
 - [ ] If students are involved, I've planned the voting / discussion session.
 - [ ] I've skimmed `brain/` — at minimum `safety-rules.md` and `teaching-principles.md`.
 - [ ] The AI's voice sounds right when I ask it to generate a sample (greeting, encouragement note, slide).
 
-## Workflow
+## Your routine
 
-- [ ] I know which day(s) of the week I'll do the longer planning sessions.
 - [ ] I know roughly which day I'll send parent messages.
 - [ ] I know which day(s) I'll print and hand out cards.
-- [ ] I've decided what one thing I'll measure (missing-work rate, attendance, student survey, etc.).
-- [ ] I have a fallback plan for weeks where I can't keep up — see `brain/weekly-rhythm.md`'s "skip everything minimum."
+- [ ] I know my one challenge and the number my AI and I will watch.
+- [ ] I know the minimum week (about 10 minutes a week; a missed week breaks nothing). Ask your AI to show it to you.
 
 ## Communication with students
 
@@ -56,7 +55,7 @@ Print this. Tape it to your wall. Don't launch until every box is checked.
 
 ## Stop conditions
 
-- [ ] I've decided what would make me pause or end the experiment early. (Examples: a parent complaint I can't resolve, an admin concern, a student singled out, missing-work rate going the wrong way for 3+ weeks.)
+- [ ] I've decided what would make me pause or end the experiment early. (Examples: a parent complaint I can't resolve, an admin concern, a student singled out, the number we're watching going the wrong way for 3+ weeks.)
 - [ ] I know I'm allowed to pause or stop without explanation if something feels wrong.
 
 ---

@@ -36,6 +36,7 @@
   }
   .step h2 { margin: 0 0 12px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
   .step .subtitle { margin: 0 0 14px; font-size: 15px; color: var(--muted); line-height: 1.5; }
+  .hint { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
 
   .dropzone {
     border: 2px dashed #d1d5db;
@@ -161,21 +162,21 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/></svg></span>
     <div class="app-hero-text">
       <h1>Random Groups</h1>
-      <h2>Balanced random groups that respect your do-not-pair list and past pairings.</h2>
+      <h2>Fair random groups that keep chosen students apart and mix up who works together. Use it before group work.</h2>
     </div>
   </header>
 
   <!-- STEP 1: State file -->
   <section class="step screen-only">
-    <h2>Step 1 &mdash; Class state file</h2>
-    <p class="subtitle">Same file the Badges tool uses. Holds your do-not-pair list and pair history so the algorithm can rotate who works with whom.</p>
+    <h2>Step 1 &mdash; Your class memory file <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:14px;">(optional)</span></h2>
+    <p class="subtitle">A small file that remembers who shouldn't sit together and who's already worked together (Badges uses the same one). <strong>First time? Skip to Step 2</strong> &mdash; a new one starts for you. It holds student names, so keep it on this computer, <strong>not</strong> in your classroom assistant folder.</p>
     <div class="file-row">
       <label class="dropzone" id="dz-state">
-        <strong>Drop existing class-state.json</strong>
+        <strong>Been here before? Drop your <code>class-state.json</code></strong>
         <span>or click to choose</span>
         <input type="file" id="file-state" accept=".json">
       </label>
-      <button class="secondary" id="btn-new-state" style="flex:0 0 auto;align-self:center;">Start a new state file</button>
+      <button class="secondary" id="btn-new-state" style="flex:0 0 auto;align-self:center;">Start a new memory file</button>
     </div>
     <div id="state-banner" class="state-banner" style="display:none;"></div>
   </section>
@@ -184,18 +185,19 @@
   <section class="step screen-only">
     <h2>Step 2 &mdash; Class roster</h2>
     <label class="dropzone" id="dz-gradebook">
-      <strong>Drop gradebook CSV or XLSX</strong>
-      <span>Only the name and period columns are used.</span>
+      <strong>Drop your gradebook file here</strong>
+      <span>a .csv or Excel file &middot; only names and periods are used &middot; stays on this computer</span>
       <input type="file" id="file-gradebook" accept=".csv,.xlsx,.xls">
     </label>
-    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+    <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
+    <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     <div id="status-gradebook" class="file-status" style="display:none;"></div>
   </section>
 
   <!-- STEP 3: Do-not-pair -->
   <section class="step screen-only" id="step-dnp">
     <h2>Step 3 &mdash; Do-not-pair list <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:14px;">(optional)</span></h2>
-    <p class="subtitle">Students on the list will never be placed in the same group. Pair history applies across all uses.</p>
+    <p class="subtitle">Two students on this list never land in the same group.</p>
     <div class="dnp-add">
       <div>
         <label>Student A</label>
@@ -240,7 +242,7 @@
       <button class="primary" id="btn-generate">Generate groups</button>
       <button class="secondary" id="btn-regenerate" disabled>Re-roll</button>
       <button class="secondary" id="btn-save-history" disabled>Save these groups to history</button>
-      <button class="secondary" id="btn-download-state">Download class-state.json</button>
+      <button class="secondary" id="btn-download-state">Download memory file</button>
       <button class="secondary" id="btn-print" disabled>Print</button>
     </div>
   </section>
@@ -256,7 +258,9 @@
 </main>
 
 <script>
-let classState = null;
+// Starts empty in memory so a first-timer can skip Step 1; dropping a saved
+// memory file replaces it. Nothing is stored in the browser.
+let classState = ensureSchema({ version: 1 });
 let roster = [];           // [{ name, period }]
 let lastGroups = null;     // current displayed grouping
 let lastGroupingMeta = null;
@@ -374,7 +378,7 @@ setupDropzone('dz-gradebook', 'file-gradebook', f => loadGradebook(f));
 
 // Demo class (fictional data in _nav.js, which loads at the end of <body>)
 document.getElementById('btn-demo').addEventListener('click', () => {
-  if (typeof CLASSAI_DEMO === 'undefined') { alert('Demo data unavailable — _nav.js did not load.'); return; }
+  if (typeof CLASSAI_DEMO === 'undefined') { alert("The demo class didn't load. Keep this page inside the local-tools folder and try again."); return; }
   loadGradebook(CLASSAI_DEMO.makeFile());
 });
 
@@ -399,7 +403,7 @@ function loadStateFile(file) {
       const hist = classState.groups.history.length;
       const banner = $('#state-banner');
       banner.style.display = 'block';
-      banner.innerHTML = `Loaded state file. Do-not-pair list: <strong>${dnp}</strong> pair${dnp === 1 ? '' : 's'} · Pair history: <strong>${hist}</strong> session${hist === 1 ? '' : 's'} recorded.`;
+      banner.innerHTML = `Loaded your memory file. Do-not-pair list: <strong>${dnp}</strong> pair${dnp === 1 ? '' : 's'} · Pair history: <strong>${hist}</strong> session${hist === 1 ? '' : 's'} recorded.`;
       renderDnpList();
     } catch (err) {
       const banner = $('#state-banner');
@@ -417,7 +421,7 @@ $('#btn-new-state').addEventListener('click', () => {
   classState = ensureSchema({ version: 1 });
   const banner = $('#state-banner');
   banner.style.display = 'block';
-  banner.innerHTML = 'New empty state file ready. Add do-not-pair entries below if needed, then generate groups.';
+  banner.innerHTML = 'New memory file started. Add do-not-pair entries below if needed, then make groups.';
   renderDnpList();
 });
 
@@ -485,7 +489,7 @@ function populateRosterDropdowns() {
 
 // ---------- Do-not-pair management ----------
 $('#btn-add-dnp').addEventListener('click', () => {
-  if (!classState) { alert('Start or load a state file first (Step 1).'); return; }
+  if (!classState) $('#btn-new-state').click();
   const a = $('#dnp-a').value.trim();
   const b = $('#dnp-b').value.trim();
   if (!a || !b || a === b) return;
@@ -656,11 +660,11 @@ $('#btn-save-history').addEventListener('click', () => {
     classState.groups.history = classState.groups.history.slice(-20);
   }
   classState.lastUpdated = new Date().toISOString().slice(0, 10);
-  alert('Saved to history. Don\'t forget to download your updated state file.');
+  alert('Saved. Click Download memory file so next time remembers these groups.');
 });
 
 $('#btn-download-state').addEventListener('click', () => {
-  if (!classState) { alert('No state file loaded.'); return; }
+  if (!classState) { alert('Nothing to save yet. Make some groups first.'); return; }
   const blob = new Blob([JSON.stringify(classState, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);

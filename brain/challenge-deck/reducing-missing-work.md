@@ -1,42 +1,33 @@
 # Challenge: Operation Turn-It-In
-*"For the next six weeks, this class has one mission: more work in, less nagging."*
+*"This year our class has one mission: more work in, less nagging."*
 
-**The problem.** Missing assignments pile up quietly, and by the time the gradebook shows the damage, the nagging has already stopped working — for you and for them. This challenge replaces chasing with a system the students run themselves.
+**The problem.** Missing assignments pile up quietly. By the time the gradebook shows the damage, the nagging has stopped working, for you and for them.
 
-**Season length:** 6 weeks · **Evidence pack:** `brain/evidence-packs/reducing-missing-work.md`
+**Ask first:** "When a kid falls behind now, what happens? Do you take late work, and for how much credit?" Their policy goes into everything students and families see. Never state or change it yourself.
 
-**Why this works.** The pack's strongest card is student self-monitoring — the EEF's top-rated strand (≈ +7 months at secondary), with the sharp caveat that the effect disappears when an adult holds the list. Its second engine is if-then planning: across 94 studies, binding a task to a concrete time-and-place trigger produced a medium-to-large boost, biggest on *getting started* (d ≈ 0.61). This challenge is those two moves on a weekly rhythm.
+**The number to watch.** Total missing assignments, all their classes together, once a week. Also get how many kids have 3 or more missing: that's who the teacher helps first, not a second score.
+- *Offline option:* the teacher reads both off the gradebook and types them (a couple of minutes). The first time, three numbers: the total, how many have 3 or more, and whether anyone has turned in nothing at all (about 2 minutes a class; say the total for their number of classes). Class Pulse can count them, but only mention it if they ask for a faster way.
+- *Claude for Teachers option:* share the gradebook, and the AI works out and saves the class totals only.
 
-## The metric
+**Evidence:** `brain/evidence-packs/reducing-missing-work.md`
 
-**Total missing assignments across the class**, counted weekly by Class Pulse from your gradebook export. It's already the pulse's headline number — no extra work.
+## Week 1: start now
 
-Set the target *with* the class in week 1, after they've seen the baseline: a percentage cut by the finale ("from 74 missing to under 50") lands better than zero, which reads as impossible by week 2. Your AI will propose a range from the baseline; the class picks inside it.
+Today's count is the starting number, but move 1 doesn't wait for it: the plan card needs no number. Read the numbers when they come (`../challenge-cycle.md` §1). Here that usually means: the problem sits with a small group; the newest assignments are the most missed (the snowball); take-home work is missing while class work is in (move it into class time); an assignment that needs another one first (peer review needs a draft) is a setup problem, fixed with class time ("15 minutes of peer review in class, collected at the door"); pieces of a task still to come (outline, draft) can be caught up through that task, and if the teacher's grading policy might allow it, suggest (never decide) that the final piece replace the missed ones; and a student with nothing turned in at all needs the counselor, not a card.
 
-## Week 1 — Baseline & launch
+Ask once in week 1, at a calm moment, whether the gradebook sends families automatic missing-work alerts ("If you don't know, the office will"). If it can, turning them on is zero effort for the teacher and the best-tested lever here (move 2, Bergman & Chan), so it isn't a pile-on.
 
-1. Run Class Pulse on the current gradebook **before changing anything**. Drop the pulse in `my-classroom/pulses/`. That number is the baseline — the AI records it in `my-classroom/dashboard.md`.
-2. Run the launch: pitch the challenge (or put it on the ballot with `content-templates/student-voting-form.md`), reveal the baseline on the projector, set the target together.
-3. The AI generates the kickoff slide and the first round of self-check quarter-sheets (below). If the class is also naming its AI this week, this is the moment.
+## The moves, one at a time (about two weeks each)
 
-## The weekly play pattern (weeks 2–6)
-
-**Monday.** You drop Friday's pulse into `my-classroom/pulses/` and say "run Monday." The AI updates the dashboard, shows the week-over-week movement, and proposes this week's moves — each tagged to a pack card.
-
-**Midweek — the one classroom move.** Rotate through the pack, one per week, never all at once:
-- **Self-check quarter-sheets** (self-monitoring card): the same three prompts every week — *one thing I owe / when-and-where I'll start it / how I'll know it's done*. Students write it; nobody collects a list. If it starts feeling like surveillance or paperwork, it's being done badly — that's the pack's own warning.
-- **If-then nudges** (implementation-intentions card): every nudge the AI writes is bound to a real trigger — "when you sit down in advisory Monday, open the lab doc and write the first sentence." Never "try to catch up."
-- **Almost-too-small-to-refuse starts** (channel-factors card): the AI drafts openers that shrink the first action to one sentence, one problem, one upload.
-
-**Friday.** Two minutes: the AI drafts a quick-win callout for the slide (aggregate only — "11 assignments came in this week that were overdue"), and one line goes into `my-classroom/class-story.md`.
-
-## The finale
-
-Week 6, the AI generates the season snapshot from `content-templates/season-snapshot.jsx` — baseline to finale, on the projector. Then the three-question retro, whole class: *What actually helped? What did we ignore? What should [AI name] do differently next season?* The answers go through the Feedback Cleaner into the class story. Then the deck comes back out.
-
-Hit or miss, the season *ends*. A near-miss with a real retro beats a quietly abandoned streak — say that out loud to the class.
+1. **When-and-where plans, with time in class to do them.** Every student (so nobody is singled out) writes one plan: *"If it's [day and time] and I'm at [place], then I will [the exact task]."* Hand the plans back face down a few days later, and nobody reads one aloud: "Did it happen? If not, no lecture. Write a new when." Give the plans a real place to happen: the first ten minutes of independent work time twice a week for anyone who owes work, while the teacher checks in for 30 seconds with each student missing 3 or more (until the count comes, the kids they already know are behind). *The plans: good research, with limits (Gollwitzer & Sheeran, 2006: 94 studies, mostly adults and college students; one small high-school study, Duckworth et al., 2011). The class time and check-ins: a practical idea, not tested research.*
+2. **Families see what's missing, every week.** Best: the gradebook's automatic missing-work alerts. If there are none, a short weekly note from the Parent Messages app. *Good research, with limits (Bergman & Chan, 2021: a randomized trial in 22 West Virginia middle and high schools; automatic weekly texts to parents about missed assignments, low grades and absences cut course failures by 27%, with bigger effects in high school; no effect on state test scores).*
+3. **Student self-check.** A 60-second quarter-sheet, the same three prompts every week (*one thing I owe / when and where I'll start it / how I'll know it's done*). Students keep it; nobody collects it. *Promising, less proven for turning work in (WWC practice guide, 2024: K–5 behavior studies; Langberg et al., 2012: 47 middle schoolers with ADHD, coached one-on-one).*
+4. **One near task, tiny first step.** "This week: just the Unit 3 lab. Open it, read prompt 1, write one line." *Promising, less proven (Bandura & Schunk, 1981: 40 children aged 7–10; Leventhal et al., 1965: college students).*
 
 ## Watch out
 
-- **Don't let the adults repossess the list.** The moment tracking migrates back to you (or to the AI's dashboard as a per-student list — which it can't hold anyway), the highest-impact effect in the pack evaporates. Aggregate scoreboard public; individual lists in students' own hands only.
-- **Vague nudges are decoration.** "Find some time this week" has no evidence behind it. If a nudge has no time-and-place trigger, the AI shouldn't ship it — and you shouldn't say it.
+- **Private, not performed.** Eighth graders will mock a card read aloud. If the written plan gets laughed at, keep the idea and make it a quiet question at each desk ("Which one first? When?"), written on the teacher's clipboard and checked the next day: only the kids with 3 or more, two or three a day. The plan is the when-and-where, not the card.
+- **Talk with the kid, not at the list.** Privately: something true, a question, one small thing and when. Never open with the missing count; they already know it.
+- **Notes home are specific.** Weekly missing-work notes (or the gradebook's alerts) list what's missing, like the studies did (move 2). A personal note from the teacher opens with something true and good and asks for one specific thing. Never a threat.
+- **Adults holding the list.** A per-student list lives only in the teacher's offline apps, never on the class page or in saved files.
+- **Vague nudges.** "Find some time this week" does nothing. No real time and place, no nudge.

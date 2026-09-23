@@ -2,21 +2,25 @@
   PATTERN: printable-cards
   Use when the teacher wants one card per row (e.g., one card per student), formatted to print.
   Body and logic blocks plug into the scaffold's {{BODY_SLOT}} and {{LOGIC_SLOT}}.
+  Needs the SheetJS script in {{SHEETJS_SLOT}}.
 -->
 
 <!-- BODY -->
 <section class="step screen-only" id="step-upload">
-  <h2>Step 1 — Load your data</h2>
+  <h2>Step 1 — Load your class</h2>
   <label class="step" style="display:block; border: 2px dashed #c5d8d2; text-align:center; cursor:pointer;">
-    <strong>Drop a CSV or XLSX file here, or click to choose</strong>
+    <strong>Drop your file here, or click to choose one</strong>
     <input type="file" id="file-input" accept=".csv,.xlsx,.xls" style="display:none;">
   </label>
+  <button class="secondary" id="btn-practice">Try it with a made-up class</button>
+  <p class="privacy-note">Your file stays on this computer. Nothing is saved or sent.</p>
 </section>
 
 <section class="step screen-only" id="step-generate" hidden>
-  <h2>Step 2 — Generate cards</h2>
-  <button class="primary" id="btn-generate">Generate</button>
-  <button class="secondary" id="btn-print" disabled>Print →</button>
+  <h2>Step 2 — Make the cards</h2>
+  <p id="loaded-note"></p>
+  <button class="primary" id="btn-generate">Make cards</button>
+  <button class="secondary" id="btn-print" disabled>Print</button>
 </section>
 
 <section id="cards-area" hidden>
@@ -24,17 +28,34 @@
 </section>
 
 <!-- LOGIC -->
-let rows = [];  // in-memory only — never persisted
+// Invented students for the practice button. ADAPT: 12 fresh, obviously fictional
+// names, with the same columns this app expects from the teacher's file.
+const PRACTICE_ROWS = [
+  { Student: 'Avery Brookfield' /* ADAPT: add this app's columns */ },
+  { Student: 'Marcus Whitlow' }
+];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+
+let rows = [];  // in memory only — never saved
+function loaded(newRows, label) {
+  rows = newRows;
+  document.getElementById('loaded-note').textContent = rows.length + ' students loaded' + label + '.';
+  document.getElementById('step-generate').hidden = false;
+}
 document.getElementById('file-input').addEventListener('change', async (e) => {
   const file = e.target.files[0];
-  const buf = await file.arrayBuffer();
-  const wb = XLSX.read(buf, { type: 'array' });
-  rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
-  document.getElementById('step-generate').hidden = false;
+  if (!file) return;
+  const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+  loaded(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]), '');
 });
+document.getElementById('btn-practice').addEventListener('click', () => loaded(PRACTICE_ROWS, ' (made-up practice class)'));
 document.getElementById('btn-generate').addEventListener('click', () => {
   const cards = document.getElementById('cards');
-  cards.innerHTML = rows.map(r => `<div class="card" style="border:1.5px solid var(--ink); border-radius:10px; padding:18px;"><h3>${r['Student'] || r['Name'] || 'Unnamed'}</h3><!-- ADAPT: render fields specific to this app --></div>`).join('');
+  cards.innerHTML = rows.map(r =>
+    `<div class="card" style="border:1.5px solid var(--ink); border-radius:10px; padding:18px;">` +
+    `<h3>${esc(r['Student'] || r['Name'] || 'Unnamed')}</h3>` +
+    `<!-- ADAPT: render this app's fields, each through esc() --></div>`
+  ).join('');
   document.getElementById('cards-area').hidden = false;
   document.getElementById('btn-print').disabled = false;
 });

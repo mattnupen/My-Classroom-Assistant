@@ -42,6 +42,9 @@
   }
   .step h2 { margin: 0 0 14px; font-size: 17px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
   .step.disabled { opacity: 0.5; pointer-events: none; }
+  details.advanced-opts { margin: 0 0 18px; }
+  details.advanced-opts > summary { cursor: pointer; font-weight: 600; font-size: 15.5px; color: var(--ink); padding: 8px 0; }
+  details.advanced-opts .adv-hint { font-weight: 400; color: var(--muted); }
 
   .dropzone {
     border: 2px dashed #d1d5db;
@@ -130,6 +133,12 @@
   }
   .output-area h2 { margin: 0 0 6px; font-size: 17px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
   .output-area .subtitle { margin: 0 0 14px; font-size: 15px; color: var(--muted); }
+  /* The hand-off: two numbered ways to get the summary to the chat */
+  .handoff { margin: 4px 0 12px; padding-left: 22px; font-size: 15.5px; line-height: 1.6; }
+  .handoff li { margin-bottom: 4px; }
+  .handoff-or { font-weight: 700; color: var(--ink); margin: 14px 0 4px; font-size: 15.5px; }
+  .output-area.handoff-box { border: 2px solid #1f6b6b; }
+  .output-area.handoff-box h2 { color: #1f6b6b; text-transform: none; letter-spacing: 0; font-size: 19px; }
   .output-block {
     background: #f9fafb;
     border: 1px solid var(--line);
@@ -177,29 +186,33 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 12 7 12 10 4 14 20 17 12 21 12"/></svg></span>
     <div class="app-hero-text">
       <h1>Class Pulse</h1>
-      <h2>A name-free snapshot of the class — safe to paste to your AI.</h2>
+      <h2>Turns your gradebook into a weekly class summary with no names, for your AI. Quickest way: drop your gradebook in Step 1, click Generate, then Copy. The defaults are fine.</h2>
     </div>
   </header>
 
   <div class="privacy-banner">
-    <strong>What this tool does NOT include in its output:</strong> student names, student IDs, individual grades, individual missing-work lists, or anything that could be linked back to a specific student. Only class-level counts and tier movements.
+    <strong>Names stay on this computer.</strong> The summary has class totals only &mdash; no names, IDs, individual grades, or anything that points to one student.
   </div>
 
   <!-- STEP 1: Upload current -->
   <section class="step" id="step-current">
     <h2>Step 1 &mdash; This week's gradebook</h2>
     <label class="dropzone" id="dz-current">
-      <strong>Drop the CSV or XLSX here</strong>
-      <span>or click to choose &middot; nothing leaves your computer</span>
+      <strong>Drop your gradebook file here</strong>
+      <span>or click to choose &middot; a .csv or Excel file &middot; stays on this computer</span>
       <input type="file" id="file-current" accept=".csv,.xlsx,.xls">
     </label>
-    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+    <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
+    <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     <div id="status-current" class="file-status" style="display:none;"></div>
   </section>
 
-  <!-- STEP 2: Mapping -->
+  <details class="advanced-opts" id="advanced-opts">
+    <summary>Optional settings <span class="adv-hint">&mdash; skip these unless the numbers look wrong</span></summary>
+
+  <!-- Mapping -->
   <section class="step disabled" id="step-mapping">
-    <h2>Step 2 &mdash; Confirm columns</h2>
+    <h2>Columns</h2>
     <div class="grid-2">
       <div>
         <label>Column with the student's name</label>
@@ -219,8 +232,8 @@
 
   <!-- STEP 3: Tiers -->
   <section class="step disabled" id="step-tiers">
-    <h2>Step 3 &mdash; Tier thresholds</h2>
-    <p class="hint" style="margin-top:0;margin-bottom:10px;">A student is placed in a tier based on how many assignments they're missing.</p>
+    <h2>Where to draw the lines</h2>
+    <p class="hint" style="margin-top:0;margin-bottom:10px;">Each student lands in one of three groups by how many assignments they're missing. The defaults work for most classes.</p>
     <div class="grid-3">
       <div>
         <label>Strong (missing this many or fewer)</label>
@@ -242,19 +255,20 @@
 
   <!-- STEP 4: Optional previous snapshot -->
   <section class="step disabled" id="step-previous">
-    <h2>Step 4 &mdash; Compare to last snapshot <span class="pill snapshot">optional</span></h2>
+    <h2>Compare to last week</h2>
     <label class="dropzone" id="dz-previous">
-      <strong>Drop a previous <code>class-pulse-snapshot.json</code> here</strong>
-      <span>or skip this step if you don't have one yet</span>
+      <strong>Drop last week's comparison file here</strong>
+      <span>it's named <code>class-pulse-snapshot-&hellip;.json</code> &middot; skip this your first week</span>
       <input type="file" id="file-previous" accept=".json">
     </label>
     <div id="status-previous" class="file-status" style="display:none;"></div>
-    <p class="hint">If you load a previous snapshot, the output will show movement (e.g., "Strong: 6 → 8 (+2)"). Without one, you'll just see this week's numbers.</p>
+    <p class="hint">With it, the summary shows what changed (e.g., "Strong: 6 → 8 (+2)"). Without it, you get this week's numbers only.</p>
   </section>
+  </details>
 
   <!-- STEP 5: Generate -->
   <section class="step disabled" id="step-generate">
-    <h2>Step 5 &mdash; Generate the pulse</h2>
+    <h2>Step 2 &mdash; Make the summary</h2>
     <div class="actions">
       <button class="primary" id="btn-generate">Generate</button>
       <button class="secondary" id="btn-reset">Start over</button>
@@ -264,31 +278,42 @@
   <!-- Output -->
   <div id="output-wrap" style="display:none;">
 
-    <div class="output-area">
-      <h2>Download this pulse <button class="primary" style="float:right;padding:4px 12px;font-size:14px;" id="btn-download-pulse">Download</button><span class="copy-confirm" id="confirm-pulse">Downloaded</span></h2>
-      <p class="subtitle">The short path: download the file, drop it in <code>my-classroom/pulses/</code>, and say &ldquo;run Monday.&rdquo; Your AI reads the newest one automatically. Everything in the file is what you see below &mdash; counts and tiers, no names, no per-student rows.</p>
-      <label for="pulse-label" style="margin-top:10px;">Class label &mdash; what <em>you</em> call this class</label>
+    <div class="output-area handoff-box">
+      <h2>Send this week's summary to your AI</h2>
+      <p class="handoff-or">Click <strong>Copy</strong> on the summary just below, paste it into the chat, and say <strong>&ldquo;here's this week's summary.&rdquo;</strong> That's all.</p>
+
+      <details class="advanced-opts">
+        <summary>Or save it to your classroom assistant folder instead <span class="adv-hint">&mdash; optional</span></summary>
+      <label for="pulse-label" style="margin-top:6px;">Name this class <span style="font-weight:400;color:var(--muted);">(optional)</span></label>
       <input type="text" id="pulse-label" maxlength="80" placeholder="e.g. Period 3 &amp; 5 — 8th Grade English">
-      <p class="hint">Goes at the top of the file so you can tell pulses apart. A period, a course, a nickname &mdash; <strong>never a student's name.</strong></p>
+      <p class="hint">A period, a course, a nickname &mdash; <strong>never a student's name.</strong></p>
       <p class="hint" id="pulse-label-warn" style="display:none;"></p>
+      <ol class="handoff">
+        <li>Click <button class="primary" style="padding:4px 12px;font-size:14px;" id="btn-download-pulse">Download</button><span class="copy-confirm" id="confirm-pulse">Downloaded</span></li>
+        <li>Open your <strong>Downloads</strong> folder and find <code id="pulse-filename">pulse-(today's date).md</code>.</li>
+        <li>Drag it into the <strong>pulses</strong> folder. It&rsquo;s in your classroom assistant folder, inside <strong>my-classroom</strong>, next to <strong>local-tools</strong>. No my-classroom folder yet? Copy and paste instead.</li>
+        <li>In the chat, say <strong>&ldquo;run Monday.&rdquo;</strong></li>
+      </ol>
+      </details>
+      <p class="hint">Either way, your AI sees only what's in the box below: class totals, no names.</p>
     </div>
 
     <div class="output-area">
-      <h2>Structured summary <button class="secondary" style="float:right;padding:4px 10px;font-size:14px;" id="btn-copy-structured">Copy</button><span class="copy-confirm" id="confirm-structured">Copied</span></h2>
-      <p class="subtitle">The same content, to paste by hand instead &mdash; into Claude, or any other tool.</p>
+      <h2>This week's summary <button class="secondary" style="float:right;padding:4px 10px;font-size:14px;" id="btn-copy-structured">Copy</button><span class="copy-confirm" id="confirm-structured">Copied</span></h2>
+      <p class="subtitle">Exactly what goes to your AI.</p>
       <pre class="output-block" id="output-structured"></pre>
     </div>
 
     <div class="output-area">
-      <h2>Prose paragraph <button class="secondary" style="float:right;padding:4px 10px;font-size:14px;" id="btn-copy-prose">Copy</button><span class="copy-confirm" id="confirm-prose">Copied</span></h2>
-      <p class="subtitle">Same information, written out as a natural paragraph.</p>
+      <h2>The same thing in one paragraph <button class="secondary" style="float:right;padding:4px 10px;font-size:14px;" id="btn-copy-prose">Copy</button><span class="copy-confirm" id="confirm-prose">Copied</span></h2>
+      <p class="subtitle">Handy for a note to a colleague or your principal.</p>
       <div class="output-block prose" id="output-prose"></div>
     </div>
 
     <div class="output-area">
-      <h2>Save this week's snapshot</h2>
-      <p class="subtitle">A different file for a different job: this small JSON goes back into <em>this tool</em> next week (Step 4) so the output can show movement. The pulse above is the one your AI reads. Keep this one wherever you like — Documents, Drive, USB stick — just not in <code>my-classroom/pulses/</code>, which is only for the <code>.md</code> pulses.</p>
-      <button class="primary" id="btn-save-snapshot">Download snapshot</button>
+      <h2>For next week's comparison <span class="pill snapshot">optional</span></h2>
+      <p class="subtitle">This small file comes back to <em>this page</em> next week (under <em>Optional settings</em>, &ldquo;Compare to last week&rdquo;), so the summary can show what changed. It's for Class Pulse, not your AI &mdash; keep it in Documents or anywhere handy, <strong>not</strong> in the pulses folder.</p>
+      <button class="primary" id="btn-save-snapshot">Download comparison file</button>
     </div>
 
   </div>
@@ -302,6 +327,11 @@ let nameColumn = null;
 let periodColumn = null;
 let assignmentColumns = [];
 let lastSnapshot = null;
+// True while the made-up demo class is loaded. Every summary made from it is
+// stamped so the AI never records practice numbers as this class's week.
+let isDemo = false;
+const DEMO_MARK = "DEMO CLASS — made-up students, practice only. Don't record.";
+const DEMO_LABEL = 'Demo class (made up)';
 
 const $ = sel => document.querySelector(sel);
 
@@ -441,7 +471,12 @@ function renderAssignOverride() {
 }
 
 // ---------- Drop zones ----------
-setupDropzone('dz-current', 'file-current', f => loadGradebook(f, 'current'));
+setupDropzone('dz-current', 'file-current', f => {
+  isDemo = false;
+  const lbl = $('#pulse-label');
+  if (lbl.value === DEMO_LABEL) lbl.value = '';
+  loadGradebook(f, 'current');
+});
 setupDropzone('dz-previous', 'file-previous', f => loadPreviousSnapshot(f));
 
 // ---------- Demo class (fictional data embedded in _nav.js) ----------
@@ -452,9 +487,11 @@ setupDropzone('dz-previous', 'file-previous', f => loadPreviousSnapshot(f));
   // so check at click time, not parse time.
   btn.addEventListener('click', () => {
     if (typeof CLASSAI_DEMO === 'undefined') {
-      alert('Demo data unavailable — _nav.js did not load.');
+      alert("The demo class didn't load. Keep this page inside the local-tools folder and try again.");
       return;
     }
+    isDemo = true;
+    $('#pulse-label').value = DEMO_LABEL;
     loadGradebook(CLASSAI_DEMO.makeFile(), 'current');
   });
 })();
@@ -520,15 +557,15 @@ function loadPreviousSnapshot(file) {
   reader.onload = e => {
     try {
       const parsed = JSON.parse(e.target.result);
-      if (!parsed.periods || !parsed.date) throw new Error('Not a valid snapshot file.');
+      if (!parsed.periods || !parsed.date) throw new Error('Not a Class Pulse comparison file.');
       previousSnapshot = parsed;
       statusEl.classList.remove('error');
       statusEl.style.display = 'flex';
-      statusEl.textContent = `Loaded snapshot from ${parsed.date}. Movement will be shown in the output.`;
+      statusEl.textContent = `Loaded last week's file (${parsed.date}). The summary will show what changed.`;
     } catch (err) {
       statusEl.classList.add('error');
       statusEl.style.display = 'flex';
-      statusEl.textContent = `Could not read this snapshot: ${err.message}`;
+      statusEl.textContent = `Could not read this comparison file: ${err.message}`;
     }
   };
   reader.readAsText(file);
@@ -606,22 +643,27 @@ function generate() {
     thresholds: { strong: tStrong, steady: tSteady },
     periods: {}
   };
+  if (isDemo) snapshot.demo = true;
 
   for (const [p, rows] of Object.entries(periods)) {
     const tierCounts = { strong: 0, steady: 0, struggling: 0 };
     const missingByAssignment = {};
     for (const a of assignmentColumns) missingByAssignment[a.name] = 0;
+    let missingTotal = 0, nothingIn = 0;
 
     for (const r of rows) {
-      let missingCount = 0;
+      let missingCount = 0, countable = 0;
       for (const a of assignmentColumns) {
         const raw = r[a.header];
         if (isExcused(raw)) continue;
+        countable++;
         if (isMissing(raw, { blankIsMissing: treatBlankMissing, zeroIsMissing: false })) {
           missingCount++;
           missingByAssignment[a.name]++;
         }
       }
+      missingTotal += missingCount;
+      if (countable > 0 && missingCount === countable) nothingIn++;
       if (missingCount <= tStrong) tierCounts.strong++;
       else if (missingCount <= tSteady) tierCounts.steady++;
       else tierCounts.struggling++;
@@ -630,11 +672,14 @@ function generate() {
     snapshot.periods[p] = {
       count: rows.length,
       tiers: tierCounts,
+      missingTotal,
+      nothingIn,
       missingByAssignment
     };
   }
 
   lastSnapshot = snapshot;
+  $('#pulse-filename').textContent = pulseFileName(snapshot);
 
   // Render outputs
   $('#output-structured').textContent = renderStructured(snapshot, previousSnapshot);
@@ -645,13 +690,29 @@ function generate() {
 
 function renderStructured(snap, prev) {
   const lines = [];
+  if (snap.demo) lines.push(DEMO_MARK);
   lines.push(`CLASS PULSE — ${snap.date}`);
-  lines.push(`Tier rule: Strong ≤ ${snap.thresholds.strong} missing · Steady ≤ ${snap.thresholds.steady} · Struggling > ${snap.thresholds.steady}`);
-  if (prev) lines.push(`Comparing to snapshot from ${prev.date}`);
+  // Headline first: the two numbers the missing-work challenge watches.
+  const all = { count: 0, missing: 0, nothingIn: 0, strong: 0, steady: 0, struggling: 0 };
+  for (const data of Object.values(snap.periods)) {
+    all.count += data.count;
+    all.missing += data.missingTotal || 0;
+    all.nothingIn += data.nothingIn || 0;
+    for (const t of ['strong', 'steady', 'struggling']) all[t] += data.tiers[t];
+  }
+  let prevMissing = null;
+  if (prev && Object.values(prev.periods).every(d => typeof d.missingTotal === 'number')) {
+    prevMissing = Object.values(prev.periods).reduce((n, d) => n + d.missingTotal, 0);
+  }
+  lines.push(`Missing assignments, all classes: ${all.missing}` + (prevMissing === null ? '' : ` (last time: ${prevMissing})`));
+  lines.push(`Students missing ${snap.thresholds.steady + 1} or more: ${all.struggling} of ${all.count}`);
+  if (all.nothingIn > 0) lines.push(`Students with nothing turned in: ${all.nothingIn}`);
+  lines.push(`Groups: ${groupWords(snap.thresholds)}`);
+  if (prev) lines.push(`Comparing to the summary from ${prev.date}`);
   lines.push('');
 
   for (const [p, data] of Object.entries(snap.periods)) {
-    lines.push(`Period ${p} — ${data.count} students`);
+    lines.push(`Period ${p} — ${data.count} students` + (typeof data.missingTotal === 'number' ? ` · ${data.missingTotal} missing` : ''));
     const prevPeriod = prev && prev.periods[p];
     for (const tier of ['strong', 'steady', 'struggling']) {
       const cur = data.tiers[tier];
@@ -678,28 +739,31 @@ function renderStructured(snap, prev) {
     lines.push('');
   }
 
-  // Class total
-  const totals = { strong: 0, steady: 0, struggling: 0, count: 0 };
-  for (const data of Object.values(snap.periods)) {
-    totals.count += data.count;
-    for (const t of ['strong', 'steady', 'struggling']) totals[t] += data.tiers[t];
-  }
   if (Object.keys(snap.periods).length > 1) {
-    lines.push(`ACROSS ALL PERIODS — ${totals.count} students`);
-    lines.push(`  Strong: ${totals.strong} · Steady: ${totals.steady} · Struggling: ${totals.struggling}`);
+    lines.push(`ALL CLASSES — ${all.count} students`);
+    lines.push(`  Strong: ${all.strong} · Steady: ${all.steady} · Struggling: ${all.struggling}`);
   }
 
   return lines.join('\n');
 }
 
+// "Strong = nothing missing · Steady = 1–2 missing · Struggling = 3 or more missing"
+function groupWords(t) {
+  const range = (lo, hi) => lo === hi ? `${lo}` : `${lo}–${hi}`;
+  const strong = t.strong <= 0 ? 'nothing missing' : `${range(0, t.strong)} missing`;
+  const steady = t.steady > t.strong ? `${range(t.strong + 1, t.steady)} missing` : 'none';
+  return `Strong = ${strong} · Steady = ${steady} · Struggling = ${t.steady + 1} or more missing`;
+}
+
 function renderProse(snap, prev) {
   const parts = [];
+  if (snap.demo) parts.push(DEMO_MARK);
   parts.push(`Class pulse for ${snap.date}.`);
-  if (prev) parts.push(`Comparing to the snapshot from ${prev.date}.`);
+  if (prev) parts.push(`Comparing to the summary from ${prev.date}.`);
 
   for (const [p, data] of Object.entries(snap.periods)) {
     const prevPeriod = prev && prev.periods[p];
-    let sentence = `Period ${p} had ${data.count} students. `;
+    let sentence = `Period ${p} had ${data.count} students` + (typeof data.missingTotal === 'number' ? ` and ${data.missingTotal} missing assignments. ` : '. ');
     if (prevPeriod) {
       const moves = [];
       for (const tier of ['strong', 'steady', 'struggling']) {
@@ -709,10 +773,10 @@ function renderProse(snap, prev) {
           moves.push(`${capitalize(tier)} ${dir} ${Math.abs(diff)} (now ${data.tiers[tier]})`);
         }
       }
-      if (moves.length === 0) sentence += `Tier counts unchanged from last snapshot — Strong ${data.tiers.strong}, Steady ${data.tiers.steady}, Struggling ${data.tiers.struggling}. `;
+      if (moves.length === 0) sentence += `Groups unchanged from last time — Strong ${data.tiers.strong}, Steady ${data.tiers.steady}, Struggling ${data.tiers.struggling}. `;
       else sentence += moves.join('; ') + '. ';
     } else {
-      sentence += `Tier breakdown: Strong ${data.tiers.strong}, Steady ${data.tiers.steady}, Struggling ${data.tiers.struggling}. `;
+      sentence += `Groups: Strong ${data.tiers.strong}, Steady ${data.tiers.steady}, Struggling ${data.tiers.struggling}. `;
     }
     const topMissed = Object.entries(data.missingByAssignment).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]).slice(0, 2);
     if (topMissed.length) {
@@ -735,6 +799,7 @@ function renderProse(snap, prev) {
 function buildPulseMarkdown() {
   const label = ($('#pulse-label').value || '').trim();
   const out = [];
+  if (lastSnapshot.demo) { out.push(`# ${DEMO_MARK}`); out.push(''); }
   out.push(`# Class Pulse — ${lastSnapshot.date}`);
   if (label) out.push(`**Class:** ${label}`);
   out.push('');
@@ -775,6 +840,10 @@ function checkPulseLabel() {
   }
 }
 
+function pulseFileName(snap) {
+  return snap.demo ? `pulse-DEMO-${snap.date}.md` : `pulse-${snap.date}.md`;
+}
+
 function downloadPulse() {
   if (!lastSnapshot) return;
   checkPulseLabel();
@@ -782,7 +851,7 @@ function downloadPulse() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `pulse-${lastSnapshot.date}.md`;
+  a.download = pulseFileName(lastSnapshot);
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

@@ -1,18 +1,16 @@
 # This folder is yours
 
-Everything about *your* classroom lives here: your AI's persona, your data policy, your class's story, your pulses, your built apps, your weekly materials. **Project updates never touch this folder.** Copying it — just this one folder — is a complete backup of your classroom.
+Everything about *your* classroom lives here. Your AI keeps it up to date as you chat — you never have to open any of it. Updates to the project never touch this folder, so copying it is a complete backup of your classroom.
 
-What lives where:
-- `data-policy.md` — the data mode in effect, and what it means (the AI's highest rule)
-- `your-classroom-ai.md` — your AI's name, voice, and mission
-- `class-story.md` — the running, aggregate-only story of the experiment
-- `dashboard.md` — the class's current-state page (renders in Cowork)
-- `dashboard-data.js` / `my-apps.js` — what the browser dashboard shows (AI-managed)
-- `pulses/` — the name-free weekly summaries you drop in for Monday
-- `apps/` — tools your AI built for you, each with its spec
-- `for-class/` — daily and weekly generated materials, by date (prune freely)
-- `inbox/` — Direct mode only; see `data-policy.md`
-- `evidence-packs/` — research your AI gathered for your specific goals
-- `.installed-version` — which engine version this classroom is set up for
-
-You never *have* to open any of these — your AI manages them through normal chat.
+What's inside:
+- `your-classroom-ai.md` — your AI's name, voice, and the one challenge you're working on
+- `data-policy.md` — which option you use for student names and grades (Offline unless you chose Claude for Teachers)
+- `class-story.md` — the running story of your class's challenge, class totals only
+- `dashboard.md` — your class page, as you see it in Cowork
+- `dashboard-data.js` / `my-apps.js` — what Class Tools shows, the page that opens your offline apps (your AI manages these)
+- `pulses/` — your weekly class summaries from Class Pulse (no names)
+- `for-class/` — slides and handouts your AI made, by date (delete old ones freely)
+- `apps/` — tools your AI built for you
+- `evidence-packs/` — the research your AI gathered for your goal
+- `inbox/` — only for the Claude for Teachers option; empty it when you're done
+- `.installed-version` — which version of the project this classroom is set up for

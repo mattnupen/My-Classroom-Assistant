@@ -1,47 +1,43 @@
 # The Challenge Deck
 
-One card per classroom problem. Picking a card is the whole setup: the research, the weekly moves, the metric, and the season length come with it. No blank pages.
+Five ready-made classroom challenges. To the teacher, these are "five ready-made challenges, each with the research behind it." Each card brings its number to watch, its moves in order, and its warnings. Picking one is most of the setup.
 
-**How the AI uses this deck.** When a teacher is choosing a mission (first session, or a new season), offer these cards before anything freeform. When a card is chosen: load its evidence pack, set the mission in `my-classroom/your-classroom-ai.md`, record the baseline plan in `my-classroom/dashboard.md`, and follow the card's weekly play pattern in the Monday ritual. Every proposed move gets tagged with the card entry it draws from — receipts, every time.
+**How you use it.** When a teacher is choosing what to work on, pitch the five in one line each before offering anything freeform. When they pick one:
+1. Load its evidence pack (the shipped one, plus anything in `my-classroom/evidence-packs/`).
+2. Set the mission in `my-classroom/your-classroom-ai.md`.
+3. Ask the card's "Ask first" question, take today's number, and start the first move this week (the card's "Week 1").
+4. Run the challenge through the try, check, decide loop in `../challenge-cycle.md`: one move at a time, a check about every two weeks, and the teacher decides.
 
-**How a teacher uses this deck.** Read the five cards (or have your AI pitch them in one line each). Pick one — or put two or three on the ballot and let your class vote, using `content-templates/student-voting-form.md`. If none fit, your AI can build a new card: it runs the evidence engine (`brain/evidence-engine.md`) to research your goal, then writes the card into `my-classroom/evidence-packs/` alongside a matching pack.
+If none of the five fits, build a new card and pack with `../evidence-engine.md`, and save both in `my-classroom/evidence-packs/`.
 
-**Seasons, not settings.** Every card is time-boxed. A season has a baseline week, weekly moves, and a finale with a scoreboard and a retro. Then the deck comes back out. Finishing matters more than streaks — a class that completes a six-week season and chooses again is the engine of this whole project.
+**One challenge, all year.** A card isn't used once and thrown away. A season (4–6 weeks) is two or three moves, then a finale. After the finale, the class keeps the same challenge by default and starts the next move. The deck only comes back out if the teacher decides the challenge is done or wrong for the class.
+
+**The finale (every card).** In the last week of a season, make the scoreboard (from `content-templates/season-snapshot.jsx`): the starting number, then each week, class totals only. Then run a three-question class look-back as a short anonymous survey, with the answers put through the Feedback Cleaner app to take out names: *What actually helped? What did we ignore? What should [AI name] do differently?* Add one class-story entry. Say out loud that a near miss is a fine result. Then decide the next move together.
 
 ---
 
 ## Card template
 
-Every card follows this exact structure (see `reducing-missing-work.md` for the finished example):
-
 ```markdown
-# Challenge: [Student-facing name]
-*[One-line version a teacher would say out loud to the class]*
+# Challenge: [name students hear]
+*"[The one line a teacher would say to the class]"*
 
-**The problem.** [2–3 sentences, teacher-eye view.]
+**The problem.** [2–3 sentences, from the teacher's side of the desk.]
 
-**Season length:** [4–6] weeks · **Evidence pack:** `brain/evidence-packs/[pack].md`
+**Ask first:** [one question about how it goes now; the answer is the rough starting number]
 
-**Why this works.** [2–3 sentences naming the strongest evidence in the pack, with its headline effect.]
+**The number to watch.** [What to count, how, how long it takes, where it comes
+from in each option.] **Evidence:** `brain/evidence-packs/[pack].md`
 
-## The metric
-[What gets counted, where it comes from (Class Pulse / a simple tally),
-and how to set the target WITH the class — a range, not a demand.]
+## Week 1: start now
+[Today's number is the starting number; the first move starts this week. What to look for in the numbers. Set a target range with the class.]
 
-## Week 1 — Baseline & launch
-[Capture the starting number before changing anything. Run the launch ritual:
-pitch or vote, name the target, project the kickoff slide.]
-
-## The weekly play pattern (weeks 2 through finale)
-[Monday: what the AI does with the new pulse. Midweek: the one classroom move,
-drawn from the pack. Friday: the quick win + one line in the class story.]
-
-## The finale
-[The scoreboard moment (season-snapshot), the 3-question class retro,
-and drawing the next card.]
+## The moves, one at a time (about two weeks each)
+1. **[Move]**: what the teacher does. *[Plain-words strength (source, year; who was studied).]*
+...
 
 ## Watch out
-[The 1–2 ways this challenge goes wrong, taken from the pack's own warnings.]
+[The one or two ways this goes wrong, from the pack.]
 ```
 
-Rules for card authors (human or AI): every claim traces to the linked pack — cards never introduce research the pack doesn't contain; metrics must be countable weekly with what a teacher actually has; the tone is the pack's tone — plain, honest about evidence strength, allergic to hype.
+Rules for card writers (you or a person): every claim comes from the linked pack. The number has to be countable each week with what a teacher already has, and must never need a student's name. The strength words come from `../evidence-engine.md`.

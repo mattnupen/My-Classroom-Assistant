@@ -13,22 +13,22 @@ If you're presenting this live, the four demos map to the four things people usu
 You need two things open:
 
 1. **Claude Cowork**, with this project folder selected. That's where you type the prompts.
-2. **Class Tools** — double-click `local-tools/ClassAI-dashboard.html`. The sidebar in there gets you to every offline app.
+2. **Class Tools** — the page with the offline apps. Open the `local-tools` folder and double-click `ClassAI-dashboard`. The sidebar gets you to every app.
 
 A note on the demo files. Two of these demos use files you supply:
 
 - **A Canvas curriculum export (`.imscc`)** for Demo 1. This is curriculum, not student data, so it's safe to drop into the project folder.
-- **A gradebook (`.xlsx` or `.csv`)** for Demos 2 and 3. This *is* student data. **Keep it out of the project folder** — leave it in Downloads, on your desktop, wherever. You only ever feed it to the offline apps, never to Claude. (If you just want to try the flow without your own file, the included `sandbox/fictional-gradebook.csv` works everywhere a gradebook is asked for.)
+- **A gradebook (`.xlsx` or `.csv`)** for Demos 2 and 3. This *is* student data. **Keep it out of the project folder** — leave it in Downloads, on your desktop, wherever. You only ever feed it to the offline apps, never to Claude. (To try it without your own file, every app has a **Load demo class** button with 24 made-up students.)
 
 ## The one idea behind all four demos
 
-The whole project runs on a single rule: **Claude never sees student-identifying data.** Not names, not individual grades, not per-kid missing-work lists. That guarantee doesn't come from Claude promising to be careful — it comes from *where the data lives*. Student data only ever goes into the offline HTML apps that run on your laptop and never touch the internet. Claude only ever sees aggregates ("3 students behind on Unit 3") or content that has no student data in it at all.
+By default, the whole project runs on a single rule: **Claude never sees student names or grades.** Not names, not individual grades, not per-kid missing-work lists. That guarantee doesn't come from Claude promising to be careful — it comes from *where the data lives*. Student data only ever goes into the offline apps that run on your laptop and send nothing anywhere. Claude only sees class totals ("3 students behind on Unit 3") or content with no student information in it at all.
 
-That's **Locked-Room mode** — the default, what every demo below shows, and what you should present unless someone asks. There is also an opt-in **Direct mode** a district can approve in writing, where the AI reads gradebook exports from one designated folder; if it comes up in the room, the honest one-liner is: *"a district can approve that, it's recorded on a form, and even then the AI still never writes a student's name into anything it keeps or shows."* Details live in `setup/permissions/privacy-explainer.md`.
+That's **the Offline option** — the default, what every demo below shows, and what you should present unless someone asks. There is also **the Claude for Teachers option**: if a teacher uses Claude for Teachers and their district has given permission, the teacher can share student information in the chat or drop files in the inbox folder. If it comes up in the room, the honest one-liner is: *"a district can give permission for that, the teacher records it on one page, and even then no student's name goes into the classroom's lasting notes or dashboards, or on anything shown to the class."* Details live in `setup/permissions/privacy-explainer.md`.
 
 That's why the demos split into two kinds of step. Watch for these labels:
 
-> 💬 **Cowork prompt** — something you type to Claude in chat. Safe by design: no student data involved.
+> 💬 **Cowork prompt** — something you type to Claude in chat. No student names or grades involved.
 >
 > 🖥️ **Offline app step** — something you do in one of the browser apps on your own machine. This is where real student data gets handled, with Claude nowhere near it.
 
@@ -75,36 +75,38 @@ so I can redirect you if I had a different one in mind.
 
 ## Demo 2 — Read the state of your class
 
-**What it shows:** How Claude "sees" your class without ever seeing your class. You run your gradebook through an offline app that strips it down to aggregate counts, paste that summary into Cowork, and Claude reasons about where the class stands and what to do next.
+**What it shows:** How Claude "sees" your class without ever seeing your class. You run your gradebook through an offline app that boils it down to class totals, paste that summary into Cowork, and Claude reasons about where the class stands and what to do next.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **Class Pulse**.
+1. From the Class Tools sidebar, open **Class Pulse**.
 2. Drag in your gradebook (`.xlsx` or `.csv`). Everything is read in your browser — nothing uploads.
-3. Set the tier thresholds if you want (defaults: Strong = 0 missing, Steady = up to 2, Struggling = 3+).
-4. Click **Copy** under "Structured summary." That copied text is aggregate-only — tier counts and most-missed assignments, **zero names, zero individual grades.**
+3. Click **Generate**. (The defaults are fine. **Optional settings** lets you change where the lines fall: Strong = nothing missing, Steady = 1–2, Struggling = 3 or more.)
+4. Click **Copy** next to "This week's summary." That copied text is class totals only — counts and most-missed assignments, **zero names, zero individual grades.**
 
-(Optional: download the snapshot JSON it offers. Drop it back into Class Pulse next week and the summary will show week-over-week movement like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
+(Optional: click **Download comparison file**. Drop it back into Class Pulse next week and the summary will show what changed, like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
+
+Using **Load demo class** instead of your own gradebook? The summary is marked DEMO CLASS, so your AI will talk it through but won't save practice numbers to your class page or Class Tools. That's on purpose. Leave off the last two lines of the prompt.
 
 > 💬 **Cowork prompt** — paste this, then paste the copied summary where shown:
 
 ```
-Here's this week's Class Pulse summary (aggregate only, no student data):
+Here's this week's Class Pulse summary (class totals only, no names):
 
-[paste the structured summary you copied from Class Pulse here]
+[paste the summary you copied from Class Pulse here]
 
 Read this against our class goal. Tell me:
 1. In plain language, where is the class right now?
 2. What's the single most-missed assignment, and what does that suggest?
-3. One concrete move I could make this week to push toward the goal — something
+3. One concrete thing I could try this week to push toward the goal — something
    you can help me produce (a slide, a parent message, an opener).
-Then update the goal cards on the dashboard to reflect this week's numbers, and
-show me the change before you save it.
+Then update my class page and the cards on Class Tools with this week's
+numbers, and show me the change before you save it.
 ```
 
-**What to expect:** Claude interprets the aggregate, names the bottleneck, and proposes a next action tied to your goal. When it offers to update the dashboard cards, it edits `ClassAI-dashboard.html` — and per the project rules it writes *only* aggregate text ("4 students behind on the Theme Essay"), never names. It'll show you the change before saving.
+**What to expect:** Claude reads the class totals, names the sticking point, and suggests one strategy tied to your goal, saying how strong the research behind it is. With a real gradebook, when it updates the cards on Class Tools, it edits `my-classroom/dashboard-data.js` (never the page itself), and it writes *only* class totals ("4 students behind on the Theme Essay"), never names. It'll show you the change before saving.
 
-**Why this is the heart of the experiment:** This is the feedback loop. The offline tool measures the class, Claude reads the measurement, Claude adjusts what it proposes. Run it weekly and you can actually watch whether the AI's actions move the numbers.
+**Why this is the heart of the experiment:** This is the feedback loop. The offline tool counts, Claude reads the count, and every two weeks or so you check together whether the one strategy you're trying is working: keep it, adjust it, or switch.
 
 ---
 
@@ -120,11 +122,11 @@ That app takes three pieces of text and mail-merges them onto each kid's card
 (it adds the names and their missing-assignment list locally — you won't see those).
 
 Write me those three pieces, in our AI's voice, following our teaching
-principles (strengths-first, specific, never shaming, "this can still earn full
-credit" framing):
+principles (strengths-first, specific, never shaming). My late-work policy
+is: [your policy, e.g., "half credit until the end of the unit"].
 1. Greeting — the top line. You can use {name} as a placeholder.
-2. Student message — the body. Cover that anything on the list can still earn
-   full credit through the end of the unit, and how to check items off.
+2. Student message — the body. Cover my late-work policy, one small first
+   step, and how to check items off.
 3. Footer — one small line about how to get help.
 
 Keep it warm and short. Give me two options for each so I can pick.
@@ -132,7 +134,7 @@ Keep it warm and short. Give me two options for each so I can pick.
 
 > 🖥️ **Offline app step:**
 
-1. From the Dashboard sidebar, open **Progress Cards**.
+1. From the Class Tools sidebar, open **Progress Cards**.
 2. Drag in your gradebook (`.xlsx` or `.csv`).
 3. Choose **Missing Work** as the card type.
 4. Paste Claude's greeting, message, and footer into the "Personalize the message" fields.
@@ -146,9 +148,9 @@ Keep it warm and short. Give me two options for each so I can pick.
 
 ## Demo 4 — Build a brand-new offline app
 
-**What it shows:** When the included offline apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it generates a single offline HTML app that's safe by construction.
+**What it shows:** When the included offline apps don't cover something you need — and it involves student data — you don't file a feature request. You ask your AI to build the tool, and it builds one app that runs on your computer and follows the same privacy rules as the others, every time.
 
-**Setup:** This uses the **teacher-app-builder** skill. If it's installed (it should be — it ships in `teacher-app-builder-skill-upload.zip` and the install steps are in `docs/teacher-app-builder.md`), the prompt below will trigger it. If Claude says it isn't available, install it first, then come back.
+**Setup:** This uses the app builder, an add-on that teaches Claude to build classroom apps safely. If Claude says it isn't available, add the app builder first (`docs/teacher-app-builder.md`), then come back.
 
 > 💬 **Cowork prompt** — here's a realistic example; swap in your own problem:
 
@@ -164,7 +166,7 @@ can see the spread. It needs to use my real roster, so it has to stay offline.
 Walk me through whatever questions you need, then build it.
 ```
 
-**What to expect:** The skill asks a few short questions, generates a single `.html` file under `local-tools/`, and runs an automatic privacy check before saving — it will refuse to ship anything that makes network calls, stores your roster in the browser, or saves student data into the project folder. When it's done, the new tool is registered in the Dashboard sidebar automatically (Claude edits `_nav.js`), so it shows up next to the others.
+**What to expect:** Claude asks a question or two, each with an example answer, then says back what it will build and waits for your yes. It builds one app that runs on your computer, checks quietly that it never sends anything off your computer, and adds it to Class Tools in the sidebar under **Your apps**. Click **Try it with a made-up class** first. If Claude says it needs an add-on first, follow `docs/teacher-app-builder.md`, then come back.
 
 **A second example — a one-page parent-conference sheet.** This one's worth showing because the result is something a parent walks away holding. Notice the prompt is just a teacher describing a problem in plain words — you don't need to know how it gets built:
 
@@ -192,7 +194,7 @@ When Claude builds this, the graph, the missing-work list, and the student's nam
 - A reading-group builder that splits the roster by a level column you paste in.
 - A "warm welcome" door tool that surfaces one specific thing to greet each kid about.
 
-**Why this matters for the pitch:** The privacy boundary isn't a wall that limits what you can build — it's the thing that lets you safely build *anything*. The skill enforces the rules so you don't have to think about them.
+**Why this matters for the pitch:** The privacy boundary isn't a wall that limits what you can build — it's the thing that lets you safely build *anything*. The app builder follows the rules so you don't have to think about them.
 
 ---
 
@@ -205,4 +207,4 @@ If someone asks "what is this thing," the four demos answer in sequence:
 3. It produces real classroom materials, with the privacy line drawn right down the middle of the task (Demo 3).
 4. And when you need something new, it builds you a safe tool on the spot (Demo 4).
 
-Underneath all of it: the AI proposes, you decide, the class moves, the aggregates come back, the AI adjusts. That's the loop the whole project exists to test.
+Underneath all of it: one challenge all year, one strategy at a time. The AI suggests, you decide, the class tries it, the class totals come back, and every two weeks or so you decide together whether to keep, adjust, or switch. That's the loop the whole project exists to test.

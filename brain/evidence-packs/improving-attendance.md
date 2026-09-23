@@ -1,99 +1,85 @@
-# Evidence Pack — Improving Attendance
+# Evidence Pack: Improving Attendance
 
-**Goal:** Fewer absences — especially chronic absence — by working with families, not punishing kids.
-**Built:** 2026-06-14 · **Built by:** the evidence engine (see `brain/evidence-engine.md`)
-**Sources checked:** Rogers & Feller (2018, *Nature Human Behaviour*); belonging research (Walton & Cohen, universal base); fresh-start effect (Dai, Milkman & Riis, 2014).
+**Goal:** Fewer absences, especially chronic absence, by working with families rather than punishing kids.
+**Checked:** 2026-09-22 (first built 2026-06-14; strengthened with the teacher-postcard trial and the 2025 six-trial replication)
+**Number to watch for this goal:** percent of possible days attended, class-wide, per week. The teacher gives the week's absence count (and the number of days, if it was a short week); you work out the percentage from that and the class size, and save only the percentage. **This number can't show these moves working:** the research effects (about 2% fewer absences across six trials, 8.3% in the postcard trial) are far smaller than one class's normal weekly swings. A flat number is not a reason to switch; see "When the number can't show it" in `../challenge-cycle.md`.
 
-> How to read this. Each card has two layers: the **index** on top (claim, strength, source, effect) and the **generation material** below — what the research found, the move, a worked example, and done-well-vs-badly. Every move obeys the eleven principles in `teaching-principles.md`. **Privacy note:** an attendance message is about one child, which means a real number. So the AI always writes the *words* with a blank (shown as **[#]**) that the teacher fills in from the offline tools. It supplies the message, never the number. In Locked-Room mode that's the only option; in Direct mode the AI could fill the blank from an inbox export, but the drafts it *keeps* stay blank-and-nameless either way — so this pattern is the one to generate in both modes.
+> The cards are in the order to try them, **one at a time** (see `../challenge-cycle.md`). Strength labels are defined in `../evidence-engine.md`.
+>
+> **Names and numbers.** A note about attendance is about one child, so it needs a real count. In the Offline option, write the words with blanks (**[#]**, **[student]**) and tell the teacher plainly: "Copy this note into your email or school messaging app and fill in the name and the number of days from your attendance system." (No offline app here has absence counts. Parent Messages reads the gradebook, not attendance.) In the Claude for Teachers option, you can fill the blanks for named drafts given in the chat. Either way, anything you *save* stays blank and nameless.
 
 ---
 
-### Send families accurate, personalized attendance information
+### 1. Tell families the real count, kindly
 
-- **Evidence strength:** Strong (large randomized trial) · **Source:** Rogers & Feller (2018), *Nature Human Behaviour* — 28,080 students, Philadelphia · **Effect:** chronic absence down ~10%+ · **Retrieved:** 2026-06-14
+- **How strong:** Strong research behind this · **Source:** Rogers & Feller (2018), *Nature Human Behaviour*; Robinson, Lee, Dearing & Rogers (2018), *American Educational Research Journal*; six-trial replication in the *Journal of Research on Educational Effectiveness* (2025) · **Effect:** chronic absence down 10% or more (Philadelphia) and 15% (K–5, 10 districts); across six newer trials, total absences down about 2% · **Who was studied:** 28,080 K–12 students in Philadelphia; K–5 students in 10 districts; 78,000+ pre-K–12 students in six districts · **Checked:** 2026-09-22
 
-**What the research found.** A large randomized trial mailed parents personalized information about their child's attendance. The best versions cut chronic absence by 10% or more — and the mechanism was information, not pressure: it worked mainly by correcting parents' underestimate of how many days their child had actually missed. It was also far cheaper than typical attendance programs.
+**What the research found.** In randomized trials, school districts mailed parents their child's running total of absences, several times a year. Chronic absence fell. It worked mostly by fixing a misunderstanding: Philadelphia parents believed their child had missed about half as many days as they really had (about 10 believed, about 18 actual). Adding a comparison with classmates didn't help beyond the plain total. The newer six-trial replication confirms the effect is real, and also that it's **small per student**. Expect a nudge, not a transformation.
 
-**The move.** The AI drafts a warm family-message template that states the real total plainly and kindly and names the next school day as a fresh start. The teacher fills the number in from the offline tools.
+**The move.** A warm note home to families whose child has been missing school, stating the real total plainly and naming the next school day as a clean start. You write the words; in the Offline option the teacher copies them into email or the school messaging app and fills in the name and days from the attendance system.
+
+**The number to watch.** Weekly class attendance percentage, as background only: it can't show an effect this small (see the note at the top). Judge the move on whether the notes actually went out.
 
 **Worked example.**
-> "Hi [family] — a quick note about [student]. They've missed **[#]** days so far this year, which is often more than it feels like day to day. Nothing alarming — I just want us on the same page, because the days add up quietly. Monday's a clean start, and I'll be glad to see them. Anything I can do on my end?"
+> "Hi [family]: a quick note about [student]. They've missed **[#]** days so far this year. That's usually more than it feels like day to day, and I just want us on the same page. Monday's a fresh start and I'll be glad to see them. Anything I can do on my end?"
 
-**Done well vs. done badly.** *Well:* warm, specific, partnership tone, accurate number. *Badly:* a threat, a guilt trip, or a vague "attendance concern" with no number.
+**Done well vs. done badly.** *Well:* an accurate number, warm, a partnership tone. *Badly:* a threat, a guilt trip, or "attendance concern" with no number.
 
-**Watch out.** Tone is everything — and the AI supplies the words, never the number.
+**Watch out.** The studies were district mailings to many families at once, not one teacher's notes. The idea transfers; the size of the effect may not. Don't compare the child with classmates.
 
 ---
 
-### Correct the misperception — don't just scold
+### 2. After an absence, send a note about what they missed
 
-- **Evidence strength:** Strong · **Source:** Rogers & Feller (2018) · **Retrieved:** 2026-06-14
+- **How strong:** Good research, with limits · **Source:** Himmelsbach et al. (2022), *Journal of Research on Educational Effectiveness* · **Effect:** absences down 8.3% · **Who was studied:** 5,552 pre-K to 2nd-grade students in two urban districts · **Checked:** 2026-09-22
 
-**What the research found.** The lever wasn't fear — it was the gap between what parents *thought* and what was *true*. Parents systematically underestimate cumulative absences; simply showing the real running total is what changed behavior.
+**What the research found.** After a child was absent, school staff mailed a postcard with the number of days missed and a short handwritten note from the teacher about what the class had learned that day. Absences fell. This is one of the few trials of something a teacher does personally.
 
-**The move.** The AI's template leads with reality versus assumption, gently.
+**The move.** A two-line "here's what we did while you were out" note after an absence. You draft a reusable version for each week's lessons; the teacher adds the name.
+
+**The number to watch.** Weekly class attendance percentage.
 
 **Worked example.**
-> "Most of us picture a couple of missed days here and there — the actual count this year is **[#]**. That gap is completely normal; it's exactly why I'm sending this, so it doesn't sneak up on us."
+> "We missed [student] on Tuesday! We started fractions on a number line. Ask them to show you where ½ goes. See you tomorrow."
 
-**Done well vs. done badly.** *Well:* a gentle correction of the estimate. *Badly:* scolding, or burying the number so the parent never sees the gap.
+**Done well vs. done badly.** *Well:* specific content, warm, short. *Badly:* a list of make-up work, or "they missed a lot."
 
-**Watch out.** Only works with an accurate number, which the teacher supplies.
+**Watch out.** It was tested only with young children. For older students, the same idea (specific, warm, about learning) is a practical guess, not tested research.
 
 ---
 
-### Make every student feel known — belonging brings them back
+### 3. Make students feel known and needed when they come back
 
-- **Evidence strength:** Strong · **Source:** Walton & Cohen belonging research (universal base), applied · **Retrieved:** 2026-06-14
+- **How strong:** Promising, less proven (tested for engagement, not attendance) · **Source:** Cook et al. (2018), *Journal of Positive Behavior Interventions* · **Effect:** about 12 more minutes on task per class hour, and less disruption · **Who was studied:** 203 students in 10 middle-school classes · **Checked:** 2026-09-22
 
-**What the research found.** Brief belonging interventions — signals that a student is known and that early friction is normal — improve outcomes, especially for students on the margin. Applied to attendance: a student who feels genuinely known and needed is more likely to show up.
+**What the research found.** When teachers greeted each student at the door with a positive, personal word, students were more engaged and less disruptive once class started. That study measured engagement; no study has measured whether a greeting changes attendance. Background only: a related belonging activity (a reading-and-writing exercise, not a greeting) raised attendance in one district (Borman et al., 2019) but not in a repeat in another (Borman et al., 2025).
 
-**The move.** The AI drafts short, specific, strengths-first welcome-back notes and "we noticed you" lines — never guilt.
+**The move.** A specific welcome back at the door, naming something the class needed from that student. Never mention the absence.
+
+**The number to watch.** Weekly class attendance percentage.
 
 **Worked example.**
-> "Good to have you back today — we actually needed your read on the story in 2nd period. Glad you're here."
+> "Good to have you back. We needed your read on the story yesterday."
 
-**Done well vs. done badly.** *Well:* "glad you're here," plus something specific you missed about *them*. *Badly:* "you've missed a lot" — shame on the way back in.
+**Done well vs. done badly.** *Well:* "glad you're here," plus something specific. *Badly:* "you missed a lot."
 
-**Watch out.** "We missed you," never "you missed a lot." (Principle 10 — honor the work of showing up.)
-
----
-
-### Frame re-engagement as a fresh start
-
-- **Evidence strength:** Moderate · **Source:** Dai, Milkman & Riis (2014), the fresh-start effect (see `reducing-missing-work.md`) · **Retrieved:** 2026-06-14
-
-**What the research found.** Motivation to pursue a goal rises right after a temporal landmark — a Monday, a new month, a new unit. A returning student framed at a landmark re-engages more readily than one reminded of how far behind they are.
-
-**The move.** The AI frames return points around real landmarks rather than the deficit.
-
-**Worked example.**
-> "New week starts Monday — a good moment to reset. Come in and we'll pick it up fresh, no catching-up lecture."
-
-**Done well vs. done badly.** *Well:* tied to a real landmark the student feels. *Badly:* a manufactured "fresh start" every single day, which ends up meaning nothing.
-
-**Watch out.** Use real landmarks; don't invent them.
+**Watch out.** It has to be true and specific, or students hear it as a script.
 
 ---
 
-## Handle with care (for this goal)
+## Handle with care
 
-- **Punitive attendance policies** (grade penalties, truancy threats). Weak evidence they improve attendance, and they can push struggling families away. The AI won't build messaging around them.
-- **Attendance prizes and incentives.** Rogers & Feller and related work found that *information* beat incentives, which cost more and often showed no effect. Use sparingly.
-- **Naming a student publicly as absent.** Violates principle 7 and the privacy boundary.
-
----
-
-## Practitioner notes
-
-*The AI adds dated, aggregate-only notes here as you report what actually happened in your room.*
-
-- `YYYY-MM-DD — what landed, what didn't, at the class level (no student names).`
-
----
+- **Perfect-attendance awards.** In a randomized trial with 15,329 students (Robinson, Gallus, Lee & Rogers, 2019), surprise attendance awards made later attendance *worse*. Students read the award as a sign that perfect attendance is unusual and not really expected. Pre-announced awards didn't help either. Don't propose them.
+- **Punishments** (grade penalties, truancy threats). Weak evidence, and they push away the families you most need.
+- **Naming or charting absent students in class.** Never. A class percentage is the only scoreboard.
 
 ## Sources
 
-- [Rogers & Feller (2018), *Reducing student absences at scale by targeting parents' misbeliefs*, Nature Human Behaviour](https://www.nature.com/articles/s41562-018-0328-1)
-- Walton & Cohen (2007, 2011), social-belonging research (see `research-foundations.md`)
-- Dai, Milkman & Riis (2014), the fresh-start effect (see `reducing-missing-work.md`)
+- Rogers & Feller (2018), *Reducing student absences at scale by targeting parents' misbeliefs*, Nature Human Behaviour 2. [Article](https://www.nature.com/articles/s41562-018-0328-1) · parents' estimates: [Education Next summary](https://www.educationnext.org/how-to-tackle-student-absenteeism/)
+- Robinson, Lee, Dearing & Rogers (2018), *Reducing student absenteeism in the early grades by targeting parental beliefs*, AERJ 55(6). [Article](https://journals.sagepub.com/doi/10.3102/0002831218772274)
+- *Can personalized attendance information mitigate student absenteeism? Evidence from six randomized field trials* (2025), Journal of Research on Educational Effectiveness. [Article](https://www.tandfonline.com/doi/full/10.1080/19345747.2025.2537112)
+- Himmelsbach et al. (2022), *Your child missed learning the alphabet today*, JREE 15(2). [ERIC EJ1349892](https://eric.ed.gov/?id=EJ1349892)
+- Cook, Fiat, Larson, Daikos, Slemrod, Holland, Thayer & Renshaw (2018), *Positive greetings at the door*, Journal of Positive Behavior Interventions 20(3), 149–159. [ERIC EJ1182943](https://eric.ed.gov/?id=EJ1182943)
+- Borman, Rozek, Pyne & Hanselman (2019), PNAS 116(33). [Article](https://www.pnas.org/doi/10.1073/pnas.1820317116)
+- Borman, Borman, Park & Zhu (2025), *Replicating a middle-school belonging intervention*, AERA Open. [Article](https://journals.sagepub.com/doi/10.1177/23328584251364785)
+- Robinson, Gallus, Lee & Rogers (2019), *The demotivating effect (and unintended message) of awards*, Organizational Behavior and Human Decision Processes. [Article](https://www.sciencedirect.com/science/article/abs/pii/S0749597818306083)

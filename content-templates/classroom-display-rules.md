@@ -2,56 +2,71 @@
 
 These are the design rules your AI follows whenever it generates anything students will see — slides, posters, printed cards, signs on the wall, certificates. They exist because kids in the back of the room shouldn't have to squint, color-blind students shouldn't be locked out, and overloaded slides shouldn't drown the message.
 
-Your AI reads this file. You can edit it. The defaults below come from accessibility standards (WCAG AA) and from what actually works in real classrooms.
+Your AI follows these; you can change them. They come from web accessibility standards (WCAG AA) and from what works in real classrooms.
 
 ---
 
-## Default theme: Ocean Depths (Projection Edition)
+## Default theme: Chalk & Marker (Projection Edition)
 
-This is the concrete palette, font, and type scale the AI applies to slides and documents by default. It's a specific instantiation of the rules below, tuned for the worst case: a small screen, a dim/low-lumen projector, and students in the back row. Every text/background pairing here is verified to meet WCAG AA (4.5:1 body).
+The colors, fonts, and text sizes the AI uses for slides and handouts by default. It's the look of the project's homepage and Class Tools (chalkboard ink, warm paper, one orange marker, sticky notes), tuned for the worst case: a small screen, a dim projector, and students in the back row. Every text and background pair is well above WCAG AA (4.5:1 for body text); the lowest text pair on a slide is 8:1. The template is `content-templates/slide-template.pptx` (see "The slide template" below).
 
 ### Palette
 
-| Role | Name | Hex |
-|------|------|-----|
-| Slide / page background | Cream | `#f1faee` |
-| Primary text | Ink (near-black) | `#0d1b2a` |
-| Title band / header fill | Deep Navy | `#1a2332` |
-| Accent — key terms, bullets, dividers (text-safe, 5.8:1 on Cream) | Deep Teal | `#1f6b6b` |
-| Decorative teal — lines/shapes only, never text | Light Teal | `#2d8b8b` |
-| Fill behind dark text (callout boxes) | Seafoam | `#a8dadc` |
-| Text on Navy / Deep-Teal fills | Cream | `#f1faee` |
+| Role | Name | Hex | Contrast |
+|------|------|-----|----------|
+| Slide / page background (plain, never a grid or texture) | Paper | `#FAF6EE` | — |
+| Primary text | Ink | `#14231F` | 15:1 on Paper |
+| Title band fill | Chalk | `#14231F` | — |
+| Text on the Chalk band | Chalk white | `#F6F2E8` | 14.6:1 on Chalk |
+| The one move / callout box (Ink text only) | Sticky note | `#FFE67E` | Ink 13:1 on it |
+| Secondary text (a caption, if any) | Ink 2 | `#3F4F49` | 8:1 on Paper |
+| The marker: one underline or circle, never text | Orange | `#FF5A1F` | 5.2:1 against Chalk |
 
-- Body text is always **Ink on Cream** — the highest-contrast pair (16:1).
-- **Deep Teal `#1f6b6b`** is the only teal allowed for text or for fills carrying Cream text. Light Teal `#2d8b8b` is decoration only (fails body contrast).
-- Never set **Seafoam** as a text color; it's a fill behind Ink text only.
+- Body text is always **Ink on Paper** (or on the sticky note).
+- **Orange is never a text color, a fill, or a background.** It is the one marker stroke on a slide (an underline under the words that matter), and only on the dark Chalk band, where it stands out. On Paper it's too faint (2.9:1) to carry anything.
+- Emphasis inside a sentence is **bold Ink**, not color.
+- The homepage's pale tints (sky, mint, coral…) are for the teacher's pages, not slides: too low-contrast on a projector.
 
 ### Font
 
-DejaVu Sans, with **Arial / Helvetica** fallbacks (all sans-serif, per the readability rules below). Reserve serifs for ceremonial pieces only.
+**Bricolage Grotesque** for slide titles, **Figtree** for everything else (both clean sans-serifs, bundled in `local-tools/fonts/`, nothing downloaded), then **Arial / Helvetica** if they're missing. Serif fonts only for ceremonial pieces. The handwritten Caveat font from the homepage is **not** used on anything students read: it's harder for early and struggling readers.
 
 ### Type scale
 
 **Slides** (at or above the minimums in the "Text size" section below):
 
-- Slide title: **44 pt** bold (on the Navy band)
-- Section header: **40 pt** bold (Deep Teal)
-- Body: **28 pt** regular
-- Footer / metadata: **24 pt** regular
+- Slide title: **44 pt** extra-bold (on the Chalk band)
+- Section header: **40 pt** bold (Ink)
+- Body: **30 pt** regular (never below 28)
+- **No footer.** Classroom slides don't carry the class name, date, page numbers, or a logo; it's a lesson, not a pitch deck.
 
 **Documents (handouts):** H1 24 pt · H2 18 pt · H3 14 pt · body 12 pt, line spacing 1.5, Ink on white.
 
-**Why a light background and not Ocean Depths' default navy:** dim projectors can't push whites bright and smear dark blues/blacks into one muddy tone, so a Cream background with near-black text is the reliable choice. Navy is used for title bands, not full slides. A full-navy variant exists (`docs/theme-preview.html`) but is riskier on a weak projector.
+**Why a light background with a dark title band, not a dark slide:** dim projectors can't push whites bright and smear dark tones together, so a Paper background with near-black text is the reliable choice. The Chalk color is used for the title band only.
 
 ---
 
 ## Slides (projected to the whole class)
 
+### The slide template
+
+Teachers get slides as a **PowerPoint file** (`.pptx`), because that's what opens everywhere: double-click for PowerPoint or Keynote, or drag it into Google Drive and open it with Google Slides (or, in an open Google Slides deck, File → Import slides). The template is `content-templates/slide-template.pptx`, 16:9, with three layouts built in, each with a sample slide:
+
+- **Monday opening:** the title on the chalk sheet, one line under it, the one move on a sticky note, a short close.
+- **Big number:** one class-wide number, huge, with what it means on a sticky note. Class totals only.
+- **Steps:** up to three numbered steps.
+
+How the AI makes a slide from it: copy the file into `my-classroom/for-class/[date]/`, keep only the sample slides you need (duplicate a slide for more of the same layout; a teacher can also pick a layout from New Slide), and replace the words, keeping each text box's formatting. Put the teacher's script in the speaker notes, not on the slide. At most one phrase in the title gets the orange marker underline; nothing else is orange.
+
+**Fonts:** Google Slides has both theme fonts built in, so it matches exactly. PowerPoint on a computer without them swaps in its own default font, which is a little wider or narrower, so leave room: a text box should look no more than about 85% full, and a title no longer than two lines. If a line won't fit, cut words or split the slide, never shrink below the sizes below.
+
+(`content-templates/slide-template.html` is the same design as a web page, for a teacher who wants to project straight from the browser.)
+
 ### Text size
 
 - **Body text:** 28-point minimum. 32+ is better.
 - **Headers:** 40-point minimum.
-- **Footers / metadata:** 18-point minimum.
+- **Anything small** (a caption or a source), if you need it at all: 18-point minimum.
 
 If anyone in the back row would have to squint, the font is too small. Most slides in most classrooms have text that's far too small. The fix is usually to put less text on the slide, not to fight for a smaller font.
 
@@ -80,7 +95,7 @@ If the AI generates a slide with more than this, it's wrong. Reject it and ask f
 ### Animations and transitions
 
 - **None by default.** Animation should never carry meaning a student could miss by blinking. If used at all, only for revealing one bullet at a time on lists — and only if the lesson actually benefits.
-- **No spinning, flashing, bouncing.** Triggers for some students. Distracting for everyone.
+- **No spinning, flashing, bouncing.** Flashing can trigger seizures in some students. Motion distracts everyone.
 
 ### Decorative elements
 
@@ -100,7 +115,7 @@ If the AI generates a slide with more than this, it's wrong. Reject it and ask f
 ### Paper layout
 
 - **Margins:** at least 0.5 inch on all sides.
-- **Line spacing:** 1.15 to 1.4 for body text. Never 1.0 (squished) or 2.0+ (looks like a draft).
+- **Line spacing:** 1.15 to 1.5 for body text. Never 1.0 (squished) or 2.0+ (looks like a draft).
 - **Cards meant to be cut:** include clear cut lines or visible margins between cards.
 
 ### Color
@@ -110,9 +125,9 @@ If the AI generates a slide with more than this, it's wrong. Reject it and ask f
 
 ### Readability for students with reading challenges
 
-- **Avoid serif fonts for dense text.** Sans-serif (e.g., Helvetica, Arial, Inter) is generally easier for students with dyslexia. Reserve serifs for ceremonial pieces like certificate names.
-- **Avoid italic for body text.** Italics slow reading. Use for emphasis only.
-- **Avoid all-caps blocks.** Capital letters lose word-shape cues and become harder to scan.
+- **Use sans-serif for dense text** (e.g., Arial, Helvetica). It's what dyslexia style guides recommend; the research on font choice itself is thin, so don't go further than that. Serifs only for ceremonial pieces like certificate names.
+- **Avoid italic for body text.** Use it for emphasis only; long italic passages are harder to read.
+- **Avoid all-caps blocks.** Long runs of capitals read more slowly; use caps for a word or two at most.
 
 ---
 
@@ -139,7 +154,7 @@ If the AI generates a slide with more than this, it's wrong. Reject it and ask f
 
 - **Never put a list of struggling students on a slide, poster, or any class-wide display.** Ever. (See `brain/safety-rules.md`.)
 - **Never put a student's exact words in a class-wide display.** Synthesize themes, never quote.
-- **Never use comparative language** between students or sections in any visible artifact. ("Period 2 is ahead of Period 4" → no.)
+- **Never compare** students or sections in anything students see. ("Period 2 is ahead of Period 4" → no.)
 - **Never use shaming visuals.** Frowning faces, "WARNING" badges, red flashing graphics next to a student's name — not in any form.
 - **Never assume every student can see a slide.** Some students have low vision or are temporarily seated where they can't see well. Read aloud anything critical.
 

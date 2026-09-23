@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!--
-  CSP allowlist — do not loosen without updating the verification gate and the skill's allowlist constant.
+  CSP allowlist — do not loosen. references/verification-prompt.md checks this line is unchanged.
   Allowed: SheetJS CDN (for CSV/XLSX parsing). Nothing else.
 -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none';">
@@ -126,7 +126,7 @@
 <main>
   <!-- {{BACK_LINK}}
        Leave this as-is. Path check: this file lives at
-       my-classroom/apps/<slug>/app.html — up one is my-classroom/apps/, up two
+       my-classroom/apps/<name>/app.html — up one is my-classroom/apps/, up two
        is my-classroom/, up three is the project root, so ../../../local-tools/
        reaches the shipped tools. -->
   <a class="back-link screen-only" href="../../../local-tools/ClassAI-dashboard.html">&larr; Back to Class Tools</a>

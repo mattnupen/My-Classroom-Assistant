@@ -49,16 +49,16 @@ const ICONS = {
 // this when a new tool ships. The teacher's per-page customizations
 // live in localStorage and override this list on a per-page basis.
 const DEFAULT_APPS = [
-  { id: 'classai-dashboard',   label: 'Dashboard',           file: 'ClassAI-dashboard.html', description: 'Class overview and goals',                       icon: 'home' },
-  { id: 'student-cards',       label: 'Progress Cards',      file: 'student-cards.html',     description: 'Printable missing-work or progress cards',       icon: 'idcard' },
-  { id: 'parent-messages',     label: 'Parent Messages',     file: 'parent-messages.html',   description: 'Draft parent-facing messages',                   icon: 'mail' },
-  { id: 'gradebook-analytics', label: 'Gradebook Analytics', file: 'gradebook-analytics.html', description: 'Upload a gradebook CSV for per-student stats', icon: 'chart' },
-  { id: 'class-pulse',         label: 'Class Pulse',         file: 'class-pulse.html',       description: 'Name-free gradebook summary for your AI',        icon: 'pulse' },
-  { id: 'student-voice',       label: 'Feedback Cleaner',    file: 'student-voice.html',     description: 'Strip names and emails from responses',          icon: 'megaphone' },
-  { id: 'badges',              label: 'Badges',              file: 'badges.html',            description: 'Generate printable student recognition badges',  icon: 'award' },
-  { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',     description: 'Shuffle the class into small groups',            icon: 'users' },
-  { id: 'app-studio',          label: 'App Studio',          file: 'app-studio.html',        description: 'Ideas your AI can build for you',                icon: 'build' },
-  { id: 'demo-semester',       label: 'Demo Semester',       file: 'demo-semester.html',     description: 'A fictional class, start to finish',             icon: 'book' }
+  { id: 'classai-dashboard',   label: 'Class Tools',         file: 'ClassAI-dashboard.html',   description: 'The home page: what each app does and how it fits with your chat', icon: 'home' },
+  { id: 'student-cards',       label: 'Progress Cards',      file: 'student-cards.html',       description: 'Print each student a card of what they still owe. Before a catch-up day.', icon: 'idcard' },
+  { id: 'parent-messages',     label: 'Parent Messages',     file: 'parent-messages.html',     description: 'A note home for every student from one template. Before conferences or report cards.', icon: 'mail' },
+  { id: 'gradebook-analytics', label: 'Gradebook Analytics', file: 'gradebook-analytics.html', description: 'Every student, sorted by missing work. When you want the full picture.', icon: 'chart' },
+  { id: 'class-pulse',         label: 'Class Pulse',         file: 'class-pulse.html',         description: 'Your weekly class summary for the chat, no names. Once a week, if your challenge is missing work.', icon: 'pulse' },
+  { id: 'student-voice',       label: 'Feedback Cleaner',    file: 'student-voice.html',       description: 'Takes names out of student survey answers. After a class survey.', icon: 'megaphone' },
+  { id: 'badges',              label: 'Badges',              file: 'badges.html',              description: 'Print certificates for effort and comebacks. On celebration days.', icon: 'award' },
+  { id: 'random-groups',       label: 'Random Groups',       file: 'random-groups.html',       description: 'Fair groups that keep chosen students apart. Before group work.', icon: 'users' },
+  { id: 'app-studio',          label: 'App Studio',          file: 'app-studio.html',          description: 'Ideas for new apps your AI can build. When you wish a tool existed.', icon: 'build' },
+  { id: 'demo-semester',       label: 'Demo Semester',       file: 'demo-semester.html',       description: 'A made-up class through a whole term. Before you start, to see how it works.', icon: 'book' }
 ];
 
 // ---- Demo class ------------------------------------------------------
@@ -100,6 +100,9 @@ Yasmin Zhao,P3,Missing,Missing,16,8,21,13,42,Missing
     return new File([this.csv], this.fileName, { type: 'text/csv' });
   }
 };
+
+// The homepage's mark: a sticky note inside the orange marker loop.
+const BRAND_MARK = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="17" fill="#FAF6EE" fill-opacity=".08"/><rect x="1" y="1" width="62" height="62" rx="16" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="2"/><rect x="16" y="16" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 31 31)"/><path d="M16.4 19.6l29.8-3.1.5 4.3-29.8 3.1z" fill="#14231F" opacity=".09"/><path d="M36 10.6C20 10.2 9 19 9 32s11 23 25 22 21-10 21-23c0-8-3.8-13.6-10.6-17.8" fill="none" stroke="#FF5A1F" stroke-width="4" stroke-linecap="round"/></svg>';
 
 const STORAGE_KEY = 'classai-nav-v2';
 
@@ -145,9 +148,13 @@ function loadState() {
     // Drop any that no longer exist there (app deleted, or the whole
     // my-classroom/ folder absent) and refresh the rest from the file, so a
     // renamed label shows up without the teacher clearing their settings.
+    // Shipped tools refresh the same way from DEFAULT_APPS, so a relabelled
+    // tool (say, "Home" → "Class Tools") updates for teachers who reordered.
     const mineById = new Map(mine.map(a => [a.id, a]));
+    const shippedById = new Map(DEFAULT_APPS.map(a => [a.id, a]));
     const stillExists = a => !a.teacher || mineById.has(a.id);
-    const refresh = a => (a.teacher ? deepCopy(mineById.get(a.id)) : a);
+    const refresh = a => (a.teacher ? deepCopy(mineById.get(a.id))
+      : shippedById.has(a.id) ? deepCopy(shippedById.get(a.id)) : a);
     enabled = enabled.filter(stillExists).map(refresh);
     disabled = disabled.filter(stillExists).map(refresh);
 
@@ -186,191 +193,264 @@ let state = loadState();
 
   const style = document.createElement('style');
   style.textContent = `
-    /* Shared "Load demo class" button (used by the tool pages) */
-    .demo-btn {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 7px 14px;
-      border: 1px solid #1f6b6b;
-      border-radius: 6px;
-      background: #e3f1ef;
-      color: #1f6b6b;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
+    /* ==================================================================
+       Class Tools shell, "Chalk & Marker" (matches the homepage: site-v2/design.md).
+       Fonts are bundled in ./fonts/ (SIL Open Font License), so nothing is
+       fetched from the internet. Shared tokens are prefixed --ct- so they
+       never collide with a tool page's own :root variables.
+       ================================================================== */
+    @font-face { font-family: "Bricolage Grotesque"; src: url("./fonts/bricolage-grotesque.woff2") format("woff2"); font-weight: 500 800; font-display: swap; }
+    @font-face { font-family: "Figtree"; src: url("./fonts/figtree.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
+    @font-face { font-family: "Caveat"; src: url("./fonts/caveat.woff2") format("woff2"); font-weight: 500 700; font-display: swap; }
+    @font-face { font-family: "DM Mono"; src: url("./fonts/dm-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "DM Mono"; src: url("./fonts/dm-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+
+    :root {
+      --ct-ink: #14231F; --ct-ink-2: #3F4F49; --ct-ink-3: #5A6862; --ct-ink-4: #A7B1AC;
+      --ct-line: rgba(20,35,31,.10); --ct-line-2: rgba(20,35,31,.18);
+      --ct-paper: #FAF6EE; --ct-paper-2: #F3EDE1; --ct-card: #FFFFFF;
+      --ct-chalk: #14231F; --ct-chalk-2: #1D302A; --ct-chalk-3: #26392F;
+      --ct-on-chalk: #F6F2E8; --ct-on-chalk-2: #B7C4BD; --ct-on-chalk-3: #93A39B;
+      --ct-orange: #FF5A1F; --ct-orange-ink: #C24410; --ct-orange-tint: #FFE3D3;
+      --ct-note-sun: #FFE67E; --ct-mint-ink: #1D8A51; --ct-coral: #FFE6DD; --ct-coral-ink: #D2573A;
+      --ct-focus: #2D66DB;
+      --ct-f-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+      --ct-f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --ct-f-hand: "Caveat", "Bradley Hand", cursive;
+      --ct-f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      --ct-sh-1: 0 1px 2px rgba(20,35,31,.07), 0 1px 1px rgba(20,35,31,.04);
+      --ct-sh-2: 0 1px 2px rgba(20,35,31,.06), 0 4px 10px -2px rgba(20,35,31,.07), 0 16px 30px -14px rgba(20,35,31,.16);
+      --ct-sh-3: 0 2px 4px rgba(20,35,31,.05), 0 14px 26px -8px rgba(20,35,31,.12), 0 42px 80px -28px rgba(20,35,31,.26);
+      --ct-ease: cubic-bezier(.22,1,.36,1);
     }
-    .demo-btn:hover { background: #1f6b6b; color: #f1faee; }
+
+    /* Shared "Load demo class" button (tool pages; made-up students) */
+    .demo-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 8px; min-height: 42px; padding: 0 16px;
+      border: 0; border-radius: 11px;
+      background: var(--ct-card); color: var(--ct-ink);
+      box-shadow: var(--ct-sh-1), inset 0 0 0 1px var(--ct-line-2);
+      font: 750 15px/1.15 var(--ct-f-body); letter-spacing: -.005em;
+      cursor: pointer; white-space: nowrap;
+      transition: transform .2s var(--ct-ease), box-shadow .2s var(--ct-ease), background-color .2s var(--ct-ease);
+    }
+    .demo-btn:hover { transform: translateY(-1px); box-shadow: var(--ct-sh-2), inset 0 0 0 1px var(--ct-line-2); }
+    .demo-btn:active { transform: translateY(1px); box-shadow: inset 0 0 0 1px var(--ct-line-2); transition-duration: .12s; }
+    .demo-btn:focus-visible { outline: none; box-shadow: var(--ct-sh-1), inset 0 0 0 1px var(--ct-line-2), 0 0 0 3px var(--ct-paper), 0 0 0 5.5px var(--ct-focus); }
     @media print { .demo-btn { display: none; } }
 
-    /* ---- Shared app-page hero: one consistent header for every tool page.
-       App name is the <h1> (large); the one-line description is the <h2> below it. ---- */
+    /* ---- Shared app-page header: a chalkboard sheet, like the homepage's closing section.
+       App name is the <h1>; the one-line description is the <h2> below it. ---- */
     .app-hero {
-      position: relative; overflow: hidden;
-      background: linear-gradient(135deg, #1a2332, #143a45);
-      color: #f1faee; border-radius: 18px; padding: 24px 26px; margin-bottom: 20px;
-      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-      box-shadow: 0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.08);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      position: relative; overflow: hidden; isolation: isolate;
+      background:
+        radial-gradient(60% 70% at 18% 20%, rgba(255,255,255,.05), transparent 70%),
+        radial-gradient(50% 80% at 88% 90%, rgba(255,255,255,.035), transparent 70%),
+        var(--ct-chalk);
+      color: var(--ct-on-chalk); border-radius: 24px; padding: 26px 28px; margin-bottom: 22px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      box-shadow: var(--ct-sh-2);
+      font-family: var(--ct-f-body);
     }
     .app-hero .app-hero-ico {
-      flex: 0 0 auto; width: 54px; height: 54px; border-radius: 13px;
-      background: rgba(168,218,220,.16); color: #a8dadc;
-      display: inline-flex; align-items: center; justify-content: center;
+      flex: 0 0 auto; width: 56px; height: 56px; border-radius: 3px 3px 4px 12px;
+      background: linear-gradient(to bottom, #EBD06C 0 12px, var(--ct-note-sun) 12px);
+      color: var(--ct-ink); transform: rotate(-4deg);
+      box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 10px 18px -8px rgba(0,0,0,.55);
+      display: inline-flex; align-items: center; justify-content: center; padding-top: 6px;
     }
-    .app-hero .app-hero-ico svg { width: 30px; height: 30px; }
+    .app-hero .app-hero-ico svg { width: 28px; height: 28px; }
     .app-hero .app-hero-text { flex: 1 1 320px; min-width: 0; }
-    .app-hero h1 { margin: 0; font-size: 27px; font-weight: 700; line-height: 1.2; color: #f1faee; }
-    .app-hero h2 { margin: 5px 0 0; font-size: 16px; font-weight: 500; line-height: 1.4; color: rgba(241,250,238,.82); }
+    .app-hero h1 {
+      margin: 0; font: 750 30px/1.08 var(--ct-f-display); letter-spacing: -.024em;
+      font-variation-settings: "opsz" 48; color: var(--ct-on-chalk); text-wrap: balance;
+    }
+    .app-hero h2 { margin: 7px 0 0; font: 500 16.5px/1.45 var(--ct-f-body); color: var(--ct-on-chalk-2); max-width: 64ch; text-wrap: pretty; }
     .app-hero .app-hero-action { flex: 0 0 auto; }
     .app-hero .app-hero-btn {
-      border: 1px solid #f1faee; background: #f1faee; color: #1a2332;
-      border-radius: 999px; padding: 10px 16px; font-size: 15px; font-weight: 700;
-      cursor: pointer; font-family: inherit;
+      display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+      border: 0; border-radius: 12px; background: var(--ct-on-chalk); color: var(--ct-ink);
+      font: 750 15px/1.15 var(--ct-f-body); cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,.25);
+      transition: transform .2s var(--ct-ease), background-color .2s var(--ct-ease);
     }
-    .app-hero .app-hero-btn:hover { background: #a8dadc; border-color: #a8dadc; }
+    .app-hero .app-hero-btn:hover { transform: translateY(-1px); background: #FFFFFF; }
+    .app-hero .app-hero-btn:active { transform: translateY(1px); }
+    .app-hero .app-hero-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--ct-chalk), 0 0 0 5.5px #8DB1FF; }
+    @media (max-width: 639px) {
+      .app-hero { padding: 20px; border-radius: 20px; gap: 14px; }
+      .app-hero h1 { font-size: 25px; }
+    }
     @media print { .app-hero { display: none; } }
 
-    /* Sidebar */
+    /* ---- Sidebar: the chalkboard beside the desk ---- */
     .universal-nav {
       position: fixed;
       top: 0; left: 0; bottom: 0;
-      width: 220px;
+      width: 232px;
       box-sizing: border-box;
-      background: #1a2332;
-      color: #c9d6d4;
-      padding: 20px 14px;
+      background:
+        radial-gradient(90% 40% at 20% 8%, rgba(255,255,255,.045), transparent 70%),
+        radial-gradient(80% 35% at 70% 92%, rgba(255,255,255,.03), transparent 70%),
+        var(--ct-chalk);
+      color: var(--ct-on-chalk-2);
+      padding: 18px 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       overflow-y: auto;
       z-index: 100;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: var(--ct-f-body);
       font-size: 16px;
       line-height: 1.5;
+      scrollbar-width: thin; scrollbar-color: var(--ct-chalk-3) transparent;
     }
     .universal-nav .un-brand {
-      color: #f1faee;
-      font-weight: 600;
-      font-size: 17px;
-      padding: 6px 10px 14px;
-      border-bottom: 1px solid #2a3a48;
+      display: flex; align-items: center; gap: 11px;
+      color: var(--ct-on-chalk);
+      font: 750 19px/1.1 var(--ct-f-display); letter-spacing: -.02em; font-variation-settings: "opsz" 24;
+      padding: 6px 10px 16px;
+      border-bottom: 1px solid rgba(246,242,232,.10);
       margin-bottom: 10px;
       text-decoration: none;
-      display: block;
+      border-radius: 10px;
     }
+    .universal-nav .un-brand svg { width: 34px; height: 34px; flex: none; }
     .universal-nav .un-item {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 8px 10px;
-      border-radius: 6px;
-      color: #c9d6d4;
+      align-items: center;
+      gap: 11px;
+      min-height: 40px;
+      padding: 8px 11px;
+      border-radius: 10px;
+      color: var(--ct-on-chalk-2);
       text-decoration: none;
-      font-size: 15px;
+      font-size: 15px; font-weight: 600;
+      transition: background-color .18s var(--ct-ease), color .18s var(--ct-ease);
     }
-    .universal-nav .un-item:hover { background: #243140; color: #f1faee; }
-    .universal-nav .un-item.active { background: #1f6b6b; color: #f1faee; }
+    .universal-nav .un-item:hover { background: var(--ct-chalk-2); color: var(--ct-on-chalk); }
+    /* the current page: a sheet of paper laid on the chalkboard */
+    .universal-nav .un-item.active {
+      background: var(--ct-paper); color: var(--ct-ink); font-weight: 750;
+      box-shadow: 0 1px 1px rgba(0,0,0,.25), 0 8px 16px -10px rgba(0,0,0,.6);
+    }
+    .universal-nav .un-item.active .un-icon { opacity: 1; color: var(--ct-orange-ink); }
+    .universal-nav .un-item:focus-visible, .universal-nav .un-brand:focus-visible, .universal-nav .un-settings:focus-visible {
+      outline: none; box-shadow: 0 0 0 2.5px #8DB1FF;
+    }
     .universal-nav .un-icon {
       flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      margin-top: 1px;
+      width: 19px;
+      height: 19px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      opacity: 0.9;
+      opacity: .85;
     }
     .universal-nav .un-icon svg { width: 100%; height: 100%; }
     .universal-nav .un-text { flex: 1; min-width: 0; }
-    .universal-nav .un-label { display: block; line-height: 1.3; }
+    .universal-nav .un-label { display: block; line-height: 1.25; }
     .universal-nav .un-desc {
       display: block;
       font-size: 13px;
-      color: #8aa0a0;
+      color: var(--ct-on-chalk-3);
       margin-top: 2px;
     }
     .universal-nav .un-divider {
-      margin: 14px 10px 4px;
-      padding-top: 12px;
-      border-top: 1px solid #2a3a48;
-      font-size: 12px;
-      font-weight: 600;
+      margin: 16px 11px 6px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(246,242,232,.10);
+      font: 750 12px/1 var(--ct-f-body);
       text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: #8aa0a0;
+      letter-spacing: .08em;
+      color: var(--ct-on-chalk-3);
     }
     .universal-nav .un-spacer { flex: 1; min-height: 16px; }
     .universal-nav .un-settings {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 6px;
-      color: #8aa0a0;
+      gap: 11px;
+      min-height: 40px;
+      padding: 8px 11px;
+      border-radius: 10px;
+      color: var(--ct-on-chalk-3);
       background: none;
       border: none;
-      font-size: 15px;
+      font: 600 15px/1.25 var(--ct-f-body);
       cursor: pointer;
-      font-family: inherit;
       text-align: left;
-      border-top: 1px solid #2a3a48;
-      margin-top: 8px;
-      padding-top: 12px;
       width: 100%;
+      margin-top: 8px;
+      position: relative;
+      transition: background-color .18s var(--ct-ease), color .18s var(--ct-ease);
     }
-    .universal-nav .un-settings:hover { color: white; }
-    .universal-nav .un-settings .un-icon { opacity: 0.7; }
-    body { margin-left: 220px; }
+    .universal-nav .un-settings::before {
+      content: ""; position: absolute; left: 11px; right: 11px; top: -5px;
+      border-top: 1px solid rgba(246,242,232,.10);
+    }
+    .universal-nav .un-settings:hover { color: var(--ct-on-chalk); background: var(--ct-chalk-2); }
+    .universal-nav .un-settings .un-icon { opacity: .75; }
+    body { margin-left: 232px; }
+    ::selection { background: var(--ct-orange-tint); color: var(--ct-ink); }
 
-    /* Topbar + drawer overlay are hidden until mobile. The full-text sidebar
-       stays put at every width down to the mobile breakpoint. */
+    /* Topbar + drawer overlay are hidden until mobile. */
     .un-topbar { display: none; }
     .un-overlay-nav { display: none; }
     .universal-nav .un-close { display: none; }
 
-    /* Mobile: the full sidebar becomes an off-canvas drawer behind a hamburger. */
+    /* Mobile: the sidebar becomes an off-canvas drawer behind a menu button. */
     @media (max-width: 768px) {
       .universal-nav {
-        width: 244px;
+        width: 256px;
         transform: translateX(-100%);
-        transition: transform 0.25s ease;
-        box-shadow: 2px 0 18px rgba(0, 0, 0, 0.28);
+        transition: transform .28s var(--ct-ease);
+        box-shadow: 2px 0 24px rgba(0,0,0,.32);
         z-index: 1200;
       }
       .universal-nav.un-open { transform: translateX(0); }
       .universal-nav .un-close {
         display: inline-flex; align-items: center; justify-content: center;
-        position: absolute; top: 12px; right: 10px; width: 36px; height: 36px;
-        background: none; border: none; color: #c9d6d4; cursor: pointer; border-radius: 6px;
+        position: absolute; top: 16px; right: 10px; width: 40px; height: 40px;
+        background: none; border: none; color: var(--ct-on-chalk-2); cursor: pointer; border-radius: 10px;
       }
-      .universal-nav .un-close:hover { background: #243140; color: #f1faee; }
+      .universal-nav .un-close:hover { background: var(--ct-chalk-2); color: var(--ct-on-chalk); }
       .universal-nav .un-close svg { width: 22px; height: 22px; }
-      body { margin-left: 0; padding-top: 52px; }
+      body { margin-left: 0; padding-top: 56px; }
 
       .un-topbar {
         display: flex; align-items: center; gap: 10px;
-        position: fixed; top: 0; left: 0; right: 0; height: 52px;
-        box-sizing: border-box; padding: 0 12px;
-        background: #1a2332; color: #f1faee;
-        border-bottom: 1px solid #2a3a48; z-index: 1100;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        position: fixed; top: 0; left: 0; right: 0; height: 56px;
+        box-sizing: border-box; padding: 0 10px;
+        background: var(--ct-chalk); color: var(--ct-on-chalk);
+        z-index: 1100;
+        font-family: var(--ct-f-body);
+        box-shadow: 0 1px 0 rgba(0,0,0,.2), 0 6px 16px -10px rgba(0,0,0,.5);
       }
       .un-hamburger {
         display: inline-flex; align-items: center; justify-content: center;
-        background: none; border: none; cursor: pointer; color: #f1faee;
-        padding: 6px; border-radius: 6px;
+        width: 44px; height: 44px;
+        background: none; border: none; cursor: pointer; color: var(--ct-on-chalk);
+        border-radius: 10px;
       }
-      .un-hamburger:hover { background: #243140; }
-      .un-hamburger svg { width: 26px; height: 26px; }
-      .un-topbar-brand { color: #f1faee; font-weight: 600; font-size: 18px; text-decoration: none; }
+      .un-hamburger:hover { background: var(--ct-chalk-2); }
+      .un-hamburger svg { width: 24px; height: 24px; }
+      .un-topbar-brand {
+        display: inline-flex; align-items: center; gap: 9px;
+        color: var(--ct-on-chalk); font: 750 18px/1 var(--ct-f-display); letter-spacing: -.02em; text-decoration: none;
+      }
+      .un-topbar-brand svg { width: 28px; height: 28px; }
 
       .un-overlay-nav {
         display: block; position: fixed; inset: 0; z-index: 1150;
-        background: rgba(13, 27, 42, 0.5);
-        opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+        background: rgba(20,35,31,.45);
+        opacity: 0; pointer-events: none; transition: opacity .28s var(--ct-ease);
       }
       .un-overlay-nav.un-show { opacity: 1; pointer-events: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .universal-nav, .un-overlay-nav, .demo-btn, .app-hero-btn { transition: none !important; }
     }
 
     @media print {
@@ -380,170 +460,169 @@ let state = loadState();
       body { margin-left: 0 !important; padding-top: 0 !important; }
     }
 
-    /* Settings modal */
+    /* Settings dialog: paper and ink */
     .un-modal-overlay {
       position: fixed; inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(20,35,31,.45);
       z-index: 1300;
       display: flex; align-items: center; justify-content: center;
       padding: 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-family: var(--ct-f-body);
     }
     .un-modal {
-      background: white; border-radius: 12px;
+      background: var(--ct-paper); border-radius: 20px;
       max-width: 640px; width: 100%; max-height: 90vh;
       display: flex; flex-direction: column;
-      color: #18181b;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      color: var(--ct-ink);
+      box-shadow: var(--ct-sh-3), inset 0 0 0 1px var(--ct-line);
     }
     .un-modal-header {
-      padding: 18px 20px;
-      border-bottom: 1px solid #e7e5e4;
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid var(--ct-line);
       display: flex; justify-content: space-between; align-items: center;
     }
-    .un-modal-header h2 { margin: 0; font-size: 20px; font-weight: 600; }
+    .un-modal-header h2 { margin: 0; font: 750 22px/1.1 var(--ct-f-display); letter-spacing: -.02em; }
     .un-modal-close {
       background: none; border: none; font-size: 24px; cursor: pointer;
-      color: #6b7280; width: 32px; height: 32px; border-radius: 6px; line-height: 1;
+      color: var(--ct-ink-3); width: 40px; height: 40px; border-radius: 10px; line-height: 1;
     }
-    .un-modal-close:hover { background: #f3f4f6; color: #18181b; }
-    .un-modal-body { padding: 18px 20px; overflow-y: auto; flex: 1; }
+    .un-modal-close:hover { background: var(--ct-paper-2); color: var(--ct-ink); }
+    .un-modal-body { padding: 18px 22px; overflow-y: auto; flex: 1; }
     .un-modal-footer {
-      padding: 14px 20px; border-top: 1px solid #e7e5e4;
+      padding: 14px 22px; border-top: 1px solid var(--ct-line);
       display: flex; justify-content: space-between; align-items: center; gap: 10px;
     }
-    .un-modal-footer .un-save-status { font-size: 13px; color: #6b7280; }
-    .un-modal-footer .un-save-status.error { color: #b91c1c; }
+    .un-modal-footer .un-save-status { font-size: 13px; color: var(--ct-ink-3); font-weight: 600; }
+    .un-modal-footer .un-save-status.error { color: #A83A22; }
     .un-modal-footer-actions { display: flex; gap: 10px; }
     .un-modal .un-btn {
-      padding: 8px 14px; border-radius: 6px; font-size: 15px;
-      cursor: pointer; font-family: inherit; border: 1px solid transparent;
+      min-height: 42px; padding: 0 16px; border-radius: 11px; font: 750 15px/1.15 var(--ct-f-body);
+      cursor: pointer; border: 0;
+      transition: transform .2s var(--ct-ease), box-shadow .2s var(--ct-ease), background-color .2s var(--ct-ease);
     }
-    .un-modal .un-btn-primary { background: #1f6b6b; color: #f1faee; border-color: #1f6b6b; }
-    .un-modal .un-btn-primary:hover { background: #18585a; border-color: #18585a; }
-    .un-modal .un-btn-secondary { background: white; color: #18181b; border-color: #d4d4d8; }
-    .un-modal .un-btn-secondary:hover { background: #f3f4f6; }
+    .un-modal .un-btn:hover { transform: translateY(-1px); }
+    .un-modal .un-btn:active { transform: translateY(1px); }
+    .un-modal .un-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--ct-paper), 0 0 0 5.5px var(--ct-focus); }
+    .un-modal .un-btn-primary { background: var(--ct-ink); color: var(--ct-on-chalk); box-shadow: var(--ct-sh-2); }
+    .un-modal .un-btn-primary:hover { background: #1E3530; }
+    .un-modal .un-btn-secondary { background: var(--ct-card); color: var(--ct-ink); box-shadow: var(--ct-sh-1), inset 0 0 0 1px var(--ct-line-2); }
     .un-modal h3.un-section-title {
-      font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;
-      color: #6b7280; margin: 18px 0 8px; font-weight: 600;
+      font: 750 12px/1.2 var(--ct-f-body); text-transform: uppercase; letter-spacing: .08em;
+      color: var(--ct-ink-3); margin: 20px 0 10px;
     }
     .un-modal h3.un-section-title:first-child { margin-top: 0; }
-    .un-modal hr { border: none; border-top: 1px solid #e7e5e4; margin: 18px 0 12px; }
+    .un-modal hr { border: none; border-top: 1px dashed var(--ct-line-2); margin: 20px 0 14px; }
 
     /* Enabled list rows (draggable) */
     .un-edit-list { list-style: none; padding: 0; margin: 0; }
     .un-edit-row {
       position: relative;
       display: flex; align-items: center; gap: 10px;
-      padding: 10px 10px;
-      border: 1px solid #e7e5e4;
-      border-radius: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
       margin-bottom: 6px;
-      background: white;
+      background: var(--ct-card);
+      box-shadow: var(--ct-sh-1), inset 0 0 0 1px var(--ct-line);
       cursor: grab;
       user-select: none;
     }
     .un-edit-row:active { cursor: grabbing; }
     .un-edit-row.dragging { opacity: 0.4; }
     .un-edit-row[data-drop-pos="before"]::before {
-      content: ''; position: absolute; left: 0; right: 0; top: -3px;
-      height: 3px; background: #1f6b6b; border-radius: 2px; pointer-events: none;
+      content: ''; position: absolute; left: 0; right: 0; top: -4px;
+      height: 3px; background: var(--ct-orange); border-radius: 2px; pointer-events: none;
     }
     .un-edit-row[data-drop-pos="after"]::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: -3px;
-      height: 3px; background: #1f6b6b; border-radius: 2px; pointer-events: none;
+      content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+      height: 3px; background: var(--ct-orange); border-radius: 2px; pointer-events: none;
     }
     .un-drag-handle {
       flex-shrink: 0;
       width: 14px; text-align: center;
-      color: #9ca3af;
+      color: var(--ct-ink-4);
       font-size: 18px;
       line-height: 1;
       letter-spacing: -2px;
     }
-    .un-edit-icon { width: 20px; height: 20px; color: #6b7280; flex-shrink: 0; }
+    .un-edit-icon { width: 20px; height: 20px; color: var(--ct-ink-3); flex-shrink: 0; }
     .un-edit-icon svg { width: 100%; height: 100%; }
     .un-edit-name { flex: 1; min-width: 0; }
-    .un-edit-name strong { display: block; font-size: 15px; }
+    .un-edit-name strong { display: block; font-size: 15px; font-weight: 750; }
     .un-edit-name span {
-      display: block; font-size: 13px; color: #6b7280;
+      display: block; font-size: 13px; color: var(--ct-ink-3);
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
     .un-edit-controls { display: flex; gap: 4px; flex-shrink: 0; }
     .un-edit-controls button {
-      background: white; border: 1px solid #d4d4d8;
-      height: 28px; padding: 0 8px; border-radius: 5px;
-      cursor: pointer; font-size: 15px; color: #6b7280;
+      background: var(--ct-card); border: 0; box-shadow: inset 0 0 0 1px var(--ct-line-2);
+      height: 32px; min-width: 32px; padding: 0 8px; border-radius: 8px;
+      cursor: pointer; font-size: 15px; color: var(--ct-ink-3);
       font-family: inherit; line-height: 1;
     }
-    .un-edit-controls button:hover { background: #f3f4f6; color: #18181b; }
-    .un-edit-controls .un-remove:hover {
-      background: #fef2f2; color: #991b1b; border-color: #fecaca;
-    }
-    .un-edit-controls .un-add-back:hover {
-      background: #e3f1ef; color: #18585a; border-color: #b9d8d2;
-    }
+    .un-edit-controls button:hover { background: var(--ct-paper-2); color: var(--ct-ink); }
+    .un-edit-controls .un-remove:hover { background: #FFE6DD; color: #A83A22; }
+    .un-edit-controls .un-add-back:hover { background: #E0F3E7; color: #1D8A51; }
 
     /* Additional Apps empty state */
     .un-empty-additional {
       padding: 14px;
-      border: 1px dashed #e7e5e4;
-      border-radius: 6px;
+      border: 1.5px dashed var(--ct-ink-4);
+      border-radius: 12px;
       text-align: center;
-      color: #9ca3af;
+      color: var(--ct-ink-3);
       font-size: 14px;
-      font-style: italic;
     }
 
     /* Add form */
     .un-add-form {
-      background: #fafaf9;
-      border: 1px solid #e7e5e4;
-      border-radius: 8px;
+      background: var(--ct-paper-2);
+      border-radius: 14px;
       padding: 14px;
       margin-top: 10px;
+      box-shadow: inset 0 0 0 1px var(--ct-line);
     }
     .un-add-form label {
       display: block;
       margin-bottom: 10px;
       font-size: 14px;
-      color: #18181b;
-      font-weight: 500;
+      color: var(--ct-ink);
+      font-weight: 650;
     }
     .un-add-form input,
     .un-add-form select {
       display: block; width: 100%;
-      padding: 6px 8px;
-      border: 1px solid #d4d4d8;
-      border-radius: 4px;
+      min-height: 40px; padding: 6px 10px;
+      border: 0; box-shadow: inset 0 0 0 1px var(--ct-line-2);
+      border-radius: 9px; background: var(--ct-card); color: var(--ct-ink);
       font-size: 15px;
-      margin-top: 4px;
+      margin-top: 5px;
       font-family: inherit;
       box-sizing: border-box;
-      font-weight: normal;
+      font-weight: 500;
     }
+    .un-add-form input:focus-visible, .un-add-form select:focus-visible { outline: none; box-shadow: inset 0 0 0 1.5px var(--ct-focus); }
     .un-form-actions { display: flex; gap: 8px; margin-top: 8px; }
 
     /* Code preview block */
     .un-modal-help {
-      font-size: 14px; color: #6b7280; margin: 0 0 8px;
+      font-size: 14px; color: var(--ct-ink-3); margin: 0 0 8px;
     }
     .un-modal-help code {
-      background: #f3f4f6; padding: 1px 4px; border-radius: 3px; font-size: 13px;
+      background: var(--ct-paper-2); padding: 1px 5px; border-radius: 5px; font: 500 13px var(--ct-f-mono);
     }
     .un-code-preview {
       width: 100%; box-sizing: border-box; height: 160px;
-      font-family: "SF Mono", Menlo, monospace; font-size: 13px;
-      border: 1px solid #d4d4d8; border-radius: 6px;
-      padding: 10px; background: #fafaf9;
+      font: 400 13px/1.55 var(--ct-f-mono);
+      border: 0; box-shadow: inset 0 0 0 1px var(--ct-line-2); border-radius: 12px;
+      padding: 12px; background: var(--ct-card); color: var(--ct-ink);
       resize: vertical; white-space: pre; overflow: auto;
     }
     .un-copy-row {
       display: flex; justify-content: space-between; align-items: center; margin-top: 6px;
     }
-    .un-copy-msg { font-size: 13px; color: #1f6b6b; opacity: 0; transition: opacity 0.2s; }
+    .un-copy-msg { font-size: 13px; font-weight: 700; color: var(--ct-mint-ink); opacity: 0; transition: opacity 0.2s; }
     .un-copy-msg.visible { opacity: 1; }
-  `;
+`;
   document.head.appendChild(style);
 
   const aside = document.createElement('aside');
@@ -555,7 +634,7 @@ let state = loadState();
     const brand = document.createElement('a');
     brand.className = 'un-brand';
     brand.href = './ClassAI-dashboard.html';
-    brand.textContent = 'Class Tools';
+    brand.innerHTML = BRAND_MARK + '<span>Class Tools</span>';
     aside.appendChild(brand);
 
     const closeBtn = document.createElement('button');
@@ -683,13 +762,13 @@ let state = loadState();
         <hr>
 
         <p class="un-modal-help">
-          Your changes save automatically for <strong>this page</strong>. Other tool pages use their own settings (browsers isolate local storage per file).
-          To make this order the global default everywhere, copy the code below and ask Claude Cowork to update <code>DEFAULT_APPS</code> in <code>local-tools/_nav.js</code>.
-          Apps under <strong>Your apps</strong> aren't included — those live in <code>my-classroom/my-apps.js</code>, where project updates can't touch them.
+          Your changes save for <strong>this page only</strong> — each app page keeps its own sidebar order.
+          Want this order on every page? Click <strong>Copy</strong>, paste it into your chat, and say &ldquo;make this my sidebar order.&rdquo; (A project update will reset it.)
+          Apps you built yourself aren't included — they keep their own place.
         </p>
         <textarea class="un-code-preview" id="un-code-preview" readonly spellcheck="false"></textarea>
         <div class="un-copy-row">
-          <button type="button" class="un-btn un-btn-secondary" id="un-copy-code">Copy code</button>
+          <button type="button" class="un-btn un-btn-secondary" id="un-copy-code">Copy</button>
           <span class="un-copy-msg" id="un-copy-msg">Copied!</span>
         </div>
       </div>
@@ -985,7 +1064,7 @@ let state = loadState();
     const tbBrand = document.createElement('a');
     tbBrand.className = 'un-topbar-brand';
     tbBrand.href = './ClassAI-dashboard.html';
-    tbBrand.textContent = 'Class Tools';
+    tbBrand.innerHTML = BRAND_MARK + '<span>Class Tools</span>';
     topbar.appendChild(burger);
     topbar.appendChild(tbBrand);
     document.body.insertBefore(topbar, document.body.firstChild);

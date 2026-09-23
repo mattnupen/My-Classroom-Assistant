@@ -1,102 +1,106 @@
-# Evidence Pack — More Voices in the Room (Participation)
+# Evidence Pack: More Voices in the Room (Participation)
 
-**Goal:** Get more students talking, more often, with less fear.
-**Built:** 2026-06-14 · **Built by:** the evidence engine (see `brain/evidence-engine.md`)
-**Sources checked:** Rowe (1972, 1986) on wait time; EEF Oral language interventions; research on cold-calling and participation.
+**Goal:** More different students talking, with less fear.
+**Checked:** 2026-09-22 (first built 2026-06-14; strengths corrected; added "everyone answers at once")
+**Number to watch for this goal:** how many *different* students spoke in the whole-class part of a lesson, counted on two days a week (the same two days each week). The teacher keeps the tally on paper, and only the total is shared.
 
-> How to read this. Each card has two layers: the **index** on top (claim, strength, source, effect) and the **generation material** below — what the research found, the move, a worked example, and done-well-vs-badly. The worked example is the anchor: the AI matches its tone and shape, it doesn't copy it. Every move obeys the eleven principles in `teaching-principles.md`. This pack *adds* to the universal base; it doesn't replace it.
-
----
-
-### Wait at least three seconds after asking
-
-- **Evidence strength:** Strong (classic, widely replicated) · **Source:** Rowe (1972, 1986) · **Effect:** responses 300–700% longer past a ~2.7s threshold · **Retrieved:** 2026-06-14
-
-**What the research found.** Rowe found that when teachers extended the pause after a question past about three seconds, student responses lengthened 300–700%, "I don't know" and non-responses dropped, and quieter students started contributing. Most teachers wait under a second — the pause is what creates the thinking time.
-
-**The move.** The AI builds "(pause — count to three)" cues into slide speaker notes and question sets, and writes open questions actually worth waiting for. It can also make a small poster reminder.
-
-**Worked example.**
-> [Slide note: Ask "What surprised you about the ending?" — then stop and count to three before taking a hand. Let the silence sit; it's doing the work.]
-
-**Done well vs. done badly.** *Well:* a real three-second silence after an open question. *Badly:* a one-second pause, or a yes/no question nobody needs to think about.
-
-**Watch out.** This is a teacher habit the AI can only cue — it can't enforce the pause.
+> The cards are in the order to try them, **one at a time** (see `../challenge-cycle.md`), except that cards 1 and 2 run together as one routine: the challenge card's move 1, "partner first, hands down." Strength labels are defined in `../evidence-engine.md`.
+>
+> **An honest note on this goal.** A lot of research shows that *talk* helps students learn: the EEF rates oral-language approaches at +6 months, on high-security evidence. There's much less research on what gets *more students to speak up* in class, which is the goal here. The labels below reflect that.
 
 ---
 
-### Let students rehearse with a partner before going public
+### 1. Wait three seconds after asking
 
-- **Evidence strength:** Strong (high impact) · **Source:** EEF — Oral language interventions · **Effect:** ≈ +6 months · **Retrieved:** 2026-06-14
+- **How strong:** Good research, with limits · **Source:** Rowe (1972, 1986); reviewed by Tobin (1987) · **Effect:** Rowe reports answers 300–700% longer once teachers waited 3+ seconds · **Who was studied:** mostly elementary and middle-school science classrooms; many of the studies are older and observational · **Checked:** 2026-09-22
 
-**What the research found.** Letting students say their answer to one partner before any whole-class share raises participation; oral-language approaches run +6 months. The private rehearsal lowers the social stakes of speaking, so more students are willing to.
+**What the research found.** Most teachers wait less than a second after a question before they call on someone or answer it themselves. When teachers learned to wait three seconds or more, answers got longer, "I don't know" went down, and more students responded, including ones who usually didn't. The findings are consistent across many studies, but most of them are decades old.
 
-**The move.** The AI structures prompts as think → pair → share, so every student has already said their answer once, quietly, before anyone is asked to say it to the room.
+**The move.** Put "(pause: count to three)" in the slide notes after every open question. Write questions that are actually worth waiting for.
+
+**The number to watch.** Different students who spoke in a lesson, counted on two days a week.
 
 **Worked example.**
-> **Think** (30 sec): what's your one-sentence answer?
+> [Slide note: Ask "What surprised you about the ending?" Then stop and count to three before taking a hand. Let the silence sit.]
+
+**Done well vs. done badly.** *Well:* a real three-second silence after an open question. *Badly:* a one-second pause, or a yes/no question.
+
+**Watch out.** Only the teacher can hold the pause. You can put the cue in; you can't do the waiting.
+
+---
+
+### 2. Let students say it to a partner first
+
+- **How strong:** Promising, less proven (for getting more students to speak) · **Source:** EEF, *Oral language interventions* (+6 months on learning, high security); the specific claim that rehearsal widens participation is a practical idea · **Who was studied:** mostly early-years and primary pupils; fewer secondary studies · **Checked:** 2026-09-22
+
+**What the research found.** Structured, purposeful talk between students helps them learn, especially disadvantaged students, and works best tied to what the class is studying. The idea that a quick rehearsal with one partner makes more students willing to speak to the whole room makes sense, but hasn't been tested directly.
+
+**The move.** Think, then pair, then share, with a task and a timer. When it's time to share, ask for *your partner's* best point. Reporting someone else's idea feels lower-stakes than defending your own.
+
+**The number to watch.** Different students who spoke in a lesson, counted on two days a week.
+
+**Worked example.**
+> **Think** (30 sec): your one-sentence answer.
 > **Pair:** say it to your partner; they say theirs.
-> **Share:** I'll ask a few of you for *your partner's* best point.
+> **Share:** "Who can tell us their partner's best point?"
 
-**Done well vs. done badly.** *Well:* a clear task and a time box. *Badly:* "talk to your neighbor" with no task — it drifts into social time.
+**Done well vs. done badly.** *Well:* a clear task and a time limit. *Badly:* "talk to your neighbor" with no task, which drifts into social time.
 
-**Watch out.** Pairs need both a task and a timer, or the rehearsal doesn't happen.
+**Watch out.** Without a task and a timer, the rehearsal doesn't happen.
 
 ---
 
-### Move from hands-up to warm, predictable cold-calling
+### 3. Everyone answers at once, then a few explain
 
-- **Evidence strength:** Moderate · **Source:** research on cold-calling and participation (e.g., Dallimore, Hertenstein & Platt); Teach Like a Champion · **Retrieved:** 2026-06-14
+- **How strong:** Good research, with limits · **Source:** Randolph (2007), meta-analysis of 18 response-card studies; WWC practice guide, *Teacher-Delivered Behavioral Interventions in Grades K–5* (2024), "frequent and varying opportunities to respond," rated moderate · **Who was studied:** mostly elementary and special-education classrooms · **Checked:** 2026-09-22
 
-**What the research found.** Studies of cold-calling done warmly — students know it's coming and have had a chance to prepare — find it raises voluntary participation over time, including from students who would never raise a hand. The key condition is safety: it works when it's an invitation, not a gotcha.
+**What the research found.** Compared with hand-raising, having every student hold up an answer (a mini whiteboard or a card) produced large gains in participation and quiz scores, and less off-task behavior.
 
-**The move.** The AI writes question sequences for "no opt-out, done kindly": pair a name with a question the student has just rehearsed in a pair, and always leave a way back in.
+**The move.** Everyone writes an answer on a whiteboard or scrap paper and holds it up. Then invite two or three students to explain theirs, choosing boards that show different thinking.
+
+**The number to watch.** Different students who spoke. (Everyone answering on a board doesn't count as speaking. The explanations afterwards do.)
 
 **Worked example.**
-> "Maya — you and Sam were talking about the ending. What did you two land on? … Totally fine to say 'still thinking,' and I'll come back to you in a minute."
+> "Boards up in 3, 2, 1. I see three different answers. Could this table tell us how you got 12?"
 
-**Done well vs. done badly.** *Well:* after rehearsal, warm tone, an exit ramp. *Badly:* a surprise question on something the student hasn't prepared — that teaches fear, not participation.
+**Done well vs. done badly.** *Well:* quick, frequent, and every answer treated as useful thinking. *Badly:* using the boards to spot and call out wrong answers.
 
-**Watch out.** Only works paired with the rehearsal card and the belonging principle; cold-calling alone backfires.
+**Watch out.** Don't let the boards turn into a public ranking.
 
 ---
 
-### Name the participation norm, never the silence
+### 4. Warm, predictable cold-calling (only after the partner step)
 
-- **Evidence strength:** Strong · **Source:** Cialdini social-norming (universal base), applied · **Retrieved:** 2026-06-14
+- **How strong:** Promising, less proven · **Source:** Dallimore, Hertenstein & Platt (2013), *Journal of Management Education* · **Who was studied:** college business classes, compared rather than randomly assigned · **Checked:** 2026-09-22
 
-**What the research found.** "Most of us are doing X" is among the strongest behavioral nudges there is; "only a few of you participated" is a deficit comparison that shames and shrinks participation further.
+**What the research found.** In college classes where the instructor cold-called often, *more* students volunteered over time, and students reported feeling more comfortable talking, not less. No K–12 trials yet.
 
-**The move.** The AI states a true majority norm with an open door — never a count of who stayed quiet.
+**The move.** Call on a student about something they've just rehearsed with a partner, in a warm tone, and always leave them a way back in.
+
+**The number to watch.** Different students who spoke in a lesson, counted on two days a week.
 
 **Worked example.**
-> "Almost everyone got at least one idea on the table yesterday — that's just who we are in this room."
+> "[Name], you and your partner were talking about the ending. What did you land on? ... Totally fine to say 'still thinking.' I'll come back to you."
 
-**Done well vs. done badly.** *Well:* a true, positive, majority norm that invites. *Badly:* "only four people talked yesterday."
+**Done well vs. done badly.** *Well:* after rehearsal, warm, with a way out. *Badly:* a surprise question on something the student hasn't prepared. That teaches fear.
 
-**Watch out.** Must be true and an actual majority; if participation was thin, switch to an invitation rather than inventing a norm.
-
----
-
-## Handle with care (for this goal)
-
-- **Points or prizes for participation.** Overjustification risk (Lepper, Greene & Nisbett, 1973) — it can make talking feel transactional rather than worth doing.
-- **Calling only on volunteers.** Lets a few students dominate while the rest disappear — an equity problem, not a neutral default.
-- **Public participation trackers on the wall.** Shame risk; violates principle 7.
+**Watch out.** Never run this without card 2 first. It's the move most likely to backfire.
 
 ---
 
-## Practitioner notes
+## Handle with care
 
-*The AI adds dated, aggregate-only notes here as you report what actually happened in your room.*
-
-- `YYYY-MM-DD — what landed, what didn't, with which group (no student names).`
-
----
+- **Points or prizes for talking.** Expected rewards can make talking a transaction (Deci, Koestner & Ryan, 1999).
+- **Public participation trackers.** A shame board for exactly the students this goal is for. Never. The teacher's tally stays on their clipboard; the class sees only the total.
+- **Calling only on volunteers.** It lets a few students carry every discussion.
 
 ## Sources
 
-- [Rowe (1986), *Wait Time: Slowing Down May Be A Way of Speeding Up!*](https://journals.sagepub.com/doi/10.1177/002248718603700110)
-- [Rowe (1972), *Wait-Time and Rewards as Instructional Variables* (ERIC ED061103)](https://eric.ed.gov/?id=ED061103)
-- [EEF — Oral language interventions](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions)
-- Dallimore, Hertenstein & Platt, studies on cold-calling and class participation
+- Rowe (1986), *Wait time: Slowing down may be a way of speeding up!*, Journal of Teacher Education 37(1). [Article](https://journals.sagepub.com/doi/10.1177/002248718603700110)
+- Rowe (1972), *Wait-time and rewards as instructional variables*. [ERIC ED061103](https://eric.ed.gov/?id=ED061103)
+- Tobin (1987), *The role of wait time in higher cognitive level learning*, Review of Educational Research 57(1)
+- EEF, *Oral language interventions* (+6 months, high security). [Toolkit](https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/oral-language-interventions)
+- Randolph (2007), *Meta-analysis of the research on response cards*, Journal of Positive Behavior Interventions 9(2). [ERIC EJ804308](https://eric.ed.gov/?id=EJ804308)
+- What Works Clearinghouse (2024), *Teacher-Delivered Behavioral Interventions in Grades K–5*. [Practice guide](https://ies.ed.gov/ncee/wwc/practiceguide/31)
+- Dallimore, Hertenstein & Platt (2013), *Impact of cold-calling on student voluntary participation*, Journal of Management Education 37(3). [ERIC EJ1009746](https://eric.ed.gov/?id=EJ1009746)
+- Deci, Koestner & Ryan (1999), Psychological Bulletin 125(6)

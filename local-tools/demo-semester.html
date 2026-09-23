@@ -148,35 +148,35 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
     <div class="app-hero-text">
       <h1>Demo Semester</h1>
-      <h2>One semester with Otter — a fictional class, start to finish.</h2>
+      <h2>One made-up class and its AI, Otter, through a whole semester. Read it before you start, to see how the weekly routine works.</h2>
     </div>
   </header>
 
   <div class="fiction-banner">
-    <strong>Everything here is fictional</strong> — the teacher, students, chats, and numbers. It exists to show what a running project looks like. The same 24 invented students power the "Load demo class" buttons in the other tools.
+    <strong>Everything here is fictional</strong> — the teacher, students, chats, and numbers. It shows what a real semester looks like. This class uses the Offline option: Otter only ever sees class totals. The same 24 made-up students are behind every "Load demo class" button.
   </div>
 
   <div class="cast">
     <div class="card">
       <h3>The class</h3>
       <strong>Mr. Nupen's 8th-grade English</strong>
-      <p>Periods 1 &amp; 3, 24 students. Sweet but chaotic. Problem: missing work snowballs by mid-quarter.</p>
+      <p>Periods 1 &amp; 3, 24 students. Sweet but chaotic. The one challenge, all year: missing work snowballs by mid-quarter.</p>
     </div>
     <div class="card">
       <h3>The AI</h3>
       <strong>Otter <span style="font-weight:400;color:var(--muted)">(they/them)</span></strong>
-      <p>Named by student vote, beating "Toast" by 4 ballots. Calm coach during the week, big celebrations on Fridays. Mission: every student under two missing assignments.</p>
+      <p>Named by student vote, beating "Toast" by 4 ballots. Calm, and loud about comebacks. Target the class set: from about 5 students with 3+ missing to 3 or fewer by winter break.</p>
     </div>
     <div class="card">
-      <h3>The schedule</h3>
-      <strong>Wednesday + Friday</strong>
-      <p>Wednesday: quick mid-week check-in. Friday: Class Pulse summary pasted into chat, next week planned.</p>
+      <h3>The routine</h3>
+      <strong>Mondays, about 10 minutes</strong>
+      <p>One move at a time. Monday: bring the weekly class summary and say "run Monday." About every two weeks, a check: keep, adjust, or switch. Mr. Nupen decides.</p>
     </div>
   </div>
 
   <div class="panel">
     <h2>The semester in one chart</h2>
-    <p class="hint">Students per tier, from each Friday's Class Pulse. Otter only ever saw these counts — never a name.</p>
+    <p class="hint">Students per group, from each Monday's weekly class summary (made in Class Pulse). The number the class watched: students with 3+ missing. Otter only ever saw these counts, never a name.</p>
     <svg id="tier-chart" viewBox="0 0 760 230" width="100%" role="img" aria-label="Tier counts across 16 weeks"></svg>
     <div class="legend">
       <span class="lg-strong">Strong (0 missing)</span>
@@ -186,23 +186,25 @@
   </div>
 
   <h2 style="font-size:18px;margin:0 0 10px;">Week by week</h2>
-  <p class="hint" style="color:var(--muted);font-size:14px;margin:0 0 14px;">Six pivotal check-ins are shown as full chats. Click any week to expand.</p>
+  <p class="hint" style="color:var(--muted);font-size:14px;margin:0 0 14px;">Six weeks are shown as full chats. Click any week to expand.</p>
 
   <!-- WEEK 1 -->
   <details class="week" open>
-    <summary><span class="wk-num">W1 · Aug</span><span class="wk-title">First session — an AI with no name yet</span><span class="pill">Full chat</span></summary>
+    <summary><span class="wk-num">W1 · Aug</span><span class="wk-title">First chat — an AI with no name yet</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Wednesday — in Claude Cowork</div>
+      <div class="checkin-label">First chat — in Claude Cowork</div>
       <div class="chat">
         <div class="msg ai"><span class="who">Classroom AI</span>Hi — I'm your classroom AI. I don't have a name yet; that might be your students' job. Ten minutes of questions and I'll be set up for your room. What do you teach, and what's this class like?</div>
         <div class="msg teacher"><span class="who">Mr. Nupen</span>8th-grade English, two periods, 24 kids. Sweet but chaotic. We just started The Outsiders.</div>
         <div class="msg ai"><span class="who">Classroom AI</span>If this semester went well, what's the one thing that would be different in June?</div>
         <div class="msg teacher"><span class="who">Mr. Nupen</span>Missing work. It snowballs — by October my struggling kids are buried and they stop trying.</div>
-        <div class="msg ai"><span class="who">Classroom AI</span>Then that's the mission: <em>every student finishes the quarter with fewer than two missing assignments.</em> Next: do your students help name and shape me, or do you decide? Classes that vote tend to treat the AI as theirs.</div>
+        <div class="msg ai"><span class="who">Classroom AI</span>Then that's our one challenge, all year: missing work. For three Mondays we change nothing and just count, so we know where we started. Then you and the class set a target together. After that it's one move at a time, a check about every two weeks, and you decide what stays. Next: do your students help name me, or do you decide? Classes that vote tend to treat the AI as theirs.</div>
         <div class="msg teacher"><span class="who">Mr. Nupen</span>Let them vote. Want my gradebook so you can see the problem?</div>
-        <div class="msg ai"><span class="who">Classroom AI</span>No — keep it out of this folder. Run it through Class Pulse instead; I only ever see counts, never names. That's the deal that makes this safe. Anything I should never do in your room?</div>
+        <div class="msg ai"><span class="who">Classroom AI</span>Quick question first. Are you using Claude for Teachers, and has your district said it's okay to share student information with it?</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Not sure on either.</div>
+        <div class="msg ai"><span class="who">Classroom AI</span>Then we keep names on your computer. Once a week, open your gradebook file in Class Pulse; it gives you a class summary with no names, and that's all I see. That works well, and you can switch later. Anything I should never do in your room?</div>
         <div class="msg teacher"><span class="who">Mr. Nupen</span>Never use the word "lazy." And nothing that singles a kid out, ever.</div>
-        <div class="msg ai"><span class="who">Classroom AI</span>Written into my rules. I've drafted your persona file and the voting plan. One more thing before you go — Monday's opening slide:</div>
+        <div class="msg ai"><span class="who">Classroom AI</span>Written into my rules. I've drafted my name-and-voice page and the voting plan. One more thing before you go — Monday's opening slide:</div>
         <div class="artifact">
           <div class="art-label">Generated — Monday opening slide</div>
           <div class="slide-mock">
@@ -212,8 +214,8 @@
           </div>
         </div>
       </div>
-      <div class="checkin-label">Friday</div>
-      <p>First Class Pulse run on the gradebook: <strong>10 strong / 9 steady / 5 struggling</strong>. Baseline saved. Vote opens Monday.</p>
+      <div class="checkin-label">Monday</div>
+      <p>First weekly class summary: <strong>10 strong / 9 steady / 5 struggling</strong>. Starting number 1 of 3: 5 students with 3+ missing. Nothing changes yet.</p>
     </div>
   </details>
 
@@ -221,20 +223,20 @@
   <details class="week">
     <summary><span class="wk-num">W2 · Sep</span><span class="wk-title">The vote — Otter is born</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Wednesday</div>
+      <div class="checkin-label">In class</div>
       <p>Ballots collected in both periods. 31 valid votes (some kids voted twice; Mr. Nupen let it slide once).</p>
-      <div class="checkin-label">Friday — in Claude Cowork</div>
+      <div class="checkin-label">Monday — in Claude Cowork</div>
       <div class="chat">
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Results: name is Otter — beat "Toast" by 4. Traits they picked: calm, and "goes big on Fridays."</div>
-        <div class="msg ai"><span class="who">Otter</span>Otter it is — saved. From now on: calm during the week, loud on Fridays. What do the kids see first?</div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Intro slide Monday, then the LMS page.</div>
-        <div class="msg ai"><span class="who">Otter</span>Both drafted. The slide leads with what I <em>can't</em> do — kids trust limits more than promises.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Run Monday. Summary's pasted: 6 with 3+ missing. And the vote's in: Otter, beat "Toast" by 4. Traits they picked: calm, and "loud about comebacks."</div>
+        <div class="msg ai"><span class="who">Otter</span>Otter it is — saved. Calm most days, loud when someone climbs back. Starting number 2 of 3: 6. Still changing nothing. What do the kids see first?</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Intro slide today, then the class web page.</div>
+        <div class="msg ai"><span class="who">Otter</span>Both drafted. The slide starts with what I <em>can't</em> do, so nobody has to wonder.</div>
         <div class="artifact">
           <div class="art-label">Generated — intro slide</div>
           <div class="slide-mock">
             <div class="sl-kicker">Meet your class AI</div>
             <div class="sl-title">I'm Otter. You built me.</div>
-            <div class="sl-sub">I never see your grades or your names. I make the cards, slides, and shout-outs. Mission: everybody under 2 missing.</div>
+            <div class="sl-sub">I never see your grades or your names. I help Mr. Nupen make slides and notes. Our challenge this year: less missing work.</div>
           </div>
         </div>
       </div>
@@ -243,177 +245,175 @@
 
   <!-- WEEKS 3-4 -->
   <details class="week">
-    <summary><span class="wk-num">W3 · Sep</span><span class="wk-title">Launch week</span><span class="wk-pulse">10 / 10 / 4</span></summary>
+    <summary><span class="wk-num">W3 · Sep</span><span class="wk-title">Starting number, target, first move</span><span class="wk-pulse">10 / 9 / 5</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Day-one lesson done. Kids ask if Otter can see their grades — they're glad the answer is no. <strong>Fri:</strong> First student cards printed and handed out at the door. Pulse: 10/10/4.</p>
+      <p><strong>Monday:</strong> Starting number 3 of 3: 5. So the class started at 5, 6, 5 students with 3+ missing. Mr. Nupen shows the class, and they set a target together: 3 or fewer by winter break. Otter suggests the first move from the missing-work challenge: short reminders that name one task and one moment to start it (good research, with limits: mostly adults and college students). Next check: Week 5.</p>
     </div>
   </details>
   <details class="week">
     <summary><span class="wk-num">W4 · Sep</span><span class="wk-title">The essay outline causes trouble</span><span class="wk-pulse">9 / 8 / 7</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Theme essay outline due tomorrow; Otter drafts a "start with one sentence" slide. <strong>Fri:</strong> Lots of missing outlines anyway. Pulse: 9/8/7 — struggling group up 3.</p>
+      <p><strong>Monday:</strong> Summary: 7. Otter makes the week's reminder slides. The theme essay outline is due Thursday, and the reminders just say "finish your outline this week." Not a check week, so nothing new is added.</p>
     </div>
   </details>
 
   <!-- WEEK 5 -->
   <details class="week">
-    <summary><span class="wk-num">W5 · Sep</span><span class="wk-title">The slump — and the card experiment</span><span class="pill">Full chat</span></summary>
+    <summary><span class="wk-num">W5 · Sep</span><span class="wk-title">First check — adjust, don't pile on</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Friday — in Claude Cowork</div>
+      <div class="checkin-label">Monday — in Claude Cowork · check week</div>
       <div class="chat">
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Bad week. Pulse:<pre>CLASS PULSE — Week 5
-Strong 8 (was 9) · Steady 7 (was 8) · Struggling 9 (was 7)
-Most missed: Theme Essay Outline (11), Reading Resp. 4-6 (9)
-Movement: 3 students dropped a tier, 0 climbed</pre></div>
-        <div class="msg ai"><span class="who">Otter</span>The outline is where everyone got stuck — 11 of 24 missing it, and every assignment after depends on it. Two ideas: split the outline into three small steps, and hand out missing-work cards Monday. Not a punishment — a list. A fresh start works better than a warning.</div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Won't cards embarrass the kids who are buried?</div>
-        <div class="msg ai"><span class="who">Otter</span>Everyone gets the same card — even zero-missing kids (theirs says so). First line is always something they finished. Here's the shape:</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Bad week. Run Monday:<pre>CLASS PULSE — Week 5
+  Strong 8 · Steady 7 · Struggling 9
+  Most missed: "Theme Essay Outline" (11)</pre></div>
+        <div class="msg ai"><span class="who">Otter</span>It's check day, so four quick questions. <strong>Did we do it?</strong> Every day, but the reminders said "finish your outline this week." That's the vague kind, and vague reminders don't do much. <strong>What else happened?</strong> The outline landed: 11 of 24 are missing it. <strong>Did the number move?</strong> Yes, the wrong way: 7 and 9, above all three starting weeks (5, 6, 5). The outline explains a lot of that.</div>
+        <div class="msg ai"><span class="who">Otter</span>So I'd <strong>adjust</strong>, not switch: same move, done the way the research says works — one task, one real moment. Two more weeks, then check in Week 7. Your call.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Fine. But should I also hand out missing-work cards and start a comeback badge? The kids who are buried need something now.</div>
+        <div class="msg ai"><span class="who">Otter</span>Add two new things on top of the fix and we won't be able to tell which one helped. I'd stick to the one fix for two weeks. It's your decision, though.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Okay. One thing. Show me the fixed reminder.</div>
         <div class="artifact">
-          <div class="art-label">Card design — printed via Progress Cards</div>
-          <div class="card-mock">
-            <div class="cm-head">Your list · from Otter</div>
-            <div style="font-size:14px;">✓ Vocab Quiz 2 — done. Saw that.</div>
-            <ul>
-              <li>Outline, part 1 (just the claim — one sentence)</li>
-              <li>Reading Response 4–6</li>
-            </ul>
-            <div style="font-size:13px;color:var(--muted);margin-top:6px;">Turn in any one thing this week. That's all it takes.</div>
+          <div class="art-label">Generated — reminder slide</div>
+          <div class="slide-mock">
+            <div class="sl-kicker">Before you leave today</div>
+            <div class="sl-title">Tomorrow, when you sit down in 3rd period: open your outline and write your claim.</div>
+            <div class="sl-sub">One sentence. That's the whole job for tomorrow.</div>
           </div>
         </div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Okay. Print run Sunday. If this doesn't move by Week 7, we rethink.</div>
       </div>
     </div>
   </details>
 
   <!-- WEEKS 6-7 -->
   <details class="week">
-    <summary><span class="wk-num">W6 · Oct</span><span class="wk-title">First signs</span><span class="wk-pulse">9 / 8 / 7</span></summary>
+    <summary><span class="wk-num">W6 · Oct</span><span class="wk-title">The fixed reminders</span><span class="wk-pulse">10 / 10 / 4</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Two students turned in old work without being asked. <strong>Fri:</strong> Pulse: 9/8/7 — struggling group down 2. The three-step outline is working.</p>
+      <p><strong>Monday:</strong> Summary: 4. The reminders now name one task and one moment, every day. Otter's only job this week is the slides for them. Two students turned in old work without being asked.</p>
     </div>
   </details>
   <details class="week">
-    <summary><span class="wk-num">W7 · Oct</span><span class="wk-title">"Comeback of the Week"</span><span class="wk-pulse">10 / 8 / 6</span></summary>
+    <summary><span class="wk-num">W7 · Oct</span><span class="wk-title">Check: keep the reminders</span><span class="wk-pulse">11 / 10 / 3</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Otter suggests a new badge: Comeback of the Week — for clearing the most missing work, not earning the most points. <strong>Fri:</strong> Three awarded with the Badges tool. Pulse: 10/8/6.</p>
+      <p><strong>Monday check:</strong> Summary: 3. The fixed reminders ran every day. The last two weeks (4, 3) are both below every starting week (5, 6, 5). Otter: "The number went down while we did this. Finishing the outline probably helped too." Mr. Nupen decides: keep. The reminders become how the class works. Next move from the challenge: a short weekly note to every family, filled in with the Parent Messages app (good research, with limits: studies in middle and high schools). Next check: Week 9.</p>
     </div>
   </details>
 
   <!-- WEEK 8 -->
   <details class="week">
-    <summary><span class="wk-num">W8 · Oct</span><span class="wk-title">The turnaround — and knowing its limits</span><span class="pill">Full chat</span></summary>
+    <summary><span class="wk-num">W8 · Oct</span><span class="wk-title">A regular Monday — and knowing its limits</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Wednesday — in Claude Cowork</div>
+      <div class="checkin-label">Monday — in Claude Cowork</div>
       <div class="chat">
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Cards are working — two more kids cleared their whole list. Rough day otherwise. Something a student wrote in a journal I have to deal with.</div>
-        <div class="msg ai"><span class="who">Otter</span>That one's yours, not mine — counselor and your crisis card, today. Don't paste any of it here. I'll have Friday's materials ready; nothing on my end is urgent.</div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Handled — counselor is on it. Okay, Friday. The comeback badges are a hit. Kids who never care about grades were asking how to get one.</div>
-        <div class="msg ai"><span class="who">Otter</span>Rewarding improvement works better than rewarding rank — that's why they care. Three badges ready for Friday, plus a celebration slide.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Run Monday. Summary: 4 with 3+ missing. First family notes went home Friday, and two parents wrote back. Rough day otherwise. Something a student wrote in a journal I have to deal with.</div>
+        <div class="msg ai"><span class="who">Otter</span>That one's yours, not mine — your counselor and your crisis card, today. Don't paste any of it here. I've written down the 4; nothing on my end is urgent.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Handled — counselor is on it. Kids keep asking for a "comeback of the week" badge. Can we start that too?</div>
+        <div class="msg ai"><span class="who">Otter</span>Good idea, and they want it. But we're one week into the family notes; add badges now and we can't tell which one helped. I'd park it until the challenge's moves run out. Your call.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Park it. What do I need for Friday?</div>
+        <div class="msg ai"><span class="who">Otter</span>Same note as last week. The fill-in fields are ready in Parent Messages; the names never touch this chat.</div>
         <div class="artifact">
-          <div class="art-label">Generated — Friday slide</div>
-          <div class="slide-mock">
-            <div class="sl-kicker">Friday · shout-outs</div>
-            <div class="sl-title">14 missing assignments turned in this week.</div>
-            <div class="sl-sub">Comeback badges at the door. Otter sees the counts. Otter is proud.</div>
+          <div class="art-label">Template — filled in by the Parent Messages app</div>
+          <div class="msg-mock">
+            <p>Hi, this is Mr. Nupen with this week's quick note. Good news first: fewer students in our class are behind than a month ago.</p>
+            <p>{first_name} has {missing_count} still to turn in: {missing_list}. Finishing just one this week is a real step.</p>
+            <p>— Mr. Nupen (with help from Otter, our class AI)</p>
           </div>
         </div>
       </div>
-      <div class="checkin-label">Friday</div>
-      <p>Pulse: <strong>11/8/5</strong>. The strong group passes its Week 1 starting point for the first time.</p>
     </div>
   </details>
 
   <!-- WEEKS 9-11 -->
   <details class="week">
-    <summary><span class="wk-num">W9 · Oct</span><span class="wk-title">Quarter 1 closes</span><span class="wk-pulse">11 / 9 / 4</span></summary>
+    <summary><span class="wk-num">W9 · Oct</span><span class="wk-title">Quarter 1 closes — check: keep</span><span class="wk-pulse">11 / 10 / 3</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Otter drafts a one-page quarter summary for the principal — class totals only, no names. <strong>Fri:</strong> Pulse: 11/9/4. The quarter ends with the struggling group less than half its Week 5 size.</p>
+      <p><strong>Monday check:</strong> Summary: 3. Notes went home both Fridays. 4 and 3, both below every starting week, but the reminders are still running, so Otter says plainly it can't tell how much is the notes. Mr. Nupen keeps both. Next move: a 60-second student self-check (promising, less proven), starting Week 10. Otter also drafts a one-page quarter summary for the principal, class totals only.</p>
     </div>
   </details>
   <details class="week">
     <summary><span class="wk-num">W10 · Nov</span><span class="wk-title">New unit dip</span><span class="wk-pulse">10 / 9 / 5</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Poetry unit starts; Otter makes new slides in the same style. <strong>Fri:</strong> Pulse: 10/9/5 — the usual dip when a new unit starts. Nobody panics this time.</p>
+      <p><strong>Monday:</strong> Summary: 5, the usual bump when a new unit starts (poetry). One week isn't a trend and it's not a check week, so nothing changes. The self-check sheets start.</p>
     </div>
   </details>
   <details class="week">
     <summary><span class="wk-num">W11 · Nov</span><span class="wk-title">Group work, minus the drama</span><span class="wk-pulse">11 / 9 / 4</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Poetry circles built with Random Groups; the do-not-pair list comes in handy. <strong>Fri:</strong> Pulse: 11/9/4.</p>
+      <p><strong>Monday:</strong> Summary: 4. Mr. Nupen builds poetry circles in Random Groups; the do-not-pair list comes in handy. Otter helps with the circle roles and leaves it there.</p>
     </div>
   </details>
 
   <!-- WEEK 12 -->
   <details class="week">
-    <summary><span class="wk-num">W12 · Nov</span><span class="wk-title">Messages home</span><span class="pill">Full chat</span></summary>
+    <summary><span class="wk-num">W12 · Nov</span><span class="wk-title">A check that says "not yet"</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Friday — in Claude Cowork</div>
+      <div class="checkin-label">Monday — in Claude Cowork · check week</div>
       <div class="chat">
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Pulse: 12/8/4. Best yet. I want families to hear it before conferences.</div>
-        <div class="msg ai"><span class="who">Otter</span>Three templates — one per tier, every one leading with a strength. You run the merge in Parent Messages; the names never touch this chat. Struggling-tier draft:</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Run Monday. Summary: 4 again. Check day for the self-check sheet.</div>
+        <div class="msg ai"><span class="who">Otter</span>Quick run-through. <strong>Did we do it?</strong> You said Mondays yes, Wednesdays about half the time. <strong>What else happened?</strong> Poetry started in Week 10, and new units usually bump the number. <strong>Did it move?</strong> 4 and 4: no lower than the weeks before the sheet (4, 3, 5), so no sign yet that it adds anything. I'd <strong>adjust</strong>: same three prompts, every Monday and Wednesday, and check again in Week 14.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>The kids actually use it. A few keep theirs in their binders. Keep it as is, and check in two weeks.</div>
+        <div class="msg ai"><span class="who">Otter</span>Your call. Keeping it as is; next check in Week 14. Here's the sheet for Wednesday:</div>
         <div class="artifact">
-          <div class="art-label">Template — merged in Parent Messages</div>
-          <div class="msg-mock">
-            <p>Hi {family} — good news first: {student} finished {recent_win} this quarter.</p>
-            <p>They have {missing_count} assignments to wrap up, and a card listing each one. Any single one turned in this week is a real step.</p>
-            <p>— Mr. Nupen (with help from Otter, our class AI)</p>
+          <div class="art-label">Generated — student self-check (quarter sheet)</div>
+          <div class="card-mock">
+            <div class="cm-head">My 60-second self-check</div>
+            <div style="font-size:14px;">One thing I owe: ____________</div>
+            <div style="font-size:14px;">When and where I'll start it: ____________</div>
+            <div style="font-size:14px;">How I'll know it's done: ____________</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:6px;">You keep this. Nobody collects it.</div>
           </div>
         </div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Sent 24. Two replies within the hour — one parent said it's the first positive school note they've ever gotten.</div>
-        <div class="msg ai"><span class="who">Otter</span>Now the families are pulling the same direction. Adding this week to the class story.</div>
       </div>
     </div>
   </details>
 
   <!-- WEEKS 13-15 -->
   <details class="week">
-    <summary><span class="wk-num">W13 · Nov</span><span class="wk-title">Thanksgiving — skip-everything mode</span><span class="wk-pulse">12 / 9 / 3</span></summary>
+    <summary><span class="wk-num">W13 · Nov</span><span class="wk-title">Thanksgiving — the minimum week</span><span class="wk-pulse">12 / 9 / 3</span></summary>
     <div class="wk-body">
-      <p>Short week. The bare minimum: one pulse, one round of cards, nothing else. Pulse: 12/9/3. The project is built to survive a busy week.</p>
+      <p>Short week. <strong>Monday:</strong> Summary: 3, recorded, nothing else. Otter notes the short week so the next check doesn't read too much into it. The routine is built to survive a busy week.</p>
     </div>
   </details>
   <details class="week">
-    <summary><span class="wk-num">W14 · Dec</span><span class="wk-title">Winter slump watch</span><span class="wk-pulse">12 / 9 / 3</span></summary>
+    <summary><span class="wk-num">W14 · Dec</span><span class="wk-title">Check: at the target</span><span class="wk-pulse">12 / 9 / 3</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Class energy is low; Friday celebration slides return. <strong>Fri:</strong> Pulse: 12/9/3 — steady.</p>
+      <p><strong>Monday check:</strong> Summary: 3. The sheets ran most days. 3 and 3: at the class's target, but not clearly lower than the weeks before the sheet (4, 3, 5), and one was a short week. Otter says so plainly: one class is a small group, and this number can't show whether the sheet helps. Mr. Nupen keeps it because students use it.</p>
     </div>
   </details>
   <details class="week">
-    <summary><span class="wk-num">W15 · Dec</span><span class="wk-title">The students grade Otter</span><span class="wk-pulse">13 / 8 / 3</span></summary>
+    <summary><span class="wk-num">W15 · Dec</span><span class="wk-title">Getting ready for the finale</span><span class="wk-pulse">13 / 8 / 3</span></summary>
     <div class="wk-body">
-      <p><strong>Wed:</strong> Anonymous debrief form planned — what did Otter help with, what was annoying? <strong>Fri:</strong> Pulse: 13/8/3. Debrief Monday.</p>
+      <p><strong>Monday:</strong> Summary: 3, at the target three weeks running. Otter makes the scoreboard and a three-question anonymous look-back for the class. Answers go through the Feedback Cleaner before anyone shares them.</p>
     </div>
   </details>
 
   <!-- WEEK 16 -->
   <details class="week">
-    <summary><span class="wk-num">W16 · Dec</span><span class="wk-title">The report card — for the experiment</span><span class="pill">Full chat</span></summary>
+    <summary><span class="wk-num">W16 · Dec</span><span class="wk-title">The season finale</span><span class="pill">Full chat</span></summary>
     <div class="wk-body">
-      <div class="checkin-label">Friday — in Claude Cowork</div>
+      <div class="checkin-label">Monday — in Claude Cowork · season finale</div>
       <div class="chat">
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Final pulse: 13/8/3. We started 10/9/5 and bottomed at 8/7/9. Debrief highlights: "the cards made it feel possible" came up five times. Complaint: Friday slides got repetitive by December.</div>
-        <div class="msg ai"><span class="who">Otter</span>So the record shows: struggling group went 5 → 9 → 3, and what worked wasn't slides — it was short lists and public comebacks. Report drafted from the class story:</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Final summary: 13/8/3. Look-back highlights, after the Feedback Cleaner: "the Monday reminder made it feel doable" came up five times. Complaint: the self-check sheet got boring.</div>
+        <div class="msg ai"><span class="who">Otter</span>So the record shows: students with 3+ missing started around 5, hit 9 in Week 5, and have been at 3 for four weeks, at the target your class set. It went down while we did these moves; I can't say which one did it. Report drafted from the class story:</div>
         <div class="artifact">
-          <div class="art-label">Generated — semester report (excerpt)</div>
+          <div class="art-label">Generated — season report (excerpt)</div>
           <div class="report">
-            <h4>Did Otter move the class toward the mission?</h4>
-            <p>Mostly yes. Students with 3+ missing: 5 → 3 (peak 9 in Week 5). 19 of 24 students finished under two missing.</p>
-            <h4>What worked</h4>
-            <p>Missing-work cards (Week 5), comeback badges (Week 7), strength-first family messages (Week 12).</p>
-            <h4>What didn't</h4>
-            <p>Motivational slides on their own (Weeks 4–5). Friday celebration slides felt stale by December — change them up.</p>
-            <h4>Next semester</h4>
-            <p>Keep the cards, vary the routines, start family messages in Week 6 instead of Week 12.</p>
+            <h4>Did the class reach its target?</h4>
+            <p>Yes. From 5, 6, 5 students with 3+ missing (Weeks 1–3) to 3 or fewer, held for four weeks. Low point: 9 in Week 5, when the essay outline landed.</p>
+            <h4>What we kept</h4>
+            <p>Reminders naming one task and one moment (Week 3, fixed in Week 5). A weekly note to every family (Week 7). The student self-check (Week 10): the number never showed a change from it; Mr. Nupen kept it because students used it.</p>
+            <h4>What we learned</h4>
+            <p>Vague reminders did nothing (Week 4). Changing one thing at a time kept every check readable.</p>
+            <h4>Next season</h4>
+            <p>Same challenge. Next move from the challenge: one near task, with a tiny first step. Freshen up the self-check sheet. The comeback badge is still parked.</p>
           </div>
         </div>
-        <div class="msg teacher"><span class="who">Mr. Nupen</span>Same time in January, Otter.</div>
-        <div class="msg ai"><span class="who">Otter</span>I'm not going anywhere. Tell the kids the 14-assignment comeback week was my favorite too.</div>
+        <div class="msg teacher"><span class="who">Mr. Nupen</span>Same challenge in January, Otter.</div>
+        <div class="msg ai"><span class="who">Otter</span>Same challenge, next move. See you Monday.</div>
       </div>
     </div>
   </details>
 
   <div class="footer-cta">
-    <strong>Want this for your class?</strong> Open the README's "See it in 90 seconds," then say hi to your own (unnamed) AI in Claude Cowork. Your semester will look different — that's the point.
+    <strong>Want this for your class?</strong> Open your classroom assistant folder in Claude Cowork and say hi to your own (unnamed) AI. Your semester will look different — that's the point.
   </div>
 
 </main>
@@ -427,8 +427,8 @@ Movement: 3 students dropped a tier, 0 climbed</pre></div>
 // Tier chart — static fictional data, rendered as inline SVG. No network, no storage.
 (function () {
   const weeks = [
-    [10,9,5],[10,9,5],[10,10,4],[9,8,7],[8,7,9],[9,8,7],[10,8,6],[11,8,5],
-    [11,9,4],[10,9,5],[11,9,4],[12,8,4],[12,9,3],[12,9,3],[13,8,3],[13,8,3]
+    [10,9,5],[10,8,6],[10,9,5],[9,8,7],[8,7,9],[10,10,4],[11,10,3],[11,9,4],
+    [11,10,3],[10,9,5],[11,9,4],[12,8,4],[12,9,3],[12,9,3],[13,8,3],[13,8,3]
   ];
   const svg = document.getElementById('tier-chart');
   const W = 760, H = 230, padL = 30, padR = 12, padT = 14, padB = 28, maxY = 14;

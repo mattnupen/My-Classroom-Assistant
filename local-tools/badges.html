@@ -35,6 +35,7 @@
   }
   .step h2 { margin: 0 0 12px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
   .step .subtitle { margin: 0 0 14px; font-size: 15px; color: var(--muted); line-height: 1.5; }
+  .hint { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
 
   .dropzone {
     border: 2px dashed #d1d5db;
@@ -225,41 +226,42 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
     <div class="app-hero-text">
       <h1>Badges &amp; Certificates</h1>
-      <h2>Define badges, award them, and print certificates.</h2>
+      <h2>Print certificates that celebrate effort and comebacks. Use it on celebration days or at the end of a unit.</h2>
     </div>
   </header>
 
   <!-- STEP 1: State file -->
   <section class="step screen-only" id="step-state">
-    <h2>Step 1 &mdash; Class state file</h2>
-    <p class="subtitle">One file holds your badge definitions, award history, and (eventually) data for other tools like Random Groups and Cold-Call. Save it somewhere safe — Documents, Drive, USB. <strong>Don't put it inside the Cowork folder.</strong></p>
+    <h2>Step 1 &mdash; Your class memory file</h2>
+    <p class="subtitle">A small file that remembers your badges and who got them (Random Groups uses the same one). <strong>First time? Click Start a new memory file.</strong> It holds student names, so keep it on this computer &mdash; Documents is fine &mdash; <strong>not</strong> in your classroom assistant folder.</p>
     <div class="file-row">
       <label class="dropzone" id="dz-state">
-        <strong>Drop existing class-state.json</strong>
+        <strong>Been here before? Drop your <code>class-state.json</code></strong>
         <span>or click to choose</span>
         <input type="file" id="file-state" accept=".json">
       </label>
-      <button class="secondary" id="btn-new-state" style="flex:0 0 auto;align-self:center;">Start a new state file</button>
+      <button class="secondary" id="btn-new-state" style="flex:0 0 auto;align-self:center;">Start a new memory file</button>
     </div>
     <div id="state-banner" class="state-banner" style="display:none;"></div>
   </section>
 
   <!-- STEP 2: Roster -->
   <section class="step screen-only" id="step-roster">
-    <h2>Step 2 &mdash; Class roster <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:14px;">(from gradebook export)</span></h2>
+    <h2>Step 2 &mdash; Class roster <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:14px;">(from your gradebook file)</span></h2>
     <label class="dropzone" id="dz-gradebook">
-      <strong>Drop gradebook CSV or XLSX</strong>
-      <span>Only the name and period columns are used. Nothing leaves your computer.</span>
+      <strong>Drop your gradebook file here</strong>
+      <span>a .csv or Excel file &middot; only names and periods are used &middot; stays on this computer</span>
       <input type="file" id="file-gradebook" accept=".csv,.xlsx,.xls">
     </label>
-    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+    <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
+    <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     <div id="status-gradebook" class="file-status" style="display:none;"></div>
   </section>
 
   <!-- STEP 3: Badges -->
   <section class="step screen-only" id="step-badges">
     <h2>Step 3 &mdash; Define your badges</h2>
-    <p class="subtitle">Each badge has a name, description, icon (emoji), and color. Add or remove as you go. These save to your state file when you download it.</p>
+    <p class="subtitle">Each badge has a name, description, icon (emoji), and color. Add or remove as you go. They're saved in your memory file when you download it (Step 5).</p>
     <div class="badge-list" id="badge-list"></div>
     <div class="add-badge-row">
       <div>
@@ -329,10 +331,10 @@
 
   <!-- STEP 5: Save state -->
   <section class="step screen-only" id="step-save" style="display:none;">
-    <h2>Step 5 &mdash; Save your updated state file</h2>
-    <p class="subtitle">Records the awards you just generated so they appear in your history next time. Save it back to wherever you keep <code>class-state.json</code>.</p>
+    <h2>Step 5 &mdash; Save your memory file</h2>
+    <p class="subtitle">So next time remembers today's awards. It downloads as <code>class-state.json</code>; keep it where you kept the last one (not in your classroom assistant folder).</p>
     <div class="actions">
-      <button class="primary" id="btn-save-state">Download updated class-state.json</button>
+      <button class="primary" id="btn-save-state">Download memory file</button>
       <button class="secondary" id="btn-print">Print certificates</button>
     </div>
   </section>
@@ -456,7 +458,8 @@ setupDropzone('dz-gradebook', 'file-gradebook', f => loadGradebook(f));
 
 // Demo class (fictional data in _nav.js, which loads at the end of <body>)
 document.getElementById('btn-demo').addEventListener('click', () => {
-  if (typeof CLASSAI_DEMO === 'undefined') { alert('Demo data unavailable — _nav.js did not load.'); return; }
+  if (typeof CLASSAI_DEMO === 'undefined') { alert("The demo class didn't load. Keep this page inside the local-tools folder and try again."); return; }
+  if (!classState) $('#btn-new-state').click();  // one click is enough to try it
   loadGradebook(CLASSAI_DEMO.makeFile());
 });
 
@@ -480,7 +483,7 @@ function loadStateFile(file) {
       const banner = $('#state-banner');
       banner.classList.add('loaded');
       banner.style.display = 'block';
-      banner.innerHTML = `Loaded state file with <strong>${classState.badges.definitions.length}</strong> badge definitions and <strong>${classState.badges.awards.length}</strong> past awards.`;
+      banner.innerHTML = `Loaded your memory file: <strong>${classState.badges.definitions.length}</strong> badge definitions and <strong>${classState.badges.awards.length}</strong> past awards.`;
       renderBadgeList();
       renderBadgeSelect();
     } catch (err) {
@@ -501,7 +504,7 @@ $('#btn-new-state').addEventListener('click', () => {
   const banner = $('#state-banner');
   banner.classList.add('loaded');
   banner.style.display = 'block';
-  banner.innerHTML = 'New empty state file ready. Add badges below, award some, then download.';
+  banner.innerHTML = 'New memory file started. Add badges below, award some, then download it in Step 5.';
   renderBadgeList();
   renderBadgeSelect();
 });
@@ -627,7 +630,7 @@ function renderBadgeSelect() {
 }
 
 $('#btn-add-badge').addEventListener('click', () => {
-  if (!classState) { alert('Start or load a class-state file first (Step 1).'); return; }
+  if (!classState) $('#btn-new-state').click();
   const name = $('#new-name').value.trim();
   if (!name) return;
   const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.random().toString(36).slice(2, 6);
@@ -651,7 +654,7 @@ function removeBadge(id) {
 }
 
 $('#btn-load-defaults').addEventListener('click', () => {
-  if (!classState) { alert('Start or load a class-state file first (Step 1).'); return; }
+  if (!classState) $('#btn-new-state').click();
   const defaults = [
     { name: 'Comeback Kid',   icon: '🚀', color: '#2563eb', description: 'Made a strong comeback this week.' },
     { name: 'Perfect Week',   icon: '⭐', color: '#059669', description: 'Turned in everything on time this week.' },
@@ -670,7 +673,7 @@ $('#btn-load-defaults').addEventListener('click', () => {
 
 // ---------- Award flow ----------
 $('#btn-add-pending').addEventListener('click', () => {
-  if (!classState) { alert('Start or load a class-state file first (Step 1).'); return; }
+  if (!classState) $('#btn-new-state').click();
   const badgeId = $('#award-badge').value;
   if (!badgeId) { alert('Add at least one badge in Step 3.'); return; }
   const checks = document.querySelectorAll('#roster-list input[type="checkbox"]:checked');

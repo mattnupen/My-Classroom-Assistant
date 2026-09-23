@@ -1,8 +1,6 @@
 # Day One Lesson Plan — Introducing the AI
 
-A 15-minute mini-lesson for the day you tell your students about the classroom AI experiment. Use this as a starting script; adapt to your class's tone and your real voice.
-
-You don't need slides. You just need to talk to your kids.
+A 15-minute script for the day you tell your students about the classroom AI. Change anything that doesn't sound like you. You don't need slides — just talk to your kids.
 
 ---
 
@@ -16,7 +14,7 @@ By the end of the 15 minutes, your students should know:
 4. They can opt out without penalty
 5. They have real input — including (if applicable) shaping who the AI is
 
-You should also walk away with a sense of who in the room is excited, who's skeptical, and who's confused. Those signals matter for how you adjust the next few weeks.
+You'll also get a sense of who's excited, who's skeptical, and who's confused. That helps you adjust the next few weeks.
 
 ---
 
@@ -32,7 +30,7 @@ Read the room. Some classes will react. Some won't. Either is fine.
 
 ### What this is (3 minutes) — the simple version
 
-> "Here's the short version. I've installed an AI tool on my computer. It helps me prepare class materials faster and (I hope) better. It looks at general patterns in our class — how many people are caught up, what assignments are causing the most trouble — and helps me draft slides, encouragement notes, messages home.
+> "Here's the short version. I'm using an AI on my computer. It helps me prepare class materials faster and (I hope) better. It looks at general patterns in our class — how many people are caught up, what assignments are causing the most trouble — and helps me draft slides, encouragement notes, messages home.
 >
 > I review everything before you see it. The AI doesn't decide anything about you. It doesn't grade. It doesn't talk to you. It doesn't replace me. It's like having a really fast assistant who helps me prep — except the assistant is a computer program."
 
@@ -47,7 +45,7 @@ This is the part that matters most. Be explicit.
 > - **It is not deciding anything about you.** I am.
 > - **It is not replacing me.** I still teach this class. I still grade. I still email you back. The AI just helps me prep faster."
 
-*Teacher note: the script above is written for **Locked-Room mode**, the default — check `my-classroom/data-policy.md` if you're unsure, and if it says Locked-Room, read it as written. If your district approved **Direct mode**, swap the first bullet for something like: "**It does not decide anything about your grades.** Our district approved letting it read the gradebook so I don't have to retype things — but it never writes anyone's name down, and nothing with your name on it ever goes on a slide or a screen." Say the true version. Kids find out when adults shade it.*
+*Teacher note: the script above is for **the Offline option** — the default, where names and grades stay on your computer. Not sure which you chose? Ask your AI. If you're using **the Claude for Teachers option** (your district said it's okay to share student information with Claude), swap the first bullet for something like: "**It can see names and grades — but only when I ask it to help with something, like a note home.** Our district said that's okay. It doesn't decide anything about your grades, it doesn't keep your name in its notes, and your name never goes on a slide or a screen." Say the true version. Kids find out when adults shade it.*
 
 ### What this might look like for you (2 minutes) — set expectations
 
@@ -87,9 +85,9 @@ This is the part that matters most. Be explicit.
 Take questions. Common ones and good answers:
 
 > **"Is the AI grading us?"**
-> No. I grade. The AI never sees a grade.
+> No. I grade. The AI never sees your grade.
 >
-> *(Direct mode: "No. I grade — every single one. It can see the gradebook now that the district okayed it, but it doesn't decide anything and it never puts a name anywhere.")*
+> *(Claude for Teachers option: "No. I grade — every single one. Our district said it's okay for it to see names and grades when I ask for help with something like a note home, but it doesn't decide anything, and your name never goes on anything the class sees.")*
 
 > **"Can it read what I write?"**
 > No. Anything you write — essays, messages, anonymous surveys — I don't share with the AI unless we agree it's appropriate (like a class-wide anonymous survey where the AI helps me find themes — never quoting anyone). And we'd talk about that first.
@@ -98,7 +96,7 @@ Take questions. Common ones and good answers:
 > [Your honest reason. Don't oversell. Examples: "I'm trying to be better at noticing when one of you is quietly struggling." / "I want to send more notes home — good ones — and the AI helps me do that without it taking my whole evening."]
 
 > **"What if I don't want my family contacted?"**
-> Then we won't. Tell me and I'll make sure no AI-generated message goes to your family.
+> Then we won't. Tell me and I'll make sure nothing the AI helped write goes to your family.
 
 > **"Is this going to be on the test?"**
 > No.
@@ -130,5 +128,5 @@ You'll use these to adjust Week 1.
 - **Don't hide anything.** If a kid asks a question you don't know the answer to, say so. ("Good question — I don't know. I'll find out.")
 - **Don't make AI sound magical.** It's a tool. It's not smart. It's a fast writer with patterns. Demystifying it builds trust faster than hyping it.
 - **Don't compare to other tech the school uses.** "It's not like the bad kind of AI" sounds defensive. Just describe what this is.
-- **Don't promise privacy you can't deliver.** Be honest about exactly what data the AI does and doesn't see. The privacy explainer in `setup/permissions/privacy-explainer.md` has the specifics.
+- **Don't promise privacy you can't deliver.** Be honest about exactly what the AI does and doesn't see. If you want the details first, ask your AI for the privacy explainer.
 - **Don't apologize for trying something.** Some kids will sense uncertainty. That's fine. Don't translate it into "sorry, I'm not sure about this." Translate it into "I'm trying this and I'll be honest about how it goes."

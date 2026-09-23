@@ -28,34 +28,35 @@ I review everything before it reaches students or families.
 - It does not interact with students.
 - It does not make academic decisions or assign grades.
 - It does not send anything to families without my review.
-- It does not store or display any student's name — not in its notes, not on a dashboard, not on a slide. That holds no matter which data mode below I'm using.
+- It never saves a student's name in its notes or dashboards, or puts one on a slide. That holds under either option below.
 
-## How student data is handled (the short version)
+## How student information is handled (the short version)
 
-**The mode I'm using: Locked-Room (the project's default).**
+**The option I'm using: Offline (the project's default).**
 
-Anything that requires per-student detail — reading the gradebook, generating individualized cards, picking groups — happens through small browser tools that run **only on my laptop**. No student data is transmitted anywhere.
+Anything that needs per-student detail — reading the gradebook, making individual cards, picking groups — happens in small browser apps that run **only on my laptop**. No student information is sent anywhere.
 
 The AI itself only ever sees:
-- Aggregate class summaries with no names attached (e.g., "Period 3: 6 strong, 12 steady, 5 struggling")
-- My own observations written as prose ("the class energy was low today; two students bounced back this week")
-- Generic templates with placeholders the local tools fill in
+- Class totals with no names attached (e.g., "Period 3: 6 strong, 12 steady, 5 struggling")
+- My own observations in my own words ("the class energy was low today; two students bounced back this week")
+- Blank templates that the offline apps fill in with names
 
-This keeps the project on the safe side of FERPA and state student data privacy laws. The longer explanation is in `privacy-explainer.md`.
+This keeps student records out of the AI entirely, which is the simplest position under FERPA and state student privacy laws. The longer explanation is in `privacy-explainer.md`.
 
-## An optional second mode, for districts that want it
+## The other option: Claude for Teachers
 
-*Read this only if you're curious about the alternative — the proposal above is the default, and it's what I'm asking for unless you tell me otherwise.*
+*Only relevant if our district wants it. What I'm asking for above is the Offline option.*
 
-Some districts, having reviewed Anthropic's education data terms, approve teachers to let Claude work with gradebook exports directly. It removes the export-summarize-paste step in the middle of my week.
+Teachers who use Claude through [Claude for Teachers](https://claude.com/solutions/teachers) can, with the district's permission, share student information with it directly — pasting in a gradebook, say, instead of summarizing it by hand first. It saves time on things like individual progress notes.
 
-This project supports that as an explicit, opt-in switch rather than a habit that drifts in:
+If the district allows it:
 
-- The district's approval is recorded — who approved it, when, and on what basis — on a one-page record: `setup/permissions/data-mode-record.md`.
-- The AI's rules change in exactly one documented way: it may open exports I deliberately place in a single designated folder. Nothing else changes.
-- Everything the AI *stores or displays* stays aggregate-only, with no student names, in both modes.
+- The AI asks me two questions (do I use Claude for Teachers, and has the district approved sharing student information with it?) and writes down who approved it and when. It can't check the permission itself, so I'll give you a one-page signed record of who approved it and when. Until I've answered yes to both, it stays on the Offline option.
+- The AI uses only what each task needs and doesn't ask for sensitive records (IEP/504, health, counseling, discipline).
+- It still never saves a student's name in its notes or dashboards, never names students in front of the class, and I still review everything.
+- Sharing student records with an outside company is a vendor-agreement question under FERPA and state law, so it should go through the district's normal vendor process. The relevant terms are Anthropic's [Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), which include a K-12 Data Processing Addendum written for FERPA.
 
-If that's of interest, the relevant terms are Anthropic's [Claude for Teachers data terms](https://support.claude.com/en/articles/15926041-claude-for-teachers-your-data-and-our-terms), which include a K-12 Data Processing Addendum written for FERPA. If it isn't, nothing above changes — Locked-Room is and remains the default.
+If none of this is of interest, nothing above changes — Offline is the default.
 
 ## What I'm asking for
 

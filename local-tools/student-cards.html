@@ -316,7 +316,7 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M6.5 16a3 3 0 0 1 5 0"/><line x1="14" y1="10" x2="18" y2="10"/><line x1="14" y1="14" x2="18" y2="14"/></svg></span>
     <div class="app-hero-text">
       <h1>Progress Cards</h1>
-      <h2>Print per-student cards from your gradebook — missing-work lists or full-progress snapshots.</h2>
+      <h2>Print each student a card of what they still owe (or their full progress). Use it Monday, or before a catch-up day.</h2>
     </div>
   </header>
 
@@ -325,13 +325,13 @@
     <h2>Step 1 &mdash; Load your gradebook</h2>
     <div class="body">
       <label class="dropzone" id="dropzone">
-        <strong>Drop a CSV or XLSX file here</strong>
-        <span>or click to choose &middot; nothing leaves your computer</span>
+        <strong>Drop your gradebook file here</strong>
+        <span>or click to choose &middot; a .csv or Excel file &middot; stays on this computer</span>
         <input type="file" id="file-input" accept=".csv,.xlsx,.xls">
       </label>
-      <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+      <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
       <div id="file-status" class="file-status" style="display:none;"></div>
-      <p class="hint">Demo class: 24 fictional students. Canvas-format sample: <code>sandbox/fictional-gradebook-canvas.csv</code>.</p>
+      <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     </div>
   </section>
 
@@ -378,8 +378,8 @@
       <p class="hint">Use <code>{name}</code> to insert the student's first name.</p>
 
       <label for="student-message" style="margin-top:14px;">Student message (body of the card)</label>
-      <textarea id="student-message">Anything on this list can still earn full credit through the end of the unit. Check off each one as you turn it in.</textarea>
-      <p class="hint">This is the main note to students — turn-in policy, encouragement, due dates, whatever you want them to know.</p>
+      <textarea id="student-message">Don't try to do it all at once. Pick one thing on this list and a time you'll start it. Check off each one as you turn it in.</textarea>
+      <p class="hint">This is the main note to students. Add your own late-work policy here if you want it on the card; the card doesn't state one for you.</p>
 
       <label for="footer-message" style="margin-top:14px;">Footer (small text at the bottom)</label>
       <input type="text" id="footer-message" value="Come find me during advisory if you want help getting started.">
@@ -397,7 +397,7 @@
         </label>
         <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;flex:1;min-width:220px;">
           <input type="radio" name="card-mode" value="progress" style="margin-top:3px;">
-          <span><strong>Full Progress</strong><br><span style="font-size:14px;color:var(--muted);">Complete grade snapshot: current grade plus every assignment with its score.</span></span>
+          <span><strong>Full Progress</strong><br><span style="font-size:14px;color:var(--muted);">Current grade plus every assignment and its score.</span></span>
         </label>
       </div>
 
@@ -601,7 +601,7 @@ fileInput.addEventListener('change', e => {
   // so check at click time, not parse time.
   btn.addEventListener('click', () => {
     if (typeof CLASSAI_DEMO === 'undefined') {
-      alert('Demo data unavailable — _nav.js did not load.');
+      alert("The demo class didn't load. Keep this page inside the local-tools folder and try again.");
       return;
     }
     handleFile(CLASSAI_DEMO.makeFile());

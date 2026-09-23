@@ -166,6 +166,7 @@
 
   .privacy-note { font-size: 14px; color: var(--muted); margin-top: 18px; padding: 10px 14px; background: #f9fafb; border-radius: 6px; line-height: 1.5; }
   .privacy-note strong { color: var(--ink); }
+  .hint { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
 
   .assign-override { margin: 10px 0; font-size: 16px; }
   .assign-override summary { cursor: pointer; color: var(--muted, #555); }
@@ -182,7 +183,7 @@
     <span class="app-hero-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="11"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="14"/></svg></span>
     <div class="app-hero-text">
       <h1>Gradebook Analytics</h1>
-      <h2>A sortable, per-student view of where your class stands — stays on your laptop.</h2>
+      <h2>Every student's missing work and grade in one sortable table, for your eyes only. Use it when you want the full picture.</h2>
     </div>
   </header>
 
@@ -191,17 +192,18 @@
     <h2>Setup</h2>
     <div class="setup-row">
       <label class="dropzone compact" id="dz-current" style="flex:2;">
-        <strong>Drop the gradebook (CSV / XLSX)</strong>
-        <span>or click to choose</span>
+        <strong>Drop your gradebook file here</strong>
+        <span>or click to choose &middot; a .csv or Excel file &middot; stays on this computer</span>
         <input type="file" id="file-current" accept=".csv,.xlsx,.xls">
       </label>
       <label class="dropzone compact" id="dz-previous" style="flex:1;">
-        <strong>Previous snapshot (optional)</strong>
-        <span>JSON from Class Pulse — for trend arrows</span>
+        <strong>Last week's comparison file (optional)</strong>
+        <span>the one Class Pulse saves &mdash; adds up/down arrows</span>
         <input type="file" id="file-previous" accept=".json">
       </label>
     </div>
-    <button type="button" class="demo-btn" id="btn-demo">Load demo class</button>
+    <button type="button" class="demo-btn" id="btn-demo" title="24 made-up students">Load demo class</button>
+    <p class="hint">No file yet? <strong>Load demo class</strong> tries it with 24 made-up students. To get your own: in your gradebook, find <em>Export</em> (or <em>Download</em>) and choose CSV.</p>
     <div id="status-current" class="file-status" style="display:none;"></div>
     <div id="status-previous" class="file-status" style="display:none;"></div>
 
@@ -278,7 +280,7 @@
           <tbody id="student-body"></tbody>
         </table>
       </div>
-      <p class="privacy-note"><strong>Reminder:</strong> this table is for your eyes only. It stays in your browser. Do not screenshot and paste into Claude — use the <em>Class Pulse</em> tool for that.</p>
+      <p class="privacy-note"><strong>For your eyes only.</strong> This table stays in your browser. To tell your AI how the class is doing, use <em>Class Pulse</em> &mdash; it makes a summary with no names. (Only paste this table into the chat if you use the Claude for Teachers option and your district has approved it.)</p>
     </section>
 
   </div>
@@ -436,7 +438,7 @@ setupDropzone('dz-previous', 'file-previous', f => loadPreviousSnapshot(f));
 
 // Demo class (fictional data in _nav.js, which loads at the end of <body>)
 document.getElementById('btn-demo').addEventListener('click', () => {
-  if (typeof CLASSAI_DEMO === 'undefined') { alert('Demo data unavailable — _nav.js did not load.'); return; }
+  if (typeof CLASSAI_DEMO === 'undefined') { alert("The demo class didn't load. Keep this page inside the local-tools folder and try again."); return; }
   loadGradebook(CLASSAI_DEMO.makeFile());
 });
 
@@ -490,7 +492,7 @@ function loadPreviousSnapshot(file) {
   reader.onload = e => {
     try {
       const parsed = JSON.parse(e.target.result);
-      if (!parsed.periods || !parsed.date) throw new Error('Not a valid snapshot.');
+      if (!parsed.periods || !parsed.date) throw new Error('Not a Class Pulse comparison file.');
       previousSnapshot = parsed;
       $('#status-previous').style.display = 'block';
       $('#status-previous').textContent = `Snapshot from ${parsed.date} loaded — trend arrows enabled.`;
@@ -499,7 +501,7 @@ function loadPreviousSnapshot(file) {
       $('#status-previous').style.display = 'block';
       $('#status-previous').style.background = '#fee2e2';
       $('#status-previous').style.color = '#991b1b';
-      $('#status-previous').textContent = `Could not read this snapshot: ${err.message}`;
+      $('#status-previous').textContent = `Could not read this comparison file: ${err.message}`;
     }
   };
   reader.readAsText(file);
@@ -648,7 +650,7 @@ function trendBadge(diff, unit, upIsGood) {
   const good = (diff > 0) === upIsGood;
   const cls = good ? 'up' : 'down';
   const sign = diff > 0 ? '+' : '';
-  return `<div class="trend ${cls}">${sign}${diff} ${unit} vs. last snapshot</div>`;
+  return `<div class="trend ${cls}">${sign}${diff} ${unit} vs. last week</div>`;
 }
 
 function sumPrevTotals(snap) {

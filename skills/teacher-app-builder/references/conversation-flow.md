@@ -1,56 +1,50 @@
-# Conversation Flow
+# The conversation
 
-**Do not ask about the data mode.** Every app this skill builds is a Locked-Room tool by construction: it runs in the teacher's browser, makes no network calls beyond the SheetJS CDN, stores nothing, and writes nothing to the project folder. That is true whether the classroom is in Locked-Room or Direct mode, so the question would only be noise — offline tools are useful in both, and they are the only tools that ever touch student names. There is no question below that has anything to do with it.
+Goal: a clear picture of the app in as few questions as possible, then a plain "yes." One question per message. Every question comes with an example answer. If a multiple-choice question tool is available, use it for questions 2 and 3.
 
-The skill opens with exactly one question. Ask it verbatim:
+Don't ask about student-information options, colors, styling, or file names. Pick sensible defaults and mention them in the summary.
 
-> "Want me to walk you through a few quick questions, or would you rather describe what you need in your own words?"
+## If the teacher already described it
 
-Wait for the teacher's answer. Both paths converge on the same internal spec (see "Resolved spec format" below).
+Many requests arrive complete (the App Studio ideas are written that way). Read what they wrote, fill in what you can, and ask **only** about what's genuinely unclear from the three questions below. Often that's none of them — go straight to the summary.
 
-## Path A — Guided (5 questions, one at a time)
+## The questions (only the ones you need, in this order)
 
-Use the AskUserQuestion tool when possible (multiple-choice keeps the cognitive load low for teachers). Ask one question per turn. Do not batch.
+1. **What it's for.**
+   > "What should the app help you do? For example: 'print a card for each student with their seat and their reading group.'"
 
-1. **Problem.** "In one sentence, what should this app help you do?" (free text — becomes `problem_solved`)
-2. **Data input.** "Does this app take a file from you (like a gradebook), or does it generate output from scratch?" Options: CSV/XLSX file / typed text / nothing — generates from a template.
-3. **Output style.** "What should it produce?" Options: Printable cards (one per row), On-screen sortable list, Downloadable CSV, On-screen text to copy.
-4. **Name.** "What should we call it?" (free text — used to generate the slug and `title`)
-5. **Anything else.** "Anything else it should do that the questions above didn't cover?" (free text — optional)
+2. **What goes in.**
+   > "What will you give it? For example: your class list, a download from your gradebook, something you type in each time — or nothing, if it just makes things from scratch."
 
-## Path B — Free-prose
+3. **What comes out.**
+   > "What should it give you back? For example: something to print, a list on screen you can sort, a file to download, or text you can copy into an email."
 
-> "Go ahead — describe what you want in a paragraph. I'll ask follow-ups only if I need them."
+Name the app yourself from the teacher's words (short and plain: "Seating Chart Cards," "Exit Ticket Tally"). They can change it at the summary.
 
-After the teacher's paragraph, ask at most TWO follow-up questions, only if the answer is genuinely ambiguous on:
-- whether it takes a data file,
-- what the output is (cards / list / CSV / text).
+## The summary
 
-Do not ask follow-ups about styling, color, or naming — pick reasonable defaults and confirm at the end.
+Say it back in plain words, in one short paragraph, then ask:
 
-## Resolved spec format (internal)
+> "Here's what I'll build: **Seating Chart Cards.** You drop in your class list, tell it your rows and columns, and it prints one card per student with their seat. It'll have a practice button so you can try it with a made-up class first. Sound right?"
 
-Before generating, restate the resolved spec back to the teacher in plain language for confirmation. Use this format (markdown, not JSON, for readability):
+Build only on a clear yes. If they change something, say the new version back and ask again.
 
-> "OK, here's what I'll build:
-> - **Name:** Parent Message Helper
-> - **Problem it solves:** Generate parent-contact drafts for students missing assignments.
-> - **Input:** CSV (gradebook export)
-> - **Output style:** Downloadable CSV (one row per parent message)
-> - **Sandbox file:** I'll generate `sandbox.csv` with 12 fictional students for you to test against first.
->
-> Sound right? (yes / change something)"
+## When the request breaks a rule
 
-If the teacher pushes back, revise and re-confirm. Only proceed to generation on an explicit "yes."
+Catch it here, before building. Say what you can't do in one plain sentence, give the reason in a few words, and offer the closest safe version:
 
-## Slug rules
+| They ask for | Say something like |
+|---|---|
+| "Remember my class so I don't have to load it every time" (browser storage) | "I can't have it remember your students — that would leave names sitting in your browser. It can give you a file to download and drop back in next time. Want that?" |
+| Anything pulled from a website (quotes, weather, a live sheet) | "These apps don't go online, so nothing about your class can leak. I can build it with a list you paste in instead. Want that?" |
+| "Save it back into my file / my folder" | "It can't save into your folders, but it can give you a new copy to download. Want that?" |
+| "Put my class list right in the app" | "It'll ask for your class list each time you open it. That way no names are saved anywhere." |
+| "Email the parents for me" | "It can't send anything, but it can write each message for you to copy into your email. Want that?" |
 
-Derive `slug` from the title:
-- lowercase
-- replace whitespace runs with single `-`
-- strip every char outside `[a-z0-9-]`
-- collapse repeated dashes
-- trim leading/trailing dashes
-- max length 40 chars (truncate, then re-trim)
+If they decline every safe version, don't build it. Say so kindly and suggest the closest app they already have, if one fits.
 
-If the resulting slug already exists at `my-classroom/apps/<slug>/`, ask the teacher: "An app called `<slug>` already exists. Overwrite it, or pick a new name?" If they choose to overwrite, read the existing `spec.md` first and say what's changing — a rebuild replaces both the app and its spec.
+## Naming the folder (internal)
+
+Make the folder name from the app's name: lowercase; spaces become `-`; drop anything outside `a–z`, `0–9`, `-`; collapse repeated dashes; trim dashes from the ends; at most 40 characters (cut, then trim again). This name is also the app's `id` in `my-apps.js`. Never say it to the teacher.
+
+If `my-classroom/apps/<name>/` already exists, read its `spec.md` and ask: "You already have an app called Seating Chart Cards. Want me to update that one, or make a new one with a different name?" An update replaces both the app and its record, and keeps its place in the sidebar.

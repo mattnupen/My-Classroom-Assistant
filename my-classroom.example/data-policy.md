@@ -1,26 +1,22 @@
-# Data Policy — this classroom
+# Student information — this classroom
 
-*This file is the one rule the AI honors above everything else. It's written during setup and changed only through an explicit conversation. Plain language on purpose — hand it to anyone who asks.*
+*Which option this classroom uses for student names and grades. Your AI fills this in with you, checks it before touching anything that could hold student information, and changes it only when you ask.*
 
-## Current mode
+**Option:** Offline *(the default)*
+**Since:** [date]
+**Who approved:** n/a *(only needed for the Claude for Teachers option — a name or a role, like "district privacy officer")*
+**Notes:**
 
-**Mode:** Locked-Room *(default)*
-**Set on:** [date — written during setup]
-**Set by:** [teacher name]
-**District approval on file:** n/a *(required for Direct mode — record who approved and when)*
+## The two options
 
-## What the modes mean
+**Offline (the default).** Student names and grades stay in the offline apps on your computer. Your AI sees only class totals and summaries with no names. If a name slips into the chat by mistake, no harm done: your AI won't use or repeat it, saves nothing, and still helps.
 
-**Locked-Room (default).** Student-identifying data — rosters, gradebook exports, named work — never enters this folder and is never opened by the AI, anywhere, in any form. It lives only in the offline apps that run in the teacher's browser. The AI works from name-free aggregates: the pulse files in `my-classroom/pulses/` and what the teacher pastes by hand.
+**Claude for Teachers.** Only if you use Claude through Claude for Teachers *and* your district has given permission to share student information with it. Then you can share student information with your AI in the chat or by dropping files in the inbox folder, and it uses only what each task needs.
 
-**Direct (district-approved, opt-in).** Exactly one thing changes: the AI may open files the teacher deliberately places in `my-classroom/inbox/` — and nothing else. Everything the AI *writes or keeps* — the class story, the dashboard, slides, anything projected or printed for the wall — stays aggregate-only, exactly as in Locked-Room. Direct processing, never direct storage. The inbox is the teacher's to empty.
+**Either way:** your AI never saves a student's name in this classroom's notes or dashboards, never names students in front of the class, and follows every rule in the safety rules.
 
-**In both modes, always:** anonymous student feedback goes through the Feedback Cleaner first; no student's name appears in anything the AI stores or displays; every rule in `brain/safety-rules.md` stands.
+To switch, just tell your AI.
 
-## Changing modes
+## Changes
 
-Tell the AI "I want to change the data mode." It will confirm what changes, update this file with the date, note the change in the class story, and — for Direct mode — record the district approval and generate the one-page record from `setup/permissions/data-mode-record.md` for your IT department.
-
-## Change log
-
-- [date] — Locked-Room mode set at first setup.
+- [date] — Offline option set at first setup.

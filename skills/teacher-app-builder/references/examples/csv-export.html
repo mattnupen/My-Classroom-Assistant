@@ -1,37 +1,43 @@
 <!--
   PATTERN: csv-export
-  Use when the teacher's app takes typed input (or transforms an uploaded file) and produces a downloadable CSV.
-  The download uses an in-memory blob URL — file lands in the user's Downloads folder, never written to the project.
+  Use when the app takes typed input (or reads a file) and gives back a file to download or text to copy.
+  The download uses an in-memory blob — it lands in the browser's Downloads folder, never in the classroom folder.
   Body and logic blocks plug into the scaffold's {{BODY_SLOT}} and {{LOGIC_SLOT}}.
+  If it reads a file, add a file input and a "Try it with a made-up class" button as in printable-cards.html.
 -->
 
 <!-- BODY -->
 <section class="step screen-only">
-  <h2>Enter your data</h2>
+  <h2>Type or paste your list</h2>
   <textarea id="input" placeholder="One item per line…"></textarea>
-  <button class="primary" id="btn-build">Build CSV</button>
-  <button class="secondary" id="btn-download" disabled>Download →</button>
+  <button class="primary" id="btn-build">Make it</button>
+  <button class="secondary" id="btn-copy" disabled>Copy</button>
+  <button class="secondary" id="btn-download" disabled>Download</button>
 </section>
 
 <pre id="preview" class="step" hidden style="background:#f7fbfa; padding:14px; white-space:pre-wrap;"></pre>
 
 <!-- LOGIC -->
-let csvText = '';
+let csvText = '';  // in memory only — never saved
 document.getElementById('btn-build').addEventListener('click', () => {
   const lines = document.getElementById('input').value.split('\n').filter(Boolean);
-  // ADAPT: transform `lines` into rows specific to this app
+  // ADAPT: turn `lines` into this app's rows
   const rows = [['Item', 'Count']].concat(lines.map((l, i) => [l, i + 1]));
   csvText = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
   const preview = document.getElementById('preview');
-  preview.textContent = csvText;
+  preview.textContent = csvText;  // textContent, never innerHTML, for anything the teacher typed
   preview.hidden = false;
+  document.getElementById('btn-copy').disabled = false;
   document.getElementById('btn-download').disabled = false;
 });
+document.getElementById('btn-copy').addEventListener('click', async (e) => {
+  try { await navigator.clipboard.writeText(csvText); e.target.textContent = 'Copied'; }
+  catch { e.target.textContent = 'Select the text below and copy it'; }
+});
 document.getElementById('btn-download').addEventListener('click', () => {
-  const blob = new Blob([csvText], { type: 'text/csv' });
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'output.csv';  // browser default Downloads folder
+  a.href = URL.createObjectURL(new Blob([csvText], { type: 'text/csv' }));
+  a.download = 'output.csv';  // ADAPT: a plain file name, e.g. 'exit-ticket-tally.csv'
   a.click();
   URL.revokeObjectURL(a.href);
 });
