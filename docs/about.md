@@ -130,6 +130,7 @@ MyClassroomAssistant/
 ├── README.md                          ← the front door
 ├── CLAUDE.md                          ← the first file your AI reads each session — sets the rules of the experiment
 ├── VERSION · CHANGELOG.md             ← which engine version this is, and what changed
+├── BACKLOG.md                         ← what's planned next
 │
 ├── my-classroom/                      ← YOURS. Created at setup; updates never touch it.
 │   ├── data-policy.md                 ← which option you use for student names and grades — the AI's highest rule
