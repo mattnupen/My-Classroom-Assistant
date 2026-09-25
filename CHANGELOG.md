@@ -4,6 +4,10 @@ Plain-language notes on each version, for teachers. To get an update, say **"upd
 
 ## Coming next
 
+- **A first chat that gets to know your class first.** It starts with how the assistant works, in three lines. Then it asks quick questions with buttons to click, including what the problem really looks like in your room, before it suggests anything.
+- **More about your room.** It asks what you have to work with and how things should reach your students (slides, printouts, words for the board, or posts for your online class page).
+- **You or your students shape its personality.** Pick one of three in the first chat, or let your class vote: you get slides and a Google Form, and it fills in its name and voice when you share the results. Your plan for the week doesn't wait for the vote.
+- **Class Tools, from day one.** The first chat gives you a link to click and bookmark, and tells you about the app builder.
 - **Class Tools looks like one product now.** Every app inside it (Class Pulse, Progress Cards, Parent Messages, Badges, Random Groups, and the rest) uses the same warm paper look as the homepage, with bigger buttons and clearer steps. Printed cards and certificates keep their size and layout.
 - **Apps you build match too.** New apps from the app builder get the same look.
 - **Fixed: grades in Parent Messages.** Notes home showed a grade like "0.9%" in place of "89%." They now show the right percent and letter.

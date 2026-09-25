@@ -5,6 +5,16 @@
 
 **Ask first:** "About how many kids are out a lot, and what happens now when a kid has been out?"
 
+**Get to know it** (first chat, multiple choice; see `../first-chat.md`):
+- *Card 1*
+  1. **How many** (the "Ask first") — "About how many kids in a class are out a lot?" · *1–2* · *3–5* · *More than 5* · *Not sure*
+  2. **After** (multi-select) — "What happens now when a kid has been out?" · *They catch up on their own* · *I catch them up myself* · *The office calls home* · *The work is posted online*
+  3. **Records** — "Can you see the last few weeks' attendance in your school's system?" · *Yes, easily* · *Not sure how*
+- *Card 2*
+  1. **Why** (multi-select) — "Why do you think they're out? Your best guess is fine." · *Illness* · *Family or getting to school* · *Skipping or checked out* · *Not sure*
+
+What the answers point to: a few kids out a lot → the counselor first for each, then a warm call home; "catch up on their own" → a simple welcome-back routine is the first win; records easy → the last three weeks are the starting numbers.
+
 **The number to watch. The percent of possible days attended, class-wide, for the week. It comes from your attendance system, not the gradebook, so Class Pulse can't make it. Type in how many absences your class had this week (and if it was a short week, how many days). Your AI works out the percentage. It takes about a minute.
 
 **Be honest about the noise.** In a class of 25, one student's flu week moves this number by several points. The research effects below are much smaller than that (about 2% fewer absences across six recent trials), so this number can't show whether a move worked. Don't switch a move because the number stayed flat: follow "When the number can't show it" in `brain/challenge-cycle.md`. Say so when the line dips for reasons nobody controls.

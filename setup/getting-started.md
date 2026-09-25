@@ -30,18 +30,22 @@ Download the [ZIP file](https://github.com/mattnupen/My-Classroom-Assistant/arch
 
 In the Claude app, start a Cowork conversation and choose this folder as the one to work in. If Cowork asks whether it can read and change files in the folder, say yes — that's how your AI remembers your class between chats.
 
-## 4. Say hi (10–15 minutes)
+## 4. Say hi (about 10–15 minutes)
 
 Type **"set up my classroom"** — or just **"hi."** Here's what happens:
 
-- **A short hello**, then **five quick questions, one at a time.** Each shows an example answer. Short answers are fine, and so is "not sure."
-  1. What you teach and what the class is like
-  2. The one thing you'd most like to be different this semester. Name several and it helps you pick the one that bugs you most, from five ready-made challenges: **missing work, attendance, participation, transitions, or reading**. The others are parked, not forgotten.
-  3. How it goes now (for missing work, say, what happens when a kid falls behind, and your late-work policy)
-  4. Whether you'll share student names and grades with it. The default, and the answer if you're not sure, is no: names stay on your computer and you share class totals. (Only if you use Claude for Teachers *and* your district has said yes can you share more. See Track 2, step 2.)
-  5. Anything it should never do in your room
-- **It gives you this week, right then.** One thing to try, starting now, on one page: what to do tomorrow, what to say, and how you'll know by Friday. If it needs a count from your gradebook, that's one line of the week, not homework before the plan.
-- **It ends with one next step,** and how long it takes. Naming your AI, the practice run, and launch come later, one at a time, when you have room.
+- **A short hello and how it works**, in three lines. Then it asks what you teach.
+- **Quick questions, mostly with buttons to click.** Each card has two to four answers to pick from, and you can always type your own. "Not sure" is fine.
+  1. Your class: how big, how many sections, what it's like
+  2. The one thing you'd most like to be different this semester, from five ready-made challenges: **missing work, participation, attendance, transitions, or reading**, or your own. Name several and it helps you pick the one that bugs you most. The others are parked, not forgotten.
+  3. **What that problem looks like in your room:** how many kids, which work or which moments, why you think it happens, what you do now, and your policies (late work, say). It tells you back what it heard before it suggests anything.
+  4. Your room: what you have to work with (a projector, a whiteboard, laptops, a budget), where assignments live, and how things should reach your students: slides you project, printouts, words for the board, or posts for your online class page. Students never message it; everything goes through you.
+  5. Whether you'll share student names and grades with it. The default, and the answer if you're not sure, is no: names stay on your computer and you share class totals. (Only if you use Claude for Teachers *and* your district has said yes can you share more. See Track 2, step 2.)
+  6. Anything it should never do in your room
+  7. Who shapes its personality (its name and how it sounds to students): **you, now** (pick from three starting points), **your students, by vote** (it gives you slides and a Google Form for about 15 minutes of class, and fills in its personality when you share the results), or **later**
+- **It gives you this week, right then.** One thing to try, starting now, on one page: what to do tomorrow, what to say, and how you'll know by Friday. It's built on what you told it, and it doesn't wait for the vote. If it needs a count from your gradebook, that's one line of the week, not homework before the plan.
+- **It shows you Class Tools**, the page with your offline apps, with a link to click and bookmark, and tells you about the custom Claude skill that builds simple apps for your class when you ask.
+- **It ends with one next step,** and how long it takes. The practice run and launch come later, one at a time, when you have room.
 
 Have to leave partway? It saves as it goes. Next time, say **"let's keep going."**
 

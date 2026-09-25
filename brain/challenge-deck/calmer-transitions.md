@@ -5,6 +5,14 @@
 
 **Ask first:** "Which switch loses the most time, and about how long does it take now?"
 
+**Get to know it** (first chat, multiple choice; see `../first-chat.md`):
+- *Card 1*
+  1. **Which switch** (the "Ask first") — "Which switch loses the most time?" · *Start of class* · *Moving between activities* · *Cleanup or packing up* · *Getting into groups*
+  2. **How long** — "About how long does it take now?" · *Under 2 minutes* · *2–4 minutes* · *More than 4 minutes* · *Not sure; I'll time it*
+  3. **Now** (multi-select) — "How do you start it now?" · *I say it out loud* · *A timer or signal* · *Directions on the board* · *It varies*
+
+What the answers point to: "it varies" or out loud only → one signal and posted steps, practiced; already a timer → check the routine is taught and practiced, not just announced; "not sure" → time it quietly tomorrow before anything changes.
+
 **The number to watch. Minutes lost on **one** chosen transition (entry, cleanup, the switch to stations, line-up), timed once a day on your phone. Start the clock when you give the signal. Stop it when the last student is *doing the next thing*, not when the room goes quiet. On Monday, type each day's time into the chat ("3:40, 3:10, 4:05, 3:25"). Don't average them: separate days give the check enough numbers to go on. Class Pulse can't make this one.
 
 **Evidence:** `brain/evidence-packs/calmer-transitions.md` (The strongest research is from K–5. With older students, the moves are sensible, but less studied.)

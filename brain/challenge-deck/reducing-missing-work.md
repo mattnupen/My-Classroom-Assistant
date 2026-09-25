@@ -5,6 +5,17 @@
 
 **Ask first:** "When a kid falls behind now, what happens? Do you take late work, and for how much credit?" Their policy goes into everything students and families see. Never state or change it yourself.
 
+**Get to know it** (first chat, multiple choice; see `../first-chat.md`):
+- *Card 1*
+  1. **Late work** (the "Ask first") — "When a kid falls behind now, do you take late work?" · *Yes, for less credit or for a while* · *Yes, full credit* · *No late work* · (Other: say how it works). If the answer leaves out how long or for how much, ask that in words.
+  2. **How many** — "About how many kids in a class are behind right now?" · *A handful (1–4)* · *Some (5–10)* · *A lot (more than 10)* · *Not sure*
+  3. **Which work** (multi-select) — "Which work goes missing most?" · *Homework they take home* · *Work started in class* · *Big projects or essays* · *All kinds*
+- *Card 2*
+  1. **Why** (multi-select) — "Why do you think it goes missing? Your best guess is fine." · *They lose track or forget* · *They don't know how to start* · *No time or place to work at home* · *They're out a lot*
+  2. **Now** (multi-select) — "What do you do now when a kid falls behind?" · *Remind the class* · *Talk with them one-on-one* · *Contact home* · *Give catch-up time in class*
+
+What the answers point to: take-home work missing → the plans get class time to happen in; "don't know how to start" → each plan names the exact first step; "out a lot" → the counselor first for those kids, and say attendance is parked; a handful → the check-ins are the heart of the week; a lot → lead with the whole-class plan cards. Reminders they already give aren't a strategy to add.
+
 **The number to watch.** Total missing assignments, all their classes together, once a week. Also get how many kids have 3 or more missing: that's who the teacher helps first, not a second score.
 - *Offline option:* the teacher reads both off the gradebook and types them (a couple of minutes). The first time, three numbers: the total, how many have 3 or more, and whether anyone has turned in nothing at all (about 2 minutes a class; say the total for their number of classes). Class Pulse can count them, but only mention it if they ask for a faster way.
 - *Claude for Teachers option:* share the gradebook, and the AI works out and saves the class totals only.

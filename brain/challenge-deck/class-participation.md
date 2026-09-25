@@ -5,6 +5,16 @@
 
 **Ask first:** "When you ask the class a question now, what happens? About how many different kids talk in a period?"
 
+**Get to know it** (first chat, multiple choice; see `../first-chat.md`):
+- *Card 1*
+  1. **How many** (the "Ask first") — "When you ask the class a question now, about how many different kids answer in a period?" · *1–3* · *4–6* · *7 or more* · *Not sure*
+  2. **Who** — "Who stays quiet?" · *Most of the class* · *A group that never talks* · *It changes day to day*
+  3. **How you ask** (multi-select) — "How do questions usually go now?" · *Hands up, I pick* · *I call on kids* · *Partner talk first* · *Mostly I explain; few questions*
+- *Card 2*
+  1. **Why** (multi-select) — "What do you think holds them back? Your best guess is fine." · *Worried about being wrong* · *A few kids answer first* · *They're not sure what to say* · *Not sure*
+
+What the answers point to: hands up with a few quick answerers → wait time and everyone-writes-first; worried about being wrong → partner talk before anyone speaks to the room; already doing partner talk → check how it runs (length, and "call on pairs," not "who wants to share").
+
 **The number to watch.** How many *different* students spoke in the whole-class part of a lesson, counted on two days a week (the same two days each week, say Tuesday and Thursday), so Friday's look has numbers even if one day slips. Tick a name on a class list on a clipboard (printed from the gradebook; in the Claude for Teachers option, once the gradebook is shared, hand over a tally sheet with first names and last initials already filled in, one page per period, a column per day, marks for ✓ spoke on their own, C called on, A absent, and "__ spoke of __ here" at the bottom) the first time that student speaks: volunteering or answering when called on both count. Ask for both numbers: who spoke, and how many were here. It takes about as long as attendance. Counting more days is optional. Only the total goes to the AI ("7 of 12"). With two sections, keep each period's own number, and never compare them in front of students. Class Pulse can't count this one.
 
 This counts how many people are in the conversation, not how good their answers are. Rewarding quality would give scared students a new reason to stay quiet.

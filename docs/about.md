@@ -16,7 +16,7 @@ Out of the box, it includes:
 - **Three starter personalities** (Otter, Spark, Sage) your class can adopt or remix.
 - **A slide-design library** for the classroom projector — accessible, high-contrast openers the AI fills in.
 
-You set it up in a short first chat: five quick questions, one at a time, each with an example answer. If you have to stop partway, say "let's keep going" next time.
+You set it up in a first chat of about 10 minutes: quick questions, mostly with buttons to click, about your class and the one thing you'd like to change. If you have to stop partway, say "let's keep going" next time.
 
 <p align="center">
   <img src="../images/dashboard.png" alt="Class Tools — a teacher's home base, showing the made-up demo class" width="860">

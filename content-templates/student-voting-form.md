@@ -16,6 +16,49 @@ A 5-minute intro before you hand out the form. The day-one lesson plan covers th
 
 ---
 
+## The first-chat form
+
+*The short version your AI hands over when a teacher picks "My students vote" in the first chat. The teacher has already picked the class's challenge, so students vote on the name and voice only. About 5 minutes to fill in. Your AI fills in the class's own words (subject, the challenge in student terms) and leaves out anything that clashes with the teacher's house rules.*
+
+**Title:** Help name our class assistant
+
+**Description:** I'm using an AI assistant to help me make things for our class: slides, cards, notes. It never talks to you directly, and it never sees your names. You get to pick its name and how it sounds. Your vote is real.
+
+1. **What should we call it?** Short answer. *One idea. Easy to say. No celebrities, brands, or characters.*
+2. **Which personality fits our class best?** Multiple choice.
+   - Otter — a calm coach who notices small wins
+   - Spark — warm and upbeat, celebrates the specific thing you did
+   - Sage — curious, treats our class like a team running an experiment
+3. **Which message sounds most like it should?** Multiple choice. (The three voice samples, A, B, and C, from Question 3 of the full form below.)
+4. **Pick up to two more traits.** Checkboxes: Direct · Witty · Calm · Encouraging · Real, talks like a person
+5. **One thing it should NEVER do?** Short answer, optional.
+
+### Making it in Google Forms (about 5 minutes)
+
+1. Go to **forms.google.com** (signed in with your school account) and click **Blank form**.
+2. Click **Untitled form** and paste the title; paste the description under it.
+3. For each question: click the **+** on the right, paste the question, and pick the type from the menu on the right (**Short answer**, **Multiple choice**, or **Checkboxes**). Type each choice on its own line.
+4. Make answers anonymous: click **Settings** at the top, open **Responses**, and set **Collect email addresses** to **Do not collect**. If your students sign in with school accounts, leave **Restrict to users in your school** on.
+5. Click **Send**, then the link icon, then **Copy**. Post the link in your online class page or put it on the last slide.
+6. After class, click **Responses** at the top to see the counts.
+
+**No devices in the room?** Print the same five questions as a half-page paper ballot and count by hand.
+
+## Vote-day slides
+
+*About 6 slides, built from `slide-template.pptx` (see "Slides" in `classroom-display-rules.md`), with the teacher's script in the speaker notes. They follow the day-one lesson plan, trimmed to about 15 minutes. Keep each slide to one idea.*
+
+1. **Something new in our class** (Monday opening layout) — "I'm using an AI assistant to help me make things for you." *Notes: the opening from the day-one plan, in two sentences.*
+2. **What it does** (Steps layout) — helps me make slides, cards, and notes · I check everything first · it works on our class goal: [the challenge, in student words].
+3. **What it doesn't do** (Steps layout) — it doesn't grade you · it doesn't see your names · it doesn't talk to you. *(Claude for Teachers option: say the true version, as the day-one plan's teacher note does.)*
+4. **Meet the three options** (Steps layout) — Otter, Spark, Sage, one line each.
+5. **You decide** (Monday opening layout) — "Name + personality + voice. Your vote is real." *Notes: the opt-out line from the day-one plan.*
+6. **Vote now** (Steps layout) — open the link (or take a ballot) · about 5 minutes · results next class.
+
+No slide shows a number the class hasn't seen, a student's name, or a footer.
+
+---
+
 ## The form (copy into Google Forms / paper / whatever you use)
 
 *Teacher note: in Google or Microsoft Forms, turn off "Collect email addresses" so the vote really is anonymous.*

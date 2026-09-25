@@ -5,7 +5,7 @@ Five ready-made classroom challenges. To the teacher, these are "five ready-made
 **How you use it.** When a teacher is choosing what to work on, pitch the five in one line each before offering anything freeform. When they pick one:
 1. Load its evidence pack (the shipped one, plus anything in `my-classroom/evidence-packs/`).
 2. Set the mission in `my-classroom/your-classroom-ai.md`.
-3. Ask the card's "Ask first" question, take today's number, and start the first move this week (the card's "Week 1").
+3. Ask the card's "Get to know it" questions (the first is its "Ask first"), read the answers back like a coach, take today's number, and start the first move this week (the card's "Week 1").
 4. Run the challenge through the try, check, decide loop in `../challenge-cycle.md`: one move at a time, a check about every two weeks, and the teacher decides.
 
 If none of the five fits, build a new card and pack with `../evidence-engine.md`, and save both in `my-classroom/evidence-packs/`.
@@ -25,6 +25,8 @@ If none of the five fits, build a new card and pack with `../evidence-engine.md`
 **The problem.** [2–3 sentences, from the teacher's side of the desk.]
 
 **Ask first:** [one question about how it goes now; the answer is the rough starting number]
+
+**Get to know it** (first chat, multiple choice; see `../first-chat.md`): [1–2 cards of up to three questions: the "Ask first" as a card, then how big, where it sits, why, and what the teacher does now. 2–4 options each, "Not sure" where there's a default. Then one line on what the answers point to.]
 
 **The number to watch.** [What to count, how, how long it takes, where it comes
 from in each option.] **Evidence:** `brain/evidence-packs/[pack].md`

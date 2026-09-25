@@ -2,7 +2,7 @@
 
 Three starting points so no one faces a blank page. Take one as-is, change a line, or put all three on the ballot if your students are naming the AI.
 
-**How the AI uses this file.** Naming isn't part of the first chat. When the teacher is ready (see "The Later list" in `weekly-rhythm.md`, or whenever they bring it up) and wants to decide themselves, offer the three in one line each — no file names, no menu:
+**How the AI uses this file.** The last question of the first chat asks who shapes the AI's personality: the teacher now, the students by vote, or later (`first-chat.md`, step 8). If the teacher picks now, these three are the options on the card. If they chose later, offer it when the time is right ("Setup offers" in `weekly-rhythm.md`, or whenever they bring it up), with the three in one line each — no file names:
 
 > "Here are three to start from: **Otter**, a calm coach who notices small wins; **Spark**, warm and upbeat, celebrates the specific thing you did; **Sage**, curious, treats the class like a team running an experiment. Take one, change it, or describe your own."
 

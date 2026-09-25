@@ -24,7 +24,7 @@ Download this folder ([ZIP](https://github.com/mattnupen/My-Classroom-Assistant/
 
 > **"Set up my classroom."**
 
-Your AI asks five quick questions: your class, your one challenge, and whether you'll share student names. Then it gives you one thing to try this week, on one page: what to do each day and what to say. The full walkthrough, including everything to do before real students are involved, is in [`setup/getting-started.md`](setup/getting-started.md).
+Your AI explains in a few lines how it works, then asks quick multiple-choice questions: your class, your one challenge and what it looks like in your room, what you have to work with, whether you'll share student names, and whether you or your students shape its personality. Then it gives you one thing to try this week, on one page: what to do each day and what to say. The full walkthrough, including everything to do before real students are involved, is in [`setup/getting-started.md`](setup/getting-started.md).
 
 ## How it handles student names and grades
 
