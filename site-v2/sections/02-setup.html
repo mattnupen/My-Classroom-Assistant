@@ -9,7 +9,7 @@
           <!-- ===== left: the point, then the sticky that fills itself in ===== -->
           <div class="su-head">
             <h2 id="su-title" class="mca-h2 su-h2"><span class="mca-line">Setup is</span><span class="mca-line">just a <span class="su-say">chat.</span></span></h2>
-            <p class="mca-lead su-lead"><span class="su-l">In about ten minutes it asks what you teach, what you want to change and what it should never do.</span> <span class="su-l">Then it writes up your assistant’s goal and rules.</span></p>
+            <p class="mca-lead su-lead"><span class="su-l">It asks about the class, the goal and any house rules.</span> <span class="su-l">About ten minutes, start to finish.</span></p>
           </div>
 
           <div class="su-desk">
@@ -18,50 +18,12 @@
               <!-- ticks fill in chat order (Goal, Name, House rule, Research): each one lands on the answer that settles it. Order recorded with the copy chief. -->
               <ul class="su-list" aria-label="What setup settles">
                 <li class="su-tk" data-at=".205"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Goal:</b> less missing work</span></li>
-                <li class="su-tk su-tk--name" data-at=".345"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Name and voice:</b> up to your class</span></li>
+                <li class="su-tk su-tk--name" data-at=".345"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Name and personality:</b> class vote</span></li>
                 <li class="su-tk" data-at=".505"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>House rule:</b> no calling kids out</span></li>
                 <li class="su-tk" data-at=".615"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Research</b> loaded</span></li>
               </ul>
             </div>
 
-            <div class="su-side">
-              <p class="mca-sr" id="su-vote">Class vote, sample</p>
-              <p class="su-hand" aria-hidden="true"><span class="mca-hand su-hand__txt">Monday, your class <br class="su-br">names&nbsp;it.</span></p>
-              <svg class="mca-stroke su-side__arrow" viewBox="0 0 60 70" aria-hidden="true"><path class="mca-draw" pathLength="1" d="M44 5c3 22-7 40-27 52M13 42l3 16 16-3"/></svg>
-            </div>
-
-            <div class="su-cards" role="group" aria-labelledby="su-vote">
-              <figure class="su-card" data-k="0">
-                <div class="su-card__face">
-                  <p class="su-card__name">Otter</p>
-                  <p class="su-card__role">Calm coach</p>
-                  <p class="su-card__line">“One small step?”</p>
-                  <svg class="su-tally" data-n="7" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 1</span></div>
-                <span class="mca-sr">7 votes.</span>
-              </figure>
-              <figure class="su-card su-card--win" data-k="1">
-                <div class="su-card__face">
-                  <p class="su-card__name"><span class="su-card__nm">Spark<svg class="su-ring" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M71 7.5C52 2.6 22 3.8 9.5 13 1.8 18.8 3.4 29.6 16 34.4c15.6 5.9 47.6 5.4 66-1.6 12.4-4.7 15.6-13.4 6.2-19.6C78 6.6 58 4.2 40 5.2"/></svg></span></p>
-                  <p class="su-card__role">Warm hype</p>
-                  <p class="su-card__line">“Look what you pulled off.”</p>
-                  <svg class="su-tally" data-n="11" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 2</span></div>
-                <span class="mca-sr">11 votes. The class picks Spark.</span>
-              </figure>
-              <figure class="su-card" data-k="2">
-                <div class="su-card__face">
-                  <p class="su-card__name">Sage</p>
-                  <p class="su-card__role">Curious researcher</p>
-                  <p class="su-card__line">“Let’s find out.”</p>
-                  <svg class="su-tally" data-n="6" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 3</span></div>
-                <span class="mca-sr">6 votes.</span>
-              </figure>
-            </div>
           </div>
 
           <!-- ===== right: the only chat window on the page ===== -->
@@ -70,24 +32,23 @@
               <div class="mca-window su-win" role="group" aria-label="Sample setup conversation">
                 <div class="su-bar">
                   <i></i><i></i><i></i>
-                  <span class="su-bar__who"><span class="su-av su-av--sm" aria-hidden="true"></span>Your assistant</span>
-                  <span class="su-chip" aria-hidden="true"><span class="su-chip__a">No name yet</span><span class="su-chip__b"><i class="su-chip__dot"></i>Your class picks</span><span class="su-chip__c"><b>Spark</b><em>picked Monday</em></span></span>
+                  <span class="su-bar__who"><span class="su-av su-av--sm" aria-hidden="true"></span>Classroom AI</span>
                   <span class="su-clock" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.25" class="su-clock__bed"/><circle cx="10" cy="10" r="7.25" class="su-clock__arc" pathLength="1"/><circle cx="10" cy="10" r="9" class="su-clock__fill"/><path class="su-clock__ok" d="M6.1 10.4l2.6 2.5 5.2-5.3"/></svg><span><b class="su-clock__n">1</b> min</span></span>
                 </div>
 
                 <div class="su-view">
                   <ol class="su-log">
-                    <li class="su-row su-row--intro" data-l="-1"><div class="su-intro"><span class="su-av su-av--lg" aria-hidden="true"></span><p class="su-intro__t">Your assistant</p><p class="su-intro__s">New chat · it asks, you answer</p><p class="su-intro__plan"><span>Your class</span><span>The goal</span><span>Its name</span><span>House rules</span></p></div></li>
+                    <li class="su-row su-row--intro" data-l="-1"><div class="su-intro"><span class="su-av su-av--lg" aria-hidden="true"></span><p class="su-intro__t">Classroom AI</p><p class="su-intro__s">New chat · it asks, you answer</p><p class="su-intro__plan"><span>Your class</span><span>The goal</span><span>Its personality</span><span>House rules</span></p></div></li>
                     <li class="su-row su-row--day" data-l="-1"><p class="su-day">Sunday · 8:12 pm</p></li>
                     <li class="su-row su-row--you su-row--paste" data-l="-1"><div class="su-paste"><p class="su-paste__h"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.2" y="3" width="9.6" height="11" rx="2"/><path d="M6 3V2.4c0-.5.4-.9.9-.9h2.2c.5 0 .9.4.9.9V3"/><path d="M5.8 7.6h4.4M5.8 10.2h3"/></svg><span class="mca-sr">You pasted the </span>Setup prompt<i aria-hidden="true">·</i><span>pasted</span></p><p class="su-paste__t">Set up My Classroom Assistant from github.com/mattnupen/My-Classroom-Assistant — download it, then interview me about my class and build my assistant.</p></div></li>
-                    <li class="su-row su-row--ai" data-l="-1"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="su-who">Your assistant</span>Hi. I’m your class’s new assistant. No name yet. First, what do you teach?</p></li>
+                    <li class="su-row su-row--ai" data-l="-1"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="su-who">Classroom AI</span>Hi. I’m your new Classroom AI. First, what do you teach?</p></li>
                     <li class="su-row su-row--you" data-l=".05"><p class="su-b"><span class="su-who">You</span>8th grade English. 26 kids, last period.</p></li>
-                    <li class="su-row su-row--ai" data-l=".10"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>If this year went well, what would be different?</p></li>
+                    <li class="su-row su-row--ai" data-l=".10"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Classroom AI: </span>If this year went well, what would be different?</p></li>
                     <li class="su-row su-row--you" data-l=".16"><p class="su-b"><span class="mca-sr">You: </span>Fewer kids with <mark class="su-key" data-at=".16">missing work</mark>.</p></li>
-                    <li class="su-row su-row--ai su-row--vote" data-l=".23"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>Want your students to name me?</p></li>
+                    <li class="su-row su-row--ai su-row--vote" data-l=".23"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Classroom AI: </span>Want your class to vote on my name and personality?</p></li>
                     <li class="su-row su-row--you su-row--vote" data-l=".30"><p class="su-b"><span class="mca-sr">You: </span>Yes. <mark class="su-key" data-at=".30">Let them pick.</mark></p></li>
                     <li class="su-row su-row--you su-row--rule" data-l=".42"><p class="su-b"><span class="mca-sr">You: </span>One rule: never <mark class="su-key" data-at=".42">call a kid out</mark> in front of the class.</p></li>
-                    <li class="su-row su-row--ai" data-l=".555"><span class="su-av" aria-hidden="true"></span><div class="su-b"><p><span class="mca-sr">Your assistant: </span>Got it. I’ve pulled the research on missing work. Ready when your class is.</p><span class="su-att"><span class="mca-file su-file" data-at=".555" style="--f:var(--sun-ink)">Research pack<i aria-hidden="true">·</i>Missing work</span><span class="su-att__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span></span></div></li>
+                    <li class="su-row su-row--ai" data-l=".555"><span class="su-av" aria-hidden="true"></span><div class="su-b"><p><span class="mca-sr">Classroom AI: </span>Got it. I’ve pulled the research on missing work. Ready when your class is.</p><span class="su-att"><span class="mca-file su-file" data-at=".555" style="--f:var(--sun-ink)">Research pack<i aria-hidden="true">·</i>Missing work</span><span class="su-att__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span></span></div></li>
                     <li class="su-row su-row--sys" data-l=".60"><p class="su-sys"><span class="su-sys__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span>Setup saved<i aria-hidden="true">·</i><span>ready for Monday</span></p></li>
                   </ol>
                   <span class="su-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -102,7 +63,7 @@
                 </div>
               </div>
 
-              <p class="su-close"><span>That’s setup.</span> <b>Now it plans your first week.</b><svg class="mca-stroke su-close__arrow" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3v26M4.5 21.5L12 29l7.5-7.5"/></svg></p>
+              <p class="su-close"><span>That’s setup.</span> <b>Next, give it a personality.</b><svg class="mca-stroke su-close__arrow" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3v26M4.5 21.5L12 29l7.5-7.5"/></svg></p>
             </div>
           </div>
 
@@ -117,14 +78,14 @@
 <style>
 /* ---------- frame + pin ---------- */
 #setup{ position:relative; }
-#setup .su-pin{ position:relative; height:calc(100svh + 140vh); }
+#setup .su-pin{ position:relative; height:calc(100svh + 105vh); }
 #setup .su-stage{
   position:sticky; top:0; height:100svh; min-height:640px;
   display:grid; align-items:center; overflow:hidden;
   padding:clamp(64px, 8.5svh, 84px) 0 clamp(48px, 8.8svh, 84px);
 }
 /* one grid, two columns that share edges: the window top sits on the h2's cap line,
-   the closing line sits on the ballot's bottom edge */
+   the closing line sits under the window */
 #setup .su-grid{
   --h2:clamp(2.6rem, 1.15rem + 4.35vw, 5.05rem);
   display:grid; grid-template-columns:minmax(0, 510px) minmax(0, 1fr);
@@ -154,15 +115,10 @@
   background:var(--card); clip-path:polygon(0 0, 100% 0, 0 100%);
 }
 #setup .su-lead{ max-width:24em; }
-#setup .su-l{ display:block; }
-@media (max-width:640px){ #setup .su-l{ display:inline; } }
+#setup .su-l{ display:inline; }
 
-/* ---------- the desk: sticky note + margin note on top, the ballot deals in along the bottom ---------- */
-#setup .su-desk{
-  position:relative; display:grid; grid-template-columns:auto minmax(0,1fr);
-  grid-template-areas:"note side" "cards cards"; grid-template-rows:auto auto;
-  align-content:space-between; column-gap:18px; row-gap:18px; margin-top:30px;
-}
+/* ---------- the desk: the sticky note that fills itself in ---------- */
+#setup .su-desk{ position:relative; display:grid; justify-items:start; align-content:start; margin-top:36px; }
 #setup .su-note{
   grid-area:note; position:relative; display:block; width:318px; min-height:0; padding:30px 22px 20px 20px;
   transform:rotate(-1deg); transform-origin:30% 50%; z-index:3;
@@ -183,74 +139,14 @@
 #setup .su-tk__box path{ fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:16; stroke-dashoffset:calc(16 - 16 * var(--c, 0)); }
 #setup .su-tk--name b{ color:var(--ink); }
 
-/* margin note beside the sticky: who decides the name, with a pen arrow down to the ballot */
-#setup .su-side{
-  grid-area:side; align-self:end; position:relative; display:grid; justify-items:start; gap:8px; padding:0 0 10px 6px;
-}
-#setup .su-hand__txt{ display:block; font-size:28px; line-height:.95; transform:rotate(-3deg); transform-origin:0 100%; white-space:nowrap; }
-#setup .su-side__arrow{ position:absolute; left:-58px; bottom:-58px; width:48px; height:56px; }
-#setup .su-side__arrow path{ stroke:var(--orange-ink); stroke-width:2.6px; }
 
-/* ---------- the class vote: three index cards lie face down until "Let them pick.", then flip ---------- */
-#setup .su-cards{ grid-area:cards; position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; padding:0 8px 0 14px; z-index:4; }
-#setup .su-card{ position:relative; margin:0; transform-style:preserve-3d; transform-origin:50% 60%; will-change:transform; }
-#setup .su-card + .su-card{ margin-left:-10px; }
-#setup .su-card[data-k="0"]{ z-index:3; } #setup .su-card[data-k="1"]{ z-index:2; } #setup .su-card[data-k="2"]{ z-index:1; }
-#setup .su-card.is-win{ z-index:4; }
-#setup .su-card__face, #setup .su-card__back{ border-radius:6px; -webkit-backface-visibility:hidden; backface-visibility:hidden; transition:box-shadow .2s; }
-#setup .su-card__face{
-  /* fixed slots so all three tallies share one baseline: name · role · two ruled quote lines · tally */
-  --pt:14px; --nh:24px; --rh:28px; --lh:25px; --th:28px;
-  --rule:calc(var(--pt) + var(--nh) + 5px);
-  display:grid; grid-template-rows:var(--nh) var(--rh) calc(var(--lh) * 2) var(--th); padding:var(--pt) 14px 10px;
-  background:
-    linear-gradient(var(--coral-ink), var(--coral-ink)) 0 var(--rule)/100% 1.5px no-repeat,
-    repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), rgba(45,102,219,.13) calc(var(--lh) - 1px) var(--lh)) 0 calc(var(--pt) + var(--nh) + var(--rh) - var(--lh))/100% calc(var(--lh) * 3) no-repeat,
-    var(--card);
-  box-shadow:var(--sh-2), inset 0 0 0 1px var(--line);
-}
-#setup .su-card.is-win .su-card__face{ box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
-#setup .su-card.is-lose .su-card__face{ box-shadow:var(--sh-1), inset 0 0 0 1px var(--line); }
-#setup .su-card.is-lose .su-tally{ filter:saturate(.55); }
-/* the back: a coral index card with a question mark, so the empty ballot explains itself */
-#setup .su-card__back{
-  position:absolute; inset:0; transform:rotateY(180deg); display:grid; place-content:center; justify-items:center; gap:6px;
-  background:
-    radial-gradient(circle at 1px 1px, rgba(210,87,58,.16) 1px, transparent 1.4px) 0 0/9px 9px,
-    var(--coral);
-  box-shadow:var(--sh-2), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent), inset 0 0 0 7px var(--coral), inset 0 0 0 8.5px color-mix(in srgb, var(--coral-ink) 30%, transparent);
-}
-#setup .su-card__q{ font:800 2.75rem/1 var(--f-display); letter-spacing:-.03em; color:var(--coral-ink); font-variation-settings:"opsz" 72; }
-#setup .su-card__bl{ padding:3px 8px; border-radius:999px; background:var(--card); font:750 .6875rem/1.2 var(--f-body); letter-spacing:.07em; text-transform:uppercase; color:#A8391F; white-space:nowrap; }
-#setup .su-card__name{ position:relative; font:750 1.5rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 48; color:var(--ink); align-self:end; justify-self:start; }
-#setup .su-card__nm{ position:relative; z-index:1; display:inline-block; }
-#setup .su-ring{ position:absolute; z-index:-1; max-width:none; left:-14px; top:-11px; width:calc(100% + 30px); height:calc(100% + 21px); overflow:visible; pointer-events:none; }
-#setup .su-ring path{ fill:none; stroke:var(--coral-ink); stroke-width:2.4px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--g, 0)); }
-#setup .su-card__role{ align-self:end; font:700 .8125rem/var(--lh) var(--f-body); color:var(--ink-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#setup .su-card__line{ font:500 .9375rem/var(--lh) var(--f-body); color:var(--ink); text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-#setup .su-tally{ width:100%; height:22px; align-self:end; overflow:visible; }
-#setup .su-tally path{ fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--t,1)); }
 
 /* ---------- the chat window ---------- */
 #setup .su-win{ flex:1 1 0; min-height:0; display:flex; flex-direction:column; border-radius:22px; box-shadow:var(--sh-3), 0 0 0 1px rgba(20,35,31,.07); }
 #setup .su-bar{ flex:none; display:flex; align-items:center; gap:7px; height:52px; padding:0 18px; border-bottom:1px solid var(--line); background:#FDFCF9; }
 #setup .su-bar > i{ width:11px; height:11px; border-radius:50%; background:#E6E1D6; flex:none; }
 #setup .su-bar__who{ display:inline-flex; align-items:center; gap:9px; margin-left:12px; font:750 .9375rem/1 var(--f-body); letter-spacing:-.005em; color:var(--ink); white-space:nowrap; }
-#setup .su-chip{ position:relative; display:inline-grid; margin-left:6px; font:750 .75rem/1 var(--f-body); letter-spacing:.01em; white-space:nowrap; }
-#setup .su-chip > span{ grid-area:1/1; justify-self:start; display:inline-flex; align-items:center; height:24px; padding:0 10px; border-radius:999px; transition:opacity .24s cubic-bezier(.2,.7,.2,1); }
-#setup .su-chip__a{ color:var(--ink-3); background:var(--paper-2); }
-#setup .su-chip__b{ gap:6px; color:#A8391F; background:var(--coral); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 35%, transparent); opacity:0; }
-#setup .su-chip__dot{ width:6px; height:6px; border-radius:50%; background:var(--coral-ink); }
-#setup .su-win.is-named:not(.is-picked) .su-chip__dot{ animation:su-pulse 1.6s ease-in-out infinite; }
 @keyframes su-pulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(.55); opacity:.45; } }
-html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ animation:none !important; }
-#setup .su-chip__c{ gap:6px; padding:0 10px 0 9px !important; color:var(--ink); background:var(--card); box-shadow:0 0 0 1.5px var(--coral-ink), var(--sh-1); opacity:0; }
-#setup .su-chip__c b{ font:750 .875rem/1 var(--f-display); letter-spacing:-.01em; }
-#setup .su-chip__c em{ font-style:normal; font-weight:750; font-size:.6875rem; letter-spacing:.04em; text-transform:uppercase; color:#B2432A; }
-#setup .su-win.is-named .su-chip__a{ opacity:0; }
-#setup .su-win.is-named .su-chip__b{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
-#setup .su-win.is-picked .su-chip__b{ opacity:0; animation:none; }
-#setup .su-win.is-picked .su-chip__c{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
 @keyframes su-pop{ from{ transform:scale(.92); } to{ transform:none; } }
 #setup .su-clock{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; font:700 .8125rem/1 var(--f-body); color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
 #setup .su-clock svg{ width:20px; height:20px; overflow:visible; }
@@ -354,7 +250,7 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
 #setup .su-compose__send{ display:grid; place-items:center; width:34px; height:34px; border-radius:10px; color:var(--ink-3); background:var(--paper-2); }
 #setup .su-compose.is-typing .su-compose__send{ color:var(--on-chalk); background:var(--ink); }
 
-/* closing line: its baseline shares the ballot's bottom edge */
+/* closing line under the chat window */
 #setup .su-close{
   --c:1; flex:none; display:flex; align-items:flex-end; justify-content:flex-end; flex-wrap:wrap; gap:0 .3em; margin:22px 0 -.28em;
   font:500 clamp(1.125rem, 1rem + .4vw, 1.375rem)/1.3 var(--f-body); letter-spacing:-.01em; color:var(--ink-2); text-align:right;
@@ -380,25 +276,18 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-eye{ margin-bottom:16px; }
   #setup .su-head{ gap:14px; }
   #setup .su-lead{ font-size:1.0625rem; }
-  #setup .su-desk{ margin-top:20px; row-gap:12px; }
+  #setup .su-desk{ margin-top:24px; }
   #setup .su-note{ width:300px; padding:27px 18px 15px; }
   #setup .su-note__h{ margin-bottom:7px; }
   #setup .su-list{ gap:7px; }
   #setup .su-tk{ font-size:.9375rem; }
-  #setup .su-hand__txt{ font-size:26px; }
-  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:13px; padding-bottom:8px; }
-  #setup .su-card__q{ font-size:2.25rem; }
-  #setup .su-card__name{ font-size:1.3125rem; }
-  #setup .su-card__role{ font-size:.8125rem; }
-  #setup .su-card__line{ font-size:.9375rem; }
-  #setup .su-tally{ height:20px; }
   #setup .su-bar{ height:48px; }
   #setup .su-close{ margin-top:14px; font-size:1.125rem; }
 }
 
 /* ---------- tablet + phone: one column, the head scrolls away, the chat pins ---------- */
 @media (max-width:960px){
-  #setup .su-pin{ height:calc(var(--headH, 300px) + 100svh + 120svh); }
+  #setup .su-pin{ height:calc(var(--headH, 300px) + 100svh + 90svh); }
   #setup .su-stage{
     top:calc(var(--headH, 300px) * -1); height:calc(var(--headH, 300px) + 100svh); min-height:0;
     align-items:start; padding:0;
@@ -419,16 +308,6 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
 @media (min-width:641px) and (max-width:960px){
   #setup .su-grid{ --winH:clamp(380px, 46svh, 520px); }
   #setup .su-lead{ max-width:30em; }
-  #setup .su-desk{ grid-template-columns:auto minmax(0,1fr); grid-template-areas:"note cards" "side cards"; column-gap:28px; row-gap:14px; }
-  #setup .su-side{ align-self:start; padding-left:6px; }
-  #setup .su-side__arrow{ display:none; }
-  #setup .su-cards{ align-self:start; padding:8px 0 0; gap:4px; }
-  #setup .su-card + .su-card{ margin-left:-6px; }
-  #setup .su-card__role{ font-size:.75rem; letter-spacing:-.005em; }
-  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:10px; padding-bottom:9px; }
-  #setup .su-card__name{ font-size:1.3125rem; }
-  #setup .su-card__line{ font-size:.9375rem; }
-  #setup .su-hand__txt{ font-size:26px; }
 }
 @media (max-width:640px){
   #setup .su-grid{ --winH:clamp(360px, 55svh, 480px); }
@@ -439,11 +318,6 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-bar{ height:44px; padding:0 12px; gap:6px; }
   #setup .su-bar > i{ display:none; }
   #setup .su-bar__who{ margin-left:0; font-size:.875rem; gap:7px; }
-  #setup .su-chip{ font-size:.6875rem; margin-left:2px; }
-  #setup .su-chip > span{ height:22px; padding:0 8px; }
-  #setup .su-chip__c{ padding:0 8px 0 7px !important; gap:5px; }
-  #setup .su-chip__c b{ font-size:.8125rem; }
-  #setup .su-chip__c em{ font-size:.625rem; letter-spacing:.03em; }
   #setup .su-clock{ gap:5px; font-size:.75rem; }
   #setup .su-view{ --fade:40px; }
   #setup .su-log{ padding:12px 12px 12px; gap:9px; }
@@ -459,31 +333,14 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-close{ font-size:1rem; margin-top:14px; }
   #setup .su-close b{ display:inline-block; }
 
-  /* desk: sticky (what it settled) beside the ballot slips (who could name it) */
-  #setup .su-desk{ grid-template-columns:minmax(0,55fr) minmax(0,45fr); grid-template-areas:"note side" "note cards"; grid-template-rows:auto 1fr; column-gap:14px; row-gap:8px; margin-top:18px; }
-  #setup .su-note{ width:auto; padding:26px 11px 13px 12px; transform:rotate(-1.5deg); align-self:start; }
+  #setup .su-desk{ margin-top:18px; }
+  #setup .su-note{ width:min(300px, 100%); padding:26px 14px 14px 14px; transform:rotate(-1.5deg); align-self:start; }
   #setup .su-note__h{ margin-bottom:7px; }
   #setup .su-list{ gap:8px; }
   #setup .su-tk{ font-size:.8125rem; line-height:1.22; gap:8px; align-items:flex-start; }
   #setup .su-tk__box, #setup .su-tk__box svg{ width:18px; height:18px; }
-  #setup .su-side{ align-self:start; gap:5px; padding:0; }
-  #setup .su-side__arrow{ display:none; }
-  #setup .su-hand__txt{ font-size:24px; }
-  #setup .su-cards{ align-self:start; grid-template-columns:minmax(0,1fr); gap:7px; padding:0; }
-  #setup .su-card + .su-card{ margin-left:0; }
-  #setup .su-card{ height:40px; transform-origin:50% 50%; }
-  #setup .su-card__face{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:6px; height:40px; padding:0 10px 0 11px; background:var(--card); }
-  #setup .su-card__back{ transform:rotateX(180deg); display:flex; justify-content:flex-start; gap:8px; padding-left:12px; align-items:center; box-shadow:var(--sh-1), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent); background:var(--coral); }
-  #setup .su-card__q{ font-size:1.25rem; }
-  #setup .su-card__bl{ font-size:.625rem; padding:2px 7px; }
-  #setup .su-card__face::before{ content:""; position:absolute; left:0; top:7px; bottom:7px; width:2px; border-radius:2px; background:var(--coral-ink); opacity:.8; }
-  #setup .su-card__name{ font-size:1rem; align-self:center; }
-  #setup .su-ring{ left:-10px; top:-8px; width:calc(100% + 21px); height:calc(100% + 16px); }
-  #setup .su-card__role, #setup .su-card__line{ display:none; }
-  #setup .su-tally{ width:58px; height:18px; flex:none; align-self:center; }
 }
 @media (min-width:961px) and (max-height:760px){
-  #setup .su-side__arrow{ display:none; }
 }
 /* reduced motion + flat overview: no pin tricks */
 html.mca-flat #setup .su-stage{ top:0 !important; height:auto !important; padding-block:96px 64px; }
@@ -495,19 +352,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
 @media (min-width:961px){
   html.mca-flat #setup .su-grid, html.mca-reduced #setup .su-grid{ height:auto; }
   html.mca-reduced #setup .su-grid{ max-height:none; }
-  html.mca-reduced #setup .su-desk{ align-content:start; row-gap:40px; }
-  html.mca-flat #setup .su-desk, html.mca-reduced #setup .su-desk{ row-gap:64px; }
   html.mca-flat #setup .su-right__in{ min-height:560px; }
   html.mca-reduced #setup .su-right__in{ position:relative; inset:auto; }
-}
-@media (max-width: 480px){
-  /* phones: the header has room for the name only; the ballot below says it was the class's pick */
-  #setup .su-chip__c em{ display:none; }
-}
-/* phones: the ballot under the window already shows the class naming it, so the chat keeps
-   the goal exchange in view at the end instead */
-@media (max-width: 640px){
-  #setup .su-row--vote{ display:none; }
 }
 </style>
 
@@ -517,13 +363,11 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
   var root = document.getElementById("setup");
   if (!root || !window.MCA) return;
   var M = window.MCA, clamp = M.clamp01, ease = M.ease;
-  /* a small settle for cards landing: cubic-bezier(.34,1.4,.64,1)-ish overshoot */
-  var back = function (t) { var c1 = 1.25, c3 = c1 + 1, u = t - 1; return 1 + c3 * u * u * u + c1 * u * u; };
 
   /* the script (p):  chat .05 → .60 · ticks Goal .205, Name .345, House rule .505, Research .615
-     · the Name tick turns the three face-down ballot cards over (.35 → .46) · tallies .46 → .72
-     · the class circles Spark .74 → .79 · the window takes the name .82 · close .88 */
-  var T_NAME = .345, T_DONE = .555, T_FLIP = .352, T_TALLY0 = .62, T_TALLY1 = .78, T_WIN = .79, T_PICK = .84;
+     · close .66. The class vote lives in its own section (#persona) now, so the pin is shorter:
+     the scroll's 0..1 is scaled by SPAN so the chat keeps its old reading pace. */
+  var T_DONE = .555, SPAN = .75;
 
   var pin = root.querySelector(".su-pin"), stage = root.querySelector(".su-stage"), head = root.querySelector(".su-head");
   var eye = root.querySelector(".su-eye");
@@ -540,8 +384,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     return { at: parseFloat(li.getAttribute("data-at")), box: li.querySelector(".su-tk__box"), x: 0, y: 0 };
   });
   var keys = [].map.call(root.querySelectorAll(".su-key"), function (m) { return { at: parseFloat(m.getAttribute("data-at")), el: m }; });
-  var cards = [].slice.call(root.querySelectorAll(".su-card"));
-  var winCard = root.querySelector(".su-card--win"), ring = winCard.querySelector(".su-ring");
   /* couriers: each settled answer flies from the chat to its tick on the sticky note */
   var trips = [
     { el: keys[0].el, at: keys[0].at + .018, tick: ticks[0] },
@@ -565,24 +407,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
   });
   var TYP_H = 40, PAD_B = 18, PAD_T = 16, CLEAR = 26, viewH = 400;
   var pinTop = 0, vx = 0, vy = 0, headH = 0, span = 1, narrow = false, phone = false;
-  var cardX = cards.map(function () { return 0; });
-
-  /* tally marks: groups of five (four uprights + a slash), strokes counted round-robin */
-  var NS = "http://www.w3.org/2000/svg", strokes = [];
-  cards.forEach(function (card, ci) {
-    var svg = card.querySelector(".su-tally"), n = +svg.getAttribute("data-n"), list = [];
-    for (var j = 0; j < n; j++) {
-      var g = Math.floor(j / 5), q = j % 5, x0 = 4 + g * 40, d;
-      var wob = ((j * 37 + ci * 11) % 7 - 3) * 0.35;
-      if (q < 4) d = "M" + (x0 + q * 7 + wob).toFixed(1) + " 4.5L" + (x0 + q * 7 - wob * .6 + .8).toFixed(1) + " 22";
-      else d = "M" + (x0 - 4) + " 17.5L" + (x0 + 26) + " 8";
-      var p = document.createElementNS(NS, "path");
-      p.setAttribute("d", d); p.setAttribute("pathLength", "1"); svg.appendChild(p); list.push(p);
-    }
-    strokes.push(list);
-  });
-  var order = [];
-  for (var r = 0; r < 12; r++) for (var c = 0; c < strokes.length; c++) if (strokes[c][r]) order.push(strokes[c][r]);
 
   function center(el, sr) { var er = el.getBoundingClientRect(); return { x: er.left + er.width / 2 - sr.left, y: er.top + er.height / 2 - sr.top }; }
 
@@ -619,7 +443,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     });
     log.style.setProperty("--off", saved || "0");
     ticks.forEach(function (t) { var c = center(t.box, sr); t.x = c.x; t.y = c.y; });
-    cards.forEach(function (cd, i) { cardX[i] = cd.offsetLeft + cd.offsetWidth / 2; });
   }
 
   /* resting scroll for "row i is the newest, h px tall": bottom-anchored on the composer like a real
@@ -632,7 +455,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     return need;
   }
 
-  function paint(p) {
+  function paint(raw) {
+    var p = raw * SPAN;
     /* ---- the conversation ---- */
     var k = -1, mode = "", prog = 1, typingRow = null, youTyping = null;
     for (var i = 0; i < rows.length; i++) {
@@ -655,7 +479,7 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     if (M.reduced) off = 0;   /* reduced motion: the window grows to hold the whole interview */
     /* once the interview is done, the empty new-chat header has no job: under reduced motion the
        whole thread shows, so it would sit above a full conversation */
-    var hideIntro = M.reduced && p >= .9;
+    var hideIntro = M.reduced && raw >= .9;
     if (intro.hidden !== hideIntro) intro.hidden = hideIntro;
     log.style.setProperty("--off", off.toFixed(1));
     /* while the chat is shorter than the window, the new-chat header stays up top and the messages
@@ -686,8 +510,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     clockArc.style.setProperty("--m", m.toFixed(3));
     clockN.textContent = Math.max(1, Math.round(m * 10));
     clock.classList.toggle("is-done", m >= 1);
-    win.classList.toggle("is-named", p >= T_NAME);
-    win.classList.toggle("is-picked", p >= T_PICK);
 
     /* the words re-ink */
     keys.forEach(function (kk) {
@@ -724,35 +546,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
       t.box.style.setProperty("--c", clamp((v - .35) / .65).toFixed(3));
     });
 
-    /* ---- the ballot: three index cards wait face down. The Name tick turns them over one by one,
-       the class tallies, and the class circles its pick ---- */
-    var rot = phone ? [0, 0, 0] : [-4.5, 0, 4], yo = phone ? [0, 0, 0] : [6, 0, 6];
-    var wv = ease(clamp((p - T_WIN) / .05));
-    cards.forEach(function (cd, ci) {
-      var f = clamp((p - T_FLIP - ci * .028) / .05), e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-      var bump = Math.sin(Math.PI * f);
-      /* face down they sit as a tighter hand; turning over opens the fan */
-      var tx = phone ? 0 : (cardX[1] - cardX[ci]) * .16 * (1 - e);
-      var ty = yo[ci] * (.5 + .5 * e) - (phone ? 4 : 16) * bump;
-      var rr = rot[ci] * (.55 + .45 * e), sc = 1 + .04 * bump;
-      var isWin = cd === winCard;
-      if (isWin) { ty -= (phone ? 0 : 6) * wv; rr *= 1 - wv; sc *= 1 + (phone ? .02 : .03) * wv; }
-      else ty += (phone ? 0 : 5) * wv;
-      var turn = (180 * (1 - e)).toFixed(1);
-      cd.style.transform = "perspective(900px) translate3d(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px,0) rotate(" + rr.toFixed(2) + "deg) " +
-        (phone ? "rotateX(" + turn + "deg)" : "rotateY(" + turn + "deg)") + " scale(" + sc.toFixed(3) + ")";
-      cd.style.zIndex = bump > .05 ? 6 : "";
-      cd.classList.toggle("is-win", isWin && wv > .02);
-      cd.classList.toggle("is-lose", !isWin && wv > .02);
-    });
-    ring.style.setProperty("--g", ease(clamp((p - T_WIN - .01) / .05)).toFixed(3));
-    for (var q = 0; q < order.length; q++) {
-      var st = T_TALLY0 + q * ((T_TALLY1 - T_TALLY0) / order.length);
-      order[q].style.setProperty("--t", clamp((p - st) / .012).toFixed(3));
-    }
-
     /* closing line */
-    close.style.setProperty("--c", ease(clamp((p - .88) / .07)).toFixed(3));
+    close.style.setProperty("--c", ease(clamp((p - .66) / .06)).toFixed(3));
 
     fadeHead();
   }

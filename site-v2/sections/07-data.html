@@ -1,0 +1,213 @@
+<section id="data" class="mca-sheet mca-sheet--lilac" aria-labelledby="data-h">
+  <div class="mca-container mca-section">
+
+    <header class="mca-head mca-center dp-head">
+      <p class="mca-eyebrow">Privacy</p>
+      <h2 id="data-h" class="mca-h2"><span class="mca-line">By default, the AI never</span> <span class="mca-line">sees student data.</span></h2>
+      <p class="mca-lead">Names, grades and other personal information stay on your computer. The AI only gets class totals, unless the school approves&nbsp;more.</p>
+    </header>
+
+    <!-- the default path: everything with a name stays inside the laptop; only a total crosses out -->
+    <figure class="dp-flow">
+      <figcaption class="mca-sr">How it works by default. One: your gradebook, with names and grades, stays on your computer. Two: a simple app on your computer, with no internet, counts it up. Three: out comes a class total with no names or grades, like “8 students behind on Unit 3.” You paste only that total into your chat with the Classroom AI.</figcaption>
+
+      <div class="dp-box" aria-hidden="true">
+        <p class="dp-box__k"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M1.5 19.5h21"/></svg>On your computer · no internet</p>
+        <div class="dp-steps">
+          <div class="dp-step dp-step--book">
+            <p class="dp-step__h"><span class="dp-n">1</span>Your gradebook</p>
+            <div class="dp-sheet">
+              <p class="dp-sheet__f">period-4-grades.csv</p>
+              <p class="dp-r"><span>Carlos D.</span><b>4 missing</b></p>
+              <p class="dp-r"><span>Devon E.</span><b>1 missing</b></p>
+              <p class="dp-r"><span>Maya C.</span><b>3 missing</b></p>
+              <p class="dp-r"><span>Amari J.</span><b>5 missing</b></p>
+              <p class="dp-r dp-r--more"><span>+ 22 more</span></p>
+            </div>
+            <p class="dp-step__s dp-step__s--wide">Names and grades (made-up sample)</p>
+          </div>
+
+          <span class="dp-go" aria-hidden="true"></span>
+
+          <div class="dp-step dp-step--app">
+            <p class="dp-step__h"><span class="dp-n">2</span>A simple app</p>
+            <div class="dp-app">
+              <span class="dp-app__bar"><i></i><i></i><i></i></span>
+              <span class="dp-app__body">
+                <span class="dp-app__rows"><i></i><i></i><i></i><i></i></span>
+                <svg class="dp-app__sum" viewBox="0 0 24 24"><path d="M17 5H7l6 7-6 7h10"/></svg>
+              </span>
+            </div>
+            <p class="dp-step__s">Counts it up, offline</p>
+          </div>
+
+          <span class="dp-go" aria-hidden="true"></span>
+
+          <div class="dp-step dp-step--total">
+            <p class="dp-step__h"><span class="dp-n">3</span>Class totals</p>
+            <p class="dp-total"><b>8</b><span>students behind on Unit&nbsp;3</span></p>
+            <p class="dp-step__s">No names. No grades.</p>
+          </div>
+        </div>
+        <p class="dp-box__foot">Student data never leaves your computer.</p>
+      </div>
+
+      <div class="dp-out" aria-hidden="true">
+        <span class="dp-out__line"></span>
+        <p class="dp-out__lbl">You paste in<br>the totals</p>
+      </div>
+
+      <div class="dp-ai" aria-hidden="true">
+        <svg class="dp-ai__mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#14231F"/><rect x="17" y="17" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 32 32)"/><path d="M38 9C20 8 7 17 7 32s12 25 27 24 23-11 23-25S47 9 29 12" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round"/></svg>
+        <p class="dp-ai__t">Classroom AI</p>
+        <p class="dp-ai__s">in Claude</p>
+        <p class="dp-ai__got">“8 students behind on Unit&nbsp;3”</p>
+      </div>
+    </figure>
+
+    <!-- the other path, only with the school's OK -->
+    <div class="dp-opt">
+      <div class="dp-opt__path" aria-hidden="true">
+        <span class="dp-chip">Gradebook</span>
+        <span class="dp-opt__dash"></span>
+        <span class="dp-chip dp-chip--ai">Classroom AI</span>
+      </div>
+      <div class="dp-opt__txt">
+        <p class="dp-opt__k">Only if your school says yes</p>
+        <p class="dp-opt__t">Share student data directly</p>
+        <p class="dp-opt__b"><a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a>, free for verified US K-12 teachers, lets you share the gradebook directly. It has FERPA-aligned protections, and data isn’t used to train models. <strong class="dp-must">Whether you may upload identifiable student data is your district’s decision, not Anthropic’s. Ask first.</strong></p>
+      </div>
+    </div>
+
+    <p class="dp-after"><a class="mca-link" href="{{ROOT}}setup/permissions/privacy-one-pager.html">Read the privacy one-pager <span class="mca-arrow" aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<style>
+#data{ --safe:var(--mint-ink); --safe-2:#16693F; --opt:var(--sky-ink); }
+#data .dp-head{ max-width:860px; }
+#data .dp-head .mca-lead{ max-width:32em; }
+
+/* ---------- the default path ---------- */
+#data .dp-flow{
+  display:grid; grid-template-columns:minmax(0, 1fr) clamp(96px, 9vw, 140px) minmax(200px, 230px); align-items:center;
+  max-width:1160px; margin:var(--s-9) auto 0;
+}
+
+/* the laptop: a dashed safe zone around everything that has a name in it */
+#data .dp-box{
+  position:relative; padding:44px 26px 24px; border-radius:var(--r-xl);
+  background:rgba(255,255,255,.55); border:2px dashed color-mix(in srgb, var(--safe) 55%, transparent);
+}
+#data .dp-box__k{
+  position:absolute; left:22px; top:-14px; display:inline-flex; align-items:center; gap:8px; height:28px; padding:0 12px;
+  border-radius:var(--r-pill); background:var(--mint); box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--safe) 45%, transparent);
+  font:750 var(--t-micro)/1 var(--f-body); letter-spacing:.05em; text-transform:uppercase; color:var(--safe-2);
+}
+#data .dp-box__k svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; }
+#data .dp-box__foot{ margin-top:20px; text-align:center; font:750 var(--t-small)/1.3 var(--f-body); color:var(--safe-2); }
+
+#data .dp-steps{ display:grid; grid-template-columns:minmax(0, 1.15fr) 34px minmax(0, 1fr) 34px minmax(0, 1fr); align-items:start; }
+#data .dp-step{ display:grid; justify-items:center; gap:12px; text-align:center; opacity:var(--t, 1); transform:translateY(calc((1 - var(--t, 1)) * 14px)); }
+#data .dp-step__h{ display:inline-flex; align-items:center; gap:8px; font:750 var(--t-h4)/1.15 var(--f-display); letter-spacing:-.012em; color:var(--ink); }
+#data .dp-n{ display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; font:800 .8125rem/1 var(--f-body); flex:none; }
+#data .dp-step__s{ font:600 var(--t-micro)/1.35 var(--f-body); color:var(--ink-3); max-width:15em; }
+#data .dp-step__s--wide{ max-width:none; }
+#data .dp-go{ align-self:center; height:3px; margin-top:34px; position:relative; border-radius:3px; background:repeating-linear-gradient(90deg, var(--safe) 0 6px, transparent 6px 11px); opacity:var(--t, 1); }
+#data .dp-go::after{ content:""; position:absolute; right:-1px; top:50%; width:8px; height:8px; border-top:3px solid var(--safe); border-right:3px solid var(--safe); transform:translateY(-50%) rotate(45deg); }
+
+/* 1 · the gradebook, with made-up names */
+#data .dp-sheet{ width:100%; max-width:220px; padding:12px 14px 8px; border-radius:var(--r-sm); background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); text-align:left; }
+#data .dp-sheet__f{ margin-bottom:6px; font:500 .75rem/1.2 var(--f-mono); color:var(--ink-3); }
+#data .dp-r{ display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-top:1px solid var(--line); font:600 .8125rem/1.2 var(--f-body); color:var(--ink); }
+#data .dp-r b{ font-weight:700; color:#A8391F; white-space:nowrap; }
+#data .dp-r--more span{ color:var(--ink-3); }
+
+/* 2 · the app */
+#data .dp-app{ width:128px; border-radius:12px; background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); overflow:hidden; }
+#data .dp-app__bar{ display:flex; gap:4px; padding:7px 9px; border-bottom:1px solid var(--line); background:#FCFBF8; }
+#data .dp-app__bar i{ width:6px; height:6px; border-radius:50%; background:#E4DFD4; }
+#data .dp-app__body{ display:flex; align-items:center; justify-content:center; gap:10px; padding:14px 12px 16px; }
+#data .dp-app__rows{ display:grid; gap:5px; }
+#data .dp-app__rows i{ display:block; width:40px; height:5px; border-radius:3px; background:rgba(20,35,31,.14); }
+#data .dp-app__rows i:nth-child(2){ width:32px; } #data .dp-app__rows i:nth-child(4){ width:28px; }
+#data .dp-app__sum{ width:30px; height:30px; padding:5px; border-radius:9px; background:var(--mint); fill:none; stroke:var(--safe-2); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* 3 · the total */
+#data .dp-total{ display:grid; justify-items:center; gap:4px; width:100%; max-width:190px; padding:14px 14px 16px; border-radius:var(--r-md); background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 2px var(--note-mint); }
+#data .dp-total b{ font:800 2.5rem/1 var(--f-display); letter-spacing:-.03em; color:var(--ink); }
+#data .dp-total span{ font:650 var(--t-small)/1.3 var(--f-body); color:var(--ink-2); }
+
+/* the one thing that crosses out of the laptop */
+#data .dp-out{ position:relative; display:grid; justify-items:center; align-content:center; gap:10px; padding:0 10px; opacity:var(--t, 1); }
+#data .dp-out__line{ position:relative; width:100%; height:3px; border-radius:3px; background:var(--ink); transform-origin:0 50%; transform:scaleX(var(--t, 1)); }
+#data .dp-out__line::after{ content:""; position:absolute; right:-1px; top:50%; width:10px; height:10px; border-top:3px solid var(--ink); border-right:3px solid var(--ink); transform:translateY(-50%) rotate(45deg); }
+#data .dp-out__lbl{ order:-1; text-align:center; font:750 var(--t-micro)/1.3 var(--f-body); color:var(--ink-2); }
+
+#data .dp-ai{
+  display:grid; justify-items:center; gap:4px; text-align:center; padding:26px 20px 22px; border-radius:var(--r-lg);
+  background:var(--card); box-shadow:var(--sh-3);
+}
+#data .dp-ai__mark{ width:52px; height:52px; margin-bottom:6px; }
+#data .dp-ai__t{ font:750 var(--t-h4)/1.1 var(--f-display); letter-spacing:-.015em; }
+#data .dp-ai__s{ font:600 var(--t-small)/1.2 var(--f-body); color:var(--ink-3); }
+#data .dp-ai__got{ margin-top:12px; padding:8px 12px; border-radius:10px; background:var(--mint); font:650 var(--t-small)/1.3 var(--f-body); color:#1F5A3A; opacity:var(--t, 1); }
+
+/* ---------- the other path ---------- */
+#data .dp-opt{
+  display:grid; grid-template-columns:auto minmax(0, 1fr); align-items:center; gap:28px 40px;
+  max-width:1000px; margin:var(--s-8) auto 0; padding:26px 30px; border-radius:var(--r-lg);
+  background:rgba(255,255,255,.6); border:2px dashed color-mix(in srgb, var(--opt) 45%, transparent);
+}
+#data .dp-opt__path{ display:flex; align-items:center; gap:10px; }
+#data .dp-chip{ display:inline-flex; align-items:center; height:34px; padding:0 13px; border-radius:var(--r-pill); background:var(--card); box-shadow:var(--sh-1), inset 0 0 0 1px var(--line); font:700 var(--t-small)/1 var(--f-body); color:var(--ink); white-space:nowrap; }
+#data .dp-opt__dash{ position:relative; width:64px; height:3px; background:repeating-linear-gradient(90deg, var(--opt) 0 6px, transparent 6px 11px); }
+#data .dp-opt__dash::after{ content:""; position:absolute; right:-1px; top:50%; width:8px; height:8px; border-top:3px solid var(--opt); border-right:3px solid var(--opt); transform:translateY(-50%) rotate(45deg); }
+#data .dp-opt__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.06em; text-transform:uppercase; color:#1F4FB3; }
+#data .dp-opt__t{ margin-top:6px; font:750 var(--t-h4)/1.2 var(--f-display); letter-spacing:-.012em; color:var(--ink); }
+#data .dp-opt__b{ margin-top:6px; font:500 var(--t-body)/1.55 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
+#data .dp-must{ font-weight:700; color:var(--ink); }
+#data .dp-after{ margin-top:var(--s-6); text-align:center; font:600 var(--t-body)/1.5 var(--f-body); }
+
+/* ---------- tablet: the AI drops below the laptop ---------- */
+@media (max-width: 1060px){
+  #data .dp-flow{ grid-template-columns:minmax(0, 1fr); justify-items:center; max-width:760px; }
+  #data .dp-box{ width:100%; }
+  #data .dp-out{ height:96px; width:auto; padding:0; grid-template-columns:auto auto; align-items:center; gap:14px; }
+  #data .dp-out__line{ width:3px; height:72px; transform-origin:50% 0; transform:scaleY(var(--t, 1)); }
+  #data .dp-out__line::after{ right:auto; left:50%; top:auto; bottom:-1px; transform:translateX(-50%) rotate(135deg); }
+  #data .dp-out__lbl{ order:1; text-align:left; }
+  #data .dp-ai{ width:min(280px, 100%); }
+  #data .dp-opt{ grid-template-columns:minmax(0, 1fr); max-width:760px; }
+}
+
+/* ---------- phone: the three steps stack ---------- */
+@media (max-width: 640px){
+  #data .dp-flow{ margin-top:var(--s-7); }
+  #data .dp-box{ padding:40px 16px 20px; }
+  #data .dp-steps{ grid-template-columns:minmax(0, 1fr); row-gap:10px; justify-items:center; }
+  #data .dp-go{ width:3px; height:28px; margin:0; background:repeating-linear-gradient(180deg, var(--safe) 0 6px, transparent 6px 11px); }
+  #data .dp-go::after{ right:auto; left:50%; top:auto; bottom:-1px; transform:translateX(-50%) rotate(135deg); }
+  #data .dp-opt{ padding:22px 20px; }
+  #data .dp-opt__dash{ width:36px; }
+  #data .dp-chip{ padding:0 11px; font-size:.875rem; }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("data");
+  if (!sec || !window.MCA) return;
+  var M = window.MCA, c01 = M.clamp01, ease = M.ease;
+  var flow = sec.querySelector(".dp-flow");
+  var steps = [].slice.call(sec.querySelectorAll(".dp-step, .dp-go"));
+  var out = sec.querySelector(".dp-out"), got = sec.querySelector(".dp-ai__got");
+  /* one step at a time: gradebook, app, total. Then (and only then) the total crosses out to the AI */
+  M.register(flow, "pass", function (p) {
+    M.stepper(steps, p, .08, .07, .1);
+    out.style.setProperty("--t", ease(c01((p - .5) / .14)).toFixed(3));
+    got.style.setProperty("--t", c01((p - .62) / .08).toFixed(3));
+  });
+})();
+</script>

@@ -39,6 +39,10 @@ Claude desktop app (the setup prompt only works there, because it downloads the 
 - Setup is a ~10-minute conversation: it interviews the teacher (what they teach, what
   would be different if the year went well, whether students name it and vote on the goal).
 - Students can help name it and shape its personality.
+- **What the page calls the AI:** "Classroom AI" in every mock-up label (chat header, speaker, diagrams).
+  Starter persona names (Otter, Spark, Sage) appear only on the class-vote ballot in `#persona`,
+  where each is clearly labelled Name / Personality / How it talks. (Decided Sept 24, 2026: names
+  elsewhere read as mystery words.)
 
 ## Student data — two safe paths (be exact)
 
@@ -95,8 +99,10 @@ Either way: same assistant, same materials, same weekly loop.
 
 ## What the teacher already approved (keep the spirit)
 
-- Headline (chosen Sept 2026): **"Hand one classroom problem to an AI, and it keeps working on
-  it all year."** No eyebrow above it — the H1 must explain the product on its own.
+- Headline (shortened Sept 24, 2026): **"Put an AI to work on one classroom problem all year."**
+  (Was "Hand one classroom problem to an AI, and it keeps working on it all year.", too long.)
+  No eyebrow above it — the H1 must explain the product on its own. Each lead adds something
+  new; it never restates the heading.
 - A scroll-driven set-piece captioned **"This is your assistant. It helps you do things."**
   where the things it makes assemble around the words. The teacher loved this — keep it as
   a centrepiece, make it better.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Classroom Assistant — Hand one classroom problem to an AI, and it keeps working on it all year.</title>
+<title>My Classroom Assistant — Put an AI to work on one classroom problem all year.</title>
 <meta name="description" content="A free, open-source AI agent for teachers, running in Claude Cowork. Hand it one classroom challenge, like missing work or attendance. It tries research-backed strategies, checks what’s working and adjusts all year. It works through you, so you decide what reaches students.">
 <meta name="theme-color" content="#FAF6EE">
 <meta property="og:title" content="My Classroom Assistant">
@@ -1151,8 +1151,8 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
 
       <div class="mca-container h-main">
         <div class="h-copy">
-          <h1 id="hero-title" class="mca-display mca-ring-host h-h1"><span class="mca-line">Hand <span data-mca-ring="load" data-ring-px=".24" data-ring-py=".13" data-ring-d="M62 5C26 1 4 7 2 48C0 89 22 98 54 97C86 96 99 89 98 50C97 17 82 3 44 11">one</span> classroom problem</span> <span class="mca-line">to an AI, and it keeps</span> <span class="mca-line">working on it all year.</span></h1>
-          <p class="mca-lead h-lead">A semi-autonomous AI agent that takes on one challenge in your class, like missing work or attendance. Each week it checks what’s working, adjusts its strategy and sends you the slides and plans to run. You decide what reaches students.</p>
+          <h1 id="hero-title" class="mca-display mca-ring-host h-h1"><span class="mca-line">Put an AI to work on <span data-mca-ring="load" data-ring-px=".24" data-ring-py=".13" data-ring-d="M62 5C26 1 4 7 2 48C0 89 22 98 54 97C86 96 99 89 98 50C97 17 82 3 44 11">one</span></span> <span class="mca-line">classroom problem all year.</span></h1>
+          <p class="mca-lead h-lead">Each week it checks what’s working, adjusts its strategy and drafts the slides and plans. You decide what reaches students.</p>
 
           <div class="mca-copy h-cta" data-copy-group>
             <div class="h-cta__row">
@@ -1165,7 +1165,7 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
               </button>
               <span class="h-demo">Just looking? <a class="mca-link" href="local-tools/ClassAI-dashboard.html" title="A sample class with made-up names.">Try the live demo <span class="mca-arrow" aria-hidden="true">→</span><span class="mca-sr"> A sample class with made-up names.</span></a></span>
             </div>
-            <p class="h-cap"><span>Paste it into Claude Cowork in the Claude desktop app. It downloads the project and walks you through setup. Verified US K-12 teachers can get Claude free with <a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a>.</span> <button class="mca-copy__toggle h-toggle" type="button" data-reveal-prompt aria-expanded="false"><span class="mca-copy__show">Show the prompt</span><span class="mca-copy__hide">Hide the prompt</span></button></p>
+            <p class="h-cap"><span>Paste it into Claude Cowork. Get Claude free with <a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a>.</span> <button class="mca-copy__toggle h-toggle" type="button" data-reveal-prompt aria-expanded="false"><span class="mca-copy__show">Show the prompt</span><span class="mca-copy__hide">Hide the prompt</span></button></p>
             <div class="mca-copy__panel h-panel" hidden>
               <p class="mca-copy__fail">Your browser blocked copying. Here it is. Select it and copy.</p>
               <code class="mca-copy__prompt" tabindex="0"></code>
@@ -1770,7 +1770,7 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
           <!-- ===== left: the point, then the sticky that fills itself in ===== -->
           <div class="su-head">
             <h2 id="su-title" class="mca-h2 su-h2"><span class="mca-line">Setup is</span><span class="mca-line">just a <span class="su-say">chat.</span></span></h2>
-            <p class="mca-lead su-lead"><span class="su-l">In about ten minutes it asks what you teach, what you want to change and what it should never do.</span> <span class="su-l">Then it writes up your assistant’s goal and rules.</span></p>
+            <p class="mca-lead su-lead"><span class="su-l">It asks about the class, the goal and any house rules.</span> <span class="su-l">About ten minutes, start to finish.</span></p>
           </div>
 
           <div class="su-desk">
@@ -1779,50 +1779,12 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
               <!-- ticks fill in chat order (Goal, Name, House rule, Research): each one lands on the answer that settles it. Order recorded with the copy chief. -->
               <ul class="su-list" aria-label="What setup settles">
                 <li class="su-tk" data-at=".205"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Goal:</b> less missing work</span></li>
-                <li class="su-tk su-tk--name" data-at=".345"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Name and voice:</b> up to your class</span></li>
+                <li class="su-tk su-tk--name" data-at=".345"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Name and personality:</b> class vote</span></li>
                 <li class="su-tk" data-at=".505"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>House rule:</b> no calling kids out</span></li>
                 <li class="su-tk" data-at=".615"><i class="su-tk__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></i><span><b>Research</b> loaded</span></li>
               </ul>
             </div>
 
-            <div class="su-side">
-              <p class="mca-sr" id="su-vote">Class vote, sample</p>
-              <p class="su-hand" aria-hidden="true"><span class="mca-hand su-hand__txt">Monday, your class <br class="su-br">names&nbsp;it.</span></p>
-              <svg class="mca-stroke su-side__arrow" viewBox="0 0 60 70" aria-hidden="true"><path class="mca-draw" pathLength="1" d="M44 5c3 22-7 40-27 52M13 42l3 16 16-3"/></svg>
-            </div>
-
-            <div class="su-cards" role="group" aria-labelledby="su-vote">
-              <figure class="su-card" data-k="0">
-                <div class="su-card__face">
-                  <p class="su-card__name">Otter</p>
-                  <p class="su-card__role">Calm coach</p>
-                  <p class="su-card__line">“One small step?”</p>
-                  <svg class="su-tally" data-n="7" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 1</span></div>
-                <span class="mca-sr">7 votes.</span>
-              </figure>
-              <figure class="su-card su-card--win" data-k="1">
-                <div class="su-card__face">
-                  <p class="su-card__name"><span class="su-card__nm">Spark<svg class="su-ring" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M71 7.5C52 2.6 22 3.8 9.5 13 1.8 18.8 3.4 29.6 16 34.4c15.6 5.9 47.6 5.4 66-1.6 12.4-4.7 15.6-13.4 6.2-19.6C78 6.6 58 4.2 40 5.2"/></svg></span></p>
-                  <p class="su-card__role">Warm hype</p>
-                  <p class="su-card__line">“Look what you pulled off.”</p>
-                  <svg class="su-tally" data-n="11" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 2</span></div>
-                <span class="mca-sr">11 votes. The class picks Spark.</span>
-              </figure>
-              <figure class="su-card" data-k="2">
-                <div class="su-card__face">
-                  <p class="su-card__name">Sage</p>
-                  <p class="su-card__role">Curious researcher</p>
-                  <p class="su-card__line">“Let’s find out.”</p>
-                  <svg class="su-tally" data-n="6" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg>
-                </div>
-                <div class="su-card__back" aria-hidden="true"><span class="su-card__q">?</span><span class="su-card__bl">Name idea 3</span></div>
-                <span class="mca-sr">6 votes.</span>
-              </figure>
-            </div>
           </div>
 
           <!-- ===== right: the only chat window on the page ===== -->
@@ -1831,24 +1793,23 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
               <div class="mca-window su-win" role="group" aria-label="Sample setup conversation">
                 <div class="su-bar">
                   <i></i><i></i><i></i>
-                  <span class="su-bar__who"><span class="su-av su-av--sm" aria-hidden="true"></span>Your assistant</span>
-                  <span class="su-chip" aria-hidden="true"><span class="su-chip__a">No name yet</span><span class="su-chip__b"><i class="su-chip__dot"></i>Your class picks</span><span class="su-chip__c"><b>Spark</b><em>picked Monday</em></span></span>
+                  <span class="su-bar__who"><span class="su-av su-av--sm" aria-hidden="true"></span>Classroom AI</span>
                   <span class="su-clock" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.25" class="su-clock__bed"/><circle cx="10" cy="10" r="7.25" class="su-clock__arc" pathLength="1"/><circle cx="10" cy="10" r="9" class="su-clock__fill"/><path class="su-clock__ok" d="M6.1 10.4l2.6 2.5 5.2-5.3"/></svg><span><b class="su-clock__n">1</b> min</span></span>
                 </div>
 
                 <div class="su-view">
                   <ol class="su-log">
-                    <li class="su-row su-row--intro" data-l="-1"><div class="su-intro"><span class="su-av su-av--lg" aria-hidden="true"></span><p class="su-intro__t">Your assistant</p><p class="su-intro__s">New chat · it asks, you answer</p><p class="su-intro__plan"><span>Your class</span><span>The goal</span><span>Its name</span><span>House rules</span></p></div></li>
+                    <li class="su-row su-row--intro" data-l="-1"><div class="su-intro"><span class="su-av su-av--lg" aria-hidden="true"></span><p class="su-intro__t">Classroom AI</p><p class="su-intro__s">New chat · it asks, you answer</p><p class="su-intro__plan"><span>Your class</span><span>The goal</span><span>Its personality</span><span>House rules</span></p></div></li>
                     <li class="su-row su-row--day" data-l="-1"><p class="su-day">Sunday · 8:12 pm</p></li>
                     <li class="su-row su-row--you su-row--paste" data-l="-1"><div class="su-paste"><p class="su-paste__h"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.2" y="3" width="9.6" height="11" rx="2"/><path d="M6 3V2.4c0-.5.4-.9.9-.9h2.2c.5 0 .9.4.9.9V3"/><path d="M5.8 7.6h4.4M5.8 10.2h3"/></svg><span class="mca-sr">You pasted the </span>Setup prompt<i aria-hidden="true">·</i><span>pasted</span></p><p class="su-paste__t">Set up My Classroom Assistant from github.com/mattnupen/My-Classroom-Assistant — download it, then interview me about my class and build my assistant.</p></div></li>
-                    <li class="su-row su-row--ai" data-l="-1"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="su-who">Your assistant</span>Hi. I’m your class’s new assistant. No name yet. First, what do you teach?</p></li>
+                    <li class="su-row su-row--ai" data-l="-1"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="su-who">Classroom AI</span>Hi. I’m your new Classroom AI. First, what do you teach?</p></li>
                     <li class="su-row su-row--you" data-l=".05"><p class="su-b"><span class="su-who">You</span>8th grade English. 26 kids, last period.</p></li>
-                    <li class="su-row su-row--ai" data-l=".10"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>If this year went well, what would be different?</p></li>
+                    <li class="su-row su-row--ai" data-l=".10"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Classroom AI: </span>If this year went well, what would be different?</p></li>
                     <li class="su-row su-row--you" data-l=".16"><p class="su-b"><span class="mca-sr">You: </span>Fewer kids with <mark class="su-key" data-at=".16">missing work</mark>.</p></li>
-                    <li class="su-row su-row--ai su-row--vote" data-l=".23"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Your assistant: </span>Want your students to name me?</p></li>
+                    <li class="su-row su-row--ai su-row--vote" data-l=".23"><span class="su-av" aria-hidden="true"></span><p class="su-b"><span class="mca-sr">Classroom AI: </span>Want your class to vote on my name and personality?</p></li>
                     <li class="su-row su-row--you su-row--vote" data-l=".30"><p class="su-b"><span class="mca-sr">You: </span>Yes. <mark class="su-key" data-at=".30">Let them pick.</mark></p></li>
                     <li class="su-row su-row--you su-row--rule" data-l=".42"><p class="su-b"><span class="mca-sr">You: </span>One rule: never <mark class="su-key" data-at=".42">call a kid out</mark> in front of the class.</p></li>
-                    <li class="su-row su-row--ai" data-l=".555"><span class="su-av" aria-hidden="true"></span><div class="su-b"><p><span class="mca-sr">Your assistant: </span>Got it. I’ve pulled the research on missing work. Ready when your class is.</p><span class="su-att"><span class="mca-file su-file" data-at=".555" style="--f:var(--sun-ink)">Research pack<i aria-hidden="true">·</i>Missing work</span><span class="su-att__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span></span></div></li>
+                    <li class="su-row su-row--ai" data-l=".555"><span class="su-av" aria-hidden="true"></span><div class="su-b"><p><span class="mca-sr">Classroom AI: </span>Got it. I’ve pulled the research on missing work. Ready when your class is.</p><span class="su-att"><span class="mca-file su-file" data-at=".555" style="--f:var(--sun-ink)">Research pack<i aria-hidden="true">·</i>Missing work</span><span class="su-att__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span></span></div></li>
                     <li class="su-row su-row--sys" data-l=".60"><p class="su-sys"><span class="su-sys__ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12.6l3.3 3.2L17.2 9"/></svg></span>Setup saved<i aria-hidden="true">·</i><span>ready for Monday</span></p></li>
                   </ol>
                   <span class="su-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1863,7 +1824,7 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
                 </div>
               </div>
 
-              <p class="su-close"><span>That’s setup.</span> <b>Now it plans your first week.</b><svg class="mca-stroke su-close__arrow" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3v26M4.5 21.5L12 29l7.5-7.5"/></svg></p>
+              <p class="su-close"><span>That’s setup.</span> <b>Next, give it a personality.</b><svg class="mca-stroke su-close__arrow" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 3v26M4.5 21.5L12 29l7.5-7.5"/></svg></p>
             </div>
           </div>
 
@@ -1878,14 +1839,14 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
 <style>
 /* ---------- frame + pin ---------- */
 #setup{ position:relative; }
-#setup .su-pin{ position:relative; height:calc(100svh + 140vh); }
+#setup .su-pin{ position:relative; height:calc(100svh + 105vh); }
 #setup .su-stage{
   position:sticky; top:0; height:100svh; min-height:640px;
   display:grid; align-items:center; overflow:hidden;
   padding:clamp(64px, 8.5svh, 84px) 0 clamp(48px, 8.8svh, 84px);
 }
 /* one grid, two columns that share edges: the window top sits on the h2's cap line,
-   the closing line sits on the ballot's bottom edge */
+   the closing line sits under the window */
 #setup .su-grid{
   --h2:clamp(2.6rem, 1.15rem + 4.35vw, 5.05rem);
   display:grid; grid-template-columns:minmax(0, 510px) minmax(0, 1fr);
@@ -1915,15 +1876,10 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
   background:var(--card); clip-path:polygon(0 0, 100% 0, 0 100%);
 }
 #setup .su-lead{ max-width:24em; }
-#setup .su-l{ display:block; }
-@media (max-width:640px){ #setup .su-l{ display:inline; } }
+#setup .su-l{ display:inline; }
 
-/* ---------- the desk: sticky note + margin note on top, the ballot deals in along the bottom ---------- */
-#setup .su-desk{
-  position:relative; display:grid; grid-template-columns:auto minmax(0,1fr);
-  grid-template-areas:"note side" "cards cards"; grid-template-rows:auto auto;
-  align-content:space-between; column-gap:18px; row-gap:18px; margin-top:30px;
-}
+/* ---------- the desk: the sticky note that fills itself in ---------- */
+#setup .su-desk{ position:relative; display:grid; justify-items:start; align-content:start; margin-top:36px; }
 #setup .su-note{
   grid-area:note; position:relative; display:block; width:318px; min-height:0; padding:30px 22px 20px 20px;
   transform:rotate(-1deg); transform-origin:30% 50%; z-index:3;
@@ -1944,74 +1900,14 @@ html.mca-reduced #nav .nv-bar, html.mca-reduced #nav .nv-bar *, html.mca-reduced
 #setup .su-tk__box path{ fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:16; stroke-dashoffset:calc(16 - 16 * var(--c, 0)); }
 #setup .su-tk--name b{ color:var(--ink); }
 
-/* margin note beside the sticky: who decides the name, with a pen arrow down to the ballot */
-#setup .su-side{
-  grid-area:side; align-self:end; position:relative; display:grid; justify-items:start; gap:8px; padding:0 0 10px 6px;
-}
-#setup .su-hand__txt{ display:block; font-size:28px; line-height:.95; transform:rotate(-3deg); transform-origin:0 100%; white-space:nowrap; }
-#setup .su-side__arrow{ position:absolute; left:-58px; bottom:-58px; width:48px; height:56px; }
-#setup .su-side__arrow path{ stroke:var(--orange-ink); stroke-width:2.6px; }
 
-/* ---------- the class vote: three index cards lie face down until "Let them pick.", then flip ---------- */
-#setup .su-cards{ grid-area:cards; position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; padding:0 8px 0 14px; z-index:4; }
-#setup .su-card{ position:relative; margin:0; transform-style:preserve-3d; transform-origin:50% 60%; will-change:transform; }
-#setup .su-card + .su-card{ margin-left:-10px; }
-#setup .su-card[data-k="0"]{ z-index:3; } #setup .su-card[data-k="1"]{ z-index:2; } #setup .su-card[data-k="2"]{ z-index:1; }
-#setup .su-card.is-win{ z-index:4; }
-#setup .su-card__face, #setup .su-card__back{ border-radius:6px; -webkit-backface-visibility:hidden; backface-visibility:hidden; transition:box-shadow .2s; }
-#setup .su-card__face{
-  /* fixed slots so all three tallies share one baseline: name · role · two ruled quote lines · tally */
-  --pt:14px; --nh:24px; --rh:28px; --lh:25px; --th:28px;
-  --rule:calc(var(--pt) + var(--nh) + 5px);
-  display:grid; grid-template-rows:var(--nh) var(--rh) calc(var(--lh) * 2) var(--th); padding:var(--pt) 14px 10px;
-  background:
-    linear-gradient(var(--coral-ink), var(--coral-ink)) 0 var(--rule)/100% 1.5px no-repeat,
-    repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), rgba(45,102,219,.13) calc(var(--lh) - 1px) var(--lh)) 0 calc(var(--pt) + var(--nh) + var(--rh) - var(--lh))/100% calc(var(--lh) * 3) no-repeat,
-    var(--card);
-  box-shadow:var(--sh-2), inset 0 0 0 1px var(--line);
-}
-#setup .su-card.is-win .su-card__face{ box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
-#setup .su-card.is-lose .su-card__face{ box-shadow:var(--sh-1), inset 0 0 0 1px var(--line); }
-#setup .su-card.is-lose .su-tally{ filter:saturate(.55); }
-/* the back: a coral index card with a question mark, so the empty ballot explains itself */
-#setup .su-card__back{
-  position:absolute; inset:0; transform:rotateY(180deg); display:grid; place-content:center; justify-items:center; gap:6px;
-  background:
-    radial-gradient(circle at 1px 1px, rgba(210,87,58,.16) 1px, transparent 1.4px) 0 0/9px 9px,
-    var(--coral);
-  box-shadow:var(--sh-2), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent), inset 0 0 0 7px var(--coral), inset 0 0 0 8.5px color-mix(in srgb, var(--coral-ink) 30%, transparent);
-}
-#setup .su-card__q{ font:800 2.75rem/1 var(--f-display); letter-spacing:-.03em; color:var(--coral-ink); font-variation-settings:"opsz" 72; }
-#setup .su-card__bl{ padding:3px 8px; border-radius:999px; background:var(--card); font:750 .6875rem/1.2 var(--f-body); letter-spacing:.07em; text-transform:uppercase; color:#A8391F; white-space:nowrap; }
-#setup .su-card__name{ position:relative; font:750 1.5rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 48; color:var(--ink); align-self:end; justify-self:start; }
-#setup .su-card__nm{ position:relative; z-index:1; display:inline-block; }
-#setup .su-ring{ position:absolute; z-index:-1; max-width:none; left:-14px; top:-11px; width:calc(100% + 30px); height:calc(100% + 21px); overflow:visible; pointer-events:none; }
-#setup .su-ring path{ fill:none; stroke:var(--coral-ink); stroke-width:2.4px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--g, 0)); }
-#setup .su-card__role{ align-self:end; font:700 .8125rem/var(--lh) var(--f-body); color:var(--ink-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#setup .su-card__line{ font:500 .9375rem/var(--lh) var(--f-body); color:var(--ink); text-wrap:pretty; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-#setup .su-tally{ width:100%; height:22px; align-self:end; overflow:visible; }
-#setup .su-tally path{ fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--t,1)); }
 
 /* ---------- the chat window ---------- */
 #setup .su-win{ flex:1 1 0; min-height:0; display:flex; flex-direction:column; border-radius:22px; box-shadow:var(--sh-3), 0 0 0 1px rgba(20,35,31,.07); }
 #setup .su-bar{ flex:none; display:flex; align-items:center; gap:7px; height:52px; padding:0 18px; border-bottom:1px solid var(--line); background:#FDFCF9; }
 #setup .su-bar > i{ width:11px; height:11px; border-radius:50%; background:#E6E1D6; flex:none; }
 #setup .su-bar__who{ display:inline-flex; align-items:center; gap:9px; margin-left:12px; font:750 .9375rem/1 var(--f-body); letter-spacing:-.005em; color:var(--ink); white-space:nowrap; }
-#setup .su-chip{ position:relative; display:inline-grid; margin-left:6px; font:750 .75rem/1 var(--f-body); letter-spacing:.01em; white-space:nowrap; }
-#setup .su-chip > span{ grid-area:1/1; justify-self:start; display:inline-flex; align-items:center; height:24px; padding:0 10px; border-radius:999px; transition:opacity .24s cubic-bezier(.2,.7,.2,1); }
-#setup .su-chip__a{ color:var(--ink-3); background:var(--paper-2); }
-#setup .su-chip__b{ gap:6px; color:#A8391F; background:var(--coral); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 35%, transparent); opacity:0; }
-#setup .su-chip__dot{ width:6px; height:6px; border-radius:50%; background:var(--coral-ink); }
-#setup .su-win.is-named:not(.is-picked) .su-chip__dot{ animation:su-pulse 1.6s ease-in-out infinite; }
 @keyframes su-pulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(.55); opacity:.45; } }
-html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ animation:none !important; }
-#setup .su-chip__c{ gap:6px; padding:0 10px 0 9px !important; color:var(--ink); background:var(--card); box-shadow:0 0 0 1.5px var(--coral-ink), var(--sh-1); opacity:0; }
-#setup .su-chip__c b{ font:750 .875rem/1 var(--f-display); letter-spacing:-.01em; }
-#setup .su-chip__c em{ font-style:normal; font-weight:750; font-size:.6875rem; letter-spacing:.04em; text-transform:uppercase; color:#B2432A; }
-#setup .su-win.is-named .su-chip__a{ opacity:0; }
-#setup .su-win.is-named .su-chip__b{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
-#setup .su-win.is-picked .su-chip__b{ opacity:0; animation:none; }
-#setup .su-win.is-picked .su-chip__c{ opacity:1; animation:su-pop .24s cubic-bezier(.2,.7,.2,1); }
 @keyframes su-pop{ from{ transform:scale(.92); } to{ transform:none; } }
 #setup .su-clock{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; font:700 .8125rem/1 var(--f-body); color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
 #setup .su-clock svg{ width:20px; height:20px; overflow:visible; }
@@ -2115,7 +2011,7 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
 #setup .su-compose__send{ display:grid; place-items:center; width:34px; height:34px; border-radius:10px; color:var(--ink-3); background:var(--paper-2); }
 #setup .su-compose.is-typing .su-compose__send{ color:var(--on-chalk); background:var(--ink); }
 
-/* closing line: its baseline shares the ballot's bottom edge */
+/* closing line under the chat window */
 #setup .su-close{
   --c:1; flex:none; display:flex; align-items:flex-end; justify-content:flex-end; flex-wrap:wrap; gap:0 .3em; margin:22px 0 -.28em;
   font:500 clamp(1.125rem, 1rem + .4vw, 1.375rem)/1.3 var(--f-body); letter-spacing:-.01em; color:var(--ink-2); text-align:right;
@@ -2141,25 +2037,18 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-eye{ margin-bottom:16px; }
   #setup .su-head{ gap:14px; }
   #setup .su-lead{ font-size:1.0625rem; }
-  #setup .su-desk{ margin-top:20px; row-gap:12px; }
+  #setup .su-desk{ margin-top:24px; }
   #setup .su-note{ width:300px; padding:27px 18px 15px; }
   #setup .su-note__h{ margin-bottom:7px; }
   #setup .su-list{ gap:7px; }
   #setup .su-tk{ font-size:.9375rem; }
-  #setup .su-hand__txt{ font-size:26px; }
-  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:13px; padding-bottom:8px; }
-  #setup .su-card__q{ font-size:2.25rem; }
-  #setup .su-card__name{ font-size:1.3125rem; }
-  #setup .su-card__role{ font-size:.8125rem; }
-  #setup .su-card__line{ font-size:.9375rem; }
-  #setup .su-tally{ height:20px; }
   #setup .su-bar{ height:48px; }
   #setup .su-close{ margin-top:14px; font-size:1.125rem; }
 }
 
 /* ---------- tablet + phone: one column, the head scrolls away, the chat pins ---------- */
 @media (max-width:960px){
-  #setup .su-pin{ height:calc(var(--headH, 300px) + 100svh + 120svh); }
+  #setup .su-pin{ height:calc(var(--headH, 300px) + 100svh + 90svh); }
   #setup .su-stage{
     top:calc(var(--headH, 300px) * -1); height:calc(var(--headH, 300px) + 100svh); min-height:0;
     align-items:start; padding:0;
@@ -2180,16 +2069,6 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
 @media (min-width:641px) and (max-width:960px){
   #setup .su-grid{ --winH:clamp(380px, 46svh, 520px); }
   #setup .su-lead{ max-width:30em; }
-  #setup .su-desk{ grid-template-columns:auto minmax(0,1fr); grid-template-areas:"note cards" "side cards"; column-gap:28px; row-gap:14px; }
-  #setup .su-side{ align-self:start; padding-left:6px; }
-  #setup .su-side__arrow{ display:none; }
-  #setup .su-cards{ align-self:start; padding:8px 0 0; gap:4px; }
-  #setup .su-card + .su-card{ margin-left:-6px; }
-  #setup .su-card__role{ font-size:.75rem; letter-spacing:-.005em; }
-  #setup .su-card__face{ --pt:12px; --nh:22px; --rh:26px; --lh:22px; --th:24px; padding-inline:10px; padding-bottom:9px; }
-  #setup .su-card__name{ font-size:1.3125rem; }
-  #setup .su-card__line{ font-size:.9375rem; }
-  #setup .su-hand__txt{ font-size:26px; }
 }
 @media (max-width:640px){
   #setup .su-grid{ --winH:clamp(360px, 55svh, 480px); }
@@ -2200,11 +2079,6 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-bar{ height:44px; padding:0 12px; gap:6px; }
   #setup .su-bar > i{ display:none; }
   #setup .su-bar__who{ margin-left:0; font-size:.875rem; gap:7px; }
-  #setup .su-chip{ font-size:.6875rem; margin-left:2px; }
-  #setup .su-chip > span{ height:22px; padding:0 8px; }
-  #setup .su-chip__c{ padding:0 8px 0 7px !important; gap:5px; }
-  #setup .su-chip__c b{ font-size:.8125rem; }
-  #setup .su-chip__c em{ font-size:.625rem; letter-spacing:.03em; }
   #setup .su-clock{ gap:5px; font-size:.75rem; }
   #setup .su-view{ --fade:40px; }
   #setup .su-log{ padding:12px 12px 12px; gap:9px; }
@@ -2220,31 +2094,14 @@ html.mca-reduced #setup .su-chip__dot, html.mca-freeze #setup .su-chip__dot{ ani
   #setup .su-close{ font-size:1rem; margin-top:14px; }
   #setup .su-close b{ display:inline-block; }
 
-  /* desk: sticky (what it settled) beside the ballot slips (who could name it) */
-  #setup .su-desk{ grid-template-columns:minmax(0,55fr) minmax(0,45fr); grid-template-areas:"note side" "note cards"; grid-template-rows:auto 1fr; column-gap:14px; row-gap:8px; margin-top:18px; }
-  #setup .su-note{ width:auto; padding:26px 11px 13px 12px; transform:rotate(-1.5deg); align-self:start; }
+  #setup .su-desk{ margin-top:18px; }
+  #setup .su-note{ width:min(300px, 100%); padding:26px 14px 14px 14px; transform:rotate(-1.5deg); align-self:start; }
   #setup .su-note__h{ margin-bottom:7px; }
   #setup .su-list{ gap:8px; }
   #setup .su-tk{ font-size:.8125rem; line-height:1.22; gap:8px; align-items:flex-start; }
   #setup .su-tk__box, #setup .su-tk__box svg{ width:18px; height:18px; }
-  #setup .su-side{ align-self:start; gap:5px; padding:0; }
-  #setup .su-side__arrow{ display:none; }
-  #setup .su-hand__txt{ font-size:24px; }
-  #setup .su-cards{ align-self:start; grid-template-columns:minmax(0,1fr); gap:7px; padding:0; }
-  #setup .su-card + .su-card{ margin-left:0; }
-  #setup .su-card{ height:40px; transform-origin:50% 50%; }
-  #setup .su-card__face{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:6px; height:40px; padding:0 10px 0 11px; background:var(--card); }
-  #setup .su-card__back{ transform:rotateX(180deg); display:flex; justify-content:flex-start; gap:8px; padding-left:12px; align-items:center; box-shadow:var(--sh-1), inset 0 0 0 1px color-mix(in srgb, var(--coral-ink) 26%, transparent); background:var(--coral); }
-  #setup .su-card__q{ font-size:1.25rem; }
-  #setup .su-card__bl{ font-size:.625rem; padding:2px 7px; }
-  #setup .su-card__face::before{ content:""; position:absolute; left:0; top:7px; bottom:7px; width:2px; border-radius:2px; background:var(--coral-ink); opacity:.8; }
-  #setup .su-card__name{ font-size:1rem; align-self:center; }
-  #setup .su-ring{ left:-10px; top:-8px; width:calc(100% + 21px); height:calc(100% + 16px); }
-  #setup .su-card__role, #setup .su-card__line{ display:none; }
-  #setup .su-tally{ width:58px; height:18px; flex:none; align-self:center; }
 }
 @media (min-width:961px) and (max-height:760px){
-  #setup .su-side__arrow{ display:none; }
 }
 /* reduced motion + flat overview: no pin tricks */
 html.mca-flat #setup .su-stage{ top:0 !important; height:auto !important; padding-block:96px 64px; }
@@ -2256,19 +2113,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
 @media (min-width:961px){
   html.mca-flat #setup .su-grid, html.mca-reduced #setup .su-grid{ height:auto; }
   html.mca-reduced #setup .su-grid{ max-height:none; }
-  html.mca-reduced #setup .su-desk{ align-content:start; row-gap:40px; }
-  html.mca-flat #setup .su-desk, html.mca-reduced #setup .su-desk{ row-gap:64px; }
   html.mca-flat #setup .su-right__in{ min-height:560px; }
   html.mca-reduced #setup .su-right__in{ position:relative; inset:auto; }
-}
-@media (max-width: 480px){
-  /* phones: the header has room for the name only; the ballot below says it was the class's pick */
-  #setup .su-chip__c em{ display:none; }
-}
-/* phones: the ballot under the window already shows the class naming it, so the chat keeps
-   the goal exchange in view at the end instead */
-@media (max-width: 640px){
-  #setup .su-row--vote{ display:none; }
 }
 </style>
 
@@ -2278,13 +2124,11 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
   var root = document.getElementById("setup");
   if (!root || !window.MCA) return;
   var M = window.MCA, clamp = M.clamp01, ease = M.ease;
-  /* a small settle for cards landing: cubic-bezier(.34,1.4,.64,1)-ish overshoot */
-  var back = function (t) { var c1 = 1.25, c3 = c1 + 1, u = t - 1; return 1 + c3 * u * u * u + c1 * u * u; };
 
   /* the script (p):  chat .05 → .60 · ticks Goal .205, Name .345, House rule .505, Research .615
-     · the Name tick turns the three face-down ballot cards over (.35 → .46) · tallies .46 → .72
-     · the class circles Spark .74 → .79 · the window takes the name .82 · close .88 */
-  var T_NAME = .345, T_DONE = .555, T_FLIP = .352, T_TALLY0 = .62, T_TALLY1 = .78, T_WIN = .79, T_PICK = .84;
+     · close .66. The class vote lives in its own section (#persona) now, so the pin is shorter:
+     the scroll's 0..1 is scaled by SPAN so the chat keeps its old reading pace. */
+  var T_DONE = .555, SPAN = .75;
 
   var pin = root.querySelector(".su-pin"), stage = root.querySelector(".su-stage"), head = root.querySelector(".su-head");
   var eye = root.querySelector(".su-eye");
@@ -2301,8 +2145,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     return { at: parseFloat(li.getAttribute("data-at")), box: li.querySelector(".su-tk__box"), x: 0, y: 0 };
   });
   var keys = [].map.call(root.querySelectorAll(".su-key"), function (m) { return { at: parseFloat(m.getAttribute("data-at")), el: m }; });
-  var cards = [].slice.call(root.querySelectorAll(".su-card"));
-  var winCard = root.querySelector(".su-card--win"), ring = winCard.querySelector(".su-ring");
   /* couriers: each settled answer flies from the chat to its tick on the sticky note */
   var trips = [
     { el: keys[0].el, at: keys[0].at + .018, tick: ticks[0] },
@@ -2326,24 +2168,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
   });
   var TYP_H = 40, PAD_B = 18, PAD_T = 16, CLEAR = 26, viewH = 400;
   var pinTop = 0, vx = 0, vy = 0, headH = 0, span = 1, narrow = false, phone = false;
-  var cardX = cards.map(function () { return 0; });
-
-  /* tally marks: groups of five (four uprights + a slash), strokes counted round-robin */
-  var NS = "http://www.w3.org/2000/svg", strokes = [];
-  cards.forEach(function (card, ci) {
-    var svg = card.querySelector(".su-tally"), n = +svg.getAttribute("data-n"), list = [];
-    for (var j = 0; j < n; j++) {
-      var g = Math.floor(j / 5), q = j % 5, x0 = 4 + g * 40, d;
-      var wob = ((j * 37 + ci * 11) % 7 - 3) * 0.35;
-      if (q < 4) d = "M" + (x0 + q * 7 + wob).toFixed(1) + " 4.5L" + (x0 + q * 7 - wob * .6 + .8).toFixed(1) + " 22";
-      else d = "M" + (x0 - 4) + " 17.5L" + (x0 + 26) + " 8";
-      var p = document.createElementNS(NS, "path");
-      p.setAttribute("d", d); p.setAttribute("pathLength", "1"); svg.appendChild(p); list.push(p);
-    }
-    strokes.push(list);
-  });
-  var order = [];
-  for (var r = 0; r < 12; r++) for (var c = 0; c < strokes.length; c++) if (strokes[c][r]) order.push(strokes[c][r]);
 
   function center(el, sr) { var er = el.getBoundingClientRect(); return { x: er.left + er.width / 2 - sr.left, y: er.top + er.height / 2 - sr.top }; }
 
@@ -2380,7 +2204,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     });
     log.style.setProperty("--off", saved || "0");
     ticks.forEach(function (t) { var c = center(t.box, sr); t.x = c.x; t.y = c.y; });
-    cards.forEach(function (cd, i) { cardX[i] = cd.offsetLeft + cd.offsetWidth / 2; });
   }
 
   /* resting scroll for "row i is the newest, h px tall": bottom-anchored on the composer like a real
@@ -2393,7 +2216,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     return need;
   }
 
-  function paint(p) {
+  function paint(raw) {
+    var p = raw * SPAN;
     /* ---- the conversation ---- */
     var k = -1, mode = "", prog = 1, typingRow = null, youTyping = null;
     for (var i = 0; i < rows.length; i++) {
@@ -2416,7 +2240,7 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     if (M.reduced) off = 0;   /* reduced motion: the window grows to hold the whole interview */
     /* once the interview is done, the empty new-chat header has no job: under reduced motion the
        whole thread shows, so it would sit above a full conversation */
-    var hideIntro = M.reduced && p >= .9;
+    var hideIntro = M.reduced && raw >= .9;
     if (intro.hidden !== hideIntro) intro.hidden = hideIntro;
     log.style.setProperty("--off", off.toFixed(1));
     /* while the chat is shorter than the window, the new-chat header stays up top and the messages
@@ -2447,8 +2271,6 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     clockArc.style.setProperty("--m", m.toFixed(3));
     clockN.textContent = Math.max(1, Math.round(m * 10));
     clock.classList.toggle("is-done", m >= 1);
-    win.classList.toggle("is-named", p >= T_NAME);
-    win.classList.toggle("is-picked", p >= T_PICK);
 
     /* the words re-ink */
     keys.forEach(function (kk) {
@@ -2485,35 +2307,8 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
       t.box.style.setProperty("--c", clamp((v - .35) / .65).toFixed(3));
     });
 
-    /* ---- the ballot: three index cards wait face down. The Name tick turns them over one by one,
-       the class tallies, and the class circles its pick ---- */
-    var rot = phone ? [0, 0, 0] : [-4.5, 0, 4], yo = phone ? [0, 0, 0] : [6, 0, 6];
-    var wv = ease(clamp((p - T_WIN) / .05));
-    cards.forEach(function (cd, ci) {
-      var f = clamp((p - T_FLIP - ci * .028) / .05), e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-      var bump = Math.sin(Math.PI * f);
-      /* face down they sit as a tighter hand; turning over opens the fan */
-      var tx = phone ? 0 : (cardX[1] - cardX[ci]) * .16 * (1 - e);
-      var ty = yo[ci] * (.5 + .5 * e) - (phone ? 4 : 16) * bump;
-      var rr = rot[ci] * (.55 + .45 * e), sc = 1 + .04 * bump;
-      var isWin = cd === winCard;
-      if (isWin) { ty -= (phone ? 0 : 6) * wv; rr *= 1 - wv; sc *= 1 + (phone ? .02 : .03) * wv; }
-      else ty += (phone ? 0 : 5) * wv;
-      var turn = (180 * (1 - e)).toFixed(1);
-      cd.style.transform = "perspective(900px) translate3d(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px,0) rotate(" + rr.toFixed(2) + "deg) " +
-        (phone ? "rotateX(" + turn + "deg)" : "rotateY(" + turn + "deg)") + " scale(" + sc.toFixed(3) + ")";
-      cd.style.zIndex = bump > .05 ? 6 : "";
-      cd.classList.toggle("is-win", isWin && wv > .02);
-      cd.classList.toggle("is-lose", !isWin && wv > .02);
-    });
-    ring.style.setProperty("--g", ease(clamp((p - T_WIN - .01) / .05)).toFixed(3));
-    for (var q = 0; q < order.length; q++) {
-      var st = T_TALLY0 + q * ((T_TALLY1 - T_TALLY0) / order.length);
-      order[q].style.setProperty("--t", clamp((p - st) / .012).toFixed(3));
-    }
-
     /* closing line */
-    close.style.setProperty("--c", ease(clamp((p - .88) / .07)).toFixed(3));
+    close.style.setProperty("--c", ease(clamp((p - .66) / .06)).toFixed(3));
 
     fadeHead();
   }
@@ -2542,6 +2337,228 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
 </script>
 
 
+<section id="persona" class="mca-section" aria-labelledby="pe-h">
+  <div class="mca-container pe-grid">
+
+    <header class="mca-head pe-head">
+      <p class="mca-eyebrow">Personality</p>
+      <h2 class="mca-h2" id="pe-h"><span class="mca-line">Give it a name</span> <span class="mca-line">and a personality.</span></h2>
+    </header>
+    <p class="mca-lead pe-lead">Choose what it’s called, what it’s like and how it talks. Putting it to a class vote is a fun way to involve&nbsp;students.</p>
+
+    <!-- the ballot: three starter personalities from brain/persona-packs.md, as index cards the class tallies -->
+    <figure class="pe-vote" aria-labelledby="pe-vote-cap">
+      <figcaption id="pe-vote-cap" class="pe-cap"><span class="pe-cap__k">Class vote</span><span class="pe-cap__s">Sample · three starter personalities</span></figcaption>
+      <div class="pe-cards">
+        <article class="pe-card" data-k="0">
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd>Otter</dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Calm coach</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“One small step?”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="7" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">7 votes</span></p>
+        </article>
+        <article class="pe-card pe-card--win" data-k="1">
+          <span class="pe-tag" aria-hidden="true">Class pick</span>
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd><span class="pe-nm">Spark<svg class="pe-ring" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M71 7.5C52 2.6 22 3.8 9.5 13 1.8 18.8 3.4 29.6 16 34.4c15.6 5.9 47.6 5.4 66-1.6 12.4-4.7 15.6-13.4 6.2-19.6C78 6.6 58 4.2 40 5.2"/></svg></span></dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Warm and upbeat</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“Look what you pulled off.”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="11" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">11 votes, the class pick</span></p>
+        </article>
+        <article class="pe-card" data-k="2">
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd>Sage</dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Curious researcher</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“Let’s find out.”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="6" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">6 votes</span></p>
+        </article>
+      </div>
+      <p class="mca-hand pe-pick" aria-hidden="true"><svg class="mca-stroke pe-pick__arrow" viewBox="0 0 44 40"><path d="M38 36C24 34 12 24 9 6"/><path d="M9 6L3.5 14.5M9 6l8 6"/></svg><span>the class pick</span></p>
+    </figure>
+
+    <!-- what students get out of it -->
+    <aside class="pe-learn" aria-labelledby="pe-learn-t">
+      <p class="pe-learn__k">For students</p>
+      <p class="mca-h4 pe-learn__t" id="pe-learn-t">How AI agents solve big challenges</p>
+      <p class="pe-learn__b">All year, students watch it work on a real class challenge, one step at a time. It shows what AI can do beyond a&nbsp;chatbot.</p>
+      <ol class="pe-loop" aria-label="How an AI agent works">
+        <li>Set a goal</li><li>Try a strategy</li><li>Check</li><li>Adjust</li>
+      </ol>
+      <a class="mca-link pe-learn__a" href="https://github.com/mattnupen/My-Classroom-Assistant/blob/main/content-templates/day-one-lesson-plan.md">Comes with a 15-minute day-one lesson <span class="mca-arrow" aria-hidden="true">↗</span></a>
+    </aside>
+
+  </div>
+</section>
+
+<style>
+/* ---------- layout: the point + the student angle on the left, the ballot on the right ---------- */
+#persona .pe-grid{
+  display:grid; grid-template-columns:repeat(12, minmax(0, 1fr)); column-gap:24px; row-gap:64px;
+  grid-template-areas:
+    "h h h h h h h . l l l l"
+    "v v v v v v v a a a a a";
+}
+#persona .pe-head{ grid-area:h; }
+#persona .pe-lead{ grid-area:l; align-self:end; max-width:24em; margin-bottom:.35em; }
+
+/* ---------- the ballot ---------- */
+#persona .pe-vote{ grid-area:v; align-self:start; position:relative; margin:0; padding:0 4px 56px; }
+#persona .pe-cap{ display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin:0 0 22px 6px; }
+#persona .pe-cap__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--coral-ink); }
+#persona .pe-cap__s{ font:600 var(--t-micro)/1.2 var(--f-body); color:var(--ink-3); }
+#persona .pe-cards{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); align-items:start; }
+#persona .pe-card{
+  --rot:0deg; --yo:0px;
+  position:relative; margin:0; padding:18px 18px 14px; border-radius:10px; background:var(--card);
+  box-shadow:var(--sh-2), inset 0 0 0 1px var(--line);
+  transform-origin:50% 80%; will-change:transform;
+}
+#persona .pe-card + .pe-card{ margin-left:-14px; }
+#persona .pe-card[data-k="0"]{ --rot:-4deg; --yo:10px; z-index:1; }
+#persona .pe-card[data-k="1"]{ z-index:2; }
+#persona .pe-card[data-k="2"]{ --rot:3.5deg; --yo:10px; z-index:1; }
+#persona .pe-card.is-win{ z-index:3; box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
+#persona .pe-card.is-lose .pe-tally{ filter:saturate(.5); opacity:.8; }
+#persona .pe-fields{ margin:0; }
+#persona .pe-f dt{ font:750 .6875rem/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+#persona .pe-f dd{ margin:5px 0 0; font:600 .9375rem/1.35 var(--f-body); color:var(--ink); text-wrap:pretty; }
+#persona .pe-tag{
+  position:absolute; right:12px; top:-11px; display:inline-flex; align-items:center; height:22px; padding:0 9px; border-radius:999px;
+  background:var(--coral-ink); color:#fff; font:750 .6875rem/1 var(--f-body); letter-spacing:.06em; text-transform:uppercase;
+  opacity:var(--w, 1); transform:scale(calc(.8 + .2 * var(--w, 1))); transform-origin:100% 50%;
+}
+#persona .pe-f + .pe-f{ margin-top:12px; }
+#persona .pe-f--name{ padding-bottom:12px; border-bottom:1.5px solid var(--coral-ink); }
+#persona .pe-f--name dd{ margin-top:6px; font:750 1.75rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 48; }
+#persona .pe-nm{ position:relative; z-index:1; display:inline-block; }
+#persona .pe-ring{ position:absolute; z-index:-1; max-width:none; left:-15px; top:-12px; width:calc(100% + 32px); height:calc(100% + 24px); overflow:visible; pointer-events:none; }
+#persona .pe-ring path{ fill:none; stroke:var(--coral-ink); stroke-width:2.4px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--g, 1)); }
+#persona .pe-votes{ margin-top:14px; padding-top:10px; border-top:1px dashed var(--line-2); }
+#persona .pe-tally{ display:block; width:100%; max-width:120px; height:22px; overflow:visible; }
+#persona .pe-tally path{ fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--t, 1)); }
+
+@media (min-width: 641px){ #persona .pe-tag{ display:none; } }
+/* the pen note under the winning card */
+#persona .pe-pick{
+  position:absolute; left:50%; bottom:0; display:flex; align-items:flex-end; gap:4px; margin-left:-40px; white-space:nowrap;
+  transform:rotate(-3deg); clip-path:inset(-40% calc((1 - var(--t, 1)) * 110% - 12px) -30% -5%);
+}
+#persona .pe-pick__arrow{ width:40px; height:36px; flex:none; margin-bottom:10px; }
+#persona .pe-pick__arrow path{ stroke:var(--orange-ink); stroke-width:2.75px; }
+
+/* ---------- the student angle ---------- */
+#persona .pe-learn{
+  grid-area:a; align-self:center; margin-left:clamp(0px, 2vw, 24px); padding:24px 24px 22px; border-radius:var(--r-lg);
+  background:var(--mint); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--mint-ink) 22%, transparent);
+}
+#persona .pe-learn__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--mint-ink); }
+#persona .pe-learn__t{ margin-top:8px; color:var(--ink); }
+#persona .pe-learn__b{ margin-top:8px; font:500 var(--t-body)/1.55 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
+#persona .pe-loop{ display:flex; flex-wrap:wrap; gap:8px 6px; margin:16px 0 0; padding:0; list-style:none; }
+#persona .pe-loop li{
+  display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 11px; border-radius:999px; background:var(--card);
+  box-shadow:inset 0 0 0 1px var(--line); font:700 .8125rem/1 var(--f-body); color:var(--ink);
+  opacity:var(--t, 1); transform:translateY(calc((1 - var(--t, 1)) * 8px));
+}
+#persona .pe-loop li + li::before{ content:"→"; margin-left:-4px; color:var(--mint-ink); font-weight:800; }
+#persona .pe-learn__a{ display:inline-block; margin-top:18px; font:750 var(--t-small)/1.4 var(--f-body); }
+
+/* ---------- tablet: one column, the ballot full width ---------- */
+@media (max-width: 1099px){
+  #persona .pe-grid{ grid-template-columns:minmax(0, 1fr); grid-template-areas:"h" "l" "v" "a"; row-gap:0; }
+  #persona .pe-lead{ max-width:30em; margin:var(--s-5) 0 56px; }
+  #persona .pe-vote{ max-width:720px; }
+  #persona .pe-learn{ max-width:640px; margin:48px 0 0; }
+}
+
+/* ---------- phone: the cards stack, each one a single row of fields ---------- */
+@media (max-width: 640px){
+  #persona .pe-lead{ margin-bottom:40px; }
+  #persona .pe-learn{ margin-top:12px; }
+  #persona .pe-vote{ padding:0 0 52px; }
+  #persona .pe-cap{ margin:0 0 16px; }
+  #persona .pe-cards{ grid-template-columns:minmax(0, 1fr); gap:10px; }
+  #persona .pe-card + .pe-card{ margin-left:0; }
+  #persona .pe-card{ padding:14px 16px 12px; }
+  #persona .pe-card[data-k="0"], #persona .pe-card[data-k="2"]{ --rot:0deg; --yo:0px; }
+  #persona .pe-fields{ display:grid; grid-template-columns:minmax(0, 40fr) minmax(0, 60fr); column-gap:14px; row-gap:10px; }
+  #persona .pe-f--name{ grid-row:span 2; padding:0 12px 0 0; border-bottom:0; border-right:1.5px solid var(--coral-ink); }
+  #persona .pe-f--name dd{ font-size:1.5rem; }
+  #persona .pe-f + .pe-f{ margin-top:0; }
+  #persona .pe-f:not(.pe-f--name) dd{ font-size:.875rem; margin-top:3px; }
+  #persona .pe-votes{ margin-top:10px; padding-top:8px; }
+  #persona .pe-vote{ padding-bottom:0; }
+  #persona .pe-pick{ display:none; }
+  #persona .pe-learn{ padding:22px 20px 20px; }
+}
+
+html.mca-reduced #persona .pe-card{ will-change:auto; }
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("persona");
+  if (!sec || !window.MCA) return;
+  var M = window.MCA, c01 = M.clamp01, ease = M.ease;
+  var vote = sec.querySelector(".pe-vote"), learn = sec.querySelector(".pe-learn");
+  var cards = [].slice.call(sec.querySelectorAll(".pe-card"));
+  var winCard = sec.querySelector(".pe-card--win"), ring = sec.querySelector(".pe-ring");
+  var pick = sec.querySelector(".pe-pick"), tag = sec.querySelector(".pe-tag"), chips = sec.querySelectorAll(".pe-loop li");
+
+  /* tally marks: groups of five (four uprights + a slash), strokes counted round-robin across cards */
+  var NS = "http://www.w3.org/2000/svg", strokes = [];
+  cards.forEach(function (card, ci) {
+    var svg = card.querySelector(".pe-tally"), n = +svg.getAttribute("data-n"), list = [];
+    for (var j = 0; j < n; j++) {
+      var g = Math.floor(j / 5), q = j % 5, x0 = 4 + g * 40, d;
+      var wob = ((j * 37 + ci * 11) % 7 - 3) * 0.35;
+      if (q < 4) d = "M" + (x0 + q * 7 + wob).toFixed(1) + " 4.5L" + (x0 + q * 7 - wob * .6 + .8).toFixed(1) + " 22";
+      else d = "M" + (x0 - 4) + " 17.5L" + (x0 + 26) + " 8";
+      var p = document.createElementNS(NS, "path");
+      p.setAttribute("d", d); p.setAttribute("pathLength", "1"); svg.appendChild(p); list.push(p);
+    }
+    strokes.push(list);
+  });
+  var order = [];
+  for (var r = 0; r < 12; r++) for (var c = 0; c < strokes.length; c++) if (strokes[c][r]) order.push(strokes[c][r]);
+
+  /* the ballot's own pass: the cards deal onto the desk, the class tallies, then circles its pick */
+  function paintVote(p) {
+    var phone = matchMedia("(max-width:640px)").matches;
+    var wv = ease(c01((p - .66) / .08));
+    cards.forEach(function (cd, ci) {
+      var t = c01((p - .06 - ci * .07) / .22), e = ease(t);
+      var cs = getComputedStyle(cd);
+      var rot = parseFloat(cs.getPropertyValue("--rot")) || 0, yo = parseFloat(cs.getPropertyValue("--yo")) || 0;
+      var isWin = cd === winCard;
+      var ty = (1 - e) * 48 + yo * e, rr = rot * e + (1 - e) * (ci - 1) * 6, sc = 1;
+      if (isWin) { ty -= (phone ? 0 : 10) * wv; sc = 1 + (phone ? .015 : .035) * wv; }
+      else ty += (phone ? 0 : 4) * wv;
+      cd.style.transform = "translate3d(0," + ty.toFixed(1) + "px,0) rotate(" + rr.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
+      cd.style.opacity = Math.min(1, t * 2.5).toFixed(3);
+      cd.classList.toggle("is-win", isWin && wv > .02);
+      cd.classList.toggle("is-lose", !isWin && wv > .02);
+    });
+    for (var q = 0; q < order.length; q++) {
+      var st = .34 + q * (.28 / order.length);
+      order[q].style.setProperty("--t", c01((p - st) / .02).toFixed(3));
+    }
+    ring.style.setProperty("--g", ease(c01((p - .68) / .08)).toFixed(3));
+    pick.style.setProperty("--t", c01((p - .74) / .1).toFixed(3));
+    tag.style.setProperty("--w", ease(c01((p - .7) / .06)).toFixed(3));
+  }
+  function paintLearn(p) { M.stepper(chips, p, .2, .08, .12); }
+
+  M.register(vote, "pass", paintVote);
+  M.register(learn, "pass", paintLearn);
+})();
+</script>
+
+
 <section id="assistant" data-pin aria-labelledby="as-title">
   <div class="as-stage">
     <div class="as-desk mca-desk" aria-hidden="true"></div>
@@ -2551,7 +2568,7 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
       <div class="as-words">
         <h2 id="as-title" class="as-title"><span class="mca-line">This is your assistant.</span><span class="mca-line as-l2">It helps you do <span class="as-src"><span class="as-under">things.</span><svg class="mca-stroke as-spark" viewBox="0 0 30 42" aria-hidden="true"><path pathLength="1" d="M2.1 28.2L4.5 14.4"/><path pathLength="1" d="M8.5 31.5L18.4 21.6"/><path pathLength="1" d="M11.8 37.9L25.6 35.5"/></svg><svg class="mca-stroke as-under__s" viewBox="0 0 240 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" class="mca-draw" d="M4 14C60 9 150 6 236 11"/></svg></span></span></h2>
         <div class="as-after">
-          <p class="as-close"><span class="mca-line"><b>All of it comes to you first.</b></span> <span class="mca-line">You change what you want, then use it.</span></p>
+          <p class="as-close"><span class="mca-line"><b>All of it comes to you first.</b></span> <span class="mca-line">Change what you want, then use it.</span></p>
         </div>
       </div>
 
@@ -3373,17 +3390,17 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
     <div class="rs-grid">
       <header class="mca-head rs-head">
         <p class="mca-eyebrow">Research</p>
-        <h2 class="mca-h2" id="research-h"><span class="mca-line">Its choices come</span> <span class="mca-line">from research.</span></h2>
+        <h2 class="mca-h2" id="research-h"><span class="mca-line">Research-based</span> <span class="mca-line">decisions.</span></h2>
       </header>
-      <p class="mca-lead rs-lead">When you set a goal, it looks up what education research says works for it. It saves each finding on a short card with the source and how strong the evidence is, so you can check its&nbsp;work.</p>
+      <p class="mca-lead rs-lead">It comes with evidence-based strategies for common classroom challenges and looks up more as it goes. Its plans rest on real evidence, not hunches or popular&nbsp;myths.</p>
 
       <!-- the draft: a note home, with the sentence that came from the research -->
-      <figure class="rs-note" aria-label="A draft note home">
+      <figure class="rs-note" id="rs-note" aria-label="A draft it made">
         <div class="mca-paper rs-paper">
           <span class="mca-tape rs-tape" aria-hidden="true"></span>
-          <p class="mca-card__label rs-paper__label">A note home</p>
-          <p class="mca-ruled rs-paper__text">Hi. A quick note about this week. Nothing’s wrong. I just want us on the same page. <span class="mca-hl mca-hl--sun rs-phrase">Monday’s a clean start.</span></p>
-          <p class="rs-paper__foot">Draft · you send it</p>
+          <p class="mca-card__label rs-paper__label">Monday’s slide</p>
+          <p class="mca-ruled rs-paper__text"><span class="rs-pre">Open the doc you’re closest to finishing and write one sentence.</span> <span class="mca-hl mca-hl--sun rs-phrase">Do it when you sit down Monday.</span></p>
+          <p class="rs-paper__foot">Draft · you run it</p>
         </div>
       </figure>
 
@@ -3398,28 +3415,33 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
         <p class="mca-hand rs-drop__cap">Why it wrote that</p>
       </div>
 
-      <!-- the evidence: a small stack of index cards from the missing-work pack -->
-      <div class="rs-stack">
+      <!-- the evidence behind the draft: the strategy it came from, with the next one to try behind it -->
+      <div class="rs-stack" id="rs-stack" aria-live="polite">
         <div class="rs-card rs-card--ghost" aria-hidden="true"></div>
-        <article class="mca-card rs-card rs-card--back" aria-label="Another evidence card">
-          <p class="mca-card__label">Also in this pack</p>
-          <p class="mca-h4 rs-claim">Make the next action almost too small to refuse.</p>
-          <p class="rs-backmeta"><span class="rs-mini rs-mini--3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="mca-sr">Evidence strength: </span>Moderate · Leventhal, Singer &amp; Jones (1965)</p>
+        <article class="mca-card rs-card rs-card--back" aria-label="The next strategy to try">
+          <p class="mca-card__label">Next strategy to try</p>
+          <p class="mca-h4 rs-claim rs-backclaim">Let families see what’s missing, every week.</p>
+          <p class="rs-backmeta"><span class="rs-mini" data-lv="2" aria-hidden="true"><i></i><i></i><i></i></span><span class="rs-backtxt">Good, with limits · Bergman &amp; Chan (2021)</span></p>
         </article>
         <article class="mca-card rs-card rs-card--front">
-          <p class="mca-card__label rs-label"><span class="rs-dot" aria-hidden="true"></span>Evidence card · Missing work</p>
-          <p class="mca-h4 rs-claim rs-claim--main">Use <span class="mca-hl mca-hl--sun rs-claimhl">natural fresh starts</span> instead of “you’re behind.”</p>
+          <p class="mca-card__label rs-label"><span class="rs-dot" aria-hidden="true"></span><span class="rs-label__t">Evidence-based strategy · Missing work</span></p>
+          <p class="mca-h4 rs-claim rs-claim--main"><span class="rs-c1">Turn every nudge into an </span><span class="mca-hl mca-hl--sun rs-claimhl">if-then plan</span><span class="rs-c2">.</span></p>
           <div class="rs-strength">
-            <span class="mca-meter__bar rs-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-            <span class="rs-meter__label">Evidence strength: Moderate</span>
+            <span class="mca-meter__bar rs-meter" data-lv="2" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="rs-meter__label">Evidence strength: Good, with limits</span>
           </div>
-          <p class="rs-meta">Dai, Milkman &amp; Riis (2014)</p>
+          <p class="rs-meta">Gollwitzer &amp; Sheeran (2006)</p>
           <a class="rs-foot" href="https://github.com/mattnupen/My-Classroom-Assistant/blob/main/brain/evidence-packs/reducing-missing-work.md">
-            <span class="rs-doc" aria-hidden="true"></span>
-            <span class="rs-foot__file">reducing-missing-work.md</span>
-            <span class="rs-foot__cta"><b>Read the whole pack</b> <span aria-hidden="true">↗</span></span>
+            <span class="rs-foot__cta"><b>See the research</b> <span aria-hidden="true">↗</span></span>
           </a>
         </article>
+      </div>
+
+      <!-- the other half of "evidence-based": a popular idea the research doesn't back, which it leaves out -->
+      <div class="rs-myth" id="rs-myth">
+        <p class="rs-myth__k"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M3.7 12.3l8.6-8.6"/></svg>What it won’t suggest</p>
+        <p class="rs-myth__t"><span class="rs-myth__s">Zeros and heavy late penalties</span></p>
+        <p class="rs-myth__why">There’s little evidence they get more work turned in.</p>
       </div>
 
       <!-- desktop connector, measured from the highlighted phrase to the claim -->
@@ -3430,19 +3452,15 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
 
       <!-- the shelf of research packs -->
       <div class="rs-shelfwrap">
-        <p class="mca-micro rs-shelflabel">Research it already has</p>
-        <ul class="mca-sr">
-          <li>Missing work</li><li>Attendance</li><li>Participation</li><li>Calmer transitions</li><li>Reading comprehension</li><li>Your goal: it builds a new set.</li>
-        </ul>
-        <div class="rs-shelfrow"><div class="rs-shelfbox"><div class="rs-shelf" aria-hidden="true">
-          <span class="rs-slot"><span class="mca-tab mca-tab--on rs-tab">Missing work</span></span>
-          <span class="rs-slot"><span class="mca-tab rs-tab">Attendance</span></span>
-          <span class="rs-slot"><span class="mca-tab rs-tab">Participation</span></span>
-          <span class="rs-slot"><span class="mca-tab rs-tab">Calmer transitions</span></span>
-          <span class="rs-slot rs-slot--wide"><span class="mca-tab rs-tab">Reading comprehension</span></span>
-          <span class="rs-slot rs-slot--new"><span class="mca-tab mca-tab--new rs-tab">Your goal →</span></span>
-        </div></div><span class="mca-hand rs-newnote" aria-hidden="true"><svg class="mca-stroke rs-newnote__arrow" viewBox="0 0 48 34" width="48" height="34"><path d="M45 27 C 33 32, 14 29, 7 9"/><path d="M2.5 15.5 L6.5 8 L14 12"/></svg>It builds a new set.</span></div>
-        <p class="mca-small rs-micro">Each card says how strong the evidence is. When the evidence is <span class="rs-weak"><span class="rs-mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span>weak</span>, the card says that too.</p>
+        <p class="mca-micro rs-shelflabel" id="rs-shelflabel">Built-in research<span class="rs-shelflabel__pick"> · pick a challenge</span></p>
+        <div class="rs-shelfrow"><div class="rs-shelfbox"><div class="rs-shelf" role="group" aria-labelledby="rs-shelflabel">
+          <span class="rs-slot"><button type="button" class="mca-tab mca-tab--on rs-tab" data-g="missing" aria-pressed="true" aria-controls="rs-note rs-stack rs-myth">Missing work</button></span>
+          <span class="rs-slot"><button type="button" class="mca-tab rs-tab" data-g="attendance" aria-pressed="false" aria-controls="rs-note rs-stack rs-myth">Attendance</button></span>
+          <span class="rs-slot"><button type="button" class="mca-tab rs-tab" data-g="participation" aria-pressed="false" aria-controls="rs-note rs-stack rs-myth">Participation</button></span>
+          <span class="rs-slot"><button type="button" class="mca-tab rs-tab" data-g="transitions" aria-pressed="false" aria-controls="rs-note rs-stack rs-myth">Calmer transitions</button></span>
+          <span class="rs-slot rs-slot--wide"><button type="button" class="mca-tab rs-tab" data-g="reading" aria-pressed="false" aria-controls="rs-note rs-stack rs-myth">Reading comprehension</button></span>
+          <span class="rs-slot rs-slot--new"><button type="button" class="mca-tab mca-tab--new rs-tab" data-g="yours" aria-pressed="false" aria-controls="rs-note rs-stack rs-myth">Your goal&nbsp;<span aria-hidden="true">→</span></button></span>
+        </div></div><span class="mca-hand rs-newnote" aria-hidden="true"><svg class="mca-stroke rs-newnote__arrow" viewBox="0 0 48 34" width="48" height="34"><path d="M45 27 C 33 32, 14 29, 7 9"/><path d="M2.5 15.5 L6.5 8 L14 12"/></svg>It researches new ones.</span></div>
       </div>
     </div>
   </div>
@@ -3456,6 +3474,7 @@ html.mca-reduced #setup .su-stage{ position:relative; top:0; height:auto; min-he
   grid-template-areas:
     "h h h h h h . l l l l l"
     "n n n n n . s s s s s s"
+    "m m m m m . s s s s s s"
     "b b b b b b b b b b b b";
 }
 #research .rs-head{ grid-area:h; }
@@ -3509,7 +3528,8 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 #research .rs-strength{ display:flex; align-items:center; gap:12px; margin-top:20px; }
 #research .rs-meter i{ width:30px; height:8px; border-radius:4px; background:rgba(20,35,31,.16); position:relative; overflow:hidden; }
 #research .rs-meter i::after{ content:""; position:absolute; inset:0; background:var(--sun-ink); border-radius:inherit; transform-origin:0 50%; transform:scaleX(var(--f,1)); }
-#research .rs-meter i:nth-child(4)::after{ display:none; }
+#research .rs-meter[data-lv="0"]{ display:none; }
+#research .rs-meter[data-lv="1"] i:nth-child(n+2)::after, #research .rs-meter[data-lv="2"] i:nth-child(3)::after{ display:none; }
 #research .rs-meter__label{ font:700 .8125rem/1 var(--f-body); color:var(--ink-2); opacity:var(--ml,1); transform:translateX(calc((1 - var(--ml,1)) * -6px)); }
 #research .rs-meta{ margin-top:10px; font:600 .8125rem/1.35 var(--f-body); color:var(--ink-3); }
 #research .rs-foot{
@@ -3517,14 +3537,29 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
   border-radius:0 0 10px 10px; color:var(--ink-2); text-decoration:none; position:relative;
 }
 #research .rs-foot::before{ content:""; position:absolute; left:10px; right:10px; top:-1px; border-top:1px dashed var(--line-2); }
-#research .rs-foot__file{ white-space:nowrap; font:500 .8125rem/1.2 var(--f-mono); color:var(--ink-2); text-decoration:underline; text-decoration-color:transparent; text-underline-offset:3px; text-decoration-thickness:1.5px; transition:text-decoration-color var(--d-2, .2s); }
 #research .rs-foot__cta{ margin-left:auto; min-height:44px; font:750 .875rem/1 var(--f-body); color:var(--ink); white-space:nowrap; display:inline-flex; gap:5px; align-items:center; }
 #research .rs-foot__cta b{ font-weight:inherit; text-decoration:underline; text-decoration-color:var(--sun-ink); text-decoration-thickness:1.5px; text-underline-offset:4px; }
 #research .rs-foot__cta span{ color:var(--sun-ink); font-weight:800; transition:transform var(--d-2, .2s); }
-#research .rs-foot:hover .rs-foot__file{ text-decoration-color:var(--sun-ink); }
 #research .rs-foot:hover .rs-foot__cta span{ transform:translate(2px,-2px); }
 #research .rs-foot:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; border-radius:6px; }
-#research .rs-doc{ width:13px; height:16px; flex:none; border-radius:2px; background:linear-gradient(225deg, transparent 4px, var(--sun-ink) 4px); }
+/* ---------- what it won't suggest ---------- */
+#research .rs-myth{
+  grid-area:m; justify-self:start; align-self:start; position:relative; z-index:2; width:min(440px, 100%); margin:36px 0 0 4px;
+  padding:18px 22px 18px; border-radius:var(--r-md); background:rgba(255,255,255,.55);
+  box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--coral-ink) 40%, transparent); transform:rotate(1deg);
+}
+#research .rs-myth__k{ display:flex; align-items:center; gap:7px; font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.06em; text-transform:uppercase; color:#A8391F; }
+#research .rs-myth__k svg{ width:15px; height:15px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
+#research .rs-myth__t{ margin-top:8px; font:700 1.1875rem/1.3 var(--f-display); letter-spacing:-.012em; color:var(--ink-2); }
+#research .rs-myth__s{
+  /* a marker line struck through the idea */
+  background:linear-gradient(var(--coral-ink), var(--coral-ink)) 0 58%/calc(var(--t, 1) * 100%) 2.5px no-repeat;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+#research .rs-myth__why{ margin-top:6px; font:500 var(--t-small)/1.45 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
+#research.is-swap .rs-myth{ opacity:0; }
+#research .rs-myth{ transition:opacity .16s ease; }
+html.mca-reduced #research .rs-myth{ transition:none; }
 
 /* ---------- desktop connector ---------- */
 #research .rs-link{ position:absolute; inset:0; pointer-events:none; z-index:3; }
@@ -3541,7 +3576,7 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 #research .rs-drop{ display:none; }
 
 /* ---------- the shelf ---------- */
-#research .rs-shelfwrap{ grid-area:b; margin-top:24px; }
+#research .rs-shelfwrap{ grid-area:b; margin-top:48px; }
 #research .rs-shelflabel{ margin-bottom:14px; letter-spacing:.06em; text-transform:uppercase; font-weight:750; }
 #research .rs-shelf{ position:relative; display:flex; align-items:flex-end; gap:6px; border-bottom:2px solid var(--line-2); overflow:hidden; padding-top:14px; margin-top:-14px; }
 #research .rs-slot{ display:flex; align-items:flex-end; clip-path:inset(-40px -4px 0 -4px); }
@@ -3561,13 +3596,22 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 #research .rs-tab.mca-tab--on{ background-color:var(--note-sun); background-image:none; box-shadow:inset 0 1px 0 rgba(20,35,31,.08), inset 1px 0 0 rgba(20,35,31,.08), inset -1px 0 0 rgba(20,35,31,.08), 0 -6px 14px -8px rgba(185,133,0,.35); color:var(--ink); font-weight:750; }
 #research .rs-tab.mca-tab--new{ background:transparent; color:var(--ink-2); outline-color:color-mix(in srgb, var(--ink) 34%, transparent); }
 #research .rs-newnote{ flex:none; display:inline-flex; align-items:flex-start; gap:6px; font-size:1.75rem; line-height:1; margin-bottom:14px; transform:rotate(-2deg); transform-origin:0 100%; clip-path:inset(-30% calc((1 - var(--t,1)) * 110% - 12px) -30% -5%); white-space:nowrap; }
-#research .rs-micro{ margin-top:18px; max-width:52em; font:600 .9375rem/1.5 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
-#research .rs-weak{ white-space:nowrap; }
-#research .rs-mini{ display:inline-flex; gap:2px; margin:0 5px 0 1px; vertical-align:.12em; }
-#research .rs-mini i{ width:9px; height:5px; border-radius:3px; background:rgba(20,35,31,.18); }
-#research .rs-mini i:first-child, #research .rs-mini--3 i:nth-child(-n+3){ background:var(--sun-ink); }
-#research .rs-mini--3{ gap:3px; margin:0; vertical-align:0; }
-#research .rs-mini--3 i{ width:16px; height:5px; }
+#research .rs-mini{ display:inline-flex; gap:3px; flex:none; }
+#research .rs-mini i{ width:16px; height:5px; border-radius:3px; background:rgba(20,35,31,.18); }
+#research .rs-mini[data-lv="1"] i:first-child, #research .rs-mini[data-lv="2"] i:nth-child(-n+2), #research .rs-mini[data-lv="3"] i{ background:var(--sun-ink); }
+
+/* the folder tabs are real buttons: each one swaps the draft and its evidence card */
+#research button.rs-tab{ margin:0; border:0; cursor:pointer; -webkit-appearance:none; appearance:none; transition:background-color var(--d-2, .2s), color var(--d-2, .2s); }
+#research .rs-tab:not(.mca-tab--on):hover{ background-color:color-mix(in srgb, var(--note-sun) 42%, var(--card)); color:var(--ink); }
+#research .rs-tab.mca-tab--new:not(.mca-tab--on):hover{ background-color:color-mix(in srgb, var(--note-sun) 30%, transparent); }
+#research .rs-tab.mca-tab--new.mca-tab--on{ background:var(--note-sun); color:var(--ink); font-weight:750; outline-color:color-mix(in srgb, var(--ink) 50%, transparent); }
+#research .rs-tab:focus-visible{ border-radius:12px 12px 0 0; box-shadow:var(--ring); }
+#research .rs-shelflabel__pick{ color:var(--ink-3); }
+
+/* swapping goals: the draft, the cards and the connector blink out, change, and come back */
+#research .rs-paper, #research .rs-card--front, #research .rs-card--back, #research .rs-link, #research .rs-drop{ transition:opacity .16s ease; }
+#research.is-swap .rs-paper, #research.is-swap .rs-card--front, #research.is-swap .rs-card--back, #research.is-swap .rs-link, #research.is-swap .rs-drop{ opacity:0; }
+html.mca-reduced #research .rs-paper, html.mca-reduced #research .rs-card--front, html.mca-reduced #research .rs-card--back, html.mca-reduced #research .rs-link, html.mca-reduced #research .rs-drop{ transition:none; }
 
 /* ---------- tablet and phone: one column, a vertical connector, the shelf as rows ---------- */
 @media (min-width: 1240px) and (max-width: 1379px){
@@ -3576,7 +3620,8 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 }
 @media (max-width: 1239px){
   #research{ --rs-drop:18px; --rs-tilt:2.5deg; }
-  #research .rs-grid{ grid-template-columns:minmax(0,1fr); grid-template-areas:"h" "l" "n" "d" "s" "b"; }
+  #research .rs-grid{ grid-template-columns:minmax(0,1fr); grid-template-areas:"h" "l" "n" "d" "s" "m" "b"; }
+  #research .rs-myth{ margin:40px auto 0; justify-self:center; width:min(460px, 100%); transform:rotate(-.6deg); }
   #research .rs-lead{ margin:var(--s-5, 24px) 0 0; max-width:30em; }
   #research .rs-head{ max-width:640px; }
   #research .rs-note{ margin:56px auto 0; width:min(460px, 100%); justify-self:center; }
@@ -3603,7 +3648,6 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
     background:repeating-linear-gradient(to bottom, transparent 0 44px, var(--line-2) 44px 46px, transparent 46px 58px);
   }
   #research .rs-slot{ height:44px; align-items:flex-start; clip-path:inset(-24px -4px 0 -4px); }
-  #research .rs-micro{ margin-top:24px; }
   #research .rs-shelfrow{ display:block; position:relative; }
   #research .rs-newnote{ position:absolute; left:var(--nx, auto); right:auto; top:var(--ny, auto); margin:0; }
   #research .rs-newnote__arrow{ width:36px; height:26px; }
@@ -3652,6 +3696,59 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
   var segs = sec.querySelectorAll(".rs-meter i");
   var mlabel = sec.querySelector(".rs-meter__label");
   var tabs = sec.querySelectorAll(".rs-tab, .rs-newnote");
+  var mythS = sec.querySelector(".rs-myth__s");
+
+  /* Each folder tab swaps in that goal's first card from the shipped research pack
+     (brain/evidence-packs/), plus a draft sentence built from it. Keep these in step with the packs. */
+  var PACKS = "https://github.com/mattnupen/My-Classroom-Assistant/blob/main/brain/";
+  var GOALS = {
+    missing: { label: "Monday’s slide", pre: "Open the doc you’re closest to finishing and write one sentence.", phrase: "Do it when you sit down Monday.", foot: "Draft · you run it",
+      card: "Evidence-based strategy · Missing work", c1: "Turn every nudge into an ", hl: "if-then plan", c2: ".", lv: 2, strength: "Evidence strength: Good, with limits", meta: "Gollwitzer & Sheeran (2006)",
+      path: "evidence-packs/reducing-missing-work.md", myth: "Zeros and heavy late penalties", mwhy: "There’s little evidence they get more work turned in.", back: "Let families see what’s missing, every week.", blv: 2, btxt: "Good, with limits · Bergman & Chan (2021)" },
+    attendance: { label: "A note home", pre: "Hi. A quick note about [name]. I just want us on the same page:", phrase: "they’ve missed 6 days so far.", foot: "Draft · you add the name",
+      card: "Evidence-based strategy · Attendance", c1: "Tell families the ", hl: "real count", c2: ", kindly.", lv: 3, strength: "Evidence strength: Strong", meta: "Rogers & Feller (2018)",
+      path: "evidence-packs/improving-attendance.md", myth: "Perfect-attendance awards", mwhy: "In a large trial, surprise awards made attendance worse.", back: "After an absence, send a note about what they missed.", blv: 2, btxt: "Good, with limits · Himmelsbach et al. (2022)" },
+    participation: { label: "Slide notes", pre: "Ask: “What surprised you about the ending?”", phrase: "Then count to three.", foot: "Draft · you run it",
+      card: "Evidence-based strategy · Participation", c1: "", hl: "Wait three seconds", c2: " after you ask.", lv: 2, strength: "Evidence strength: Good, with limits", meta: "Rowe (1972, 1986)",
+      path: "evidence-packs/class-participation.md", myth: "Points or prizes for talking", mwhy: "Rewards can turn speaking up into a transaction.", back: "Let students say it to a partner first.", blv: 1, btxt: "Promising, less proven · EEF" },
+    transitions: { label: "Entry routine card", pre: "First 3 minutes: phone in the caddy, start the warm-up, pencil moving before the timer ends.", phrase: "Same steps, every day.", foot: "Draft · you print it",
+      card: "Evidence-based strategy · Calmer transitions", c1: "Teach the routine like content, then ", hl: "keep it the same", c2: ".", lv: 3, strength: "Evidence strength: Strong (K–5)", meta: "WWC practice guide (2024)",
+      path: "evidence-packs/calmer-transitions.md", myth: "Clip charts and public color charts", mwhy: "They shame kids in public, and there’s no good evidence they work.", back: "Give a calm reminder just before the hard moment.", blv: 3, btxt: "Strong (K–5) · WWC practice guide (2024)" },
+    reading: { label: "Prompt card", pre: "While you read, ask: What comes next? What should I reread?", phrase: "What’s the gist so far?", foot: "Draft · you print it",
+      card: "Evidence-based strategy · Reading", c1: "Teach a few ", hl: "comprehension strategies", c2: ", explicitly.", lv: 3, strength: "Evidence strength: Strong", meta: "EEF; WWC practice guide (2008)",
+      path: "evidence-packs/reading-comprehension.md", myth: "Matching texts to “learning styles”", mwhy: "A popular idea with no research behind it.", back: "Let students take turns leading the discussion.", blv: 2, btxt: "Good, with limits · Palincsar & Brown (1984)" },
+    yours: { label: "Your goal", pre: "In your words: I want my students to", phrase: "feel heard in class.", foot: "Any goal works", why: "It starts here",
+      card: "New research · Your goal", c1: "It finds what works for your goal in ", hl: "trusted research", c2: ".", lv: 0, strength: "Every source checked before it’s cited", meta: "The EEF and What Works Clearinghouse first",
+      path: "evidence-engine.md", cta: "See how it researches", myth: "“Studies show” posts and sales claims", mwhy: "It checks the original research instead.", back: "If the research is thin, it tells you so.", blv: 1, btxt: "Promising, less proven" }
+  };
+  function q1(c) { return sec.querySelector(c); }
+  var P = { label: q1(".rs-paper__label"), pre: q1(".rs-pre"), foot: q1(".rs-paper__foot"), card: q1(".rs-label__t"), c1: q1(".rs-c1"), c2: q1(".rs-c2"),
+    meter: q1(".rs-meter"), meta: q1(".rs-meta"), cta: q1(".rs-foot__cta b"), link: q1(".rs-foot"), myth: q1(".rs-myth__s"), mwhy: q1(".rs-myth__why"),
+    back: q1(".rs-backclaim"), mini: q1(".rs-mini"), backtxt: q1(".rs-backtxt"), caps: sec.querySelectorAll(".rs-link__cap, .rs-drop__cap") };
+  function fill(g) {
+    P.label.textContent = g.label; P.pre.textContent = g.pre; phrase.textContent = g.phrase; P.foot.textContent = g.foot;
+    P.card.textContent = g.card; P.c1.textContent = g.c1; claimhl.textContent = g.hl; P.c2.textContent = g.c2;
+    P.meter.setAttribute("data-lv", g.lv); mlabel.textContent = g.strength; P.meta.textContent = g.meta;
+    P.cta.textContent = g.cta || "See the research"; P.link.href = PACKS + g.path;
+    P.myth.textContent = g.myth; P.mwhy.textContent = g.mwhy;
+    P.back.textContent = g.back; P.mini.setAttribute("data-lv", g.blv); P.backtxt.textContent = g.btxt;
+    for (var i = 0; i < P.caps.length; i++) P.caps[i].textContent = g.why || "Why it wrote that";
+  }
+  var shelfBtns = sec.querySelectorAll("button.rs-tab"), swapT;
+  function pick(btn) {
+    if (btn.getAttribute("aria-pressed") === "true") return;
+    for (var i = 0; i < shelfBtns.length; i++) {
+      var on = shelfBtns[i] === btn;
+      shelfBtns[i].setAttribute("aria-pressed", on ? "true" : "false");
+      shelfBtns[i].classList.toggle("mca-tab--on", on);
+    }
+    var g = GOALS[btn.getAttribute("data-g")];
+    clearTimeout(swapT);
+    if (M.reduced) { fill(g); relayout(); return; }
+    sec.classList.add("is-swap");
+    swapT = setTimeout(function () { fill(g); relayout(); sec.classList.remove("is-swap"); }, 170);
+  }
+  for (var b = 0; b < shelfBtns.length; b++) shelfBtns[b].addEventListener("click", function () { pick(this); });
   var dropline = drop.querySelector(".rs-drop__line");
   // landing curve: fast drop, ~3% overshoot past rest around t=.8, then settles at exactly 1
   function land(t) { var u = 1 - t; return 1 - u * u * u + 0.12 * Math.sin(Math.PI * t) * t * t; }
@@ -3783,6 +3880,7 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
     mlabel.parentNode.style.setProperty("--ml", seg(q, 0.70, 0.78).toFixed(3));
     // 1: the folder tabs lift onto the shelf, "Your goal" last, then its note writes on
     M.stepper(tabs, q, 0.74, 0.03, 0.07);
+    mythS.style.setProperty("--t", seg(q, 0.62, 0.72).toFixed(3));
   }
 
   var tm;
@@ -3807,7 +3905,7 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
             <span class="mca-line">Once a week, it makes a plan.</span>
             <span class="mca-line"><span class="lp-decide">You decide.<svg class="mca-stroke lp-decide__u" viewBox="0 0 360 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" class="mca-draw" d="M5 15C80 8 190 6 355 11"/></svg></span></span>
           </h2>
-          <p class="mca-lead lp-lead">Each week you give it two things: class totals from your gradebook and anonymous student feedback. It checks whether last week’s strategy worked, keeps it or tries something new, and drafts what you need. Nothing reaches your students except through you.</p>
+          <p class="mca-lead lp-lead">It takes about ten minutes a week. Nothing reaches students without your&nbsp;OK.</p>
         </header>
 
         <div class="lp-week">
@@ -3877,8 +3975,8 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
               </div>
               <span class="lp-node" aria-hidden="true"></span>
               <div class="lp-txt">
-                <h3 class="mca-h4 lp-title">Your assistant</h3>
-                <p class="lp-body">Checks whether last week worked, then plans the next one from research.</p>
+                <h3 class="mca-h4 lp-title">Classroom AI</h3>
+                <p class="lp-body">Checks what worked and plans next week from research.</p>
               </div>
             </li>
 
@@ -3901,7 +3999,7 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
               <span class="lp-node" aria-hidden="true"></span>
               <div class="lp-txt">
                 <h3 class="mca-h4 lp-title">You, again</h3>
-                <p class="lp-body">Look it over. Change anything. Run it Monday.</p>
+                <p class="lp-body">Change anything, then run it Monday.</p>
               </div>
             </li>
           </ol>
@@ -3927,10 +4025,10 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
           <div class="lp-back">
             <svg class="mca-stroke lp-arc" aria-hidden="true"><path class="lp-arc__g"/><path pathLength="1" class="mca-draw lp-arc__p"/><path pathLength="1" class="mca-draw lp-arc__h"/></svg>
             <p class="lp-tag lp-tag4" aria-hidden="true">the class responds</p>
-            <p class="lp-return">Then the next week starts, and it plans again with what it learned.</p>
+            <p class="lp-return">Next week, it plans again with what it learned.</p>
           </div>
 
-          <p class="mca-sr">What moves between the stops: from your class to you, how the week went. From you to your assistant, “8 students behind on Unit 3”. Your assistant checks whether last week’s strategy worked. From your assistant back to you, a slide, a note home and a Friday event. From you to your class, the class responds.</p>
+          <p class="mca-sr">What moves between the stops: from your class to you, how the week went. From you to the Classroom AI, “8 students behind on Unit 3”. The Classroom AI checks whether last week’s strategy worked. From the Classroom AI back to you, a slide, a note home and a Friday event. From you to your class, the class responds.</p>
         </div>
 
       </div>
@@ -4493,64 +4591,80 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 
     <header class="mca-head mca-center dp-head">
       <p class="mca-eyebrow">Privacy</p>
-      <h2 id="data-h" class="mca-h2"><span class="mca-line">By default, the AI never</span> <span class="mca-line">sees a student’s name.</span></h2>
-      <p class="mca-lead">Your course export and your own notes can go straight to the AI. Anything with student names, like your gradebook or student feedback, goes through offline apps on your computer first. They turn it into totals, and only the totals reach the&nbsp;AI.</p>
+      <h2 id="data-h" class="mca-h2"><span class="mca-line">By default, the AI never</span> <span class="mca-line">sees student data.</span></h2>
+      <p class="mca-lead">Names, grades and other personal information stay on your computer. The AI only gets class totals, unless the school approves&nbsp;more.</p>
     </header>
 
-    <p class="mca-sr">Diagram. Course data, meaning your LMS course export and your own notes, goes straight to your assistant. Student data, meaning your gradebook and student feedback, goes to offline apps on your laptop, which your assistant built. They send on only cleaned totals, such as 8 students behind on Unit 3. Optional: if you use Claude for Teachers and your district gives permission, you can choose to share student data with your assistant directly.</p>
+    <!-- the default path: everything with a name stays inside the laptop; only a total crosses out -->
+    <figure class="dp-flow">
+      <figcaption class="mca-sr">How it works by default. One: your gradebook, with names and grades, stays on your computer. Two: a simple app on your computer, with no internet, counts it up. Three: out comes a class total with no names or grades, like “8 students behind on Unit 3.” You paste only that total into your chat with the Classroom AI.</figcaption>
 
-    <div class="dp-map" aria-hidden="true">
-      <!-- lane 1: not student data -->
-      <div class="dp-src dp-src--course">
-        <p class="dp-src__k">Not student data</p>
-        <ul class="dp-items">
-          <li><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg>LMS course export</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 19.5l1.2-4.4L15.8 5.5a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8l-9.6 9.6z"/></svg>Your notes</li>
-        </ul>
+      <div class="dp-box" aria-hidden="true">
+        <p class="dp-box__k"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M1.5 19.5h21"/></svg>On your computer · no internet</p>
+        <div class="dp-steps">
+          <div class="dp-step dp-step--book">
+            <p class="dp-step__h"><span class="dp-n">1</span>Your gradebook</p>
+            <div class="dp-sheet">
+              <p class="dp-sheet__f">period-4-grades.csv</p>
+              <p class="dp-r"><span>Carlos D.</span><b>4 missing</b></p>
+              <p class="dp-r"><span>Devon E.</span><b>1 missing</b></p>
+              <p class="dp-r"><span>Maya C.</span><b>3 missing</b></p>
+              <p class="dp-r"><span>Amari J.</span><b>5 missing</b></p>
+              <p class="dp-r dp-r--more"><span>+ 22 more</span></p>
+            </div>
+            <p class="dp-step__s dp-step__s--wide">Names and grades (made-up sample)</p>
+          </div>
+
+          <span class="dp-go" aria-hidden="true"></span>
+
+          <div class="dp-step dp-step--app">
+            <p class="dp-step__h"><span class="dp-n">2</span>A simple app</p>
+            <div class="dp-app">
+              <span class="dp-app__bar"><i></i><i></i><i></i></span>
+              <span class="dp-app__body">
+                <span class="dp-app__rows"><i></i><i></i><i></i><i></i></span>
+                <svg class="dp-app__sum" viewBox="0 0 24 24"><path d="M17 5H7l6 7-6 7h10"/></svg>
+              </span>
+            </div>
+            <p class="dp-step__s">Counts it up, offline</p>
+          </div>
+
+          <span class="dp-go" aria-hidden="true"></span>
+
+          <div class="dp-step dp-step--total">
+            <p class="dp-step__h"><span class="dp-n">3</span>Class totals</p>
+            <p class="dp-total"><b>8</b><span>students behind on Unit&nbsp;3</span></p>
+            <p class="dp-step__s">No names. No grades.</p>
+          </div>
+        </div>
+        <p class="dp-box__foot">Student data never leaves your computer.</p>
       </div>
-      <div class="dp-wire dp-wire--course dp-span"><span class="dp-wire__lbl">straight in</span></div>
 
-      <!-- lane 2: student data -->
-      <div class="dp-src dp-src--student">
-        <p class="dp-src__k">Student data</p>
-        <ul class="dp-items">
-          <li><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M9.5 9.5v10"/></svg>Gradebook</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4.5 6.5a2.5 2.5 0 0 1 2.5-2.5h10a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 3.5V16a2.5 2.5 0 0 1-1.5-2.3z"/></svg>Student feedback</li>
-        </ul>
-      </div>
-      <div class="dp-wire dp-wire--student"></div>
-      <div class="dp-apps">
-        <p class="dp-apps__k"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M1.5 19.5h21"/></svg>On your laptop · no internet</p>
-        <p class="dp-apps__t">Offline apps</p>
-        <p class="dp-apps__by">built by your assistant</p>
-      </div>
-      <div class="dp-wire dp-wire--clean"><span class="dp-wire__lbl dp-wire__lbl--clean">cleaned<br>totals only</span></div>
-
-      <!-- destination, spans both lanes -->
-      <div class="dp-asst">
-        <svg class="dp-asst__mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#14231F"/><rect x="17" y="17" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 32 32)"/><path d="M38 9C20 8 7 17 7 32s12 25 27 24 23-11 23-25S47 9 29 12" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round"/></svg>
-        <p class="dp-asst__t">Your assistant</p>
-        <p class="dp-asst__s">in Claude</p>
-        <p class="dp-total">“8 students behind on Unit&nbsp;3”</p>
+      <div class="dp-out" aria-hidden="true">
+        <span class="dp-out__line"></span>
+        <p class="dp-out__lbl">You paste in<br>the totals</p>
       </div>
 
-      <!-- the optional road: underneath, dashed -->
-      <div class="dp-bypass">
-        <i class="dp-bp dp-bp--down"></i><i class="dp-bp dp-bp--across"></i><i class="dp-bp dp-bp--up"></i>
-        <p class="dp-bypass__lbl"><span class="dp-opt">Optional</span>Claude for Teachers <b>+</b> your district’s OK: share student data directly</p>
+      <div class="dp-ai" aria-hidden="true">
+        <svg class="dp-ai__mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#14231F"/><rect x="17" y="17" width="30" height="30" rx="3" fill="#FFE67E" transform="rotate(-6 32 32)"/><path d="M38 9C20 8 7 17 7 32s12 25 27 24 23-11 23-25S47 9 29 12" fill="none" stroke="#FF5A1F" stroke-width="5" stroke-linecap="round"/></svg>
+        <p class="dp-ai__t">Classroom AI</p>
+        <p class="dp-ai__s">in Claude</p>
+        <p class="dp-ai__got">“8 students behind on Unit&nbsp;3”</p>
       </div>
-    </div>
+    </figure>
 
-    <!-- phone: the same two roads, as a list -->
-    <ol class="dp-list">
-      <li class="dp-row dp-row--course"><span class="dp-row__k">Not student data</span><b>LMS course export, your notes</b><span class="dp-row__to">→ straight to your assistant</span></li>
-      <li class="dp-row dp-row--student"><span class="dp-row__k">Student data</span><b>Gradebook, student feedback</b><span class="dp-row__to">→ offline apps on your laptop, built by your assistant</span><span class="dp-row__to">→ only cleaned totals reach your assistant</span></li>
-      <li class="dp-row dp-row--opt"><span class="dp-row__k">Optional</span><b>Claude for Teachers + your district’s OK</b><span class="dp-row__to">→ you can share student data directly</span></li>
-    </ol>
-
-    <div class="dp-notes">
-      <p class="dp-note dp-note--apps"><b>Your assistant built the offline apps.</b> Need one that doesn’t exist yet? It builds that too. <a class="mca-link" href="#tools">See how <span class="mca-arrow" aria-hidden="true">→</span></a></p>
-      <p class="dp-note dp-note--cft"><b>About the optional road.</b> <a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a> is free for verified US K-12 teachers, with FERPA-aligned protections under a K-12 data processing addendum, and your data isn’t used to train models. Whether you may upload identifiable student data is your district’s decision, not Anthropic’s. Ask first.</p>
+    <!-- the other path, only with the school's OK -->
+    <div class="dp-opt">
+      <div class="dp-opt__path" aria-hidden="true">
+        <span class="dp-chip">Gradebook</span>
+        <span class="dp-opt__dash"></span>
+        <span class="dp-chip dp-chip--ai">Classroom AI</span>
+      </div>
+      <div class="dp-opt__txt">
+        <p class="dp-opt__k">Only if your school says yes</p>
+        <p class="dp-opt__t">Share student data directly</p>
+        <p class="dp-opt__b"><a class="mca-link" href="https://www.anthropic.com/news/claude-for-teachers" target="_blank" rel="noopener">Claude for Teachers</a>, free for verified US K-12 teachers, lets you share the gradebook directly. It has FERPA-aligned protections, and data isn’t used to train models. <strong class="dp-must">Whether you may upload identifiable student data is your district’s decision, not Anthropic’s. Ask first.</strong></p>
+      </div>
     </div>
 
     <p class="dp-after"><a class="mca-link" href="setup/permissions/privacy-one-pager.html">Read the privacy one-pager <span class="mca-arrow" aria-hidden="true">→</span></a></p>
@@ -4558,135 +4672,133 @@ html.mca-freeze #research .rs-phrase{ transition:none; }
 </section>
 
 <style>
-#data{ --c-course:#7C8983; --c-student:var(--mint-ink); --c-opt:var(--sky-ink); --wire:clamp(56px,7vw,120px); }
-#data .dp-head{ max-width:820px; }
-#data .dp-head .mca-lead{ max-width:34em; }
+#data{ --safe:var(--mint-ink); --safe-2:#16693F; --opt:var(--sky-ink); }
+#data .dp-head{ max-width:860px; }
+#data .dp-head .mca-lead{ max-width:32em; }
 
-/* ---------- the map: 2 lanes into one assistant ---------- */
-#data .dp-map{
-  display:grid; max-width:1080px; margin:var(--s-9) auto 0;
-  grid-template-columns:minmax(0,1fr) var(--wire) minmax(0,.9fr) var(--wire) minmax(0,1fr);
-  grid-template-rows:auto auto auto;
-  row-gap:var(--s-6); align-items:center;
-}
-#data .dp-src--course{ grid-area:1/1; }
-#data .dp-span{ grid-area:1/2/2/5; }
-#data .dp-src--student{ grid-area:2/1; }
-#data .dp-wire--student{ grid-area:2/2; }
-#data .dp-apps{ grid-area:2/3; }
-#data .dp-wire--clean{ grid-area:2/4; }
-#data .dp-asst{ grid-area:1/5/3/6; }
-#data .dp-bypass{ grid-area:3/1/4/6; }
-
-#data .dp-src{ padding:20px 22px; border-radius:var(--r-lg); background:var(--card); box-shadow:var(--sh-2); }
-#data .dp-src--student{ box-shadow:var(--sh-2), inset 0 0 0 2px var(--note-coral); }
-#data .dp-src__k{ font:750 var(--t-micro)/1 var(--f-body); letter-spacing:var(--tr-eyebrow); text-transform:uppercase; }
-#data .dp-src--course .dp-src__k{ color:var(--ink-3); }
-#data .dp-src--student .dp-src__k{ color:#A8391F; }
-#data .dp-items{ display:grid; gap:8px; margin-top:14px; }
-#data .dp-items li{ display:flex; align-items:center; gap:11px; font:700 1.0625rem/1.2 var(--f-display); letter-spacing:-.01em; }
-#data .dp-items svg{ width:34px; height:34px; padding:7px; border-radius:10px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-#data .dp-src--course .dp-items svg{ background:var(--paper-2); color:var(--ink-2); }
-#data .dp-src--student .dp-items svg{ background:var(--coral); color:var(--coral-ink); }
-
-/* wires: marching dashes that flow on their own */
-#data .dp-wire{ position:relative; height:3px; --c:var(--c-course); }
-#data .dp-wire--student, #data .dp-wire--clean{ --c:var(--c-student); }
-#data .dp-wire::before{
-  content:""; position:absolute; inset:0; border-radius:3px;
-  background:repeating-linear-gradient(90deg, var(--c) 0 7px, transparent 7px 15px);
-  background-size:15px 3px; animation:dp-flow .9s linear infinite;
-}
-#data .dp-wire::after{
-  content:""; position:absolute; right:-2px; top:50%; width:9px; height:9px;
-  border-top:3px solid var(--c); border-right:3px solid var(--c); transform:translateY(-50%) rotate(45deg);
-}
-@keyframes dp-flow{ to{ background-position:15px 0; } }
-#data .dp-wire__lbl{
-  position:absolute; left:50%; bottom:12px; transform:translateX(-50%); white-space:nowrap;
-  font:750 var(--t-micro)/1 var(--f-body); color:var(--ink-3);
-}
-#data .dp-wire__lbl--clean{
-  bottom:14px; color:#16693F; background:var(--card); padding:6px 10px; border-radius:12px;
-  text-align:center; line-height:1.25; white-space:nowrap;
-  box-shadow:var(--sh-1), inset 0 0 0 1.5px var(--c-student);
+/* ---------- the default path ---------- */
+#data .dp-flow{
+  display:grid; grid-template-columns:minmax(0, 1fr) clamp(96px, 9vw, 140px) minmax(200px, 230px); align-items:center;
+  max-width:1160px; margin:var(--s-9) auto 0;
 }
 
-/* offline apps */
-#data .dp-apps{
-  padding:20px; border-radius:var(--r-lg); text-align:center;
-  background:var(--card); box-shadow:var(--sh-3), inset 0 0 0 2px var(--note-mint);
+/* the laptop: a dashed safe zone around everything that has a name in it */
+#data .dp-box{
+  position:relative; padding:44px 26px 24px; border-radius:var(--r-xl);
+  background:rgba(255,255,255,.55); border:2px dashed color-mix(in srgb, var(--safe) 55%, transparent);
 }
-#data .dp-apps__k{ display:inline-flex; align-items:center; gap:7px; font:750 11.5px/1.2 var(--f-body); letter-spacing:.04em; text-transform:uppercase; color:#16693F; }
-#data .dp-apps__k svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; }
-#data .dp-apps__t{ font:750 var(--t-h4)/1.1 var(--f-display); letter-spacing:-.015em; margin-top:10px; }
-#data .dp-apps__by{ font:650 var(--t-hand)/1 var(--f-hand); color:var(--orange-ink); margin-top:6px; }
+#data .dp-box__k{
+  position:absolute; left:22px; top:-14px; display:inline-flex; align-items:center; gap:8px; height:28px; padding:0 12px;
+  border-radius:var(--r-pill); background:var(--mint); box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--safe) 45%, transparent);
+  font:750 var(--t-micro)/1 var(--f-body); letter-spacing:.05em; text-transform:uppercase; color:var(--safe-2);
+}
+#data .dp-box__k svg{ width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; }
+#data .dp-box__foot{ margin-top:20px; text-align:center; font:750 var(--t-small)/1.3 var(--f-body); color:var(--safe-2); }
 
-/* the assistant */
-#data .dp-asst{
-  align-self:stretch; display:grid; align-content:center; justify-items:center; text-align:center; gap:6px;
-  padding:26px 22px; border-radius:var(--r-lg); background:var(--card); box-shadow:var(--sh-3);
-}
-#data .dp-asst__mark{ width:54px; height:54px; margin-bottom:6px; }
-#data .dp-asst__t{ font:750 var(--t-h4)/1.1 var(--f-display); letter-spacing:-.015em; }
-#data .dp-asst__s{ font:600 var(--t-small)/1.2 var(--f-body); color:var(--ink-3); }
-#data .dp-total{ margin-top:12px; font:650 var(--t-small)/1.3 var(--f-body); color:#1F5A3A; background:var(--mint); padding:8px 12px; border-radius:10px; }
+#data .dp-steps{ display:grid; grid-template-columns:minmax(0, 1.15fr) 34px minmax(0, 1fr) 34px minmax(0, 1fr); align-items:start; }
+#data .dp-step{ display:grid; justify-items:center; gap:12px; text-align:center; opacity:var(--t, 1); transform:translateY(calc((1 - var(--t, 1)) * 14px)); }
+#data .dp-step__h{ display:inline-flex; align-items:center; gap:8px; font:750 var(--t-h4)/1.15 var(--f-display); letter-spacing:-.012em; color:var(--ink); }
+#data .dp-n{ display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; font:800 .8125rem/1 var(--f-body); flex:none; }
+#data .dp-step__s{ font:600 var(--t-micro)/1.35 var(--f-body); color:var(--ink-3); max-width:15em; }
+#data .dp-step__s--wide{ max-width:none; }
+#data .dp-go{ align-self:center; height:3px; margin-top:34px; position:relative; border-radius:3px; background:repeating-linear-gradient(90deg, var(--safe) 0 6px, transparent 6px 11px); opacity:var(--t, 1); }
+#data .dp-go::after{ content:""; position:absolute; right:-1px; top:50%; width:8px; height:8px; border-top:3px solid var(--safe); border-right:3px solid var(--safe); transform:translateY(-50%) rotate(45deg); }
 
-/* the optional road: a dashed U from student data, under everything, up into the assistant */
-#data .dp-bypass{
-  position:relative; height:86px; margin-top:calc(var(--s-6) * -1);
-  --x1:calc((100% - var(--wire) * 2) * (1 / 2.9) / 2);                 /* centre of column 1 */
-  --x2:calc((100% - var(--wire) * 2) * (1 / 2.9) / 2);                 /* centre of column 5, from the right */
-}
-#data .dp-bp{ position:absolute; --c:var(--c-opt); }
-#data .dp-bp--down, #data .dp-bp--up{ top:0; width:3px; height:52px;
-  background:repeating-linear-gradient(180deg, var(--c) 0 7px, transparent 7px 15px); background-size:3px 15px; }
-#data .dp-bp--down{ left:var(--x1); animation:dp-flow-y .9s linear infinite; }
-#data .dp-bp--up{ right:var(--x2); animation:dp-flow-y .9s linear infinite reverse; }
-#data .dp-bp--up::after{
-  content:""; position:absolute; left:50%; top:-3px; width:9px; height:9px;
-  border-top:3px solid var(--c); border-left:3px solid var(--c); transform:translateX(-50%) rotate(45deg);
-}
-#data .dp-bp--across{ top:50px; left:var(--x1); right:var(--x2); height:3px;
-  background:repeating-linear-gradient(90deg, var(--c) 0 7px, transparent 7px 15px); background-size:15px 3px; animation:dp-flow .9s linear infinite; }
-@keyframes dp-flow-y{ to{ background-position:0 15px; } }
-#data .dp-bypass__lbl{
-  position:absolute; left:50%; top:51px; transform:translate(-50%,-50%); white-space:nowrap;
-  display:flex; align-items:center; gap:10px; padding:8px 14px 8px 8px; border-radius:var(--r-pill);
-  background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1.5px var(--c-opt);
-  font:650 var(--t-small)/1.2 var(--f-body); color:#1F4FB3;
-}
-#data .dp-bypass__lbl b{ color:var(--ink-3); font-weight:700; }
-#data .dp-opt{ font:800 11px/1 var(--f-body); letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--c-opt); padding:5px 8px; border-radius:var(--r-pill); }
+/* 1 · the gradebook, with made-up names */
+#data .dp-sheet{ width:100%; max-width:220px; padding:12px 14px 8px; border-radius:var(--r-sm); background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); text-align:left; }
+#data .dp-sheet__f{ margin-bottom:6px; font:500 .75rem/1.2 var(--f-mono); color:var(--ink-3); }
+#data .dp-r{ display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-top:1px solid var(--line); font:600 .8125rem/1.2 var(--f-body); color:var(--ink); }
+#data .dp-r b{ font-weight:700; color:#A8391F; white-space:nowrap; }
+#data .dp-r--more span{ color:var(--ink-3); }
 
-/* notes */
-#data .dp-notes{ display:grid; align-items:start; grid-template-columns:1fr 1fr; gap:var(--s-5); max-width:1080px; margin:var(--s-8) auto 0; }
-#data .dp-note{ padding:22px 24px; border-radius:var(--r-lg); background:rgba(255,255,255,.6); box-shadow:inset 0 0 0 1px var(--line); font:500 var(--t-body)/1.55 var(--f-body); color:var(--ink-2); }
-#data .dp-note b{ display:block; margin-bottom:6px; font:750 var(--t-h4)/1.2 var(--f-display); letter-spacing:-.012em; color:var(--ink); }
-#data .dp-note--apps b{ color:var(--ink); }
+/* 2 · the app */
+#data .dp-app{ width:128px; border-radius:12px; background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 1px var(--line); overflow:hidden; }
+#data .dp-app__bar{ display:flex; gap:4px; padding:7px 9px; border-bottom:1px solid var(--line); background:#FCFBF8; }
+#data .dp-app__bar i{ width:6px; height:6px; border-radius:50%; background:#E4DFD4; }
+#data .dp-app__body{ display:flex; align-items:center; justify-content:center; gap:10px; padding:14px 12px 16px; }
+#data .dp-app__rows{ display:grid; gap:5px; }
+#data .dp-app__rows i{ display:block; width:40px; height:5px; border-radius:3px; background:rgba(20,35,31,.14); }
+#data .dp-app__rows i:nth-child(2){ width:32px; } #data .dp-app__rows i:nth-child(4){ width:28px; }
+#data .dp-app__sum{ width:30px; height:30px; padding:5px; border-radius:9px; background:var(--mint); fill:none; stroke:var(--safe-2); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* 3 · the total */
+#data .dp-total{ display:grid; justify-items:center; gap:4px; width:100%; max-width:190px; padding:14px 14px 16px; border-radius:var(--r-md); background:var(--card); box-shadow:var(--sh-2), inset 0 0 0 2px var(--note-mint); }
+#data .dp-total b{ font:800 2.5rem/1 var(--f-display); letter-spacing:-.03em; color:var(--ink); }
+#data .dp-total span{ font:650 var(--t-small)/1.3 var(--f-body); color:var(--ink-2); }
+
+/* the one thing that crosses out of the laptop */
+#data .dp-out{ position:relative; display:grid; justify-items:center; align-content:center; gap:10px; padding:0 10px; opacity:var(--t, 1); }
+#data .dp-out__line{ position:relative; width:100%; height:3px; border-radius:3px; background:var(--ink); transform-origin:0 50%; transform:scaleX(var(--t, 1)); }
+#data .dp-out__line::after{ content:""; position:absolute; right:-1px; top:50%; width:10px; height:10px; border-top:3px solid var(--ink); border-right:3px solid var(--ink); transform:translateY(-50%) rotate(45deg); }
+#data .dp-out__lbl{ order:-1; text-align:center; font:750 var(--t-micro)/1.3 var(--f-body); color:var(--ink-2); }
+
+#data .dp-ai{
+  display:grid; justify-items:center; gap:4px; text-align:center; padding:26px 20px 22px; border-radius:var(--r-lg);
+  background:var(--card); box-shadow:var(--sh-3);
+}
+#data .dp-ai__mark{ width:52px; height:52px; margin-bottom:6px; }
+#data .dp-ai__t{ font:750 var(--t-h4)/1.1 var(--f-display); letter-spacing:-.015em; }
+#data .dp-ai__s{ font:600 var(--t-small)/1.2 var(--f-body); color:var(--ink-3); }
+#data .dp-ai__got{ margin-top:12px; padding:8px 12px; border-radius:10px; background:var(--mint); font:650 var(--t-small)/1.3 var(--f-body); color:#1F5A3A; opacity:var(--t, 1); }
+
+/* ---------- the other path ---------- */
+#data .dp-opt{
+  display:grid; grid-template-columns:auto minmax(0, 1fr); align-items:center; gap:28px 40px;
+  max-width:1000px; margin:var(--s-8) auto 0; padding:26px 30px; border-radius:var(--r-lg);
+  background:rgba(255,255,255,.6); border:2px dashed color-mix(in srgb, var(--opt) 45%, transparent);
+}
+#data .dp-opt__path{ display:flex; align-items:center; gap:10px; }
+#data .dp-chip{ display:inline-flex; align-items:center; height:34px; padding:0 13px; border-radius:var(--r-pill); background:var(--card); box-shadow:var(--sh-1), inset 0 0 0 1px var(--line); font:700 var(--t-small)/1 var(--f-body); color:var(--ink); white-space:nowrap; }
+#data .dp-opt__dash{ position:relative; width:64px; height:3px; background:repeating-linear-gradient(90deg, var(--opt) 0 6px, transparent 6px 11px); }
+#data .dp-opt__dash::after{ content:""; position:absolute; right:-1px; top:50%; width:8px; height:8px; border-top:3px solid var(--opt); border-right:3px solid var(--opt); transform:translateY(-50%) rotate(45deg); }
+#data .dp-opt__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.06em; text-transform:uppercase; color:#1F4FB3; }
+#data .dp-opt__t{ margin-top:6px; font:750 var(--t-h4)/1.2 var(--f-display); letter-spacing:-.012em; color:var(--ink); }
+#data .dp-opt__b{ margin-top:6px; font:500 var(--t-body)/1.55 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
+#data .dp-must{ font-weight:700; color:var(--ink); }
 #data .dp-after{ margin-top:var(--s-6); text-align:center; font:600 var(--t-body)/1.5 var(--f-body); }
 
-/* phone list (hidden on wide screens) */
-#data .dp-list{ display:none; }
-
-@media (max-width:900px){
-  #data .dp-map{ display:none; }
-  #data .dp-list{ display:grid; gap:var(--s-4); max-width:560px; margin:var(--s-7) auto 0; }
-  #data .dp-row{ display:grid; gap:5px; padding:18px 20px; border-radius:var(--r-lg); background:var(--card); box-shadow:var(--sh-2); }
-  #data .dp-row b{ font:750 1.0625rem/1.25 var(--f-display); letter-spacing:-.01em; }
-  #data .dp-row__k{ font:750 var(--t-micro)/1 var(--f-body); letter-spacing:var(--tr-eyebrow); text-transform:uppercase; color:var(--ink-3); }
-  #data .dp-row__to{ font:650 var(--t-small)/1.35 var(--f-body); color:var(--ink-2); }
-  #data .dp-row--student{ box-shadow:var(--sh-2), inset 0 0 0 2px var(--note-coral); }
-  #data .dp-row--student .dp-row__k{ color:#A8391F; }
-  #data .dp-row--student .dp-row__to{ color:#16693F; }
-  #data .dp-row--opt{ background:rgba(255,255,255,.6); box-shadow:none; border:2px dashed var(--c-opt); }
-  #data .dp-row--opt .dp-row__k, #data .dp-row--opt .dp-row__to{ color:#1F4FB3; }
-  #data .dp-notes{ grid-template-columns:1fr; max-width:560px; }
+/* ---------- tablet: the AI drops below the laptop ---------- */
+@media (max-width: 1060px){
+  #data .dp-flow{ grid-template-columns:minmax(0, 1fr); justify-items:center; max-width:760px; }
+  #data .dp-box{ width:100%; }
+  #data .dp-out{ height:96px; width:auto; padding:0; grid-template-columns:auto auto; align-items:center; gap:14px; }
+  #data .dp-out__line{ width:3px; height:72px; transform-origin:50% 0; transform:scaleY(var(--t, 1)); }
+  #data .dp-out__line::after{ right:auto; left:50%; top:auto; bottom:-1px; transform:translateX(-50%) rotate(135deg); }
+  #data .dp-out__lbl{ order:1; text-align:left; }
+  #data .dp-ai{ width:min(280px, 100%); }
+  #data .dp-opt{ grid-template-columns:minmax(0, 1fr); max-width:760px; }
 }
 
-html.mca-reduced #data .dp-wire::before, html.mca-reduced #data .dp-bp,
-html.mca-freeze #data .dp-wire::before, html.mca-freeze #data .dp-bp{ animation:none; }
+/* ---------- phone: the three steps stack ---------- */
+@media (max-width: 640px){
+  #data .dp-flow{ margin-top:var(--s-7); }
+  #data .dp-box{ padding:40px 16px 20px; }
+  #data .dp-steps{ grid-template-columns:minmax(0, 1fr); row-gap:10px; justify-items:center; }
+  #data .dp-go{ width:3px; height:28px; margin:0; background:repeating-linear-gradient(180deg, var(--safe) 0 6px, transparent 6px 11px); }
+  #data .dp-go::after{ right:auto; left:50%; top:auto; bottom:-1px; transform:translateX(-50%) rotate(135deg); }
+  #data .dp-opt{ padding:22px 20px; }
+  #data .dp-opt__dash{ width:36px; }
+  #data .dp-chip{ padding:0 11px; font-size:.875rem; }
+}
 </style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("data");
+  if (!sec || !window.MCA) return;
+  var M = window.MCA, c01 = M.clamp01, ease = M.ease;
+  var flow = sec.querySelector(".dp-flow");
+  var steps = [].slice.call(sec.querySelectorAll(".dp-step, .dp-go"));
+  var out = sec.querySelector(".dp-out"), got = sec.querySelector(".dp-ai__got");
+  /* one step at a time: gradebook, app, total. Then (and only then) the total crosses out to the AI */
+  M.register(flow, "pass", function (p) {
+    M.stepper(steps, p, .08, .07, .1);
+    out.style.setProperty("--t", ease(c01((p - .5) / .14)).toFixed(3));
+    got.style.setProperty("--t", c01((p - .62) / .08).toFixed(3));
+  });
+})();
+</script>
 
 
 <section id="tools" class="mca-section" aria-labelledby="tools-h">
@@ -4696,8 +4808,7 @@ html.mca-freeze #data .dp-wire::before, html.mca-freeze #data .dp-bp{ animation:
     <header class="mca-head tl-head">
       <p class="mca-eyebrow">Tools</p>
       <h2 class="mca-h2" id="tools-h"><span class="mca-line">Need a tool nobody makes?</span> <span class="mca-line">It writes one.</span></h2>
-      <p class="mca-lead tl-lead">Ask for a seating chart that keeps two kids apart, or a reading tracker for your room. It builds a working app, checks that it never sends data online, and adds it to your&nbsp;sidebar.</p>
-      <p class="tl-micro"><span class="tl-micro__doc" aria-hidden="true"></span><span>Each tool is one file you double-click.<br>No install. No account. No&nbsp;internet.</span></p>
+      <p class="mca-lead tl-lead">Ask for something like a seating chart that keeps two kids apart. It builds a small offline app and adds it to the&nbsp;sidebar.</p>
     </header>
 
     <!-- right: one illustration. Screen readers get the caption; the drawing is hidden. -->
@@ -4809,8 +4920,6 @@ html.mca-freeze #data .dp-wire::before, html.mca-freeze #data .dp-bp{ animation:
 #tools .tl-head{ grid-column:1 / span 5; position:relative; z-index:2; }
 #tools .tl-head .mca-h2{ letter-spacing:-.021em; }
 #tools .tl-lead{ font-size:1.1875rem; line-height:1.5; max-width:25em; }
-#tools .tl-micro{ display:flex; align-items:flex-start; gap:12px; font:600 var(--t-small)/1.5 var(--f-body); color:var(--ink-3); max-width:none; }
-#tools .tl-micro__doc{ flex:none; width:15px; height:19px; margin-top:2px; border-radius:3px; background:linear-gradient(225deg, transparent 5px, var(--mint-ink) 5px); }
 
 #tools .tl-stage{ grid-column:6 / span 7; margin:0; min-width:0; }
 #tools .tl-art{ position:relative; height:664px; }
@@ -5272,7 +5381,7 @@ html.mca-freeze #data .dp-wire::before, html.mca-freeze #data .dp-bp{ animation:
       </div>
       <p class="mca-sr">Paste it into Claude Cowork. It downloads the project and starts the setup interview.</p>
       <div class="mca-copy__meta c-meta">
-        <span class="c-demo"><span class="c-or">No install.</span> <a class="mca-link" href="local-tools/ClassAI-dashboard.html" title="A sample class with made-up names."><span class="c-demo__u">Try the live demo</span> <span class="mca-arrow" aria-hidden="true">→</span><span class="mca-sr"> A sample class with made-up names.</span></a></span>
+        <span class="c-demo"><span class="c-or">Just looking?</span> <a class="mca-link" href="local-tools/ClassAI-dashboard.html" title="A sample class with made-up names."><span class="c-demo__u">Try the live demo</span> <span class="mca-arrow" aria-hidden="true">→</span><span class="mca-sr"> A sample class with made-up names.</span></a></span>
         <span class="c-sep" aria-hidden="true"></span>
         <button class="mca-copy__toggle" type="button" data-reveal-prompt aria-expanded="false"><span class="mca-copy__show">Show the prompt</span><span class="mca-copy__hide">Hide the prompt</span></button>
       </div>
@@ -5537,7 +5646,7 @@ html.mca-freeze #data .dp-wire::before, html.mca-freeze #data .dp-bp{ animation:
           </svg>
           <span class="ft-name">My Classroom Assistant</span>
         </a>
-        <p class="ft-sign">Hand one classroom problem to an AI, and it keeps working on it all year.</p>
+        <p class="ft-sign">Put an AI to work on one classroom problem all&nbsp;year.</p>
         </div>
 
         <nav class="ft-links" aria-label="Footer links">

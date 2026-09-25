@@ -1,0 +1,220 @@
+<section id="persona" class="mca-section" aria-labelledby="pe-h">
+  <div class="mca-container pe-grid">
+
+    <header class="mca-head pe-head">
+      <p class="mca-eyebrow">Personality</p>
+      <h2 class="mca-h2" id="pe-h"><span class="mca-line">Give it a name</span> <span class="mca-line">and a personality.</span></h2>
+    </header>
+    <p class="mca-lead pe-lead">Choose what it’s called, what it’s like and how it talks. Putting it to a class vote is a fun way to involve&nbsp;students.</p>
+
+    <!-- the ballot: three starter personalities from brain/persona-packs.md, as index cards the class tallies -->
+    <figure class="pe-vote" aria-labelledby="pe-vote-cap">
+      <figcaption id="pe-vote-cap" class="pe-cap"><span class="pe-cap__k">Class vote</span><span class="pe-cap__s">Sample · three starter personalities</span></figcaption>
+      <div class="pe-cards">
+        <article class="pe-card" data-k="0">
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd>Otter</dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Calm coach</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“One small step?”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="7" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">7 votes</span></p>
+        </article>
+        <article class="pe-card pe-card--win" data-k="1">
+          <span class="pe-tag" aria-hidden="true">Class pick</span>
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd><span class="pe-nm">Spark<svg class="pe-ring" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M71 7.5C52 2.6 22 3.8 9.5 13 1.8 18.8 3.4 29.6 16 34.4c15.6 5.9 47.6 5.4 66-1.6 12.4-4.7 15.6-13.4 6.2-19.6C78 6.6 58 4.2 40 5.2"/></svg></span></dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Warm and upbeat</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“Look what you pulled off.”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="11" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">11 votes, the class pick</span></p>
+        </article>
+        <article class="pe-card" data-k="2">
+          <dl class="pe-fields">
+            <div class="pe-f pe-f--name"><dt>Name</dt><dd>Sage</dd></div>
+            <div class="pe-f"><dt>Personality</dt><dd>Curious researcher</dd></div>
+            <div class="pe-f"><dt>How it talks</dt><dd>“Let’s find out.”</dd></div>
+          </dl>
+          <p class="pe-votes"><svg class="pe-tally" data-n="6" viewBox="0 0 120 26" preserveAspectRatio="xMinYMid meet" aria-hidden="true"></svg><span class="mca-sr">6 votes</span></p>
+        </article>
+      </div>
+      <p class="mca-hand pe-pick" aria-hidden="true"><svg class="mca-stroke pe-pick__arrow" viewBox="0 0 44 40"><path d="M38 36C24 34 12 24 9 6"/><path d="M9 6L3.5 14.5M9 6l8 6"/></svg><span>the class pick</span></p>
+    </figure>
+
+    <!-- what students get out of it -->
+    <aside class="pe-learn" aria-labelledby="pe-learn-t">
+      <p class="pe-learn__k">For students</p>
+      <p class="mca-h4 pe-learn__t" id="pe-learn-t">How AI agents solve big challenges</p>
+      <p class="pe-learn__b">All year, students watch it work on a real class challenge, one step at a time. It shows what AI can do beyond a&nbsp;chatbot.</p>
+      <ol class="pe-loop" aria-label="How an AI agent works">
+        <li>Set a goal</li><li>Try a strategy</li><li>Check</li><li>Adjust</li>
+      </ol>
+      <a class="mca-link pe-learn__a" href="https://github.com/mattnupen/My-Classroom-Assistant/blob/main/content-templates/day-one-lesson-plan.md">Comes with a 15-minute day-one lesson <span class="mca-arrow" aria-hidden="true">↗</span></a>
+    </aside>
+
+  </div>
+</section>
+
+<style>
+/* ---------- layout: the point + the student angle on the left, the ballot on the right ---------- */
+#persona .pe-grid{
+  display:grid; grid-template-columns:repeat(12, minmax(0, 1fr)); column-gap:24px; row-gap:64px;
+  grid-template-areas:
+    "h h h h h h h . l l l l"
+    "v v v v v v v a a a a a";
+}
+#persona .pe-head{ grid-area:h; }
+#persona .pe-lead{ grid-area:l; align-self:end; max-width:24em; margin-bottom:.35em; }
+
+/* ---------- the ballot ---------- */
+#persona .pe-vote{ grid-area:v; align-self:start; position:relative; margin:0; padding:0 4px 56px; }
+#persona .pe-cap{ display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin:0 0 22px 6px; }
+#persona .pe-cap__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--coral-ink); }
+#persona .pe-cap__s{ font:600 var(--t-micro)/1.2 var(--f-body); color:var(--ink-3); }
+#persona .pe-cards{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); align-items:start; }
+#persona .pe-card{
+  --rot:0deg; --yo:0px;
+  position:relative; margin:0; padding:18px 18px 14px; border-radius:10px; background:var(--card);
+  box-shadow:var(--sh-2), inset 0 0 0 1px var(--line);
+  transform-origin:50% 80%; will-change:transform;
+}
+#persona .pe-card + .pe-card{ margin-left:-14px; }
+#persona .pe-card[data-k="0"]{ --rot:-4deg; --yo:10px; z-index:1; }
+#persona .pe-card[data-k="1"]{ z-index:2; }
+#persona .pe-card[data-k="2"]{ --rot:3.5deg; --yo:10px; z-index:1; }
+#persona .pe-card.is-win{ z-index:3; box-shadow:var(--sh-3), inset 0 0 0 1px var(--line); }
+#persona .pe-card.is-lose .pe-tally{ filter:saturate(.5); opacity:.8; }
+#persona .pe-fields{ margin:0; }
+#persona .pe-f dt{ font:750 .6875rem/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+#persona .pe-f dd{ margin:5px 0 0; font:600 .9375rem/1.35 var(--f-body); color:var(--ink); text-wrap:pretty; }
+#persona .pe-tag{
+  position:absolute; right:12px; top:-11px; display:inline-flex; align-items:center; height:22px; padding:0 9px; border-radius:999px;
+  background:var(--coral-ink); color:#fff; font:750 .6875rem/1 var(--f-body); letter-spacing:.06em; text-transform:uppercase;
+  opacity:var(--w, 1); transform:scale(calc(.8 + .2 * var(--w, 1))); transform-origin:100% 50%;
+}
+#persona .pe-f + .pe-f{ margin-top:12px; }
+#persona .pe-f--name{ padding-bottom:12px; border-bottom:1.5px solid var(--coral-ink); }
+#persona .pe-f--name dd{ margin-top:6px; font:750 1.75rem/1 var(--f-display); letter-spacing:-.025em; font-variation-settings:"opsz" 48; }
+#persona .pe-nm{ position:relative; z-index:1; display:inline-block; }
+#persona .pe-ring{ position:absolute; z-index:-1; max-width:none; left:-15px; top:-12px; width:calc(100% + 32px); height:calc(100% + 24px); overflow:visible; pointer-events:none; }
+#persona .pe-ring path{ fill:none; stroke:var(--coral-ink); stroke-width:2.4px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--g, 1)); }
+#persona .pe-votes{ margin-top:14px; padding-top:10px; border-top:1px dashed var(--line-2); }
+#persona .pe-tally{ display:block; width:100%; max-width:120px; height:22px; overflow:visible; }
+#persona .pe-tally path{ fill:none; stroke:var(--orange); stroke-width:2.6px; stroke-linecap:round; stroke-dasharray:1 1.02; stroke-dashoffset:calc(1 - var(--t, 1)); }
+
+@media (min-width: 641px){ #persona .pe-tag{ display:none; } }
+/* the pen note under the winning card */
+#persona .pe-pick{
+  position:absolute; left:50%; bottom:0; display:flex; align-items:flex-end; gap:4px; margin-left:-40px; white-space:nowrap;
+  transform:rotate(-3deg); clip-path:inset(-40% calc((1 - var(--t, 1)) * 110% - 12px) -30% -5%);
+}
+#persona .pe-pick__arrow{ width:40px; height:36px; flex:none; margin-bottom:10px; }
+#persona .pe-pick__arrow path{ stroke:var(--orange-ink); stroke-width:2.75px; }
+
+/* ---------- the student angle ---------- */
+#persona .pe-learn{
+  grid-area:a; align-self:center; margin-left:clamp(0px, 2vw, 24px); padding:24px 24px 22px; border-radius:var(--r-lg);
+  background:var(--mint); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--mint-ink) 22%, transparent);
+}
+#persona .pe-learn__k{ font:750 var(--t-micro)/1.2 var(--f-body); letter-spacing:.08em; text-transform:uppercase; color:var(--mint-ink); }
+#persona .pe-learn__t{ margin-top:8px; color:var(--ink); }
+#persona .pe-learn__b{ margin-top:8px; font:500 var(--t-body)/1.55 var(--f-body); color:var(--ink-2); text-wrap:pretty; }
+#persona .pe-loop{ display:flex; flex-wrap:wrap; gap:8px 6px; margin:16px 0 0; padding:0; list-style:none; }
+#persona .pe-loop li{
+  display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 11px; border-radius:999px; background:var(--card);
+  box-shadow:inset 0 0 0 1px var(--line); font:700 .8125rem/1 var(--f-body); color:var(--ink);
+  opacity:var(--t, 1); transform:translateY(calc((1 - var(--t, 1)) * 8px));
+}
+#persona .pe-loop li + li::before{ content:"→"; margin-left:-4px; color:var(--mint-ink); font-weight:800; }
+#persona .pe-learn__a{ display:inline-block; margin-top:18px; font:750 var(--t-small)/1.4 var(--f-body); }
+
+/* ---------- tablet: one column, the ballot full width ---------- */
+@media (max-width: 1099px){
+  #persona .pe-grid{ grid-template-columns:minmax(0, 1fr); grid-template-areas:"h" "l" "v" "a"; row-gap:0; }
+  #persona .pe-lead{ max-width:30em; margin:var(--s-5) 0 56px; }
+  #persona .pe-vote{ max-width:720px; }
+  #persona .pe-learn{ max-width:640px; margin:48px 0 0; }
+}
+
+/* ---------- phone: the cards stack, each one a single row of fields ---------- */
+@media (max-width: 640px){
+  #persona .pe-lead{ margin-bottom:40px; }
+  #persona .pe-learn{ margin-top:12px; }
+  #persona .pe-vote{ padding:0 0 52px; }
+  #persona .pe-cap{ margin:0 0 16px; }
+  #persona .pe-cards{ grid-template-columns:minmax(0, 1fr); gap:10px; }
+  #persona .pe-card + .pe-card{ margin-left:0; }
+  #persona .pe-card{ padding:14px 16px 12px; }
+  #persona .pe-card[data-k="0"], #persona .pe-card[data-k="2"]{ --rot:0deg; --yo:0px; }
+  #persona .pe-fields{ display:grid; grid-template-columns:minmax(0, 40fr) minmax(0, 60fr); column-gap:14px; row-gap:10px; }
+  #persona .pe-f--name{ grid-row:span 2; padding:0 12px 0 0; border-bottom:0; border-right:1.5px solid var(--coral-ink); }
+  #persona .pe-f--name dd{ font-size:1.5rem; }
+  #persona .pe-f + .pe-f{ margin-top:0; }
+  #persona .pe-f:not(.pe-f--name) dd{ font-size:.875rem; margin-top:3px; }
+  #persona .pe-votes{ margin-top:10px; padding-top:8px; }
+  #persona .pe-vote{ padding-bottom:0; }
+  #persona .pe-pick{ display:none; }
+  #persona .pe-learn{ padding:22px 20px 20px; }
+}
+
+html.mca-reduced #persona .pe-card{ will-change:auto; }
+</style>
+
+<script>
+(function () {
+  "use strict";
+  var sec = document.getElementById("persona");
+  if (!sec || !window.MCA) return;
+  var M = window.MCA, c01 = M.clamp01, ease = M.ease;
+  var vote = sec.querySelector(".pe-vote"), learn = sec.querySelector(".pe-learn");
+  var cards = [].slice.call(sec.querySelectorAll(".pe-card"));
+  var winCard = sec.querySelector(".pe-card--win"), ring = sec.querySelector(".pe-ring");
+  var pick = sec.querySelector(".pe-pick"), tag = sec.querySelector(".pe-tag"), chips = sec.querySelectorAll(".pe-loop li");
+
+  /* tally marks: groups of five (four uprights + a slash), strokes counted round-robin across cards */
+  var NS = "http://www.w3.org/2000/svg", strokes = [];
+  cards.forEach(function (card, ci) {
+    var svg = card.querySelector(".pe-tally"), n = +svg.getAttribute("data-n"), list = [];
+    for (var j = 0; j < n; j++) {
+      var g = Math.floor(j / 5), q = j % 5, x0 = 4 + g * 40, d;
+      var wob = ((j * 37 + ci * 11) % 7 - 3) * 0.35;
+      if (q < 4) d = "M" + (x0 + q * 7 + wob).toFixed(1) + " 4.5L" + (x0 + q * 7 - wob * .6 + .8).toFixed(1) + " 22";
+      else d = "M" + (x0 - 4) + " 17.5L" + (x0 + 26) + " 8";
+      var p = document.createElementNS(NS, "path");
+      p.setAttribute("d", d); p.setAttribute("pathLength", "1"); svg.appendChild(p); list.push(p);
+    }
+    strokes.push(list);
+  });
+  var order = [];
+  for (var r = 0; r < 12; r++) for (var c = 0; c < strokes.length; c++) if (strokes[c][r]) order.push(strokes[c][r]);
+
+  /* the ballot's own pass: the cards deal onto the desk, the class tallies, then circles its pick */
+  function paintVote(p) {
+    var phone = matchMedia("(max-width:640px)").matches;
+    var wv = ease(c01((p - .66) / .08));
+    cards.forEach(function (cd, ci) {
+      var t = c01((p - .06 - ci * .07) / .22), e = ease(t);
+      var cs = getComputedStyle(cd);
+      var rot = parseFloat(cs.getPropertyValue("--rot")) || 0, yo = parseFloat(cs.getPropertyValue("--yo")) || 0;
+      var isWin = cd === winCard;
+      var ty = (1 - e) * 48 + yo * e, rr = rot * e + (1 - e) * (ci - 1) * 6, sc = 1;
+      if (isWin) { ty -= (phone ? 0 : 10) * wv; sc = 1 + (phone ? .015 : .035) * wv; }
+      else ty += (phone ? 0 : 4) * wv;
+      cd.style.transform = "translate3d(0," + ty.toFixed(1) + "px,0) rotate(" + rr.toFixed(2) + "deg) scale(" + sc.toFixed(3) + ")";
+      cd.style.opacity = Math.min(1, t * 2.5).toFixed(3);
+      cd.classList.toggle("is-win", isWin && wv > .02);
+      cd.classList.toggle("is-lose", !isWin && wv > .02);
+    });
+    for (var q = 0; q < order.length; q++) {
+      var st = .34 + q * (.28 / order.length);
+      order[q].style.setProperty("--t", c01((p - st) / .02).toFixed(3));
+    }
+    ring.style.setProperty("--g", ease(c01((p - .68) / .08)).toFixed(3));
+    pick.style.setProperty("--t", c01((p - .74) / .1).toFixed(3));
+    tag.style.setProperty("--w", ease(c01((p - .7) / .06)).toFixed(3));
+  }
+  function paintLearn(p) { M.stepper(chips, p, .2, .08, .12); }
+
+  M.register(vote, "pass", paintVote);
+  M.register(learn, "pass", paintLearn);
+})();
+</script>
