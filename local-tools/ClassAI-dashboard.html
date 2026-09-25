@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if (location.hash === '#panel') document.documentElement.classList.add('is-panel');</script>
 <title>Class Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -192,8 +193,6 @@
     content: ""; position: absolute; left: -38px; top: 50%; width: 32px; height: 20px; margin-top: -10px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 20'%3E%3Cpath d='M3 11.5c6.5-3.2 14-4 23-1.2M20.5 5.2l5.8 5.2-6.6 4.3' fill='none' stroke='%23FF5A1F' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
   }
-  .orient .classpage { margin: 0; font-size: 15.5px; color: var(--ink-2); border-top: 1px dashed rgba(45,102,219,.28); padding-top: 14px; }
-  .orient .classpage strong { color: var(--ink); }
   .orient .where { font-size: 14.5px; color: var(--ink-3); margin: 0; }
   .orient code {
     font: 500 13px/1 var(--f-mono); background: var(--card); padding: 3px 7px; border-radius: 6px;
@@ -340,6 +339,22 @@
     border: 1.5px dashed var(--ink-4); color: var(--ink-3); font-size: 14px;
   }
 
+  /* trend: the one number the class watches, week by week, against the goal */
+  .card.t-trend { --tint: var(--mint); --tint-ink: var(--mint-ink); grid-column: 1 / -1; grid-row: auto; }
+  .card .trend-big { font: 800 44px/1 var(--f-display); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .card .trend-big small { font: 650 17px/1 var(--f-body); letter-spacing: 0; color: var(--ink-3); margin-left: 8px; }
+  .card.tone-good .trend-big small { color: var(--mint-ink); }
+  .card.tone-warning .trend-big small { color: var(--coral-ink); }
+  .card svg.trend-chart { display: block; width: 100%; height: auto; margin-top: 10px; overflow: visible; }
+
+  /* #panel: shown beside the chat in Cowork. The dashboard only, never the apps:
+     anything that handles names runs in the teacher's own browser. */
+  html.is-panel .universal-nav, html.is-panel .un-topbar, html.is-panel .un-overlay-nav,
+  html.is-panel .hero-actions, html.is-panel .orient { display: none !important; }
+  html.is-panel body { margin-left: 0 !important; padding-top: 0 !important; }
+  .panel-note { display: none; }
+  html.is-panel .panel-note { display: block; margin: 24px 0 0; font-size: 15px; color: var(--ink-3); }
+
   /* ---- motion: state changes only; honours reduced motion ---- */
   @media (prefers-reduced-motion: no-preference) {
     .card .ruler-line { transition: transform .9s var(--ease) .15s; }
@@ -436,12 +451,12 @@
           <p>If you use Claude for Teachers and your district has said it's okay, you can share student information in the chat directly. These apps are still the quickest way to print cards, make groups, and print badges.</p>
         </div>
       </div>
-      <p class="orient-wide classpage"><strong>Two pages, two jobs.</strong> This page is <strong>Class Tools</strong>. In the chat, your AI keeps <strong>your class page</strong> (mission, this week, the trend) and copies its headlines onto the cards below.</p>
       <p class="where orient-wide">Getting back here: open the <code>local-tools</code> folder in your classroom assistant folder and double-click <code>ClassAI-dashboard</code>. Can't find it? Search for ClassAI-dashboard in Finder (Mac) or File Explorer (Windows).</p>
     </div>
   </details>
 
   <div id="grid" class="grid"></div>
+  <p class="panel-note">To print cards or use your apps, open Class Tools in your web browser.</p>
 </main>
 
 <!--
@@ -729,7 +744,7 @@ function renderCard(card) {
   const el = document.createElement('div');
   const size = ['large', 'medium', 'small'].includes(card.size) ? card.size : 'small';
   const tone = ['good', 'warning', 'neutral'].includes(card.tone) ? card.tone : 'neutral';
-  const type = ['progress', 'text', 'dates', 'checklist', 'files'].includes(card.type) ? card.type : 'text';
+  const type = ['progress', 'text', 'dates', 'checklist', 'files', 'trend'].includes(card.type) ? card.type : 'text';
   el.className = `card size-${size} tone-${tone} t-${type}`;
   // The one move we're trying is the page's sticky note.
   if (type === 'text' && /focus|trying/i.test(card.id || '')) el.classList.add('is-note');
@@ -761,6 +776,7 @@ function renderCard(card) {
 function renderCardBody(container, card) {
   switch (card.type) {
     case 'progress':  return renderProgress(container, card);
+    case 'trend':     return renderTrend(container, card);
     case 'text':      return renderText(container, card);
     case 'dates':     return renderDates(container, card);
     case 'checklist': return renderChecklist(container, card);
@@ -807,6 +823,46 @@ function renderProgress(container, card) {
   }
   // draw the marker line in after paint
   requestAnimationFrame(() => requestAnimationFrame(() => { line.style.setProperty('--t', String(pct)); }));
+}
+
+/* trend: class totals only. Last 12 points; the y-range always includes the goal. */
+function renderTrend(container, card) {
+  const all = Array.isArray(card.points) ? card.points.filter(p => p && typeof p.value === 'number' && isFinite(p.value)) : [];
+  const pts = all.slice(-12);
+  if (!pts.length) { container.textContent = card.body ? String(card.body) : ''; return; }
+  const last = pts[pts.length - 1];
+  const big = document.createElement('div');
+  big.className = 'trend-big';
+  big.textContent = String(last.value);
+  if (card.body) { const s = document.createElement('small'); s.textContent = String(card.body); big.appendChild(s); }
+  container.appendChild(big);
+  if (pts.length < 2) return;
+
+  const hasGoal = typeof card.goal === 'number' && isFinite(card.goal);
+  const W = 640, H = 200, L = 30, R = 20, T = 26, B = 34;
+  const vals = pts.map(p => p.value).concat(hasGoal ? [card.goal] : []);
+  const lo = Math.min(...vals), hi = Math.max(...vals), pad = Math.max(2, (hi - lo) * 0.12);
+  const y = v => T + (hi + pad - v) / ((hi + pad) - (lo - pad)) * (H - T - B);
+  const x = i => L + 20 + i * ((W - R - L - 40) / (pts.length - 1));
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const dot = card.tone === 'warning' ? '#D2573A' : card.tone === 'good' ? '#1D8A51' : '#14231F';
+  const every = pts.length > 8 ? 2 : 1;   // thin the date labels when the line gets long
+  let svg = `<svg class="trend-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(card.title || 'Trend')}: ${pts.map(p => esc(p.value)).join(', ')}${hasGoal ? '. ' + esc(card.goalLabel || 'Goal: ' + card.goal) : ''}">`;
+  svg += `<line x1="${L}" y1="${H - B + 8}" x2="${W - R}" y2="${H - B + 8}" stroke="rgba(20,35,31,.18)" stroke-width="1.5"/>`;
+  if (hasGoal) {
+    const gy = y(card.goal);
+    const below = gy + 24 < H - B + 4;   // label under the line when there's room, else above
+    svg += `<line x1="${L}" y1="${gy.toFixed(1)}" x2="${W - R}" y2="${gy.toFixed(1)}" stroke="#FF5A1F" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>`;
+    svg += `<text x="${L + 4}" y="${(below ? gy + 24 : gy - 8).toFixed(1)}" font-family="Caveat, cursive" font-size="23" font-weight="650" fill="#C24410">${esc(card.goalLabel || 'goal')}</text>`;
+  }
+  svg += `<polyline points="${pts.map((p, i) => x(i).toFixed(1) + ',' + y(p.value).toFixed(1)).join(' ')}" fill="none" stroke="#14231F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  pts.forEach((p, i) => {
+    const isLast = i === pts.length - 1;
+    svg += `<circle cx="${x(i).toFixed(1)}" cy="${y(p.value).toFixed(1)}" r="${isLast ? 8 : 5}" fill="${isLast ? dot : '#14231F'}"/>`;
+    if (i === 0 || isLast) svg += `<text x="${x(i).toFixed(1)}" y="${(y(p.value) - 14).toFixed(1)}" text-anchor="middle" font-family="Figtree, sans-serif" font-size="14" font-weight="750" fill="#3F4F49">${esc(p.value)}</text>`;
+    if ((pts.length - 1 - i) % every === 0) svg += `<text x="${x(i).toFixed(1)}" y="${H - 4}" text-anchor="middle" font-family="Figtree, sans-serif" font-size="13" font-weight="650" fill="#5A6862">${esc(String(p.label || '').length > 10 ? String(p.label).slice(0, 9) + '…' : String(p.label || ''))}</text>`;
+  });
+  container.insertAdjacentHTML('beforeend', svg + '</svg>');
 }
 
 function renderText(container, card) {
@@ -900,7 +956,7 @@ function renderFileNode(node) {
     }
   } else {
     li.classList.add('file');
-    if (node && node.href) {
+    if (node && node.href && !document.documentElement.classList.contains('is-panel')) {
       const a = document.createElement('a');
       a.href = node.href;
       a.textContent = node.name || node.href;
@@ -916,9 +972,11 @@ function renderFileNode(node) {
 function init() {
   const data = loadDashboardData();
   // Fold the "How Class Tools works" panel to one line only once the class is
-  // really running: the AI has a name and has retitled the page. A new install
+  // really running: the page has been retitled with the class's name. A new install
   // (or a copied template still titled "Class Tools") keeps it open.
-  if (window.DASHBOARD_DATA !== undefined && data && data.title && data.title !== 'Class Tools') $('orient').open = false;
+  // Also folds once the teacher's cards include the graph of their number.
+  const hasTrend = !!(data && Array.isArray(data.cards) && data.cards.some(c => c && c.type === 'trend'));
+  if (window.DASHBOARD_DATA !== undefined && data && (hasTrend || (data.title && data.title !== 'Class Tools'))) $('orient').open = false;
   renderHero(data, false);
   renderCards(data);
 
