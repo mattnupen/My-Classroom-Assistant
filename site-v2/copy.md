@@ -1,5 +1,9 @@
 # copy.md — My Classroom Assistant homepage v2
 
+> **Historical, Sept 2026.** This was the starting copy plan. The live wording now lives in
+> `sections/NN-id.html`, and those files are the source of truth. Don't copy lines from here
+> back into the page. The red-team log and fact checks below are still useful background.
+
 Owner: copy chief. Section builders use this text **verbatim**. If a line doesn't fit your layout,
 ask for a cut. Don't write a new line yourself.
 

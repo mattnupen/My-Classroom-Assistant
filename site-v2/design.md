@@ -1,5 +1,8 @@
 # design.md: "Chalk & Marker" (r2)
 
+> **Note, Sept 2026.** Where this says copy comes verbatim from `copy.md`, that's out of date: the
+> section files hold the live wording. The visual system and motion notes still apply.
+
 Owner: art director. This file is the visual system and the spec for every section. Builders follow it,
 and copy comes **verbatim** from `copy.md`. Tokens and primitives are in `tokens.css` (all `.mca-*`).
 The style tile is `sections/_styletile.html`. Preview it with

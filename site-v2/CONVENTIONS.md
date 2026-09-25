@@ -9,7 +9,7 @@ Output: `index.html` at the repo root, the live homepage at myclassroomassistant
 site-v2/
   CONVENTIONS.md     this file
   brief.md           product truth + hard content rules (read first)
-  copy.md            final marketing copy for every section (copy chief)
+  copy.md            the original copy plan (historical; live wording is in sections/)
   design.md          visual system + per-section motion spec (art director)
   shell.html         <head>, fonts, global CSS hooks — art director owns
   tokens.css         design tokens + shared primitives — art director owns
