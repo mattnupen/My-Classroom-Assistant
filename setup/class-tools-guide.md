@@ -2,7 +2,7 @@
 
 **Class Tools** is the page you double-click to open your offline apps: open the `local-tools` folder in your classroom assistant folder and double-click `ClassAI-dashboard`. It opens in your web browser. (Can't find it? Search for ClassAI-dashboard in Finder on a Mac or File Explorer on Windows.) Every app is in its left sidebar. The apps run on your computer, and nothing you open in them is sent anywhere.
 
-It's not the same as **your class page**, the summary your AI keeps and shows you in the chat.
+Once your class is running, the same page is **your dashboard**: a graph of your number, what you're trying, and what's coming up. Your AI keeps it up to date and shows it next to your chat.
 
 | App | What it's for | When | What reaches the chat |
 |---|---|---|---|

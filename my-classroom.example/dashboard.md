@@ -1,13 +1,14 @@
-<!-- AI: this is "your class page" — the class's current-state page, shown
-     in the chat. (Not "Class Tools", the browser page with the offline apps.)
+<!-- AI: these are your own notes on where the class stands, and the record
+     the dashboard's cards (dashboard-data.js) are built from. Never shown to
+     the teacher or called a page; "show my numbers" means the dashboard.
      Edit by section, never wholesale. Class totals only — counts, tiers,
      movement. Never a student's name, in any section, in either option.
      Update after every Monday number (weekly class summary or the count the
      teacher gives) and every check. Update it quietly; never mention or show
-     it unless the teacher asks. Teacher words only: no option
+     it. Teacher words only: no option
      names, no setup steps. -->
 
-# Class Page — [your class]
+# Class notes — [your class]
 
 **Mission:** *[the one-line mission — set during first session]*
 **Week:** [n]
