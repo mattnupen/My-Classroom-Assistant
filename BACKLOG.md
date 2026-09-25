@@ -8,6 +8,7 @@ What's next for My Classroom Assistant, roughly in priority order. Add to it fre
 - [ ] **Reinstall the app builder** in your own Claude account: delete the old one under Customize → Skills and upload the current `teacher-app-builder-skill-upload.zip`. The installed copy is the pre-2.0 version.
 - [ ] **Tag the 2.1.0 release** on GitHub.
 - [ ] **Check the site's HTTPS certificate** (flagged as a release blocker in `INTEGRATION-REPORT.md`): myclassroomassistant.com should load with no browser warning.
+- [ ] **Print-check Progress Cards, Badges, and Random Groups** with the demo class after the restyle: same number per page as before, nothing cut off.
 - [ ] **Print-check the privacy one-pager** (`setup/permissions/privacy-one-pager.html`): it should still fit on one page.
 
 ## Try it for real
@@ -18,12 +19,25 @@ What's next for My Classroom Assistant, roughly in priority order. Add to it fre
 - [ ] **Answer the two Cowork rendering questions** from `INTEGRATION-REPORT.md` (do `test.md` / `test.jsx` render, and re-render when reopened), then delete those test files.
 - [ ] **Pilot the 2.0 and 2.1 migrations** on a copy of a real pre-2.0 classroom folder.
 
+## Tell teachers when there's an update
+
+Right now a teacher only learns about a new version by checking GitHub, and most don't have an account.
+
+- [ ] **Email list for update notes.** Needs Matt to pick a provider (something free and simple, e.g. Buttondown). Add a sign-up link to the homepage (`site-v2/`, then rebuild `index.html`), the README, and the end of `setup/getting-started.md`. Collect email only, no school or class details. Send one short note per release, drawn from its `CHANGELOG.md` entry, ending with "say 'update my assistant' over a break."
+- [ ] **The assistant mentions new versions itself.** At most once a week, Claude fetches the public `VERSION` file from `raw.githubusercontent.com/mattnupen/My-Classroom-Assistant/main/VERSION` and compares it with the local one. If it's newer, one line at the end of that chat: *"There's a new version of your assistant. Say 'update my assistant' over a break."* Rules:
+  - It fetches one public file and sends nothing.
+  - Never during the first chat, a crisis follow-up, or when the teacher is short on time.
+  - Once per version. Record the last version mentioned in `my-classroom/.installed-version`.
+  - Never pushes a mid-season update.
+  - If Cowork can't reach the web, skip silently.
+  - Keep it out of Class Tools: the offline apps promise nothing leaves the computer.
+
+  Goes in `CLAUDE.md` (Updates section) and `brain/weekly-rhythm.md`.
+
 ## Match the new look ("Chalk & Marker")
 
 - [ ] **The "meet your AI" card** (`content-templates/persona-card.html`): restyle, and remove its class-and-date footer like the slides.
 - [ ] **The season scoreboard** (`content-templates/season-snapshot.jsx`).
-- [ ] **The insides of each tool page** (drop zones, steps, results). The sidebar and header are done; the rest is still the old blue-green.
-- [ ] **The app builder's page template** (`skills/teacher-app-builder/references/scaffold-base.html`), so new apps match. Rebuild the zip after.
 - [ ] **Retire `docs/theme-preview.html`** (the old Ocean Depths preview) or replace it.
 - [ ] **Slide template:** remove the blank "DEFAULT" layout the build tool adds (teachers see it under New Slide).
 

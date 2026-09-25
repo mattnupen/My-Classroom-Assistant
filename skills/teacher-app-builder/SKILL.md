@@ -52,7 +52,7 @@ Follow `references/conversation-flow.md`. It ends with a plain one-paragraph des
    - `{{INTRO}}` → one plain sentence on what it does, ending " Nothing leaves your computer."
    - `{{SHEETJS_SLOT}}` → only if the app reads a spreadsheet: `<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>`. Otherwise leave the comment.
    - `{{BACK_LINK}}` → leave as is. Generated apps don't load `_nav.js`.
-   - `{{EXTRA_STYLES_SLOT}}` → small per-app CSS only. No new color variables.
+   - `{{EXTRA_STYLES_SLOT}}` → small per-app CSS only. No new color variables. Reach for the scaffold's own pieces first (`.dropzone`, `.actions`, `.hint`, `.status-ok` / `.status-error`, `.output-block`, `.table-wrap` + `.data-table`, `.pill`) and its color variables, never hard-coded colors.
    - `{{BODY_SLOT}}` / `{{LOGIC_SLOT}}` → the example's BODY and LOGIC sections, adapted to this app.
 3. **Practice class.** If the app reads the teacher's file, keep the example's "Try it with a made-up class" button and fill `PRACTICE_ROWS` with 12 invented students whose columns match what the app expects. Make the names obviously fictional but plausible, fresh each time (don't reuse a roster from another app). Vary the rows so the teacher sees different cases (one student with nothing missing, one with a lot). Skip this for apps that don't read a file.
 4. Put anything from the teacher's file on the page with `textContent` or the example's `esc()` helper — never raw into `innerHTML`. Wire events with `addEventListener`, not `onclick="…"` attributes (the IIFE hides functions from those).

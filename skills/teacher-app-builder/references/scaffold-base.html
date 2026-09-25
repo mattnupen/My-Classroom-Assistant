@@ -11,111 +11,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- {{SHEETJS_SLOT}} -->
 <style>
-  /* ---- Ocean Depths, teacher-app theme. This is the house style from
-     content-templates/app-ui-guidelines.md, inlined because generated apps are
-     standalone: they do NOT load local-tools/_nav.js, which is where the
-     shipped tools get this CSS from. Keep the two in sync. ---- */
+  /* ---- "Chalk & Marker", the house style from
+     content-templates/app-ui-guidelines.md (the same look as the homepage and
+     Class Tools), inlined because generated apps are standalone: they do NOT
+     load local-tools/_nav.js, which is where the shipped tools get their shell.
+     Keep the two in sync. Fonts: Figtree / Bricolage Grotesque show if the
+     computer has them; otherwise the system font takes over. Nothing is
+     fetched, so no font files are linked. ---- */
   :root {
-    --cream:       #f1faee;
-    --ink:         #0d1b2a;
-    --navy:        #1a2332;
-    --navy-2:      #143a45;
-    --teal:        #1f6b6b;
-    --teal-dark:   #18585a;
-    --seafoam:     #a8dadc;
-    --seafoam-pale:#e3f1ef;
-    --muted:       #51646d;
-    --line:        #d8e6e1;
-    --bg:          #eef4f1;
-    --card-bg:     #ffffff;
-    --warn:        #b9822b;
-    --warn-soft:   #f6ecd8;
-    --radius:      14px;
-    --radius-sm:   9px;
-    --shadow:      0 1px 2px rgba(13,27,42,.04), 0 6px 18px rgba(13,27,42,.06);
+    --ink: #14231F; --ink-2: #3F4F49; --ink-3: #5A6862; --ink-4: #A7B1AC;
+    --line: rgba(20,35,31,.10); --line-2: rgba(20,35,31,.18);
+    --paper: #FAF6EE; --paper-2: #F3EDE1; --card: #FFFFFF;
+    --chalk: #14231F; --on-chalk: #F6F2E8; --on-chalk-2: #B7C4BD;
+    --orange-ink: #C24410; --orange-tint: #FFE3D3; --note-sun: #FFE67E;
+    /* tinted sheet + text-safe ink for meaning: good · info · warning · problem */
+    --mint: #E0F3E7;  --mint-ink: #15693D;
+    --sky: #E7F0FF;   --sky-ink: #1F4FB0;
+    --sun: #FFF2C4;   --sun-ink: #7A5800;
+    --coral: #FFE6DD; --coral-ink: #A83A22;
+    --focus: #2D66DB;
+    --f-display: "Bricolage Grotesque", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sh-1: 0 1px 2px rgba(20,35,31,.07), 0 1px 1px rgba(20,35,31,.04);
+    --sh-2: 0 1px 2px rgba(20,35,31,.06), 0 4px 10px -2px rgba(20,35,31,.07), 0 16px 30px -14px rgba(20,35,31,.16);
+    --ring: 0 0 0 3px var(--paper), 0 0 0 5.5px var(--focus);
+    --ease: cubic-bezier(.22,1,.36,1);
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--bg); color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 16px; line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    background: var(--paper); color: var(--ink);
+    font: 16px/1.55 var(--f-body);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   }
+  ::selection { background: var(--orange-tint); color: var(--ink); }
+  [hidden] { display: none !important; }
   .screen-only { display: block; }
   @media print { .screen-only { display: none !important; } }
 
-  main { max-width: 1100px; margin: 0 auto; padding: 24px 30px 80px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 40px 72px; }
+  @media (max-width: 720px) { main { padding: 20px 16px 56px; } }
 
-  /* ---- The shared app hero. The app NAME is the <h1>; the one-line
-     description is the <h2> below it. Never a tagline in the <h1>. ---- */
+  /* ---- The shared app header: a dark chalkboard sheet with a sticky-note
+     icon. The app NAME is the <h1>; the one-line description is the <h2>
+     below it. Never a tagline in the <h1>. ---- */
   .app-hero {
     position: relative; overflow: hidden;
-    background: linear-gradient(135deg, var(--navy), var(--navy-2));
-    color: var(--cream); border-radius: 18px; padding: 24px 26px; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-    box-shadow: 0 1px 2px rgba(13,27,42,.06), 0 6px 18px rgba(13,27,42,.08);
+    background:
+      radial-gradient(60% 70% at 18% 20%, rgba(255,255,255,.05), transparent 70%),
+      var(--chalk);
+    color: var(--on-chalk); border-radius: 24px; padding: 26px 28px; margin-bottom: 22px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    box-shadow: var(--sh-2);
   }
   .app-hero .app-hero-ico {
-    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 13px;
-    background: rgba(168,218,220,.16); color: var(--seafoam);
+    flex: 0 0 auto; width: 56px; height: 56px; border-radius: 3px 3px 4px 12px;
+    background: linear-gradient(to bottom, #EBD06C 0 12px, var(--note-sun) 12px);
+    color: var(--ink); transform: rotate(-4deg); padding-top: 6px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 10px 18px -8px rgba(0,0,0,.55);
     display: inline-flex; align-items: center; justify-content: center;
   }
-  .app-hero .app-hero-ico svg { width: 30px; height: 30px; }
+  .app-hero .app-hero-ico svg { width: 28px; height: 28px; }
   .app-hero .app-hero-text { flex: 1 1 320px; min-width: 0; }
-  .app-hero h1 { margin: 0; font-size: 27px; font-weight: 700; line-height: 1.2; color: var(--cream); }
-  .app-hero h2 { margin: 5px 0 0; font-size: 16px; font-weight: 500; line-height: 1.4; color: rgba(241,250,238,.82); }
+  .app-hero h1 { margin: 0; font: 750 30px/1.08 var(--f-display); letter-spacing: -.024em; color: var(--on-chalk); }
+  .app-hero h2 { margin: 7px 0 0; font: 500 16.5px/1.45 var(--f-body); color: var(--on-chalk-2); max-width: 64ch; }
+  @media (max-width: 639px) { .app-hero { padding: 20px; border-radius: 20px; } .app-hero h1 { font-size: 25px; } }
   @media print { .app-hero { display: none; } }
 
   /* Back to the launcher. Generated apps are standalone — they have no sidebar. */
   .back-link {
-    display: inline-block; margin-bottom: 14px;
-    color: var(--teal); text-decoration: none; font-size: 15px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px;
+    color: var(--ink-2); text-decoration: none; font: 650 15px/1.2 var(--f-body);
   }
-  .back-link:hover { text-decoration: underline; }
+  .back-link:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange-ink); text-underline-offset: 3px; }
 
   /* ---- Cards / steps ---- */
   .step {
-    background: var(--card-bg); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px;
-    box-shadow: var(--shadow);
+    background: var(--card); border: 0; border-radius: 20px;
+    padding: 22px 24px; margin-bottom: 18px;
+    box-shadow: var(--sh-1), inset 0 0 0 1px var(--line);
   }
-  .step h2 {
-    margin: 0 0 13px; font-size: 14px; text-transform: uppercase;
-    letter-spacing: 0.05em; color: var(--muted); font-weight: 700;
-  }
+  .step h2 { margin: 0 0 14px; font: 700 19px/1.2 var(--f-display); letter-spacing: -.015em; color: var(--ink); }
+  .step > :last-child { margin-bottom: 0; }
 
-  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
-  input[type="text"], select, textarea {
-    width: 100%; padding: 8px 10px; border: 1px solid #c5d8d2; border-radius: 6px;
-    font-size: 15px; font-family: inherit; background: #fff; color: var(--ink);
+  /* The first step for any app that reads a file: a big drop target. */
+  .dropzone {
+    display: block; margin-bottom: 12px; padding: 30px 20px; text-align: center; cursor: pointer;
+    border: 2px dashed var(--line-2); border-radius: 16px; background: var(--paper-2);
+    transition: background-color .2s var(--ease), border-color .2s var(--ease);
   }
-  input[type="text"]:focus, select:focus, textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
-  textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+  .dropzone:hover, .dropzone.dragover { background: var(--sky); border-color: var(--sky-ink); }
+  .dropzone strong { display: block; font: 700 18px/1.25 var(--f-display); color: var(--ink); }
+  .dropzone span { display: block; margin-top: 4px; font-size: 15px; color: var(--ink-3); }
+  .dropzone input { display: none; }
 
+  label { display: block; margin-bottom: 5px; font: 650 14px/1.3 var(--f-body); color: var(--ink-2); }
+  input[type="text"], input[type="number"], select, textarea {
+    width: 100%; padding: 10px 12px; border: 0; border-radius: 10px;
+    box-shadow: inset 0 0 0 1px var(--line-2);
+    font: 16px/1.4 var(--f-body); background: var(--card); color: var(--ink);
+  }
+  input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    outline: none; box-shadow: inset 0 0 0 1.5px var(--focus), 0 0 0 3px rgba(45,102,219,.18);
+  }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--ink); }
+  textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+  .hint { margin: 8px 0 0; font-size: 14px; color: var(--ink-3); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
   button {
-    font-family: inherit; font-size: 15px; font-weight: 600;
-    padding: 9px 16px; border-radius: 6px; border: 1px solid transparent; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 42px; padding: 0 16px; border: 0; border-radius: 11px; cursor: pointer;
+    font: 750 15px/1.15 var(--f-body);
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
   }
-  button.primary { background: var(--teal); color: var(--cream); border-color: var(--teal); }
-  button.primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
-  button.secondary { background: #fff; color: var(--ink); border-color: #c5d8d2; }
-  button.secondary:hover { background: var(--seafoam-pale); }
+  button:hover { transform: translateY(-1px); }
+  button:active { transform: translateY(1px); }
+  button:focus-visible { outline: none; box-shadow: var(--ring); }
+  button.primary { background: var(--ink); color: var(--on-chalk); box-shadow: var(--sh-2); }
+  button.primary:hover { background: #1E3530; }
+  button.secondary { background: var(--card); color: var(--ink); box-shadow: var(--sh-1), inset 0 0 0 1px var(--line-2); }
+  button.secondary:hover { box-shadow: var(--sh-2), inset 0 0 0 1px var(--line-2); }
+  button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+  button.primary:disabled { box-shadow: none; }
+  button.secondary:disabled { box-shadow: inset 0 0 0 1px var(--line-2); }
 
+  /* "Your file stays on this computer." */
   .privacy-note {
-    background: var(--seafoam-pale); border: 1px solid var(--line);
-    border-radius: var(--radius-sm); padding: 10px 13px;
-    font-size: 14px; color: var(--muted);
+    margin: 12px 0 0; padding: 10px 14px; border-radius: 14px;
+    background: var(--mint); color: var(--mint-ink); font-size: 14.5px; font-weight: 600;
+    box-shadow: inset 0 0 0 1px rgba(21,105,61,.18);
+  }
+  .status-ok, .status-error {
+    margin: 12px 0 0; padding: 10px 14px; border-radius: 14px; font-size: 15px; font-weight: 600;
+  }
+  .status-ok { background: var(--mint); color: var(--mint-ink); box-shadow: inset 0 0 0 1px rgba(21,105,61,.18); }
+  .status-error { background: var(--coral); color: var(--coral-ink); box-shadow: inset 0 0 0 1px rgba(168,58,34,.2); }
+
+  /* Text to copy, or a preview of a download. */
+  .output-block {
+    margin: 0 0 18px; padding: 16px 18px; border-radius: 14px;
+    background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--line);
+    font: 14.5px/1.65 var(--f-mono); color: var(--ink); white-space: pre-wrap; word-wrap: break-word;
   }
 
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  /* On-screen tables. */
+  .table-wrap { overflow-x: auto; border-radius: 16px; background: var(--card); box-shadow: var(--sh-1), inset 0 0 0 1px var(--line); }
+  .data-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .data-table th {
+    padding: 11px 14px; text-align: left; background: var(--paper-2);
+    font: 700 13.5px/1.3 var(--f-body); color: var(--ink-2);
+  }
+  .data-table th[data-col] { cursor: pointer; }
+  .data-table th[data-col]:hover { color: var(--ink); }
+  .data-table td { padding: 10px 14px; border-top: 1px solid var(--line); }
+
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font: 700 13px/1 var(--f-body); }
+  .pill.good { background: var(--mint); color: var(--mint-ink); }
+  .pill.info { background: var(--sky); color: var(--sky-ink); }
+  .pill.warn { background: var(--sun); color: var(--sun-ink); }
+  .pill.problem { background: var(--coral); color: var(--coral-ink); }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
   /* {{EXTRA_STYLES_SLOT}} */
 
-  /* Print */
+  /* Print: white paper, dark ink, no screen chrome. */
   @page { size: letter portrait; margin: 0.4in; }
   @media print {
-    body { background: #fff; }
+    body { background: #fff; color: #000; }
     .step, .back-link { display: none; }
     main { max-width: none; margin: 0; padding: 0; }
   }

@@ -2,6 +2,14 @@
 
 Plain-language notes on each version, for teachers. To get an update, say **"update my assistant"** in your chat; your AI walks you through it and never changes your class's notes.
 
+## Coming next
+
+- **Class Tools looks like one product now.** Every app inside it (Class Pulse, Progress Cards, Parent Messages, Badges, Random Groups, and the rest) uses the same warm paper look as the homepage, with bigger buttons and clearer steps. Printed cards and certificates keep their size and layout.
+- **Apps you build match too.** New apps from the app builder get the same look.
+- **Fixed: grades in Parent Messages.** Notes home showed a grade like "0.9%" in place of "89%." They now show the right percent and letter.
+
+**Anything to do?** If you added the app builder before, remove the old one in Claude (Customize → Skills) and upload the new `teacher-app-builder-skill-upload.zip`.
+
 ## 2.1 — September 23, 2026
 
 **In one sentence:** your assistant now talks like a colleague, sticks to one challenge all year, and makes slides you can open in PowerPoint or Google Slides.

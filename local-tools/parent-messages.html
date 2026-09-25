@@ -6,158 +6,204 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <style>
+  /* Chalk & Marker: ink on warm paper, one orange marker that only points.
+     Fonts come from _nav.js (@font-face, bundled, no internet needed). */
   :root {
-    --ink: #111827;
-    --muted: #6b7280;
-    --line: #e5e7eb;
-    --accent: #2563eb;
-    --accent-soft: #eff6ff;
-    --strong: #059669;
-    --steady: #2563eb;
-    --struggling: #b91c1c;
-    --good-soft: #ecfdf5;
-    --bg: #fafafa;
+    --ink: #14231F; --ink-2: #3F4F49; --ink-3: #5A6862; --ink-4: #A7B1AC;
+    --line: rgba(20,35,31,.10); --line-2: rgba(20,35,31,.18);
+    --paper: #FAF6EE; --paper-2: #F3EDE1; --card: #FFFFFF;
+    --orange: #FF5A1F; --orange-ink: #C24410; --orange-tint: #FFE3D3;
+    --on-chalk: #F6F2E8;
+    /* supply-cupboard tints: sheet · text-safe ink on that sheet */
+    --sky: #E7F0FF;   --sky-ink: #1F4FB0;
+    --sun: #FFF2C4;   --sun-ink: #7A5800;
+    --mint: #E0F3E7;  --mint-ink: #15693D;
+    --lilac: #EEE8FF; --lilac-ink: #5540C8;
+    --coral: #FFE6DD; --coral-ink: #A83A22;
+    --focus: #2D66DB;
+    --f-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+    --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-hand: "Caveat", "Bradley Hand", cursive;
+    --f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --sh-1: 0 1px 2px rgba(20,35,31,.07), 0 1px 1px rgba(20,35,31,.04);
+    --sh-2: 0 1px 2px rgba(20,35,31,.06), 0 4px 10px -2px rgba(20,35,31,.07), 0 16px 30px -14px rgba(20,35,31,.16);
+    --ring: 0 0 0 3px var(--paper), 0 0 0 5.5px var(--focus);
+    --ease: cubic-bezier(.22,1,.36,1);
+    /* old names, kept as aliases: the markup and the generated HTML use them */
+    --muted: var(--ink-3);
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-
-  header.app {
-    background: white;
-    border-bottom: 1px solid var(--line);
-    padding: 24px 32px;
+  [hidden] { display: none !important; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper); color: var(--ink);
+    font: 16px/1.55 var(--f-body);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   }
-  header.app h1 { margin: 0 0 6px; font-size: 24px; }
-  header.app p { margin: 0; color: var(--muted); font-size: 16px; max-width: 760px; line-height: 1.5; }
+  ::selection { background: var(--orange-tint); color: var(--ink); }
 
-  main { max-width: 1100px; margin: 0 auto; padding: 24px 32px 80px; }
+  main { padding: 32px 40px 72px; max-width: 1100px; }
+  @media (max-width: 720px) { main { padding: 20px 16px 56px; } }
 
+  /* ---- Cards ---- */
   .step {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 20px 24px;
+    background: var(--card);
+    border: 0;
+    border-radius: 20px;
+    box-shadow: var(--sh-1), inset 0 0 0 1px var(--line);
+    padding: 22px 24px;
     margin-bottom: 18px;
   }
-  .step h2 { margin: 0 0 14px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
-  .step.disabled { opacity: 0.5; pointer-events: none; }
-
-  .dropzone {
-    border: 2px dashed #d1d5db;
-    border-radius: 8px;
-    padding: 22px 20px;
-    text-align: center;
-    background: #fafafa;
-    cursor: pointer;
-    transition: 0.15s;
-    display: block;
+  .step h2 {
+    margin: 0 0 14px;
+    font: 700 19px/1.2 var(--f-display); letter-spacing: -.015em;
+    color: var(--ink); text-transform: none;
   }
-  .dropzone:hover, .dropzone.dragover { border-color: var(--accent); background: var(--accent-soft); }
-  .dropzone strong { display: block; font-size: 16px; margin-bottom: 2px; }
-  .dropzone span { color: var(--muted); font-size: 14px; }
+
+  /* ---- Drop zone ---- */
+  .dropzone {
+    display: block;
+    border: 2px dashed var(--line-2);
+    border-radius: 16px;
+    background: var(--paper-2);
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .dropzone:hover, .dropzone.dragover { background: var(--sky); border-color: var(--sky-ink); }
+  .dropzone strong { display: block; font: 700 18px/1.25 var(--f-display); letter-spacing: -.01em; color: var(--ink); margin-bottom: 4px; }
+  .dropzone span { color: var(--ink-3); font-size: 15px; }
   .dropzone input { display: none; }
 
+  /* ---- Status lines ---- */
   .file-status {
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: var(--good-soft);
-    border: 1px solid #a7f3d0;
-    border-radius: 6px;
-    font-size: 15px;
-    color: #065f46;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: var(--mint); color: var(--mint-ink);
+    box-shadow: inset 0 0 0 1px rgba(21,105,61,.2);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 22%, transparent);
+    font: 600 15px/1.45 var(--f-body);
   }
-  .file-status::before { content: "✓ "; font-weight: 700; }
+  .file-status::before { font-weight: 800; }
 
-  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
+  /* ---- Form fields ---- */
+  label { display: block; font: 650 14px/1.3 var(--f-body); color: var(--ink-2); margin-bottom: 6px; }
   select, input[type="text"], input[type="number"], textarea {
     width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 15px;
-    font-family: inherit;
-    background: white;
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--line-2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--card);
     color: var(--ink);
+    font: 16px/1.4 var(--f-body);
+    transition: box-shadow .2s var(--ease);
   }
-  textarea { min-height: 130px; resize: vertical; line-height: 1.5; font-size: 15px; }
-  select:focus, input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  select:focus, input:focus, textarea:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 1.5px var(--focus), 0 0 0 3px rgba(45,102,219,.18);
+  }
+  input[readonly] { background: var(--paper-2); color: var(--ink-2); }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--ink); width: 16px; height: 16px; vertical-align: -2px; }
+  ::placeholder { color: var(--ink-3); opacity: 1; }
+  .hint { font-size: 14.5px; color: var(--ink-3); margin-top: 6px; line-height: 1.5; }
+  code { font: 500 .9em var(--f-mono); background: var(--paper-2); padding: 1px 5px; border-radius: 6px; }
+
+  /* ---- Buttons (the shared .demo-btn comes from _nav.js) ---- */
+  button {
+    font: 750 15px/1.15 var(--f-body);
+    min-height: 42px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
+  }
+  button.primary { background: var(--ink); color: var(--on-chalk); box-shadow: var(--sh-2); }
+  button.primary:hover { background: #1E3530; transform: translateY(-1px); }
+  button.secondary { background: var(--card); color: var(--ink); box-shadow: var(--sh-1), inset 0 0 0 1px var(--line-2); }
+  button.secondary:hover { transform: translateY(-1px); box-shadow: var(--sh-2), inset 0 0 0 1px var(--line-2); }
+  button.primary:active, button.secondary:active { transform: translateY(1px); }
+  button.small { min-height: 34px; padding: 0 12px; font-size: 14px; border-radius: 9px; }
+  button:focus-visible { outline: none; box-shadow: var(--ring); }
+  button.secondary:focus-visible { box-shadow: inset 0 0 0 1px var(--line-2), var(--ring); }
+  button:disabled, button:disabled:hover { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+  button.secondary:disabled { box-shadow: inset 0 0 0 1px var(--line-2); }
+
+  /* ---- Assignment-column override ---- */
+  .assign-override { margin: 12px 0 0; font-size: 16px; }
+  .assign-override summary { cursor: pointer; font: 650 15.5px/1.4 var(--f-body); color: var(--ink); padding: 6px 0; }
+  .assign-override summary:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+  .assign-override-list, #assign-override-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .assign-row { display: flex; align-items: center; gap: 8px; margin: 0; font: 500 15px/1.4 var(--f-body); color: var(--ink); }
+
+  .step.disabled { opacity: .5; pointer-events: none; }
+  .file-status::before { content: "✓ "; }
+
+  textarea { min-height: 130px; resize: vertical; line-height: 1.55; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .hint { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
-
-  button {
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: 0.1s;
-  }
-  button.primary { background: var(--accent); color: white; }
-  button.primary:hover { background: #1d4ed8; }
-  button.secondary { background: white; color: var(--ink); border-color: #d1d5db; }
-  button.secondary:hover { background: #f9fafb; }
-  button.small { padding: 4px 10px; font-size: 14px; }
-  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  @media (max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
   /* Placeholder reference */
   .placeholders {
-    background: #f9fafb;
-    border-radius: 8px;
-    padding: 12px 16px;
+    background: var(--paper-2);
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px var(--line);
+    padding: 14px 16px;
     margin-bottom: 16px;
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
+    font-size: 14.5px;
+    color: var(--ink-3);
+    line-height: 1.9;
   }
   .placeholders code {
-    background: white;
-    padding: 1px 6px;
-    border-radius: 4px;
-    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 2px 7px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px var(--line-2);
     color: var(--ink);
-    font-size: 13.5px;
+    font: 500 13.5px var(--f-mono);
   }
 
   /* Template panels */
   .tmpl-stack { display: flex; flex-direction: column; gap: 14px; }
   .tmpl-card {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 14px 16px;
-    background: white;
+    border-radius: 16px;
+    padding: 14px 16px 16px;
+    background: var(--paper);
+    box-shadow: inset 0 0 0 1px var(--line);
   }
-  .tmpl-card .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .tmpl-card .tier-badge {
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .badge-strong { background: #d1fae5; color: var(--strong); }
-  .badge-steady { background: #dbeafe; color: var(--steady); }
-  .badge-struggling { background: #fee2e2; color: var(--struggling); }
-  .tmpl-card .head-meta { font-size: 14px; color: var(--muted); }
+  .tmpl-card .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tmpl-card .tier-badge { padding: 4px 10px; border-radius: 999px; font: 700 13px/1 var(--f-body); }
+  .badge-strong { background: var(--mint); color: var(--mint-ink); }
+  .badge-steady { background: var(--sky); color: var(--sky-ink); }
+  .badge-struggling { background: var(--coral); color: var(--coral-ink); }
+  .tmpl-card .head-meta { font-size: 14px; color: var(--ink-3); }
 
   /* Messages output */
-  .summary { display: flex; gap: 22px; flex-wrap: wrap; padding: 14px 18px; background: #f3f4f6; border-radius: 8px; margin-bottom: 18px; font-size: 15px; }
-  .summary > div strong { display: block; font-size: 24px; color: var(--ink); font-weight: 700; margin-bottom: 2px; }
-  .summary > div span { color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; }
+  .summary {
+    display: flex; gap: 12px 32px; flex-wrap: wrap;
+    padding: 18px 24px; margin-bottom: 18px;
+    background: var(--card); border-radius: 20px;
+    box-shadow: var(--sh-1), inset 0 0 0 1px var(--line);
+    font-size: 15px;
+  }
+  .summary > div strong { display: block; font: 800 28px/1.05 var(--f-display); letter-spacing: -.02em; color: var(--ink); margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .summary > div span { font: 650 14px/1.3 var(--f-body); color: var(--ink-3); }
 
   .msg-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 10px;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--sh-1), inset 0 0 0 1px var(--line);
     margin-bottom: 14px;
     overflow: hidden;
   }
   .msg-card .head {
-    padding: 12px 18px;
-    background: #f9fafb;
+    padding: 14px 20px;
+    background: var(--paper);
     border-bottom: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
@@ -165,51 +211,49 @@
     gap: 12px;
     flex-wrap: wrap;
   }
-  .msg-card .head .name { font-weight: 700; font-size: 17px; }
-  .msg-card .head .meta { font-size: 14px; color: var(--muted); }
+  .msg-card .head .name { font: 700 18px/1.2 var(--f-display); letter-spacing: -.01em; }
+  .msg-card .head .meta { font-size: 14px; color: var(--ink-3); }
   .msg-card .head .pills { display: flex; gap: 6px; flex-wrap: wrap; }
-  .pill { padding: 2px 9px; border-radius: 999px; font-size: 13px; font-weight: 600; }
-  .pill.grade-A { background: #d1fae5; color: var(--strong); }
-  .pill.grade-B { background: #dbeafe; color: var(--steady); }
-  .pill.grade-C { background: #fef3c7; color: #92400e; }
-  .pill.grade-D { background: #fed7aa; color: #9a3412; }
-  .pill.grade-F { background: #fee2e2; color: var(--struggling); }
-  .pill.grade-NA { background: #f3f4f6; color: var(--muted); }
-  .pill.tier-strong { background: #d1fae5; color: var(--strong); }
-  .pill.tier-steady { background: #dbeafe; color: var(--steady); }
-  .pill.tier-struggling { background: #fee2e2; color: var(--struggling); }
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font: 700 13px/1 var(--f-body); font-variant-numeric: tabular-nums; }
+  .pill.grade-A { background: var(--mint); color: var(--mint-ink); }
+  .pill.grade-B { background: var(--sky); color: var(--sky-ink); }
+  .pill.grade-C { background: var(--sun); color: var(--sun-ink); }
+  .pill.grade-D { background: var(--coral); color: var(--coral-ink); }
+  .pill.grade-F { background: var(--coral); color: var(--coral-ink); box-shadow: inset 0 0 0 1px rgba(168,58,34,.45); }
+  .pill.grade-NA { background: var(--paper-2); color: var(--ink-3); }
+  .pill.tier-strong { background: var(--mint); color: var(--mint-ink); }
+  .pill.tier-steady { background: var(--sky); color: var(--sky-ink); }
+  .pill.tier-struggling { background: var(--coral); color: var(--coral-ink); }
 
   .msg-card .subject {
-    padding: 10px 18px;
-    border-bottom: 1px dashed var(--line);
+    padding: 12px 20px;
+    border-bottom: 1px dashed var(--line-2);
     font-size: 15px;
   }
-  .msg-card .subject strong { font-weight: 600; color: var(--muted); margin-right: 6px; }
+  .msg-card .subject strong { font-weight: 650; color: var(--ink-3); margin-right: 6px; }
 
   .msg-card .body {
-    padding: 14px 18px;
+    padding: 16px 20px;
     font-size: 16px;
     line-height: 1.6;
     color: var(--ink);
     white-space: pre-wrap;
   }
   .msg-card .actions-row {
-    padding: 10px 18px;
+    padding: 12px 20px;
     border-top: 1px solid var(--line);
-    background: #fafafa;
+    background: var(--paper);
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-wrap: wrap;
   }
-  .copy-confirm { color: var(--strong); font-size: 14px; font-weight: 600; margin-left: 8px; opacity: 0; transition: 0.2s; }
+  .copy-confirm { color: var(--mint-ink); font: 700 14px/1 var(--f-body); margin-left: 8px; opacity: 0; transition: opacity .2s var(--ease); }
   .copy-confirm.show { opacity: 1; }
 
-  .empty-state { padding: 30px 20px; text-align: center; color: var(--muted); font-size: 16px; background: white; border: 1px dashed var(--line); border-radius: 10px; }
+  .empty-state { padding: 30px 20px; text-align: center; color: var(--ink-3); font-size: 16px; background: var(--card); border: 2px dashed var(--line-2); border-radius: 20px; }
 
-  .assign-override { margin: 10px 0; font-size: 16px; }
-  .assign-override summary { cursor: pointer; color: var(--muted, #555); }
-  .assign-override-list, #assign-override-list { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
-  .assign-row { display: flex; align-items: center; gap: 8px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
@@ -262,7 +306,7 @@
       </div>
       <div>
         <label>Struggling: missing more than that</label>
-        <input type="text" id="threshold-struggling-display" value="3 or more" readonly style="background:#f9fafb;">
+        <input type="text" id="threshold-struggling-display" value="3 or more" readonly>
       </div>
     </div>
     <div style="margin-top:10px;">
@@ -539,8 +583,8 @@ function loadGradebook(file) {
       renderAssignOverride();
       document.querySelectorAll('.step.disabled').forEach(s => s.classList.remove('disabled'));
     } catch (err) {
-      $('#status-gradebook').style.background = '#fee2e2';
-      $('#status-gradebook').style.color = '#991b1b';
+      $('#status-gradebook').style.background = '#FFE6DD';
+      $('#status-gradebook').style.color = '#A83A22';
       $('#status-gradebook').style.display = 'block';
       $('#status-gradebook').textContent = `Could not read this file: ${err.message}`;
     }
@@ -738,7 +782,7 @@ function generate() {
         // a blank that is NOT treated as missing falls through here and is skipped (ungraded)
       }
     }
-    const gradePct = possible > 0 ? Math.round((earned / possible) * 10) / 10 : null;
+    const gradePct = possible > 0 ? Math.round((earned / possible) * 1000) / 10 : null;
     const tier = missingItems.length <= tStrong ? 'strong' : missingItems.length <= tSteady ? 'steady' : 'struggling';
 
     if (filterTier && tier !== filterTier) continue;

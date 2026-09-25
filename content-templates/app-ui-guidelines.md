@@ -76,7 +76,7 @@ The shell (sidebar, header, buttons, Class Tools) uses the homepage's system fro
 - Cards: white, 20px radius, soft ink-tinted shadow plus a hairline inset, ~22px padding; a small tinted icon tile + Bricolage title is the card-head pattern. No hover lift on cards that aren't clickable.
 - Buttons: ink (chalk) for the main action, white with a hairline for secondary; hover lifts 1px, press sinks 1px. Orange is never a button fill in the tools.
 - Motion only shows a change of state (the demo swap, the ruler line drawing in, the drawer). Honor `prefers-reduced-motion`.
-- **Inside the older tool pages** (drop zones, steps, results) the Ocean Depths light palette still applies until each page is restyled: canvas `#eef4f1`, ink `#0d1b2a`, accent teal `#1f6b6b`, hairlines `#d8e6e1`. The skill's scaffold (`scaffold-base.html`) also still carries that older palette; bring it into sync the next time the app builder is updated.
+- **Inside the tool pages** (drop zones, steps, forms, results, tables, charts) the same tokens apply, unprefixed, in each page's own `:root`, plus text-safe inks for meaning on tinted sheets: good/Strong mint `#E0F3E7` + `#15693D`, info/Steady sky `#E7F0FF` + `#1F4FB0`, warning sun `#FFF2C4` + `#7A5800`, problem/Struggling coral `#FFE6DD` + `#A83A22`. Step cards are white 20px cards with a Bricolage heading in sentence case; drop zones are dashed paper-2 that turn sky on hover. Add `[hidden] { display: none !important; }` to any page that sets `display` on elements it also hides. The skill's scaffold (`scaffold-base.html`) carries the same look inline, with fonts falling back to the system font since generated apps load no files.
 
 ## Wiring (every tool page)
 

@@ -8,7 +8,11 @@
 <!-- BODY -->
 <section class="step screen-only">
   <h2>Load your class</h2>
-  <input type="file" id="file-input" accept=".csv,.xlsx,.xls">
+  <label class="dropzone">
+    <strong>Drop your file here, or click to choose one</strong>
+    <span>A .csv or Excel file from your gradebook's Export button.</span>
+    <input type="file" id="file-input" accept=".csv,.xlsx,.xls">
+  </label>
   <button class="secondary" id="btn-practice">Try it with a made-up class</button>
   <p class="privacy-note">Your file stays on this computer. Nothing is saved or sent.</p>
 </section>
@@ -16,13 +20,15 @@
 <section class="step screen-only" id="filters" hidden>
   <label for="filter-text">Search</label>
   <input type="text" id="filter-text" placeholder="Type to narrow the list…">
-  <p style="margin:8px 0 0; font-size:14px; color:var(--muted);">Click a column heading to sort.</p>
+  <p class="hint">Click a column heading to sort.</p>
 </section>
 
-<table id="table" hidden style="width:100%; border-collapse:collapse; background:#fff;">
-  <thead><tr id="thead-row"></tr></thead>
-  <tbody id="tbody"></tbody>
-</table>
+<div class="table-wrap" id="table" hidden>
+  <table class="data-table">
+    <thead><tr id="thead-row"></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
 
 <!-- LOGIC -->
 // Invented students for the practice button. ADAPT: 12 fresh, obviously fictional
@@ -62,9 +68,8 @@ document.getElementById('thead-row').addEventListener('click', (e) => {
 function render() {
   const q = document.getElementById('filter-text').value.toLowerCase();
   const shown = rows.filter(r => headers.some(h => String(r[h] ?? '').toLowerCase().includes(q)));
-  const cell = 'padding:6px; border-bottom:1px solid var(--line);';
   document.getElementById('thead-row').innerHTML = headers.map((h, i) =>
-    `<th data-col="${i}" style="text-align:left; cursor:pointer; ${cell}">${esc(h)}</th>`).join('');
+    `<th data-col="${i}">${esc(h)}</th>`).join('');
   document.getElementById('tbody').innerHTML = shown.map(r =>
-    `<tr>${headers.map(h => `<td style="${cell}">${esc(r[h])}</td>`).join('')}</tr>`).join('');
+    `<tr>${headers.map(h => `<td>${esc(r[h])}</td>`).join('')}</tr>`).join('');
 }

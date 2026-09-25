@@ -10,12 +10,14 @@
 <section class="step screen-only">
   <h2>Type or paste your list</h2>
   <textarea id="input" placeholder="One item per line…"></textarea>
-  <button class="primary" id="btn-build">Make it</button>
-  <button class="secondary" id="btn-copy" disabled>Copy</button>
-  <button class="secondary" id="btn-download" disabled>Download</button>
+  <div class="actions">
+    <button class="primary" id="btn-build">Make it</button>
+    <button class="secondary" id="btn-copy" disabled>Copy</button>
+    <button class="secondary" id="btn-download" disabled>Download</button>
+  </div>
 </section>
 
-<pre id="preview" class="step" hidden style="background:#f7fbfa; padding:14px; white-space:pre-wrap;"></pre>
+<pre id="preview" class="output-block" hidden></pre>
 
 <!-- LOGIC -->
 let csvText = '';  // in memory only — never saved

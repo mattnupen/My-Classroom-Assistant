@@ -12,57 +12,91 @@
 -->
 <style>
   :root{
-    --cream:#f1faee;--ink:#0d1b2a;--navy:#1a2332;--navy2:#143a45;--teal:#1f6b6b;
-    --teal-deep:#18585a;--seafoam:#a8dadc;--pale:#e3f1ef;--bg:#eef4f1;--card:#fff;
-    --line:#d8e6e1;--muted:#51646d;--radius:14px;
+    --ink: #14231F; --ink-2: #3F4F49; --ink-3: #5A6862; --ink-4: #A7B1AC;
+    --line: rgba(20,35,31,.10); --line-2: rgba(20,35,31,.18);
+    --paper: #FAF6EE; --paper-2: #F3EDE1; --card: #FFFFFF;
+    --orange: #FF5A1F; --orange-ink: #C24410; --orange-tint: #FFE3D3;
+    --on-chalk: #F6F2E8;
+    /* supply-cupboard tints: sheet · text-safe ink on that sheet */
+    --sky: #E7F0FF;   --sky-ink: #1F4FB0;
+    --sun: #FFF2C4;   --sun-ink: #7A5800;
+    --mint: #E0F3E7;  --mint-ink: #15693D;
+    --lilac: #EEE8FF; --lilac-ink: #5540C8;
+    --coral: #FFE6DD; --coral-ink: #A83A22;
+    --focus: #2D66DB;
+    --f-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+    --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-hand: "Caveat", "Bradley Hand", cursive;
+    --f-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --sh-1: 0 1px 2px rgba(20,35,31,.07), 0 1px 1px rgba(20,35,31,.04);
+    --sh-2: 0 1px 2px rgba(20,35,31,.06), 0 4px 10px -2px rgba(20,35,31,.07), 0 16px 30px -14px rgba(20,35,31,.16);
+    --ring: 0 0 0 3px var(--paper), 0 0 0 5.5px var(--focus);
+    --ease: cubic-bezier(.22,1,.36,1);
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
-  .main{padding:26px 30px 48px;max-width:1100px;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+    font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  ::selection{background:var(--orange-tint);color:var(--ink);}
+  .main{padding:32px 40px 72px;max-width:1100px;}
 
-  .how{background:var(--pale);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:12px;
-    font-size:15px;color:var(--ink);}
-  .how.last{margin-bottom:22px;}
-  .how b{color:var(--teal-deep);}
+  /* "Then:" line: an info sheet */
+  .how{background:var(--sky);border-radius:14px;padding:13px 16px;margin-bottom:12px;
+    box-shadow:inset 0 0 0 1px rgba(31,79,176,.2);font-size:15.5px;color:var(--ink);}
+  .how.last{margin-bottom:26px;}
+  .how b{color:var(--sky-ink);}
 
-  .setup{background:var(--card);border:2px solid var(--teal);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;
-    box-shadow:0 1px 2px rgba(13,27,42,.04),0 5px 14px rgba(13,27,42,.05);}
-  .setup h2{margin:0 0 4px;font-size:18px;font-weight:700;}
-  .setup .sub{margin:0 0 12px;color:var(--muted);font-size:15px;}
-  .setup ol{margin:0 0 12px;padding-left:22px;}
-  .setup li{margin-bottom:8px;}
-  .setup li b{color:var(--ink);}
-  .setup .file{font-weight:700;color:var(--teal-deep);word-break:break-all;}
-  .setup .more{margin:0;font-size:15px;}
-  .setup .more a{color:var(--teal);font-weight:700;}
-  .setup .note{margin:10px 0 0;font-size:14px;color:var(--muted);}
+  /* One-time setup card */
+  .setup{background:var(--card);border:0;border-radius:20px;padding:22px 24px;margin-bottom:18px;
+    box-shadow:var(--sh-1),inset 0 0 0 1px var(--line);}
+  .setup h2{margin:0 0 4px;font:700 19px/1.2 var(--f-display);letter-spacing:-.015em;color:var(--ink);}
+  .setup .sub{margin:0 0 16px;color:var(--ink-3);font-size:15px;}
+  /* numbered steps: a small ink disc + the text */
+  .setup ol{list-style:none;margin:0 0 16px;padding:0;counter-reset:step;display:grid;gap:12px;}
+  .setup li{counter-increment:step;position:relative;padding-left:42px;min-height:28px;color:var(--ink-2);font-size:15.5px;}
+  .setup li::before{content:counter(step);position:absolute;left:0;top:-1px;width:28px;height:28px;border-radius:50%;
+    display:grid;place-items:center;background:var(--ink);color:var(--on-chalk);
+    font:750 14px/1 var(--f-body);font-variant-numeric:tabular-nums;}
+  .setup li b{color:var(--ink);font-weight:700;}
+  .setup .file{font:500 14px/1.4 var(--f-mono);color:var(--ink);background:var(--paper-2);padding:2px 7px;border-radius:6px;
+    box-shadow:inset 0 0 0 1px var(--line);word-break:break-all;}
+  .setup .more{margin:0;font-size:15px;color:var(--ink-2);}
+  .setup .more a{color:var(--ink);font-weight:700;text-decoration-color:var(--line-2);text-underline-offset:3px;
+    transition:text-decoration-color .2s var(--ease);}
+  .setup .more a:hover{text-decoration-color:var(--orange-ink);}
+  .setup .more a:focus-visible{outline:none;box-shadow:var(--ring);border-radius:4px;}
+  .setup .note{margin:10px 0 0;font-size:14px;color:var(--ink-3);}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-  .idea{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:17px 18px;
-    display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,27,42,.04),0 5px 14px rgba(13,27,42,.05);
-    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;}
-  .idea:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(13,27,42,.07),0 14px 34px rgba(13,27,42,.10);border-color:#c5dcd5;}
-  .idea .top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
-  .idea .ic{width:32px;height:32px;border-radius:9px;background:var(--pale);color:var(--teal);
+  /* Idea cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+  .idea{background:var(--card);border:0;border-radius:20px;padding:20px 22px;
+    display:flex;flex-direction:column;box-shadow:var(--sh-1),inset 0 0 0 1px var(--line);}
+  .idea .top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .idea .ic{width:34px;height:34px;border-radius:10px;background:var(--sky);color:var(--sky-ink);
     display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
   .idea .ic svg{width:18px;height:18px;}
-  .idea h3{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-0.01em;}
-  .idea .blurb{font-size:15px;color:var(--ink);flex:1;margin:0 0 12px;}
+  .idea h3{margin:0;font:700 18px/1.2 var(--f-display);letter-spacing:-.015em;color:var(--ink);}
+  .idea .blurb{font-size:15px;color:var(--ink-2);flex:1;margin:0 0 12px;}
   .idea .row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
-  .idea .prompt{background:#f6faf8;border:1px solid var(--line);border-radius:9px;padding:11px 13px;
-    font-size:14px;line-height:1.5;color:var(--ink);white-space:pre-wrap;margin:0 0 12px;font-family:inherit;}
-  .idea .meta{font-size:13px;color:var(--teal-deep);font-weight:600;flex:1;min-width:0;}
-  .copy{border:1px solid var(--teal);background:var(--pale);color:var(--teal);border-radius:8px;
-    padding:7px 13px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;
-    transition:background .15s ease,color .15s ease;}
-  .copy:hover{background:var(--teal);color:var(--cream);}
-  .copy.copied{background:var(--teal);color:var(--cream);border-color:var(--teal);}
+  .idea .prompt{background:var(--paper-2);border:0;border-radius:14px;padding:12px 14px;box-shadow:inset 0 0 0 1px var(--line);
+    font:14.5px/1.5 var(--f-body);color:var(--ink);white-space:pre-wrap;margin:0 0 14px;}
+  .idea .meta{font-size:13.5px;color:var(--ink-3);font-weight:650;flex:1;min-width:0;}
 
-  .footnote{margin-top:24px;font-size:14.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;}
-  .footnote b{color:var(--ink);}
+  /* Copy: a secondary button; turns mint once copied */
+  .copy{font:750 15px/1.15 var(--f-body);min-height:42px;padding:0 16px;border:0;border-radius:11px;cursor:pointer;white-space:nowrap;
+    background:var(--card);color:var(--ink);box-shadow:var(--sh-1),inset 0 0 0 1px var(--line-2);
+    transition:transform .2s var(--ease),box-shadow .2s var(--ease),background-color .2s var(--ease),color .2s var(--ease);}
+  .copy:hover{transform:translateY(-1px);box-shadow:var(--sh-2),inset 0 0 0 1px var(--line-2);}
+  .copy:active{transform:translateY(1px);}
+  .copy:focus-visible{outline:none;box-shadow:var(--sh-1),inset 0 0 0 1px var(--line-2),var(--ring);}
+  .copy.copied{background:var(--mint);color:var(--mint-ink);box-shadow:inset 0 0 0 1px rgba(21,105,61,.2);}
 
-  @media(max-width:639px){.main{padding:16px 14px 36px;}}
+  /* "Why this is safe": stays-on-your-computer banner */
+  .footnote{margin-top:28px;font-size:15px;color:var(--ink-2);background:var(--mint);border-radius:14px;padding:13px 16px;
+    box-shadow:inset 0 0 0 1px rgba(21,105,61,.2);}
+  .footnote b{color:var(--mint-ink);}
+
+  @media(max-width:720px){.main{padding:20px 16px 56px;}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none !important;animation:none !important;}}
 </style>
 </head>
 <body>
