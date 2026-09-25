@@ -6,8 +6,8 @@ What's inside:
 - `your-classroom-ai.md` — your AI's name, voice, and the one challenge you're working on
 - `data-policy.md` — which option you use for student names and grades (Offline unless you chose Claude for Teachers)
 - `class-story.md` — the running story of your class's challenge, class totals only
-- `dashboard.md` — your class page, as you see it in Cowork
-- `dashboard-data.js` / `my-apps.js` — what Class Tools shows, the page that opens your offline apps (your AI manages these)
+- `dashboard.md` — your AI's notes on where the class stands (the record behind your dashboard)
+- `dashboard-data.js` / `my-apps.js` — what your dashboard shows: your number's graph and your apps (your AI manages these)
 - `pulses/` — your weekly class summaries from Class Pulse (no names)
 - `for-class/` — slides and handouts your AI made, by date (delete old ones freely)
 - `apps/` — tools your AI built for you

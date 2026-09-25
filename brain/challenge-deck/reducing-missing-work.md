@@ -40,5 +40,5 @@ Ask once in week 1, at a calm moment, whether the gradebook sends families autom
 - **Private, not performed.** Eighth graders will mock a card read aloud. If the written plan gets laughed at, keep the idea and make it a quiet question at each desk ("Which one first? When?"), written on the teacher's clipboard and checked the next day: only the kids with 3 or more, two or three a day. The plan is the when-and-where, not the card.
 - **Talk with the kid, not at the list.** Privately: something true, a question, one small thing and when. Never open with the missing count; they already know it.
 - **Notes home are specific.** Weekly missing-work notes (or the gradebook's alerts) list what's missing, like the studies did (move 2). A personal note from the teacher opens with something true and good and asks for one specific thing. Never a threat.
-- **Adults holding the list.** A per-student list lives only in the teacher's offline apps, never on the class page or in saved files.
+- **Adults holding the list.** A per-student list lives only in the teacher's offline apps, never on the dashboard or in saved files.
 - **Vague nudges.** "Find some time this week" does nothing. No real time and place, no nudge.

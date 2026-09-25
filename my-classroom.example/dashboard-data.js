@@ -1,14 +1,14 @@
-// The cards on Class Tools (the browser page that opens the offline apps) for
-// YOUR class. Edited by your AI through chat; keep them matching the class page
+// The cards on your dashboard (the page that also opens the offline apps) for
+// YOUR class. Edited by your AI through chat; keep them matching the AI's notes
 // (dashboard.md). Class totals only — counts and movement, never a student's name.
 //
 // When this file is present it REPLACES Class Tools' built-in welcome cards.
-// Once `title` is no longer "Class Tools" (the AI has a name), the "How Class
-// Tools works" panel folds to one line. Delete this file (or empty the cards
+// Once there is a trend card (or `title` is no longer "Class Tools"), the "How
+// Class Tools works" panel folds to one line. Delete this file (or empty the cards
 // array) to fall back to the shipped default.
 //
 // SCHEMA — matches local-tools/ClassAI-dashboard.html exactly.
-//   title    — the big heading: "Class Tools" until the AI has a name, then "[AI name] — [your class]"
+//   title    — the big heading: "Class Tools" until the trend card exists, then the class ("7th Grade Science")
 //   subtitle — one line under it
 //   cards[]  — each card needs id, size, type, title, body, tone
 //     id       stable forever, never renamed
@@ -20,10 +20,14 @@
 //       "checklist" → body is an array of { text, done }
 //       "dates"     → body is an array of strings
 //       "files"     → body is an array of { name, type: "folder"|"file", children: [], href? }
+//       "trend"     → body is a short string ("down from 74"), plus `points`, an array of
+//                     { label, value } (short labels like "Oct 8", oldest first; the page
+//                     shows the last 12), and optional `goal` (a number) and `goalLabel`
+//                     ("goal: under 50"). Class totals only. Added on the second real count.
 //
 window.DASHBOARD_DATA = {
   "title": "Class Tools",
-  "subtitle": "Your offline apps are in the sidebar. Your AI keeps these cards matching your class page in the chat.",
+  "subtitle": "Your offline apps are in the sidebar. Your AI keeps these cards up to date as you chat.",
   "cards": [
     {
       "id": "mission",

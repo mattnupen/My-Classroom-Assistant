@@ -12,7 +12,7 @@ Teachers come to this because something hurts now. **The first move starts in we
 
 **Where the number comes from:** Offline option, what the teacher types or the Class Pulse summary; Claude for Teachers option, whatever they share (work out the class total and save only that); either option, a tally the teacher keeps (keep daily times separate, don't average). Attendance: the week's absence count (and school days if short); save only the class percentage.
 
-Pick one number to watch and use the same one on the class page and slides (in notes home only if the teacher wants it).
+Pick one number to watch and use the same one on the dashboard and slides (in notes home only if the teacher wants it).
 
 **Read the numbers like a coach** before you plan. Say the two or three things that matter, in plain sentences:
 - **Where is it concentrated?** Eleven kids, not the whole class, is a group you can actually work with.
@@ -21,7 +21,7 @@ Pick one number to watch and use the same one on the class page and slides (in n
 - **Who needs a person, not a plan?** A student with nothing turned in at all, or who's absent a lot, goes to the counselor first: hand over a short email the same day it shows up. A call home comes after, if the counselor says go ahead (60 seconds: "Nothing's wrong. We miss her. Is anything making it hard to get here?", and no pile of make-up work). A student who was on track and then stopped: the teacher talks to them first; the counselor hears if something heavy comes up. Follow up (`how-we-talk.md`, "Close the loop on people").
 
 **Then hand over the week on one page,** short enough to read in the ten minutes before first period; scripts and printables come after it. This is the bar for every new move:
-- **This week's goal:** a countable step the class hasn't reached yet ("8 of the kids present," "under 50 missing"), and the day it's counted. No number yet: "fewer than your first count," then set the number once when the count comes, and don't move it that week. Use those same words all week, on the class page too, and when a count comes in, say whether it met the goal. A count "of the kids present" needs the number present, so ask for both.
+- **This week's goal:** a countable step the class hasn't reached yet ("8 of the kids present," "under 50 missing"), and the day it's counted. No number yet: "fewer than your first count," then set the number once when the count comes, and don't move it that week. Use those same words all week, on the dashboard too, and when a count comes in, say whether it met the goal. A count "of the kids present" needs the number present, so ask for both.
 - **Tomorrow first:** the one thing, how long, the words to say or write on the board.
 - **Each day:** what to do, how many minutes, and the exact words to say, built from what the teacher already has (index cards, a clipboard, their class list). Everyone does it, so no student is singled out. If it needs time they may not have, say so with a fallback.
 - **How you'll know:** what to count, when (before any day that uses it), how long it takes, and "just type it in here." A tally kept in class runs at least two days a week, so Friday has numbers even if one day slips.
@@ -30,7 +30,7 @@ Pick one number to watch and use the same one on the class page and slides (in n
 - **Why:** one or two lines with the source in a few words, how strong it is, and its limit, e.g. *"Writing down exactly when and where you'll do something: good research from a review of 94 studies, though mostly with adults and college students."*
 - **The check,** the first time it comes up: *"On [date] I'll put your counts side by side and we'll decide together: keep going, change how it runs, or try something else. Nothing extra for you; just say hi."*
 
-Put the short version on the class page: what we'll try, what we'll watch ("kids missing 3 or more. Now: 11 of 24"), and when we'll check.
+Put the short version in `dashboard.md` and on the dashboard: what we'll try, what we'll watch ("kids missing 3 or more. Now: 11 of 24"), and when we'll check.
 
 Nothing you hand over may contradict the plan. If the plan changes, replace any piece they'll still use (`how-we-talk.md`, "Nothing that contradicts the plan").
 
@@ -68,7 +68,7 @@ Add one entry to `my-classroom/class-story.md` at every check. Class totals only
 
 > *Check, Oct 6.* Tried: a calm reminder a minute before stations (strong research, mostly elementary). Minutes lost went from about 3:40 to 2:10; all eight days were below every starting day. Short week for the fair, so we're taking it with a pinch of salt. Decision: keep it. Next: specific praise during the switch.
 
-Update the class page (`my-classroom/dashboard.md`): what we're trying, the number, and the next check date.
+Update your notes (`my-classroom/dashboard.md`) and the dashboard: what we're trying, the number, and the next check date.
 
 ## 5. Seasons and the rest of the year
 

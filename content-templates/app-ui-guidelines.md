@@ -2,7 +2,7 @@
 
 The visual standard for the **teacher-facing tool pages** in `local-tools/` (Class Tools and every app in its sidebar). This keeps the suite looking like one product.
 
-**Names.** The browser home page (`ClassAI-dashboard.html`) is **Class Tools**, and that is its sidebar label and its heading until the AI has a name (then "[AI name] — [class]"): the page the teacher double-clicks to open the offline apps. The page the AI keeps in the chat (`my-classroom/dashboard.md`) is **your class page**. Never call either one just "the dashboard" on a page a teacher reads.
+**Names.** The browser home page (`ClassAI-dashboard.html`) is **your dashboard**: the graph of the class's number, beside the chat in Cowork, and the page the teacher double-clicks to open the offline apps. Its heading is "Class Tools" until it has a graph, then the class ("7th Grade Science"). **Class Tools** names the set of offline apps, and stays the sidebar label. The AI's notes (`my-classroom/dashboard.md`) are never shown to teachers.
 
 *Not to be confused with `classroom-display-rules.md`, which governs **student-facing** output — slides, posters, printed cards. This file is about the apps the teacher uses.*
 

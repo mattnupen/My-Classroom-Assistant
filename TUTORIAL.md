@@ -86,7 +86,7 @@ so I can redirect you if I had a different one in mind.
 
 (Optional: click **Download comparison file**. Drop it back into Class Pulse next week and the summary will show what changed, like "Strong: 6 → 8 (+2)." Save it somewhere *outside* this folder.)
 
-Using **Load demo class** instead of your own gradebook? The summary is marked DEMO CLASS, so your AI will talk it through but won't save practice numbers to your class page or Class Tools. That's on purpose. Leave off the last two lines of the prompt.
+Using **Load demo class** instead of your own gradebook? The summary is marked DEMO CLASS, so your AI will talk it through but won't save practice numbers to your dashboard. That's on purpose. Leave off the last two lines of the prompt.
 
 > 💬 **Cowork prompt** — paste this, then paste the copied summary where shown:
 
@@ -100,11 +100,11 @@ Read this against our class goal. Tell me:
 2. What's the single most-missed assignment, and what does that suggest?
 3. One concrete thing I could try this week to push toward the goal — something
    you can help me produce (a slide, a parent message, an opener).
-Then update my class page and the cards on Class Tools with this week's
+Then update my dashboard with this week's
 numbers, and show me the change before you save it.
 ```
 
-**What to expect:** Claude reads the class totals, names the sticking point, and suggests one strategy tied to your goal, saying how strong the research behind it is. With a real gradebook, when it updates the cards on Class Tools, it edits `my-classroom/dashboard-data.js` (never the page itself), and it writes *only* class totals ("4 students behind on the Theme Essay"), never names. It'll show you the change before saving.
+**What to expect:** Claude reads the class totals, names the sticking point, and suggests one strategy tied to your goal, saying how strong the research behind it is. With a real gradebook, when it updates your dashboard, it edits `my-classroom/dashboard-data.js` (never the page itself), and it writes *only* class totals ("4 students behind on the Theme Essay"), never names. It'll show you the change before saving.
 
 **Why this is the heart of the experiment:** This is the feedback loop. The offline tool counts, Claude reads the count, and every two weeks or so you check together whether the one strategy you're trying is working: keep it, adjust it, or switch.
 

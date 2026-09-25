@@ -9,6 +9,7 @@ Plain-language notes on each version, for teachers. To get an update, say **"upd
 - **You or your students shape its personality.** Pick one of three in the first chat, or let your class vote: you get slides and a Google Form, and it fills in its name and voice when you share the results. Your plan for the week doesn't wait for the vote.
 - **Class Tools, from day one.** The first chat gives you a link to click and bookmark, and tells you about the app builder.
 - **Class Tools looks like one product now.** Every app inside it (Class Pulse, Progress Cards, Parent Messages, Badges, Random Groups, and the rest) uses the same warm paper look as the homepage, with bigger buttons and clearer steps. Printed cards and certificates keep their size and layout.
+- **A graph of your number, next to the chat.** Once your class is running, your dashboard opens beside your chat with a simple line of your weekly count heading toward the goal. The chat stays short: when you share a new count, your AI updates the graph and says so in one line. The separate "class page" is gone; there's just your dashboard.
 - **Apps you build match too.** New apps from the app builder get the same look.
 - **Fixed: grades in Parent Messages.** Notes home showed a grade like "0.9%" in place of "89%." They now show the right percent and letter.
 

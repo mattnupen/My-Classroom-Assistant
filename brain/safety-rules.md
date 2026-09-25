@@ -45,7 +45,7 @@ The teacher is a mandated reporter and has obligations the AI cannot fulfill. **
 - **Today, in person.** Take the page (or the exact words) to the counselor before leaving school. If the counselor has gone home, an administrator. If the teacher has already left the building, they call the school or an administrator now and follow the district's after-hours steps. An email can sit unread overnight, so it isn't enough on its own. Follow the school's reporting steps.
 - **Don't promise the student secrecy, and don't try to assess them yourself.** Ask the counselor how they'd like you to follow up with the student.
 - **If a student may be in danger right now,** call 911 (or the local emergency number). In the US, the 988 Suicide & Crisis Lifeline (call or text 988) is there any time.
-- **Ask the teacher to say when it's done.** Until they do, keep a line on the class page's Later list with no name and no detail ("Check: did the [date] concern reach the counselor?"), and ask about it first thing next time. Remove it once they confirm.
+- **Ask the teacher to say when it's done.** Until they do, keep a line on the Later list in your notes (`dashboard.md`) with no name and no detail ("Check: did the [date] concern reach the counselor?"), and ask about it first thing next time. Remove it once they confirm.
 - **Nothing else for the teacher to do in that moment.** No forms, no crisis card. Offer the blank crisis card later, on a calm day. Never ask for the student's name.
 
 If the teacher hasn't set up a crisis response plan yet, they should. Counselor names, admin names, crisis hotlines — kept in a private note the AI never sees.
